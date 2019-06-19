@@ -1,0 +1,13 @@
+{{ define "main" }}
+{{ "<!-- layouts/photo/single.html -->" | safeHTML }}
+<titel>
+<h1><span class="dn di-l">{{ site.Title  | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1>
+{{ partial "single-head" . }}
+</titel>
+<article class="bt bb bw2 b--blue">{{ .Content }}<br/>
+{{range .Resources.Match "gallery/*" }}{{ $original := . }}
+	{{ $.Scratch.Set "image" ($original.Fit "370x246") }}{{ $image := $.Scratch.Get "image" }}
+	<a data-fancybox=gallery href={{$original.RelPermalink }}><img class="ma1 shadow-3" src={{ $image.RelPermalink | relURL}} width={{ $image.Width }} height={{ $image.Height }} alt="{{.Name}}" /></a>
+{{ end }}
+</article>
+{{ end }}

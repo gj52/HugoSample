@@ -1,0 +1,11 @@
+{{ "<!-- layout/partials/qr -->" | safeHTML }}
+
+<!-- https://github.com/jeromeetienne/jquery-qrcode 
+
+, width: 128, height: 128, colorDark : "#000000", colorLight : "#ffffff", correctLevel : QRCode.CorrectLevel.H
+
+-->
+<div class="pa4 print" id="qrcodeCanvas" ></div>
+<script>
+jQuery('#qrcodeCanvas').qrcode({ "text":"{{htmlEscape .Permalink}}", "width": 128, "height":128, "correctLevel" : 2 });
+</script>

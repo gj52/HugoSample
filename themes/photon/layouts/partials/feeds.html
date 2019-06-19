@@ -1,0 +1,8 @@
+{{ "<!-- layout/partials/feed -->" | safeHTML }}
+
+{{ with  .OutputFormats.Get "ATOM" }}
+	<link href=/feed.xml rel=alternate  type=application/atom+xml title="{{ site.Title | htmlUnescape }}" />
+{{ end }}
+{{ with  .OutputFormats.Get "JSON" }}
+	<link href=/feed.json rel=alternate type=application/json title="{{ site.Title | htmlUnescape }}" />
+{{ end}}

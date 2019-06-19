@@ -1,0 +1,218 @@
+# basic settings
+
+config                      = "config.toml"
+log                         =  true
+verbose                     =  true
+logFile                     = "hugo.log" 
+verboseLog                  = "info.log"
+ignoreFiles                 = [ "\\.cmd$", "\\.log$", "\\.bat$", "\\.tmp$" , "\\.swp$"]
+timeout                     = 300000
+
+baseUrl                     = "http://localhost:1313"
+disableKinds                = ["RSS", "sitemap"]
+
+title                       = "G's Playground"
+titleCaseStyle              = "Chicago"
+theme                       = "photon"
+
+LanguageCode                   = "de-de"
+DefaultContentLanguage         = "de"
+DefaultContentLanguageInSubdir = false
+
+assetdir                   = "assets"
+contentdir                 = "content"
+layoutdir                  = "layouts"
+publishdir                 = "public"
+archetypedir               = "archetypes"
+dataDir                    = "data"
+staticdir                  = "static"
+resourceDir                = "resources"
+
+PaginatePath               = "page"
+
+builddrafts                = false
+canonifyurls               = false
+cleandestinationdir        = true
+defaultExtension           = "html"
+defaultLayout              = "post"
+disableHugoGeneratorInject = true
+disablePathToLower         = false
+enableRobotsTXT            = true
+ignorecache                = false
+forceSyncStatic            = false
+#pluralizelisttitles       = false
+relativeURLs               = false
+removePathAccents          = true
+taskLists                  = false
+
+
+
+###############################################################
+
+[frontmatter]
+date                       = [ "date", ":filename", ":default"]
+publishDate                = [ "publishDate", "date"]
+lastmod                    = [ "lastmod", ":fileModTime", "publishDate"]
+expiryDate                 = [ "expiryDate"]
+
+###############################################################
+
+[blackfriday]
+angledQuotes               = false 
+fractions                  = true
+hrefTargetBlank            = true
+latexDashes                = false
+nofollowLinks              = true
+noreferrerLinks            = true
+smartDashes                = false
+smartyPants                = true
+taskLists                  = false
+
+###############################################################
+
+[taxonomies]
+    tag                    = "tags"
+    serie                  = "series"
+	#vcard                  = "vcards"
+
+[permalinks]
+    tags                   = "/tag/:slug/"
+    post                   = "/:section/:year/:month/:day/:title"
+    photo                  = "/:section/:year/:month/:day/:title"
+    series                 = "/series/:slug"
+
+[mediaTypes]
+  [mediaTypes."application/atom+xml"]
+    suffixes              = ["xml"]
+
+
+[outputFormats.HTML]
+    baseName              = "index"
+    NoUgly                = true
+
+
+[outputFormats.ATOM]
+    MediaType             = "application/atom+xml"
+    BaseName              = "feed"
+    suffix                = "xml"
+    IsHTML                = false
+    IsPlainText           = false
+    noUgly                = true
+    Rel                   = "alternate"
+
+[outputFormats.SITEMAP]
+    MediaType             = "application/atom+xml"
+    BaseName              = "sitemap"
+    suffix                = "xml"
+    IsHTML                = false
+    IsPlainText           = false
+    noUgly                = true
+    Rel                   = "alternate"
+
+[outputFormats.JSON]
+    MediaType             = "application/json"
+    BaseName              = "feed"
+    suffix                = "json"
+    IsHTML                = false
+    IsPlainText           = true
+    noUgly                = false
+    Rel                   = "alternate"
+
+[outputs]
+#    home                  = [ "HTML", "ATOM", "JSON", "SITEMAP"]
+    home                  = [ "HTML", "ATOM", "JSON"]
+    section               = [ "HTML" ]
+    page                  = [ "HTML" ]
+    taxonomy              = [ "HTML" ]
+    taxonomyTerm          = [ "HTML" ]
+
+###############################################################
+
+[imaging]
+    resampleFilter     = "Lanczos"
+    quality            = 85
+
+[Params.Pagination]
+    PagesPerList       = 10
+    PagesPerListHome   = 10
+    Paginate           = 10
+	PaginatePath       = "pages"
+    firstIndicator     = "<i class=\"fas fa-angle-double-left \"></i>" 
+    previousIndicator  = "<i class=\"fas fa-angle-left        \"></i>" 
+    nextIndicator      = "<i class=\"fas fa-angle-right       \"></i>"
+    lastIndicator      = "<i class=\"fas fa-angle-double-right\"></i>"        
+    showBeginEnd       = false
+    spaceIndicator     = " ... "
+    pagesBetweenActive = 5 
+
+###############################################################
+
+[Author]
+    name               = "Gerhard Junker"
+    email              = "gerhard.junker@outlook.de"
+
+###############################################################
+
+[Params]
+    title              = "G's Spielwiese"
+    copyright          = "Mr. Nobody"
+    copyright1         = "© 2019 Mr. Nobody"
+    
+    dateFormatLong      = "2006-01-02 15:04"
+    dateFormatShort     = "2006-01-02"
+    dateFormatYear      = "2006"
+    dateFormatFeed      = "2006-01-02T15:04:05Z"
+
+    invisibleSections   = ["menu","serie","intern","test","about"]
+
+#                          sha256, sha384, sha512   
+    digest              = "sha256"
+    
+    [Params.sidebar]
+        avatar          = "/img/head.jpg"
+        bio             = "**Mr. Nobody**"
+
+###############################################################
+
+[menu]		
+[[menu.main]]
+    identifier          = "home"
+    name                = "Startseite"
+    url                 = "/"
+    weight              = 10
+    pre                = "<i class=\"fas fa-home fa-fw\"></i>"
+
+[[menu.main]]
+    identifier          = "post"
+    name                = "Beiträge"
+    url                 = "/post/"
+    weight              = 20
+    pre                = "<i class=\"fas fa-file-alt fa-fw\"></i>"
+
+[[menu.main]]
+    identifier          = "photo"
+    name                = "Fotos"
+    url                 = "/photo/"
+    weight              = 30
+    pre                = "<i class=\"fas fa-image fa-fw\"></i>"
+
+[[menu.main]]
+    identifier          = "link"
+    name                = "Links"
+    url                 = "/links/"
+    weight              = 40
+    pre                = "<i class=\"fas fa-external-link-square-alt fa-fw\"></i>"  
+    
+[[menu.main]]
+    identifier          = "serie"
+    name                = "Serien"
+    url                 = "/series/"
+    weight              = 50 
+    pre                = "<i class=\"fas fa-book fa-fw\"></i>"
+    
+[[menu.main]]
+    identifier          = "index"
+    name                = "Index"
+    url                 = "/tag/"
+    weight              = 110
+    pre                = "<i class=\"fas fa-tag fa-fw\"></i>"

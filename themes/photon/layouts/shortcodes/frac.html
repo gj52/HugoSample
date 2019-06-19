@@ -1,0 +1,1 @@
+{{ $p1 := .Get 0 }}{{ $p2 := .Get 1 }}{{ with $p2 }}<sup>{{ $p1 }}</sup>/<sub>{{ $p2 }}</sub>{{ else }}<sup>1</sup>/<sub>{{ $p1 }}</sub>{{end}}

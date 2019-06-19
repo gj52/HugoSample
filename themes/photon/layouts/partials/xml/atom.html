@@ -1,0 +1,1 @@
+{{ $css := resources.Get "css/atom.css" | minify }}{{ safeHTML "<?xml-stylesheet" }} type="text/css"  href="{{ $css.Permalink  }}" ?>

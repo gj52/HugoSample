@@ -1,0 +1,27 @@
+{{ "<!-- layout/partials/navigation.html -->" | safeHTML }}
+{{ $currentPage := $.Page }}{{ $menuName := $.Page.Params.menu }}
+<nav class="dn db-ns f3 pt4 pr2 tr br bw2 b--blue">
+<!--
+    <div id=bio>
+        {{ with site.Params.sidebar.bio }}
+            {{ $topics := split site.Params.sidebar.bio "," }}
+            {{ range $topics}}<div >{{. | markdownify}}</div>{{end}}
+        {{ end }}
+    </div>
+-->
+    {{ range site.Menus.main}}
+    <div>
+        {{ $this := eq .Identifier $menuName }}
+        {{ if $this }}
+            <span class="ph1 white bg-blue">{{.Name}}</span>
+        {{else}}
+            <a href="{{ .URL }}" Title="{{ .Name }}"><span class="db-ns" >{{ .Name }}</span></a>
+        {{end}}
+    </div>
+    {{end}}
+
+
+    <div id=feed class="pt4">
+        <a href=/feed.xml target=_blank type=application/atom+xml Title="ATOM Feed"><i class="fas fa-rss fa-fw"></i></a>
+    </div>  
+</nav>

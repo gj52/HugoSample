@@ -1,0 +1,8 @@
+{{ define "main" }}
+{{ "<!-- layouts/_default/single.html -->" | safeHTML }}
+<titel>
+<h1><span class="dn di-l">{{ site.Title  | markdownify }}</span><i class="fas fa-dragon fa-fw ph3"></i>{{ .Page.Title }}</h1><br/>
+{{ partial "single-head" . }}
+</titel>
+<article class="pv2 bt bb bw2 b--blue">{{ .Content }}</article>
+{{ end }}

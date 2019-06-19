@@ -1,0 +1,11 @@
+{{ "<!-- layout/partials/header.html -->" | safeHTML }}
+
+<header class=pa2>
+<div class="no-print">
+{{if not .IsHome}}<a class="dim no-print" href=/>{{end}}
+	<img class="f1 br-100 contain no-print" src="{{ site.Params.sidebar.avatar | relURL}}" alt=myself Title="{{ site.Params.Title}}" />
+{{if not .IsHome}}</a>{{end}}
+</div>
+<div class="dn-ns no-print tr f1"><a href=/menu/ ><i class="fas fa-bars"></i></a></div>
+</header>
+

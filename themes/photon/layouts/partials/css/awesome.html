@@ -1,0 +1,3 @@
+{{ $faccs := resources.Get "css/awesome.css" | minify }}{{ $secureFACCS := $faccs | resources.Fingerprint site.Params.digest }}
+    <link type=text/css rel=stylesheet href={{ $secureFACCS.RelPermalink }} integrity={{ $secureFACCS.Data.Integrity }} media="screen, print" />
+	

@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{ "<!-- layouts/intern/list.html -->" | safeHTML }}
+<titel>
+<h1><span>{{ site.Title  | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1>
+<div class=b>{{ .Description }}</div>
+</titel>
+<article class="pa2 bt bb bw2 b--blue">
+<div class=liste>
+	{{ range .Pages.ByTitle }} <!-- (.Pages.ByParam "chapter") -->
+		<div class=pt3>
+			<div class="nowrap b f4"><i class="fas fa-external-link-alt fa-fw"></i> <a href={{ .Permalink }} target=_blank>{{ .Title }}</a></div>
+			<div class="pt2 f5">{{ .Description }}</div>
+		</div>
+	{{ end }} <!-- range -->
+</div> <!-- flex column -->
+</article>
+{{ end }}

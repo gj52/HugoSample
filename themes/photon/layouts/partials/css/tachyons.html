@@ -1,0 +1,3 @@
+{{ $tccs := resources.Get "css/tachyons.css" | minify }}{{ $secureTCCS := $tccs | resources.Fingerprint site.Params.digest }}
+    <link type=text/css rel=stylesheet href={{ $secureTCCS.RelPermalink }} integrity={{ $secureTCCS.Data.Integrity }} media="screen, print" />
+

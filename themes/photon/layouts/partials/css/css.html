@@ -1,0 +1,9 @@
+{{ "<!-- layout/partials/css/* -->" | safeHTML }}
+
+{{ partial "css/awesome" }}
+{{ partial "css/tachyons"}}
+{{ partial "css/material"}}
+{{ $mccs := resources.Get "css/main.css" | minify }}{{ $secureMCCS := $mccs | resources.Fingerprint site.Params.digest }}
+    <link type=text/css rel=stylesheet href={{ $secureMCCS.RelPermalink }} integrity={{ $secureMCCS.Data.Integrity }} media="screen, print" />
+{{ $pccs := resources.Get "css/print.css" | minify }}{{ $securePCCS := $pccs | resources.Fingerprint site.Params.digest }}
+    <link type=text/css rel=stylesheet href={{ $securePCCS.RelPermalink }} integrity={{ $securePCCS.Data.Integrity }} media=print />

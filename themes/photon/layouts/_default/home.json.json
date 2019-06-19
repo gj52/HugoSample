@@ -1,0 +1,29 @@
+{
+  "version"      : "https://jsonfeed.org/version/1",
+  "title"        : {{ site.Title | htmlUnescape | jsonify }},
+  "home_page_url": {{ site.BaseURL  | absURL | jsonify }},
+  {{ with .OutputFormats.Get "JSON" }}"feed_url"     : {{.Permalink | absURL | jsonify }},{{ end }} 
+  {{ $icon := resources.Get "img/yy512.png" }}"icon"         : "{{$icon.Permalink}}",
+  {{ $favicon := resources.Get "img/yy.ico" }}"favicon"      : "{{$favicon.Permalink}}",
+  {{ with site.Author.name         }}"author"       : 
+  {
+    "name"       : {{ . | jsonify }},
+    "avatar"     : {{ site.Params.sidebar.avatar | absURL | jsonify }}
+  },  {{ end }}
+  {{ $r1 := where site.Pages "PublishDate" "gt" (now.AddDate -1 0 0) }}{{ $r2 := where .Data.Pages.ByDate.Reverse "Section" "not in" site.Params.invisibleSections }}{{ $list := $r1 | intersect $r2 }}{{ $len := len $list }}
+  "items": 
+  [{{ range $index, $item := $list }}
+    {
+      "id"            : {{ $uuid := sha1 (.Permalink  | absURL)}}"{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}",
+      "url"           : {{ $item.Permalink | jsonify  }},
+      "title"         : {{ $item.Title   | plainify | chomp | jsonify }},
+      "summary"       : {{ $item.Summary | plainify | chomp | jsonify }},
+      "content_text"  : {{ $item.Plain              | chomp | jsonify }},
+{{ range first 1 (.Resources.ByType "image") }}{{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x360") }}{{ $image := $.Scratch.Get "image" }}      "banner_image"  : "{{ $image.Permalink }}",{{ end }}
+      "date_published": {{ $item.PublishDate.UTC.Format site.Params.dateFormatFeed | jsonify  }},
+      "date_modified" : {{ $item.Lastmod.UTC.Format site.Params.dateFormatFeed | jsonify  }},
+      "tags"          : [{{ range $index, $director := .Params.tags }}{{ if gt $index 0 }},{{ end }}"{{ . }}"{{ end }}]
+    }{{ if lt (add $index 1) $len }},{{ end }}{{ end }}
+  ]
+}
+ 

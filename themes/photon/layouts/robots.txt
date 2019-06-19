@@ -1,0 +1,6 @@
+# block all robots
+
+User-agent: *
+Disallow: /
+
+# sitemap: {{.Site.BaseURL}}/sitemap.xml

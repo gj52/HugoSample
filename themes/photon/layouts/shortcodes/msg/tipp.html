@@ -1,0 +1,7 @@
+<aside class="pa4 w-90">
+	<div class="f3 white bg-green pa2" id="{{if .Get 0}}{{.Get 0 | urlize}}{{else}}Tipp{{end}}">
+	<i class="fas fa-exclamation-triangle"></i> 
+	{{if .Get 0}}{{.Get 0 | markdownify}}{{else}}Tipp{{end}}</div> 
+	<div class="f4 pa2">{{- .Inner -}}</div>
+</aside>
+
