@@ -11,7 +11,8 @@ body {
 }
 
 h1 {
-  text-shadow: 2px 2px 6px rgb(100,149,237);
+  text-shadow: 2px 2px 6px rgb(80,80,80);
+# text-shadow: 2px 2px 6px rgb(100,149,237);
 }
 
 a {

@@ -13,7 +13,7 @@
 	<div class="flex flex-column items-center w-100">
 		{{ range .Site.Menus.main}}
 			<div id={{.Identifier}} class=pv1>
-				<a href="{{ .URL | relURL }}" Title="{{ .Name }}">{{ .Name }}</a>
+				<a href="{{ .URL }}" Title="{{ .Name }}">{{ .Name }}</a>
 			</div>
 		{{end}}
 		

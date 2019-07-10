@@ -16,7 +16,7 @@
     {{ $timerange := int (sub 0 $timerange)}}{{ $start := now.AddDate 0 $timerange 0}}
     {{ $r1 := where site.Pages "PublishDate" "gt" $start }}{{ $r2 := where .Data.Pages.ByDate.Reverse "Section" "not in" site.Params.invisibleSections }}
     {{ range $r1 | intersect $r2 }}
-    <entry> {{ $url := .RelPermalink }}{{ $uuid := sha1 (.Permalink  | absURL)}}{{ $page := .}}
+    <entry> {{ $url := .RelPermalink }}{{ $uuid := sha1 (.Permalink | absURL)}}{{ $page := .}}
       <category term="{{$page.Section}}" />
       <link rel='alternate' type='type/html' href='{{ $url }}' />
       <title type="text">{{ .Title | plainify }}</title> 

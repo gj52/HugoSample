@@ -7,5 +7,17 @@
 {{if not .IsHome}}</a>{{end}}
 </div>
 <div class="dn-ns no-print tr f1"><a href=/menu/ ><i class="fas fa-bars"></i></a></div>
+
+{{define "breadcrumb"}}
+  {{$parent := .page.Parent }}
+  {{ if $parent }}
+    {{ $value := (printf "<a class=ph1 href=%s>%s</a> > %s" $parent.URL $parent.Title .value) }}
+    {{ template "breadcrumb" dict "page" $parent "value" $value }} 
+  {{else}}
+    {{.value|safeHTML}}
+  {{end}}
+{{end}}
+
+
 </header>
 

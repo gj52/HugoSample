@@ -4,8 +4,9 @@
 <h1><span class="dn di-l">{{ site.Title  | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1> 
 	<div class=b>Das ist die Sammelstelle für alle Serien.</div>
 </titel>
+
 <article class="pa4 bt bb bw2 b--blue">
-	{{range $name, $taxonomy := site.Taxonomies.series}}
+	{{range site.Taxonomies.series.Alphabetical}}
 		<div class="f4 pv1">
 			<i class="far fa-thumbs-up fa-fw"></i> 
 			<a class=b href="{{ .Page.Permalink }}" title="Serie: {{.Page.Title}}">{{ .Page.Title  | markdownify }}</a>

@@ -1,5 +1,4 @@
 {{ "<!-- layout/partials/navigation.html -->" | safeHTML }}
-{{ $currentPage := $.Page }}{{ $menuName := $.Page.Params.menu }}
 <nav class="dn db-ns f3 pt4 pr2 tr br bw2 b--blue">
 <!--
     <div id=bio>
@@ -9,18 +8,35 @@
         {{ end }}
     </div>
 -->
-    {{ range site.Menus.main}}
+
+{{ range site.Menus.main}}
     <div>
-        {{ $this := eq .Identifier $menuName }}
-        {{ if $this }}
+        {{ if $.Page.IsMenuCurrent "main" . }}
             <span class="ph1 white bg-blue">{{.Name}}</span>
         {{else}}
             <a href="{{ .URL }}" Title="{{ .Name }}"><span class="db-ns" >{{ .Name }}</span></a>
         {{end}}
     </div>
-    {{end}}
+{{end}}
 
-
+{{ if site.IsServer}}
+    <div>
+        {{ $isIntern := (and (eq "intern" .Page.Section) (eq "section" .Page.Kind)) }}
+        {{ if $isIntern }}
+            <span class="ph1 white bg-blue">Intern</span>
+        {{else}}
+            {{ with site.GetPage "/intern/_index.md" }}<a href={{.RelPermalink}} Title=Intern><span class=db-ns >Intern</span></a>{{end}}
+        {{end}}
+    </div>
+    <div>
+        {{ $isTest := (and (eq "test" .Page.Section) (eq "section" .Page.Kind)) }}
+        {{ if $isTest }}
+            <span class="ph1 white bg-blue">Test</span>
+        {{else}}
+            {{ with site.GetPage "/test/_index.md" }}<a href={{.RelPermalink}} Title=Intern><span class=db-ns >Test</span></a>{{end}}
+        {{end}}
+    </div>
+{{end}}
     <div id=feed class="pt4">
         <a href=/feed.xml target=_blank type=application/atom+xml Title="ATOM Feed"><i class="fas fa-rss fa-fw"></i></a>
     </div>  
