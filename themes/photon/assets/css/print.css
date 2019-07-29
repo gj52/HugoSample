@@ -13,25 +13,28 @@
       grid-template-columns: 1fr;
       grid-template-rows: auto 1fr auto;
       grid-template-areas: 
-        "tt" 
+        "hh" 
         "mm" 
         "ft";
       column-gap: 0;
     }
-   
-    nav {
+	
+    aside, nav, footer {
       display: none !important;
     }
+   
 
-/*
     a:after {
-        content:" [" attr(href) "] ";
+        content:" [ " attr(href) " ] ";
+		color: black;
+		text-decoration:none;
+		font-weight:75;
     }
-*/    
+/*
     a:not (:local-link):after {
         content:" [" attr(href) "] ";
     }
-
+*/
     
     p, img, figure, pre, blockquote, foot {
 		display: block;

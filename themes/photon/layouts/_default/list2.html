@@ -1,11 +1,11 @@
 {{ define "main" }}
 {{ "<!-- layouts/_default/list.html -->" | safeHTML }}
-<titel>
+<header>
 <h1><span class="dn di-l">{{site.Title  | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1><hr/>
 {{if isset .Params "description" }}
 	<div class="f5 b">{{ .Description }}</div><hr/>
 {{end}}
-</titel>
+</header>
 <article>
 {{ $r1 := where .Data.Pages "ExpiryDate" ">=" now }}
 {{ $r2 := where .Data.Pages (isset .Params "ExpiryDate") }}

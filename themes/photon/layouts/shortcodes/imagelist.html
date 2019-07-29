@@ -9,7 +9,7 @@
 	<div class="pa2 mt2 w50">
 		<a class="dim b--white"  data-fancybox=gallery href="{{$orig.RelPermalink | relURL}}" >
 			<img class="ba bw1 b--dark-blue contain" src="{{ $img.RelPermalink | relURL  }}" width={{ $img.Width }} height={{ $img.Height }} alt="{{.Name}}"
-			style="background: url(data:image/jpeg;base64,{{ $preview.Content | base64Encode  }}); background-size: cover;"	/>
+			style="background: url(data:image/jpeg;base64,{{ $preview.Content | base64Encode  }}); background-size: 100% 100%;"	/>
 		</a>
 	</div>
 	<div class="tl pa2 pl4-l pt4-l measure">

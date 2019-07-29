@@ -1,10 +1,9 @@
 {{ define "main" }}
 {{ "<!-- layouts/series/list.html -->" | safeHTML }}
-<titel>
+<header>
 <h1><span>{{site.Title  | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1>
 {{ with .Title }}<div class="f5 b">alle Beiträge zu <span class="pl2 ttu"> &quot;{{ . }}&quot;</span></div>{{end}}
-</titel>
-
+</header>
 <article class="pv2 bt bb bw2 b--blue">
 <div class=liste>
 {{ $paginator := .Paginate .Data.Pages 40}} 

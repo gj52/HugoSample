@@ -58,14 +58,21 @@ expiryDate                 = [ "expiryDate"]
 ###############################################################
 
 [blackfriday]
+autoHeaderIds              = false
 angledQuotes               = false 
+definitionLists            = false
 fractions                  = true
+headerIds                  = false
 hrefTargetBlank            = true
 latexDashes                = false
 nofollowLinks              = true
 noreferrerLinks            = true
+plainIDAnchors             = true
 smartDashes                = false
 smartyPants                = true
+smartypantsQuotesNBSP      = true
+strikethrough              = true   # text wrapped with two tildes ~~ will be crossed out
+tables                     = true
 taskLists                  = false
 
 ###############################################################
@@ -158,6 +165,7 @@ taskLists                  = false
     copyright          = "Mr. Nobody"
     copyright1         = "© 2019 Mr. Nobody"
     
+	published           = "2016-08-21T00:00:00Z"
     dateFormatLong      = "2006-01-02 15:04"
     dateFormatShort     = "2006-01-02"
     dateFormatYear      = "2006"

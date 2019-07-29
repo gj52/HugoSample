@@ -1,10 +1,9 @@
 {{ define "main" }}
-{{ "<!-- layouts/series/list.html -->" | safeHTML }}
-<titel>
+{{ "<!-- layouts/series/series.html -->" | safeHTML }}
+<header>
 <h1><span class="dn di-l">{{ site.Title  | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1> 
-	<div class=b>Das ist die Sammelstelle für alle Serien.</div>
-</titel>
-
+<div class=b>Das ist die Sammelstelle für alle Serien.</div>
+</header>
 <article class="pa4 bt bb bw2 b--blue">
 	{{range site.Taxonomies.series.Alphabetical}}
 		<div class="f4 pv1">

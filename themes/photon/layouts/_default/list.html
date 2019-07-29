@@ -1,11 +1,11 @@
 {{ define "main" }}
 {{ "<!-- layouts/_default/list.html -->" | safeHTML }}
-<titel>
+<header>
 <h1><span class="dn di-l w-90-ns">{{ site.Title  | markdownify }}</span><i class="fas fa-dragon fa-fw ph3"></i>{{ .Page.Title }}</h1>
 {{if isset .Params "description" }}
 	<div class="f5 b w-90-ns">{{ .Description }}</div>
 {{end}}
-</titel>
+</header>
 <article class="pa2 bt bb bw2 b--blue">
 {{ $paginator := .Paginate .Data.Pages }} 
 {{ range $paginator.Pages -}}

@@ -5,6 +5,9 @@
 	</span>
 	{{ if .IsHome }}
 		<span class=nowrap>
+			<i class="fas fa-clock fa-fw ph2"></i>{{ now.Format site.Params.dateFormatLong }}
+		</span>
+		<span class=nowrap>
 			<i class="fas fa-pen-fancy fa-fw ph2"></i><time datetime="{{ site.LastChange.Format site.Params.dateFormatLong }}">{{site.LastChange.Format	site.Params.dateFormatLong}}</time>
 		</span>
 		<span class=nowrap>

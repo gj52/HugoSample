@@ -1,16 +1,16 @@
 {{ define "main" }}
 {{ "<!-- layouts/photo/panorama.html -->" | safeHTML }}
-<titel>
-<h1><span class="dn di-l">{{ site.Title  | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1>
+<header>
+<h1><span class="dn di-l">{{ site.Title | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title | markdownify}}</h1>
 {{ partial "single-head" . }}
-</titel>
+</header>
 <article class="bt bb bw2 b--blue">{{ .Content }}<br/>
 	<div id=osd style="height:480px;" class="ba w-90-ns" ></div>
-	<script src=https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.0/openseadragon.min.js ></script>
+	<script src=https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.1/openseadragon.min.js ></script>
 	<script>
 		var viewer = OpenSeadragon({
 			id:              "osd",
-			prefixUrl:       "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.0/images/",
+			prefixUrl:       "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.1/images/",
 			tileSources:     "/panorama/{{.Params.directory}}/dzc_output.xml"
 		});
 	</script>

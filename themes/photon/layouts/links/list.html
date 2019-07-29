@@ -1,9 +1,9 @@
 {{ define "main" }}
 {{ "<!-- layouts/links/list.html -->" | safeHTML }}
-<titel>
+<header>
 <h1><span>{{ site.Title  | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1>
 <div class=b>{{ .Description }}</div>
-</titel>
+</header>
 <article class="ph2 pv4 bt bb bw2 b--blue">
 <div class="liste">
 	{{ $file := .Params.datafile}}{{ $data := getJSON $file }}

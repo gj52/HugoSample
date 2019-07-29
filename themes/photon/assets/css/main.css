@@ -114,14 +114,14 @@ table td {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto 1fr auto;
-  grid-template-areas: "hh" "tt" "mm" "ft";
+  grid-template-areas: "aa" "hh" "mm" "ft";
   column-gap: 10px;
 }
 
 @supports (display:grid) {
-  header {
+  aside {
     display: grid;
-    grid-area: hh;
+    grid-area: aa;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
   }
@@ -132,7 +132,7 @@ table td {
 }
 
 @supports not (display:grid) {
-  header {
+  aside {
     columns: 2;
   }
   
@@ -143,8 +143,8 @@ table td {
 
 
 
-titel {
-  grid-area: tt;
+header {
+  grid-area: hh;
 }
 
 
@@ -175,10 +175,10 @@ section {
 
   .site {
     grid-template-columns: 220px 1fr 1fr;
-    grid-template-areas: "hh  tt tt" "nn mm mm" ".   ft ft";
+    grid-template-areas: "aa hh hh" "nn mm mm" ". ft ft";
   }
 
-  header {
+  aside {
     display: grid;
   }
 }
@@ -192,10 +192,10 @@ section {
 
   .site {
     grid-template-columns: 220px 1fr 1fr 1fr;
-    grid-template-areas: "hh  tt tt tt" "nn mm mm mm" ".   ft ft ft";
+    grid-template-areas: "aa hh hh hh" "nn mm mm mm" ". ft ft ft";
   }
 
-  header {
+  aside {
     display: grid;
   }
 

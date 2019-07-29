@@ -12,6 +12,7 @@
     {{ with site.Params.Copyright }}<rights type="text">© {{ now.Format "2006"}} {{.}}</rights>{{end}}
     <generator uri="https://gohugo.io" version="{{hugo.Version}}">Hugo</generator>
     {{ if not site.LastChange.IsZero }}<updated>{{site.LastChange.UTC.Format site.Params.dateFormatFeed }}</updated>{{ end }} 
+	{{ with site.Params.published }}<published>{{site.Params.published}}</published>{{end}}
     {{ $uuid := sha1 (site.BaseURL | absURL)}}<id>urn:uuid:{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}</id>
     {{ $timerange := int (sub 0 $timerange)}}{{ $start := now.AddDate 0 $timerange 0}}
     {{ $r1 := where site.Pages "PublishDate" "gt" $start }}{{ $r2 := where .Data.Pages.ByDate.Reverse "Section" "not in" site.Params.invisibleSections }}

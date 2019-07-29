@@ -13,7 +13,7 @@
 	{{ if isset .Params "categories" -}}
 	  {{ range $index, $name := sort .Params.categories -}}
 		{{ with site.GetPage (printf "/%s" ($name | urlize )) }} 
-			<a class=ph1 href="{{ .RelPermalink }}" title="Bereich: {{ .Name }}">{{ .Name }}</a> 
+			<a class=ph1 href="{{ .RelPermalink }}" title="Bereich: {{ .Name | markdownify}}">{{ .Name | markdownify}}</a> 
 		{{- end}}
 	  {{- end }}
 	{{ end }}
@@ -23,7 +23,7 @@
 		<span class=nowrap>
 		<a href="/tag/" title="{{ $.Scratch.Get "index" }}"><i class="fas fa-tag fa-fw"></i></a>
 		{{ range $index, $name := sort .Params.tags -}}
-			<a class=ph1 href={{ (printf "/tag/%s/" $name) | urlize }} title="Index: {{$name}}">{{$name}}</a>
+			<a class=ph1 href={{ (printf "/tag/%s/" $name) | urlize }} title="Index: {{$name | markdownify }}">{{$name | markdownify}}</a>
 		{{- end}}
 		</span>
 	{{- end }}
@@ -33,7 +33,7 @@
 			<span class=nowrap>
 			<a href="/series/" title="{{ $.Scratch.Get "serie" }}"><i class="fas fa-book fa-fw"></i></a>
 			{{range $index, $name := sort .Page.Params.series -}}
-				<a class=ph1 href=/series/{{($name|urlize)}}/ title="Serie: {{ $name }}">{{ $name }}</a>
+				<a class=ph1 href=/series/{{($name|urlize)}}/ title="Serie: {{ $name | markdownify}}">{{ $name | markdownify }}</a>
 			{{- end}}
 			</span>
 		{{- end }}
