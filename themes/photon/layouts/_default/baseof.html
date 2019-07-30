@@ -3,12 +3,12 @@
 <html {{ with site.Language.Lang }}lang="{{ . }}"{{ end }} >
 {{ partial "meta" . }}
 <body>
-<div class="site ph2">
+<section class="site ph2">
     {{ partial "header" . }}
 	{{ partial "navigation" . }}
     {{ block "main" . }}{{ end }}
     {{ partial "footer" . }}
 	{{ partial "qr" . }}
-</div>
+</section>
 </body>
 </html>
