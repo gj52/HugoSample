@@ -1,5 +1,1 @@
-	<link rel="stylesheet" href="https://unpkg.com/tachyons@4/css/tachyons.min.css">
-<!--
-{{ $tccs := resources.Get "css/tachyons.css" | minify }}{{ $secureTCCS := $tccs | resources.Fingerprint site.Params.digest }}
-    <link type=text/css rel=stylesheet href={{ $secureTCCS.RelPermalink }} integrity={{ $secureTCCS.Data.Integrity }} media="screen, print" />
--->
+{{ $tccs := resources.Get "css/tachyons.css" | minify }}{{ $secureTCCS := $tccs | resources.Fingerprint site.Params.digest }}<link type=text/css rel=stylesheet href={{ $secureTCCS.RelPermalink }} integrity={{ $secureTCCS.Data.Integrity }} media="screen, print" />

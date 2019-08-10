@@ -1,16 +1,12 @@
 {{ define "main" }}
-{{ "<!-- layouts/tags/list.html -->" | safeHTML }}
-<header>
-<h1><span>{{ site.Title  | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1>
-<div class=b>{{ .Description }}</div>
+<header><h1><span>{{ site.Title  | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1><div class=b>{{ .Description }}</div>
 </header>
 <article class="ph2 pv4 bt bb bw2 b--blue">
-	<div class="dib f5 lh-copy">
-	{{range site.Taxonomies.tags.Alphabetical}} 
-		<div class="fl ph2 pv0 ma1 b tagbutton">
-			<a href={{ .Page.RelPermalink }} title="Alle Webseiten mit &quot;{{.Page.Title}}&quot; anzeigen">{{.Page.Title}}</a>&nbsp;<sup class="no-underline b">{{.Count}}</sup>
-		</div>
-	{{end}}
-	</div>
+<h2 class=dn>{{ .Page.Title }}</h2>
+<div class="dib f5 lh-copy">
+{{range site.Taxonomies.tags.Alphabetical -}} 
+<div class="fl ph2 pv0 ma1 b tagbutton"><a href={{ .Page.RelPermalink }} title="Alle Webseiten mit &quot;{{.Page.Title}}&quot; anzeigen">{{.Page.Title}}</a>&nbsp;<sup class="no-underline b">{{.Count}}</sup></div>
+{{- end}}
+</div>
 </article>
 {{ end }} 

@@ -1,0 +1,1 @@
+{{ $fccs := resources.Get "css/jquery.fancybox.css" | minify }}{{ $securefccs := $fccs | resources.Fingerprint site.Params.digest }}<link type=text/css rel=stylesheet href={{ $securefccs.RelPermalink }} integrity={{ $securefccs.Data.Integrity }} />

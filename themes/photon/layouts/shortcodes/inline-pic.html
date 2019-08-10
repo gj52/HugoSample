@@ -1,4 +1,1 @@
-{{ $resources := .Resources.Match (.Get 0) }}
-{{ range $resources }}
-	<img src="data:{{.MediaType}};base64,{{ .Content | base64Encode }}">
-{{ end }}
+{{ $resources := .Resources.Match (.Get 0) }}{{ range $resources }}<figure><img src="data:{{.MediaType}};base64,{{ .Content | base64Encode }}"></figure>{{ end }}

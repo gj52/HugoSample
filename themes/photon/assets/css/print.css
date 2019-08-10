@@ -1,56 +1,70 @@
 @media print {
-    
-    body {
-      color: #000;
-      background: #fff;
-   }
 
-    h2, h3 {
-      break-after: avoid-page;
-    }
+  body {
+    color: #000;
+    font-family: georgia, athelas, serif;
+    font-size: 12pt;
+    background-color: transparent;
+    padding: 0;
+    margin: 1cm;
+    margin-left: 2cm;
+	line-height: 1.25; 
+  }
 
-    .site {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto 1fr auto;
-      grid-template-areas: 
-        "hh" 
-        "mm" 
-        "ft";
-      column-gap: 0;
-    }
-	
-    aside, nav, footer {
-      display: none !important;
-    }
-   
+  h1 {
+    text-shadow: none;
+  }
 
-    a:after {
-        content:" [ " attr(href) " ] ";
-		color: black;
-		text-decoration:none;
-		font-weight:75;
-    }
+  h2, h3 {
+    page-break-after: avoid;
+    orphans: 4;
+    widows: 4;
+  }
+
+  .site {
+    grid-template-columns: auto 148px;
+    grid-template-rows: 148px auto;
+    grid-template-areas: "hh qr" "mm mm" "ft ft";
+    column-gap: 0;
+	columns: 2;
+  }
+
+  aside, nav, footer {
+    display: none !important;
+  }
+
+  a {
+    text-decoration-line: none;
+  }
+
 /*
-    a:not (:local-link):after {
-        content:" [" attr(href) "] ";
-    }
+#    a:not(local-link) ::after {
 */
-    
-    p, img, figure, pre, blockquote, foot {
-		display: block;
-        break-inside: avoid-page;
-		-webkit-break-inside: avoid-page;
+    a[href^=http]::after {
+      content: " < " attr(href) " >";
+      color: #888;
+      background-color: inherit;
+      font-style: italic;
+	  font-weight: normal;
+      font-size: 80%;
     }
-    
-    .no-print, .no-print * {
-      display: none !important;
-    }
-	
-    .print, .print * {
-      display: block !important;
-    }
-	
+
+  p, ul, pre, blockquote, foot {
+    display: block;
+    widows: 3;
+    orphans: 3;
+  }
+
+  figure, img, figure, .no-break {
+    display: block;
+    page-break-inside: avoid !important;
+  }
+
+  .no-print, .no-print * {
+    display: none !important;
+  }
+
+  .print, .print * {
+    display: inline !important;
+  }
 }
-
-
-

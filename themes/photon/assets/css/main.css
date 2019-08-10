@@ -1,18 +1,20 @@
 /* special styles */
 body {
   color: black;
+  font-family: 'avenir next', avenir, sans-serif;
   background-color: #eee;
   background-image: none;
   background-repeat: no-repeat;
   background-size: cover;
-  background-size: cover;
   background-attachment: fixed;
-  font-family: georgia, athelas, serif;
+  padding-left: .5rem; 
+  padding-right: .5rem; 
 }
 
 h1 {
   text-shadow: 2px 2px 6px rgb(80,80,80);
-# text-shadow: 2px 2px 6px rgb(100,149,237);
+  font-family: georgia, athelas, serif;
+  white-space: pre-wrap;
 }
 
 a {
@@ -28,10 +30,19 @@ a {
   }
 
 
-pre {
-    white-space: pre-wrap;       /* css-3 */
+textarea {
+  resize: vertical;
 }
 
+figure {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+img {
+  page-break-inside: avoid;
+}
 
 /* Index */
 
@@ -81,18 +92,18 @@ table {
     padding: 0.5em 0.5em;
   }
 
-table tr:hover {
-  background-color: rgb(240,240,240);
-}
+  table tr:hover {
+    background-color: rgb(240,240,240);
+  }
 
-table th {
-  color: white;
-  background-color: rgb(96,96,96);
-}
+  table th {
+    color: white;
+    background-color: rgb(96,96,96);
+  }
 
-table td {
-  border: solid 1px;
-}
+  table td {
+    border: solid 1px;
+  }
 
 
 .w500 {
@@ -111,6 +122,8 @@ table td {
 
 .site {
   height: 100vh;
+  padding-left: .5rem; 
+  padding-right: .5rem; 
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto 1fr auto;
@@ -125,7 +138,7 @@ table td {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
   }
-  
+
   nav {
     grid-area: nn;
   }
@@ -135,13 +148,11 @@ table td {
   aside {
     columns: 2;
   }
-  
+
   nav {
     columns: 4;
   }
 }
-
-
 
 header {
   grid-area: hh;
@@ -156,13 +167,14 @@ article {
   grid-area: mm;
 }
 
+/*
 section {
   grid-area: mm;
 }
-
+*/
 .liste {
-    column_width: auto;
-    column-rule: thin solid blue;
+  column-width: auto;
+  column-rule: thin solid blue;
 }
 
 @media screen and (max-width: 30em) {
@@ -183,8 +195,6 @@ section {
   }
 }
 
-
-
 @media screen and (min-width: 65em) {
   body {
     background-image: url("/img/wave-l.jpg");
@@ -199,7 +209,6 @@ section {
     display: grid;
   }
 
-
   section {
     display: grid;
     grid-area: mm;
@@ -208,14 +217,10 @@ section {
     column-gap: 10px;
   }
 
-
   .liste {
     column-count: 3;
-    
   }
 }
-
-
 
 @media screen and (min-width: 50em) {
   .liste {

@@ -1,64 +1,36 @@
-{{ "<!-- layout/partials/meta.html -->" | safeHTML }}
 <head>
-    <meta charset=utf-8 />
-    <meta name=viewport content="width=device-width, initial-scale=1" />
-    <meta name=robots   content="noindex,nofollow" />
+<meta charset=utf-8 />
+<meta name=viewport content="width=device-width, initial-scale=1" />
+<meta name=robots   content="noindex,nofollow" />
 
-{{if (eq .Type "latest") }}
-    {{ range first 1 (where .Site.RegularPages.ByDate.Reverse "Section" "post")   }}
-        <meta http-equiv="refresh" content="0; URL={{.RelPermalink}}" />
-    {{end}}
-{{end}}
-
-{{ if .IsHome }}
-    <link rel=dns-prefetch href=//code.jquery.com>      <!-- jquery       -->
-    <link rel=dns-prefetch href=//www.jsdelivr.com >    <!-- Fancybox     -->
-    <link rel=dns-prefetch href=//jsonfeed.org>         <!-- JSON Schema  -->
-    <link rel=dns-prefetch href=//www.w3.org>           <!-- ATOM Schema  -->
-
-    <title>{{ site.Title  | markdownify }}</title>
-    {{ with  site.Params.Description -}}<meta name=description content="{{ . | markdownify }}" />{{- end }}
-    <meta name=keywords content="{{ range first 25 site.Taxonomies.tags.ByCount }}{{ $f := slicestr  .Name 0 1}}{{if ne $f "2"}}{{.Name}},{{end}}{{end}}" />
-
-	{{if eq .Type "photo" -}}
-    <link rel=preload as=style  href=https://www.jsdelivr.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css />
-    <link rel=preload as=script href=https://www.jsdelivr.com/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js />
-	{{- end}}
-	{{ if eq .Params.Layout "panorama" -}}
-    <link rel=preload as=script href=https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.1/openseadragon.min.js />
-	{{- end}}
-{{ else }}
-    <title>{{ site.Title  | markdownify }} - {{ .Title  | markdownify }}</title>
-    {{ with .Description }}<meta name=description content="{{ .  | markdownify  }}" />{{ end }}
-    <meta name=keywords content="{{ range $index, $director := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ end }}" />
-{{ end }}
-
-    {{ hugo.Generator }}
-    <meta name=date content="{{site.LastChange.Format site.Params.dateFormatFeed }}" />
-    {{ with site.Author.name }}<meta name=author content="{{ . }}" />{{ end }}
-	
-	<script src=https://code.jquery.com/jquery-3.3.1.min.js integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-{{if (eq .Type "photo") -}}
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-{{- end}}
-
-<!-- Dublin Core -->
-<!--	<link rel=schema.dc       href=http://purl.org/dc/elements/1.1/ > -->
-	<meta name=DC.Title       content="{{ site.Title  | markdownify }} - {{ .Page.Title  | markdownify}}"/>
-	<meta name=DC.Subject     content="{{ range $index, $director := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ end }}"/> 
-	{{ with  .Description -}}<meta name=DC.Description content="{{ . | markdownify }}"/>{{- end}}
-	{{ with site.Author.name -}}<meta name=DC.Creator     content="{{ . }}"/>{{- end}}
-	{{ with site.Author.name -}}<meta name=DC.Publisher   content="{{ . }}"/>{{- end}}
-	{{ with site.Params.Copyright -}}<meta name=DC.Rights      content="Copyright {{ now.Format "2006"}} {{ . }}"/>{{- end }}
-	{{ with site.Language.Lang -}}<meta name=DC.Language    content={{ . }} />{{- end }}
-	<meta name=DC.Date        content="{{ .Date.Format site.Params.dateFormatFeed}}" /> 
-<!-- Fine Dublin Core -->
-
+{{ if .IsHome -}}
+<link rel=dns-prefetch href=//code.jquery.com>      <!-- jquery       -->
+<link rel=dns-prefetch href=//www.jsdelivr.com >    <!-- Fancybox     -->
+<link rel=dns-prefetch href=//jsonfeed.org>         <!-- JSON Schema  -->
+<link rel=dns-prefetch href=//www.w3.org>           <!-- ATOM Schema  -->
+<title>{{ site.Title  | markdownify }}</title>
+<meta name=keywords content="{{ range first 25 site.Taxonomies.tags.ByCount }}{{ $f := slicestr  .Name 0 1}}{{if ne $f "2"}}{{.Name}},{{end}}{{end}}" />
+{{- else -}}<title>{{ site.Title  | markdownify }} &ndash; {{ .Title  | markdownify }}</title>{{ with .Description }}<meta name=description content="{{ .  | markdownify  }}" />{{end}}{{- end }}
+{{ hugo.Generator }}
+<meta name=keywords content="{{ range $index, $director := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ end }}" />
+<meta name=date content="{{site.LastChange.Format site.Params.dateFormatFeed }}" />
+{{ with site.Author.name }}<meta name=author content="{{ . }}" />{{ end }}
+{{ partial "js/jquery" . }}
+{{if eq .Type "photo" -}}
+{{ partial "css/fancybox" . }}
+{{ partial "js/fancybox"   . }}
+{{- end }}
+{{ if eq .Params.Layout "panorama" }}<link rel=preload as=script href=https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.1/openseadragon.min.js />{{end}}
+<meta name=DC.Title       content="{{ site.Title  | markdownify }} - {{ .Page.Title  | markdownify}}"/><!-- Dublin Core --><!--	<link rel=schema.dc       href=http://purl.org/dc/elements/1.1/ > -->
+<meta name=DC.Subject     content="{{ range $index, $director := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ end }}"/> 
+{{ with  .Description }}<meta name=DC.Description content="{{ . | markdownify }}"/>{{ end}}
+{{ with site.Author.name }}<meta name=DC.Creator     content="{{ . }}"/>{{ end}}
+{{ with site.Author.name }}<meta name=DC.Publisher   content="{{ . }}"/>{{ end}}
+{{ with site.Params.Copyright }}<meta name=DC.Rights      content="Copyright {{ now.Format "2006"}} {{ . }}"/>{{- end }}
+{{ with site.Language.Lang -}}<meta name=DC.Language    content={{ . }} />{{- end }}
+<meta name=DC.Date        content="{{ .Date.Format site.Params.dateFormatFeed}}" /> <!-- Fine Dublin Core -->
 {{ partial "favicon" . }}
 {{ partial "feeds"   . }}
 {{ partial "css/css" . }}
-
 {{ partial "js/qr"   . }}
-
 </head>

@@ -1,48 +1,35 @@
-{{ "<!-- layouts/partial/single-head.html -->" | safeHTML }}
-{{if not .IsHome}}
+{{if not .IsHome -}}
 <div class="b no-print w-100">
-<!-- Bezeichnungen aus dem Menü holen -->
-{{ range site.Menus.main -}}{{ $.Scratch.Set .Identifier .Name }}{{- end}}
-<!-- nicht im Menü -->
-{{ $.Scratch.Set "Intern" "Internes"}}
-
+{{ range site.Menus.main -}}{{ $.Scratch.Set .Identifier .Name }}{{- end}}{{ $.Scratch.Set "Intern" "Internes"}}
 {{if (ne .Type "menu") -}}
-	<span class=nowrap>
-	<a href="/" title="{{ $.Scratch.Get "home" }}"><i class="fas fa-home fa-fw"></i></a>
+<span class=nowrap><a href="/" title="{{ $.Scratch.Get "home" }}"><i class="fas fa-home fa-fw"></i></a>
 
-	{{ if isset .Params "categories" -}}
-	  {{ range $index, $name := sort .Params.categories -}}
-		{{ with site.GetPage (printf "/%s" ($name | urlize )) }} 
-			<a class=ph1 href="{{ .RelPermalink }}" title="Bereich: {{ .Name | markdownify}}">{{ .Name | markdownify}}</a> 
-		{{- end}}
-	  {{- end }}
-	{{ end }}
-	</span>
-
-	{{ if isset .Params "tags" -}}
-		<span class=nowrap>
-		<a href="/tag/" title="{{ $.Scratch.Get "index" }}"><i class="fas fa-tag fa-fw"></i></a>
-		{{ range $index, $name := sort .Params.tags -}}
-			<a class=ph1 href={{ (printf "/tag/%s/" $name) | urlize }} title="Index: {{$name | markdownify }}">{{$name | markdownify}}</a>
-		{{- end}}
-		</span>
-	{{- end }}
-	  
-	{{ if isset .Params "series" -}}{{ $serLen := len .Params.series -}}
-		{{if gt $serLen 0 -}}
-			<span class=nowrap>
-			<a href="/series/" title="{{ $.Scratch.Get "serie" }}"><i class="fas fa-book fa-fw"></i></a>
-			{{range $index, $name := sort .Page.Params.series -}}
-				<a class=ph1 href=/series/{{($name|urlize)}}/ title="Serie: {{ $name | markdownify}}">{{ $name | markdownify }}</a>
-			{{- end}}
-			</span>
-		{{- end }}
+{{ if isset .Params "categories" -}}
+  {{ range $index, $name := sort .Params.categories -}}
+	{{ with site.GetPage (printf "/%s" ($name | urlize )) -}} 
+		<a class=ph1 href="{{ .RelPermalink }}" title="Bereich: {{ .Name | markdownify}}">{{ .Name | markdownify}}</a> 
 	{{- end}}
-<!--
-	<div class="b pv3 ph1 blue"><i class="fas fa-directions"></i> {{ template "breadcrumb" dict "page" . "value" .Title }}</div>
- -->
+  {{- end }}
+{{ end }}
+</span>
+
+{{ if isset .Params "tags" -}}
+	<span class=nowrap>
+	<a href="/tag/" title="{{ $.Scratch.Get "index" }}"><i class="fas fa-tag fa-fw"></i></a>
+	{{ range $index, $name := sort .Params.tags -}}
+		<a class=ph1 href={{ (printf "/tag/%s/" $name) | urlize }} title="Index: {{$name | markdownify }}">{{$name | markdownify}}</a>
+	{{- end}}
+	</span>
+{{- end }}
+  
+{{ if isset .Params "series" -}}{{ $serLen := len .Params.series -}}
+{{if gt $serLen 0 -}}
+<span class=nowrap><a href="/series/" title="{{ $.Scratch.Get "serie" }}"><i class="fas fa-book fa-fw"></i></a>{{range $index, $name := sort .Page.Params.series -}}
+  <a class=ph1 href=/series/{{($name|urlize)}}/ title="Serie: {{ $name | markdownify}}">{{ $name | markdownify }}</a>
+{{- end}}
+</span>
+{{- end }}
+{{- end}}
 {{- end}}
 </div>
-
- 
-{{end}}
+{{- end}}

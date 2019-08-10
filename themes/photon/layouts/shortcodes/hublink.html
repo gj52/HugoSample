@@ -1,7 +1,2 @@
-{{ $name := .Get 0 }}
-{{ $img  := .Get 1 }}
-{{ $port := .Get 2 }}
-
-<a class="dim b--white"  href=http://hub:{{$port}} title={{$name}} >
-<img src=images/{{ $img }}.png  height=64/>
-</a>
+{{ $name := .Get 0 }}{{ $img  := .Get 1 }}{{ $port := .Get 2 }}
+<a class="dim b--white"  href=http://hub:{{$port}} title={{$name}} ><img src=images/{{ $img }}.png  height=64/></a>

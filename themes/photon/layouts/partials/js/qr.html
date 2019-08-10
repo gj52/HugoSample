@@ -1,10 +1,2 @@
-{{ "<!-- layout/partials/js/qr -->" | safeHTML }}
-<!-- <script type="text/javascript" src="../src/jquery.qrcode.js"></script> -->
-{{ $jqr := resources.Get "js/jquery.qrcode.js" | minify }}{{ $secureJQR := $jqr | resources.Fingerprint site.Params.digest }}
-<script src={{ $secureJQR.RelPermalink }} ></script>
-<!-- <script type="text/javascript" src="../src/qrcode.js"></script> -->
-{{ $qr := resources.Get "js/qrcode.js" | minify }}{{ $secureQR := $qr | resources.Fingerprint site.Params.digest }}
-<script src={{ $secureQR.RelPermalink }} ></script>
-
-
-
+{{ $jqr := resources.Get "js/jquery.qrcode.js" | minify }}{{ $secureJQR := $jqr | resources.Fingerprint site.Params.digest }}<script src={{ $secureJQR.RelPermalink }} ></script>
+{{ $qr := resources.Get "js/qrcode.js" | minify }}{{ $secureQR := $qr | resources.Fingerprint site.Params.digest }}<script src={{ $secureQR.RelPermalink }} ></script>

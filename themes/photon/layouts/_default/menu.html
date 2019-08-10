@@ -1,30 +1,24 @@
 <!DOCTYPE html>
-{{ "<!-- layout/_default/baseof.html -->" | safeHTML }}
-<html {{ with site.Language.Lang }}lang="{{ . }}"{{ end }} >
+<html {{ with site.Language.Lang }}lang={{ . }} {{ end }} >
 <head>
 {{ partial "meta" . }}
 </head>
-<body id="top" class="athelas vh-100" >
-{{ partial "header" . }}
+<body id="top" class="vh-100" >
 <header>
 <h1 class="tc f3"><i class="fas fa-dragon fa-fw"></i>&nbsp;{{ site.Params.Title | markdownify }}</h1>
 <div class="f3 b white bg-blue pv2 ph3 tc w-100">Menü</div> 
 </header>
-<br/>
-<div id=sidebar class="f3 w-100">
+{{ partial "aside" . }}
+<section id=sidebar class="f3 w-100 pv2 bt bb bw2 b--blue">
 	<div class="flex flex-column items-center w-100">
 		{{ range .Site.Menus.main}}
-			<div id={{.Identifier}} class=pv1>
-				<a href="{{ .URL }}" Title="{{ .Name }}">{{ .Name }}</a>
-			</div>
+		<div id={{.Identifier}} class=pv1><a href="{{ .URL }}" Title="{{ .Name }}">{{ .Name }}</a></div>
 		{{end}}
-		
-		{{ if site.IsServer}}
-			{{ with site.GetPage "/intern/_index.md" }}<div id=Intern><a href={{.RelPermalink}} Title=Intern>Intern</a></div>{{end}}
-			{{ with site.GetPage "/test/_index.md" }}<div id=Test><a href={{.RelPermalink}} Title=Tests>Tests</a></div>{{end}}
-		{{end}}
-
+		{{ if site.IsServer -}}
+		{{ with site.GetPage "/intern/_index.md" }}<div id=Intern><a href={{.RelPermalink}} Title=Intern>Intern</a></div>{{end}}
+		{{ with site.GetPage "/test/_index.md" }}<div id=Test><a href={{.RelPermalink}} Title=Tests>Tests</a></div>{{end}}
+		{{- end}}
 	</div>
-</div>
+</section>
 </body>
 </html>

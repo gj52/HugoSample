@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-{{ "<!-- layout/_default/baseof.html -->" | safeHTML }}
 <html {{ with site.Language.Lang }}lang="{{ . }}"{{ end }} >
 {{ partial "meta" . }}
-<body>
-<section class="site ph2">
-    {{ partial "header" . }}
-	{{ partial "navigation" . }}
-    {{ block "main" . }}{{ end }}
-    {{ partial "footer" . }}
-	{{ partial "qr" . }}
-</section>
+<body class="site">
+{{ partial "aside" . }}
+{{ partial "navigation" . }}
+{{ block "main" . }}{{ end }}
+{{ partial "qr" . }}
+{{ partial "footer" . }}
 </body>
 </html>

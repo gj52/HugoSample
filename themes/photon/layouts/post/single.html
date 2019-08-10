@@ -1,7 +1,4 @@
 {{ define "main" }}
-{{ "<!-- layouts/post/single.html -->" | safeHTML }}
-<header>
-<h1><span class="dn di-l">{{ site.Title | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1>{{ partial "single-head" . }}
-</header>
-<article class="pb2 bt bb bw2 b--blue">{{ .Content }}</article>
+<header><h1><span class="dn di-l">{{ site.Title | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1>{{ partial "single-head" . }}</header>
+<article class="pb2 bt bb bw2 b--blue"><h2 class=dn>{{ .Page.Title }}</h2>{{ .Content }}</article>
 {{ end }}

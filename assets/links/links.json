@@ -27,6 +27,16 @@
       "url": "https://www.hongkiat.com/blog/css-snippets-for-designers/"
     },
     {
+      "title": "DNSTOP(8)",
+      "description": "Stay on top of your DNS traffic",
+      "url": "http://dns.measurement-factory.com/tools/dnstop/dnstop.8.html"
+    },
+    {
+      "title": "DynDNS",
+      "description": "DNS Dienste für das Internet von heute",
+      "url": "https://dyn.com/"
+    },
+    {
       "title": "Fancybox",
       "description": "Lichtkasten-Bibliothek für Fotos und andere Medien",
       "url": "https://fancyapps.com/fancybox/3/"
@@ -36,6 +46,12 @@
       "description": "Das weltweit populärste und am einfachsten zu benutzende Icon-Set",
       "url": "https://fontawesome.com/"
     },
+    {
+      "title": "Google Fonts",
+      "description": "Making the web more beautiful, fast, and open through great typography",
+      "url": "https://fonts.google.com/",
+	  "draft" : true
+    },    
 	{
       "title": "Hugo",
       "description": "Das weltweit schnellste Framework zum erstellen von Webseiten",
@@ -45,6 +61,11 @@
       "title": "Hugo RTFM",
       "description": "Hugo - Recommended Reading Reference",
       "url": "https://discourse.gohugo.io/t/recommended-reading-reference/14815"
+    },
+    {
+      "title": "JSON ECMA",
+      "description": "Standard ECMA-404 - The JSON Data Interchange Syntax",
+      "url": "https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf"
     },
     {
       "title": "JSON Feed ORG",
@@ -57,17 +78,76 @@
       "url": "https://letsencrypt.org/"
     },
     {
+      "title": "Linux Docs",
+      "description": "The Linux Documentation Project",
+      "url": "https://www.tldp.org/"
+    },
+    {
       "title": "OpenSeaDragon",
       "description": "OpenSeaDragon ist ein Open Source Viewer für hochauflösende, zoombare Bilder",
       "url": "https://openseadragon.github.io/"
+    },
+    {
+      "title": "NTP",
+      "description": "The Netwok Time Protocol",
+      "url": "https://www.eecis.udel.edu/~mills/ntp/html/index.html",
+	  "draft": true
+    },
+    {
+      "title": "Raspberry",
+      "description": "Ein kleiner und erschwinglicher Computer",
+      "url": "https://www.raspberrypi.org/"
+    },
+    {
+      "title": "Raspbian",
+      "description": "Raspbian ist ein freies Betriebssystem für den Raspberry Pi",
+      "url": "https://www.raspbian.org/"
+    },
+
+    {
+      "title": "SSL Labs",
+      "description": "SSL Labs ist eine Sammlung von Werkzeugen zu SSL",
+      "url": "https://www.ssllabs.com/"
     },
     {
       "title": "Tachyons CSS",
       "description": "Create fast loading , highly readable, and 100% responsive interfaces",
       "url": "https://tachyons.io/"
     },
+    {
+      "title": "Unbound",
+      "description": "Unbound ist ein validierender, rekursiver und cachender DNS-Resolver",
+      "url": "https://nlnetlabs.nl/projects/unbound/about/"
+    },
+    {
+      "title": "Unity",
+      "description": "Unity ist eine Laufzeit- und Entwicklungsumgebung für Spiele, Film-Animationen, Automotive usw.",
+      "url": "https://unity.com/"
+    },
+    {
+      "title": "W3 - validate ATOM",
+      "description": "W3 - validate my ATOM feed",
+      "url": "https://validator.w3.org/feed/",
+	  "draft": true
+    },
+    {
+      "title": "W3 - validate CSS",
+      "description": "W3 - validate my CSS file",
+      "url": "http://jigsaw.w3.org/css-validator/",
+	  "draft": true
+    },
+    {
+      "title": "W3 - Validator",
+      "description": "W3 - validate HTML, CSS and feed filed",
+      "url": "https://validator.w3.org/"
+    },
+    {
+      "title": "Linux Commands",
+      "description": "A Brief Outline of 106 Linux Commands with Examples",
+      "url": "https://linoxide.com/linux-how-to/linux-commands-brief-outline-examples/"
+    },
 	{
-	  "title": "MDI Icons",
+	  "title": "Material Design Icons",
 	  "description": "Material Design Icons",
 	  "url": "https://materialdesignicons.com/"
 	},
@@ -75,6 +155,52 @@
 	  "title": "Home Assistant",
 	  "description": "Open-Source Home Automation",
 	  "url": "https://www.home-assistant.io/"
+	},
+	{
+		"title": "Node-RED",
+		"description": "Flow-based programming for the Internet of Things",
+		"url": "https://nodered.org/"
+	},
+	{
+		"title": "Mosquitto",
+		"description": "Eclipse Mosquitto - ein freier MQTT Broker",
+		"url": "https://mosquitto.org/"
+	},
+	{
+		"title": "Xenu",
+		"description": "Find broken links on web sites",
+		"url": "http://home.snafu.de/tilman/xenulink.html"
+	},
+	{
+		"title": "UUID",
+		"description": "Online UUID generator",
+		"url": "https://www.uuidgenerator.net/"
+	},
+	{
+		"title": "Material Design Icons - cheet sheet",
+		"description": "Need some icons? Have a look below.",
+		"url": "https://cdn.materialdesignicons.com/3.7.95/"
+	},
+	{
+		"title": "Atom Syndication Format",
+		"description": "The Atom Syndication Format.",
+		"url": "https://tools.ietf.org/html/rfc4287"
+	},
+	{
+		"title": "HTML5 Reference",
+		"description": "The Syntax, Vocabulary and APIs of HTML5",
+		"url": "https://dev.w3.org/html5/html-author/"
+	},
+	{
+		"title": "GitHub Flavored Markdown Spec",
+		"description": "Markdown is a plain text format for writing structured documents",
+		"url": "https://github.github.com/gfm/"
+	},
+	{
+		"title": "Markdown Tables Generator",
+		"description": "Tables Generator for LaTeX, HTML, Text, Markdown und MediaWiki",
+		"url": "http://www.tablesgenerator.com/markdown_tables"
 	}
+	
   ]
 }

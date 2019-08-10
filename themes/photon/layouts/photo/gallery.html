@@ -1,15 +1,12 @@
 {{ define "main" }}
-{{ "<!-- layouts/photo/single.html -->" | safeHTML }}
-<header>
-<h1><span class="dn di-l">{{ site.Title | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title | markdownify }}</h1>
+<header><h1><span class="dn di-l">{{ site.Title | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title | markdownify }}</h1>
 {{ partial "single-head" . }}
 </header>
 <article class="bt bb bw2 b--blue">{{ .Content }}<br/>
-{{range .Resources.Match "gallery/*" }}
-	{{ $image := .Fit "370x246" }}{{ $preview := .Fit "36x24" }} 
-	<a data-fancybox=gallery href={{.RelPermalink}}>
-	<img class="ma1 shadow-3" src={{ $image.RelPermalink }} width={{ $image.Width }} height={{ $image.Height }} alt="{{.Name}}" 
-	 style="background: url(data:image/jpeg;base64,{{ $preview.Content | base64Encode  }}); background-size:100% 100%;" /></a>
-{{ end }}
+{{range .Resources.Match "gallery/*" -}}{{ $image := .Fit "370x246" }}{{ $preview := .Fit "36x24" }} 
+<a data-fancybox=gallery href={{.RelPermalink}}><figure><img class="ma1 shadow-3" src={{ $image.RelPermalink }} width={{ $image.Width }} height={{ $image.Height }} alt="{{.Name}}" style="background: url(data:image/jpeg;base64,{{ $preview.Content | base64Encode  }}); background-size:100% 100%;" /></figure></a>
+{{- end }}
 </article>
 {{ end }}
+
+
