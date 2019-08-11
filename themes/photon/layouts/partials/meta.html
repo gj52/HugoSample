@@ -4,11 +4,12 @@
 <meta name=robots   content="noindex,nofollow" />
 
 {{ if .IsHome -}}
-<link rel=dns-prefetch href=//code.jquery.com>      <!-- jquery       -->
-<link rel=dns-prefetch href=//www.jsdelivr.com >    <!-- Fancybox     -->
-<link rel=dns-prefetch href=//jsonfeed.org>         <!-- JSON Schema  -->
-<link rel=dns-prefetch href=//www.w3.org>           <!-- ATOM Schema  -->
+<link rel=dns-prefetch href=//code.jquery.com />     <!-- jquery       -->
+<link rel=dns-prefetch href=//www.jsdelivr.com />    <!-- Fancybox     -->
+<link rel=dns-prefetch href=//jsonfeed.org />        <!-- JSON Schema  -->
+<link rel=dns-prefetch href=//www.w3.org />          <!-- ATOM Schema  -->
 <title>{{ site.Title  | markdownify }}</title>
+{{ partial "manifest" . }}
 <meta name=keywords content="{{ range first 25 site.Taxonomies.tags.ByCount }}{{ $f := slicestr  .Name 0 1}}{{if ne $f "2"}}{{.Name}},{{end}}{{end}}" />
 {{- else -}}<title>{{ site.Title  | markdownify }} &ndash; {{ .Title  | markdownify }}</title>{{ with .Description }}<meta name=description content="{{ .  | markdownify  }}" />{{end}}{{- end }}
 {{ hugo.Generator }}
@@ -18,7 +19,7 @@
 {{ partial "js/jquery" . }}
 {{if eq .Type "photo" -}}
 {{ partial "css/fancybox" . }}
-{{ partial "js/fancybox"   . }}
+{{ partial "js/fancybox"  . }}
 {{- end }}
 {{ if eq .Params.Layout "panorama" }}<link rel=preload as=script href=https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.1/openseadragon.min.js />{{end}}
 <meta name=DC.Title       content="{{ site.Title  | markdownify }} - {{ .Page.Title  | markdownify}}"/><!-- Dublin Core --><!--	<link rel=schema.dc       href=http://purl.org/dc/elements/1.1/ > -->

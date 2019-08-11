@@ -200,7 +200,13 @@
 		"title": "Markdown Tables Generator",
 		"description": "Tables Generator for LaTeX, HTML, Text, Markdown und MediaWiki",
 		"url": "http://www.tablesgenerator.com/markdown_tables"
+	},
+	{
+		"title": "Web App Manifest",
+		"description": "Web App Manifest Draft",
+		"url": "https://www.w3.org/TR/appmanifest/"
 	}
+	
 	
   ]
 }

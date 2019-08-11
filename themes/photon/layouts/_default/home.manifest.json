@@ -1,0 +1,20 @@
+{
+  "name": {{ site.Title | htmlUnescape | jsonify }},
+  "description": "Gerhard's Spielwiese",
+  "version": "0.{{div now.Unix 86400000 }}.{{mod (div now.Unix 86400) 1000 }}",
+  {{ with site.LanguageCode }}"lang": {{ . | jsonify }},{{ end }} 
+  "launch_path": "/index.html",
+  "start_url":  "/index.html",
+  "display": "browser",
+  "orientation": "natural",
+  "developer": {
+    "name": {{ site.Author.name | htmlUnescape | jsonify }}, 
+    "url": {{ site.BaseURL  | absURL | jsonify }}
+  },
+  "icons": [{{ $t := slice 144 192 256 512}}{{ range $t -}}
+  {
+    "src": "/img/yy{{.}}.png",
+	"type": "image/png",
+    "sizes": "{{.}}x{{.}}" 
+  }{{ if ne . 512 }},{{end }}{{- end}}]
+}

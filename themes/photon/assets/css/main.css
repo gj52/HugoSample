@@ -167,11 +167,10 @@ article {
   grid-area: mm;
 }
 
-/*
 section {
   grid-area: mm;
 }
-*/
+
 .liste {
   column-width: auto;
   column-rule: thin solid blue;

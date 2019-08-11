@@ -1,6 +1,3 @@
 name = "Photon"
 description = "CSS grid with tachions"
 
-[author]
-  name = "ju52"
-  homepage = "examples.com"
