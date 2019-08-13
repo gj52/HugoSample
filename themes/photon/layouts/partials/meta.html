@@ -16,12 +16,6 @@
 <meta name=keywords content="{{ range $index, $director := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ end }}" />
 <meta name=date content="{{site.LastChange.Format site.Params.dateFormatFeed }}" />
 {{ with site.Author.name }}<meta name=author content="{{ . }}" />{{ end }}
-{{ partial "js/jquery" . }}
-{{if eq .Type "photo" -}}
-{{ partial "css/fancybox" . }}
-{{ partial "js/fancybox"  . }}
-{{- end }}
-{{ if eq .Params.Layout "panorama" }}<link rel=preload as=script href=https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.1/openseadragon.min.js />{{end}}
 <meta name=DC.Title       content="{{ site.Title  | markdownify }} - {{ .Page.Title  | markdownify}}"/><!-- Dublin Core --><!--	<link rel=schema.dc       href=http://purl.org/dc/elements/1.1/ > -->
 <meta name=DC.Subject     content="{{ range $index, $director := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ end }}"/> 
 {{ with  .Description }}<meta name=DC.Description content="{{ . | markdownify }}"/>{{ end}}
@@ -33,5 +27,11 @@
 {{ partial "favicon" . }}
 {{ partial "feeds"   . }}
 {{ partial "css/css" . }}
+{{ partial "js/jquery" . }}
+{{if eq .Type "photo" -}}
+{{ partial "css/fancybox" . }}
+{{ partial "js/fancybox"  . }}
+{{- end }}
+{{ if eq .Params.Layout "panorama" }}<link rel=preload as=script href=https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.1/openseadragon.min.js />{{end}}
 {{ partial "js/qr"   . }}
 </head>
