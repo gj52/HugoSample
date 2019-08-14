@@ -10,7 +10,7 @@
     "name"       : {{ . | jsonify }},
     "avatar"     : {{ site.Params.sidebar.avatar | absURL | jsonify }}
   },  {{ end }}
-  {{ $r1 := where site.Pages "PublishDate" "gt" (now.AddDate -1 0 0) }}{{ $r2 := where .Data.Pages.ByDate.Reverse "Section" "not in" site.Params.invisibleSections }}{{ $list := $r1 | intersect $r2 }}{{ $len := len $list }}
+  {{ $r1 := where site.RegularPages "PublishDate" "gt" (now.AddDate -1 0 0) }}{{ $r2 := where site.RegularPages "Section" "not in" site.Params.invisibleSections }}{{ $list := $r1 | intersect $r2 }}{{ $len := len $list }}
   "items": 
   [{{ range $index, $item := $list }}
     {

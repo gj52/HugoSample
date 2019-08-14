@@ -9,6 +9,7 @@
     <li><i class="fas fa-keyboard"></i>&nbsp;&nbsp;eine falsche Adresse (URL) wurd eingegeben</li>
     <li><i class="fas fa-unlink"></i>&nbsp;&nbsp;ein Link auf den Seiten ist nicht korrekt</li>
     <li><i class="fas fa-trash"></i>&nbsp;&nbsp;der Inhalt wurde gel&ouml;scht</li>
+	<li><i class="fas fa-globe-europe"></i>&nbsp;&nbsp;der Inhalt ist auf Ihrem Planeten nicht verfügbar&nbsp;<i class="fas fa-smile-wink"></i></li>
     </ul>
 	<a href="{{ .Site.BaseURL }}" ><img src="/img/404.png" alt="404" /></a>{{ $HomeMenu := index (where .Site.Menus.main "Identifier" "home" ) 0 }}
     <p>Einfach nochmal auf der <a href="{{ $HomeMenu.URL }}">{{ $HomeMenu.Name }}&nbsp;&nbsp;<i class="fas fa-home"></i></a>&nbsp;&nbsp;beginnen.</p>
