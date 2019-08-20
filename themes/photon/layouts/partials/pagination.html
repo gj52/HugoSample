@@ -1,4 +1,4 @@
-{{ $pag := $.Paginator }}{{ if gt $pag.TotalPages 1 -}}<nav class="f4 pv2 pl4 tracked-mega" >
+{{ $pag := $.Paginator }}{{ if gt $pag.TotalPages 1 -}}<div class="f4 pt3 pl4 tracked-mega" >
 {{ if (and (not $pag.HasPrev) (eq site.Params.pagination.showBeginEnd false)) -}}
 {{- else -}}
 {{ if not (eq site.Params.pagination.showFirst false) }}{{ with $pag.First }}<a href="{{ .URL }}">{{ with site.Params.pagination.firstIndicator }}{{ . | markdownify }}{{else}}<span>&laquo;&laquo;</span>{{end}}</a>{{ end }}{{ end }}
@@ -16,4 +16,4 @@
 {{ if not (eq site.Params.pagination.showLast false) }}{{ with $pag.Last }}<a href="{{ .URL }}">{{ with site.Params.pagination.lastIndicator }}{{ . | markdownify }}{{else}}<span>&raquo;&raquo;</span>{{end}}</a>{{ end }}
 {{- end }}
 {{- end }}
-</nav>{{- end }}
+</div>{{- end }}
