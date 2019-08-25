@@ -83,6 +83,7 @@ taskLists                  = false
 	#vcard                  = "vcards"
 
 [permalinks]
+    about                  = "/about"
     tags                   = "/tag/:slug/"
     post                   = "/:section/:year/:month/:day/:title"
     photo                  = "/:section/:year/:month/:day/:title"
@@ -97,6 +98,14 @@ taskLists                  = false
     baseName              = "index"
     NoUgly                = true
 
+[outputFormats.MANIFEST]
+    MediaType             = "application/json"
+    BaseName              = "manifest"
+    suffix                = "json"
+    IsHTML                = false
+    IsPlainText           = true
+    noUgly                = false
+    Rel                   = "alternate"
 
 [outputFormats.ATOM]
     MediaType             = "application/atom+xml"
@@ -126,8 +135,7 @@ taskLists                  = false
     Rel                   = "alternate"
 
 [outputs]
-#    home                  = [ "HTML", "ATOM", "JSON", "SITEMAP"]
-    home                  = [ "HTML", "ATOM", "JSON"]
+    home                  = [ "HTML", "ATOM", "JSON", "MANIFEST"]
     section               = [ "HTML" ]
     page                  = [ "HTML" ]
     taxonomy              = [ "HTML" ]
@@ -149,7 +157,7 @@ taskLists                  = false
     nextIndicator      = "<i class=\"fas fa-angle-right       \"></i>"
     lastIndicator      = "<i class=\"fas fa-angle-double-right\"></i>"        
     showBeginEnd       = false
-    spaceIndicator     = " ... "
+    spaceIndicator     = "<b> ... </b>"
     pagesBetweenActive = 5 
 
 ###############################################################

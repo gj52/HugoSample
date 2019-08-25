@@ -1,0 +1,11 @@
+[WordCount]
+one   = "one word"
+few   = "{{ .WordCount }} words"
+many  = "{{ .WordCount }} words"
+other = "{{ .WordCount }} words"
+
+[ReadingTime]
+one   = "one minute"
+few   = "{{ .Count }} minute"
+many  = "{{ .Count }} minutes"
+other = "{{ .Count }} minutes (TL;DR)"
