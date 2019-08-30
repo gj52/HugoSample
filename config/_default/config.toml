@@ -229,6 +229,6 @@ taskLists                  = false
 [[menu.main]]
     identifier          = "index"
     name                = "Index"
-    url                 = "/tag/"
+    url                 = "/index/"
     weight              = 110
     pre                = "<i class=\"fas fa-tag fa-fw\"></i>"
