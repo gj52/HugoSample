@@ -80,10 +80,8 @@ taskLists                  = false
 [taxonomies]
     tag                    = "tags"
     serie                  = "series"
-	#vcard                  = "vcards"
 
 [permalinks]
-    about                  = "/about"
     tags                   = "/tag/:slug/"
     post                   = "/:section/:year/:month/:day/:title"
     photo                  = "/:section/:year/:month/:day/:title"
@@ -229,6 +227,6 @@ taskLists                  = false
 [[menu.main]]
     identifier          = "index"
     name                = "Index"
-    url                 = "/index/"
+    url                 = "/tags/"
     weight              = 110
     pre                = "<i class=\"fas fa-tag fa-fw\"></i>"
