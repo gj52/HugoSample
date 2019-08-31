@@ -17,7 +17,7 @@ theme                       = "photon"
 
 LanguageCode                   = "de-de"
 DefaultContentLanguage         = "de"
-DefaultContentLanguageInSubdir = false
+DefaultContentLanguageInSubdir = true
 
 assetdir                   = "assets"
 contentdir                 = "content"
@@ -82,7 +82,7 @@ taskLists                  = false
     serie                  = "series"
 
 [permalinks]
-    tags                   = "/tag/:slug/"
+    tags                   = "/tags/:slug/"
     post                   = "/:section/:year/:month/:day/:title"
     photo                  = "/:section/:year/:month/:day/:title"
     series                 = "/series/:slug"
@@ -162,7 +162,7 @@ taskLists                  = false
 
 [Author]
     name               = "Gerhard Junker"
-    email              = "gerhard.junker@outlook.de"
+    email              = "gmtju@hotmail.com"
 
 ###############################################################
 
@@ -177,9 +177,8 @@ taskLists                  = false
     dateFormatYear      = "2006"
     dateFormatFeed      = "2006-01-02T15:04:05Z"
 
-    invisibleSections   = ["menu","serie","intern","test","about"]
+    invisibleSections   = ["menu","serie","about"]
 
-#                          sha256, sha384, sha512   
     digest              = "sha256"
     
     [Params.sidebar]
