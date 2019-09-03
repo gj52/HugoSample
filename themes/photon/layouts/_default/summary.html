@@ -1,1 +1,5 @@
-<div class="dib pt3 pl4 w-100">{{ if .Draft }}<if class="fab fa-firstdraft red"></i>{{end}}<a class="pt2 f4 b"  href="{{ .RelPermalink }}">{{ .Title  | markdownify }}</a>{{ partial "summary-head" . }}</div>
+<div class="dib pt3 pl4 w-100">
+	{{ if .Draft }}<if class="fab fa-firstdraft red"></i>{{end}}
+	<a class="pt2 f4 b"  href="{{ .RelPermalink }}">{{ .Title  | markdownify }}</a>
+	{{ partial "summary-head" . }}
+</div>

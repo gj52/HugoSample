@@ -5,18 +5,18 @@
 <div class=b>{{ .Description }}</div>
 </header>
 <article class="ph2 pv4 bt bb bw2 b--blue">
-<h2 class=dn>{{ .Page.Title }}</h2>
-<div class="liste">
-	{{ $file := .Params.datafile}}{{ $data := getJSON $file }}
-	{{ range sort $data.items "title"}}
-		{{ if not .draft }}
-		<div class="dib pt3 pl2 w-100">
-			<div class=f4><i class="fas fa-external-link-alt fa-fw"></i> <a class=b href="{{ .url }}" target="_blank">{{ .title }}</a></div>
-			<div class="pt2 f5">{{ .description }}</div>
-		</div>
-		{{end}}
-	{{ end }} <!-- range -->
-</div> <!-- flex column -->
+	<h2 class=dn>{{ .Page.Title }}</h2>
+	<div class="liste">
+		{{ $file := .Params.datafile}}{{ $data := getJSON $file }}
+		{{ range sort $data.items "title"}}
+			{{ if not .draft }}
+				<div class="dib pt3 pl2 w-100">
+					<div class=f4><i class="fas fa-external-link-alt fa-fw"></i> <a class=b href="{{ .url }}" target="_blank">{{ .title }}</a></div>
+					<div class="pt2 f5">{{ .description }}</div>
+				</div>
+			{{end}}
+		{{ end }} <!-- range -->
+	</div> <!-- flex column -->
 </article>
 {{ end }}
 

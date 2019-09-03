@@ -1,9 +1,14 @@
 <div class="b no-print w-100">
-{{ range site.Menus.main -}}{{ $.Scratch.Set .Identifier .Name }}{{- end}}{{ $.Scratch.Set "Intern" "Internes"}}
+{{ range site.Menus.main -}}
+	{{ $.Scratch.Set .Identifier .Name }}
+{{- end}}
+{{ $.Scratch.Set "Intern" "Internes"}}
 
 {{if (ne .Type "menu") -}}
 	<span class=nowrap>
-	{{if not .IsHome}}<a href="/" title="{{ $.Scratch.Get "home" }}"><i class="fas fa-home fa-fw"></i></a>{{end}}
+		{{if not .IsHome -}}
+			<a href="/" title="{{ $.Scratch.Get "home" }}"><i class="fas fa-home fa-fw"></i></a>
+		{{- end}}
 		{{ if isset .Params "categories" -}}
 		  {{ range $index, $name := sort .Params.categories -}}
 			{{ with site.GetPage (printf "/%s" ($name | urlize )) -}} 
@@ -15,9 +20,9 @@
 
 	{{if isset .Params "tags" -}}
 		<span class=nowrap>
-		<a href="/tag/" title="{{ $.Scratch.Get "index" }}"><i class="fas fa-tag fa-fw"></i></a>
+		<a href="/tags/" title="{{ $.Scratch.Get "index" }}"><i class="fas fa-tag fa-fw"></i></a>
 		{{ range $index, $name := sort .Params.tags -}}
-			<a class=ph1 href={{ (printf "/tag/%s/" $name) | urlize }} title="Index: {{$name | markdownify }}">{{$name | markdownify}}</a>
+			<a class=ph1 href={{ (printf "/tags/%s/" $name) | urlize }} title="Index: {{$name | markdownify }}">{{$name | markdownify}}</a>
 		{{- end}}
 		</span>
 	{{- end}}

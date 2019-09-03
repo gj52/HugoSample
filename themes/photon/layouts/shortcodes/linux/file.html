@@ -1,0 +1,3 @@
+{{ $file := .Get "file" }}{{ $path := .Get "path" }}{{ $filepath := printf "%s/%s" $path $file}}{{ $f := resources.Get $filepath }}{{ with $f -}}
+<div class="pa2 mh4 ba"><a class="w-auto pr2" href="{{ .Permalink }}" type="text/plain" download>{{ .Name }}</a></div>
+{{- end }}

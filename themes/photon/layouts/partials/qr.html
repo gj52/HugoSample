@@ -1,1 +1,2 @@
-<div class="pa1 print no-break" id="qr" ></div>{{ "<!-- layout/partials/qr -->" | safeHTML }}<script>jQuery('#qr').qrcode({ "text":"{{markdownify .Permalink}}", "width": 128, "height":128, "correctLevel" : 2 });</script>
+<div class="pa1 print no-break" id="qr" ></div>
+<script>jQuery('#qr').qrcode({ "text":"{{markdownify .Permalink}}", "width": 128, "height":128, "correctLevel" : 2 });</script>

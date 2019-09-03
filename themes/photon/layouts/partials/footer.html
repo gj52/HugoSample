@@ -10,10 +10,6 @@
 		{{if ne (.ExpiryDate.Format "2006") "0001" -}}
 			<span  class=nowrap><i class="fas fa-trash-alt fa-fw ph2"></i><time datetime="{{ .ExpiryDate.Format	site.Params.dateFormatLong}}">{{.ExpiryDate.Format	 site.Params.dateFormatShort}}</time></span>
 		{{- end}}
-<!--		
-		<span class=nowrap><i class="fas fa-stopwatch fa-fw ph2"></i>{{if eq .ReadingTime 1}}eine Minute{{else}}{{ .ReadingTime }} Minuten{{end}}</span>
-		<span class=nowrap><i class="fas fa-align-left fa-fw ph2"></i>{{ .WordCount }} Worte</span>
--->		
 	{{- end}}
 	{{ if .IsNode -}}
 		{{ with .Params.datafile }}{{ $stat :=	os.Stat . -}}

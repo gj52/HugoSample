@@ -1,7 +1,8 @@
 {{ $f := "yy"}}<link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel="shortcut icon" type=image/png    href=/img/{{$f}}512.png sizes=512x512>
 <link rel=apple-touch-icon sizes=180x180    href=/img/{{$f}}180.png>
-{{ $t := slice 16 32 48 64 96 144 180 192 256 512}}{{ range $t -}}
-<link rel=icon type=image/png href=/img/{{$f}}{{.}}.png  sizes={{.}}x{{.}}>
-<link rel=icon type=image/gif href=/img/{{$f}}{{.}}.gif  sizes={{.}}x{{.}}>
+{{ $t := slice 16 32 48 64 96 144 180 192 256 512}}
+{{ range $t -}}
+	<link rel=icon type=image/png href=/img/{{$f}}{{.}}.png  sizes={{.}}x{{.}}>
+	<link rel=icon type=image/gif href=/img/{{$f}}{{.}}.gif  sizes={{.}}x{{.}}>
 {{- end}}

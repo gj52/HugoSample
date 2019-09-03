@@ -1,19 +1,71 @@
-{{ $pag := $.Paginator }}{{ if gt $pag.TotalPages 1 -}}<div class="f4 pt3 pl4 tracked-mega" >
-{{ if (and (not $pag.HasPrev) (eq site.Params.pagination.showBeginEnd false)) -}}
-{{- else -}}
-{{ if not (eq site.Params.pagination.showFirst false) }}{{ with $pag.First }}<a href="{{ .URL }}">{{ with site.Params.pagination.firstIndicator }}{{ . | markdownify }}{{else}}<span>&laquo;&laquo;</span>{{end}}</a>{{ end }}{{ end }}
-{{ if not (eq site.Params.pagination.showPrevious false) }}<a href="{{ if $pag.HasPrev }}{{ $pag.Prev.URL }}{{ end }}">{{ with site.Params.pagination.previousIndicator }}{{ . | markdownify }}{{else}}<span>&laquo;</span>{{end}}</a>{{ end }}
+{{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 -}}
+<div class="f4 pt3 pl4 tracked-mega" >
+	{{ if (and (not $pag.HasPrev) (eq site.Params.pagination.showBeginEnd false)) -}}{{- else -}}
+		{{ if not (eq site.Params.pagination.showFirst false) }}
+			{{ with $pag.First }}
+				<a href="{{ .URL }}">
+				{{ with site.Params.pagination.firstIndicator }}
+					{{ . | markdownify }}
+				{{else}}
+					<span>&laquo;&laquo;</span>
+				{{end}}</a>
+			{{ end }}
+		{{ end }}
+		{{ if not (eq site.Params.pagination.showPrevious false) }}
+			<a href="{{ if $pag.HasPrev }}{{ $pag.Prev.URL }}{{ end }}">
+			{{ with site.Params.pagination.previousIndicator }}
+				{{ . | markdownify }}
+			{{else}}
+				<span>&laquo;</span>
+			{{end}}
+			</a>
+		{{ end }}
+	{{- end }}
+	{{ $.Scratch.Set "__paginator.ellipsed" false }}
+	{{ if not (eq site.Params.pagination.showPageNumbers false) -}}
+		{{ range $pag.Pagers }}
+			{{ $right := sub .TotalPages .PageNumber }}
+			{{ $showNumber := or (le .PageNumber 1) (eq $right 0) }}
+			{{ $showNumber := or $showNumber (and (gt .PageNumber (sub $pag.PageNumber ( site.Params.pagination.pagesBetweenActive | default 3 ))) (lt .PageNumber (add $pag.PageNumber ( site.Params.pagination.pagesBetweenActive | default 3 ))))  }}
+			{{ if $showNumber -}}
+				{{ $.Scratch.Set "__paginator.ellipsed" false }}
+				{{ $.Scratch.Set "__paginator.shouldEllipse" false }}
+			{{- else -}}
+				{{ $.Scratch.Set "__paginator.shouldEllipse" (not ($.Scratch.Get "__paginator.ellipsed") ) }}
+				{{ $.Scratch.Set "__paginator.ellipsed" true }}
+			{{- end }}
+			{{ if $showNumber -}}
+				{{if eq . $pag }}
+					<span class=b>{{ .PageNumber }}</span>
+				{{- else -}}
+					<a href="{{ .URL }}">{{ .PageNumber }}</a>
+				{{- end}}
+			{{ else if ($.Scratch.Get "__paginator.shouldEllipse") }}
+				<span>{{with site.Params.pagination.spaceIndicator }}{{ . | markdownify }}{{end}}</span>
+			{{ end }}
+		{{- end }}
+	{{- end }}
+	{{ if (and (not $pag.HasNext ) (eq site.Params.pagination.showBeginEnd false)) -}}
+	{{- else -}}
+		{{ if not (eq site.Params.pagination.showNext false) }}
+			<a href="{{ if $pag.HasNext }}{{ $pag.Next.URL }}{{ end }}">
+			{{ with site.Params.pagination.nextIndicator }}
+				{{ . | markdownify }}
+			{{else}}<span>&raquo;</span>{{end}}
+			</a>
+		{{ end }}
+		{{ if not (eq site.Params.pagination.showLast false) }}
+			{{ with $pag.Last }}
+				<a href="{{ .URL }}">
+				{{ with site.Params.pagination.lastIndicator }}
+					{{ . | markdownify }}
+				{{else}}
+					<span>&raquo;&raquo;</span>
+				{{end}}
+				</a>
+			{{ end }}
+		{{- end }}
+	{{- end }}
+</div>
 {{- end }}
-{{ $.Scratch.Set "__paginator.ellipsed" false }}{{ if not (eq site.Params.pagination.showPageNumbers false) -}}
-{{ range $pag.Pagers }}{{ $right := sub .TotalPages .PageNumber }}{{ $showNumber := or (le .PageNumber 1) (eq $right 0) }}{{ $showNumber := or $showNumber (and (gt .PageNumber (sub $pag.PageNumber ( site.Params.pagination.pagesBetweenActive | default 3 ))) (lt .PageNumber (add $pag.PageNumber ( site.Params.pagination.pagesBetweenActive | default 3 ))))  }}
-{{ if $showNumber -}}{{ $.Scratch.Set "__paginator.ellipsed" false }}{{ $.Scratch.Set "__paginator.shouldEllipse" false }}{{- else -}}{{ $.Scratch.Set "__paginator.shouldEllipse" (not ($.Scratch.Get "__paginator.ellipsed") ) }}{{ $.Scratch.Set "__paginator.ellipsed" true }}{{- end }}
-{{ if $showNumber -}}{{if eq . $pag }}<span class=b>{{ .PageNumber }}</span>{{- else -}}<a href="{{ .URL }}">{{ .PageNumber }}</a>{{- end}}
-{{ else if ($.Scratch.Get "__paginator.shouldEllipse") }}<span>{{with site.Params.pagination.spaceIndicator }}{{ . | markdownify }}{{end}}</span>{{ end }}{{- end }}
-{{- end }}
-{{ if (and (not $pag.HasNext ) (eq site.Params.pagination.showBeginEnd false)) -}}
-{{- else -}}
-{{ if not (eq site.Params.pagination.showNext false) }}<a href="{{ if $pag.HasNext }}{{ $pag.Next.URL }}{{ end }}">{{ with site.Params.pagination.nextIndicator }}{{ . | markdownify }}{{else}}<span>&raquo;</span>{{end}}</a>{{ end }}
-{{ if not (eq site.Params.pagination.showLast false) }}{{ with $pag.Last }}<a href="{{ .URL }}">{{ with site.Params.pagination.lastIndicator }}{{ . | markdownify }}{{else}}<span>&raquo;&raquo;</span>{{end}}</a>{{ end }}
-{{- end }}
-{{- end }}
-</div>{{- end }}
