@@ -6,7 +6,7 @@
 <article class="bt bb bw2 b--blue">
 	{{ .Content }}
 	<br/>
-	<div id=osd class="ba vh-50 w-100" ></div>
+	<div id=osd class="ba vh-50 w-100"></div>
 	<script src=https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.1/openseadragon.min.js ></script>
 	<script>var viewer = OpenSeadragon({id:"osd",showFullPageControl: false,prefixUrl:"https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.1/images/",tileSources:"/panorama/{{.Params.directory}}/dzc_output.xml"});</script>
 </article>

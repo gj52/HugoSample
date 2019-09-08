@@ -71,7 +71,7 @@ plainIDAnchors             = true
 smartDashes                = false
 smartyPants                = true
 smartypantsQuotesNBSP      = true
-strikethrough              = true   # text wrapped with two tildes ~~ will be crossed out
+strikethrough              = true   
 tables                     = true
 taskLists                  = false
 
@@ -90,21 +90,15 @@ taskLists                  = false
 [mediaTypes]
   [mediaTypes."application/atom+xml"]
     suffixes              = ["xml"]
+  [mediaTypes."application/rss+xml"]
+    suffixes              = ["rss"]
 
 
-[outputFormats.HTML]
-    baseName              = "index"
-    NoUgly                = true
-
-[outputFormats.MANIFEST]
-    MediaType             = "application/json"
-    BaseName              = "manifest"
-    suffix                = "json"
-    IsHTML                = false
-    IsPlainText           = true
-    noUgly                = false
-    Rel                   = "alternate"
-
+#[outputFormats.HTML]
+#    baseName              = "index"
+#    NoUgly                = true
+#    IsHTML                = true
+	
 [outputFormats.ATOM]
     MediaType             = "application/atom+xml"
     BaseName              = "feed"
@@ -113,6 +107,16 @@ taskLists                  = false
     IsPlainText           = false
     noUgly                = true
     Rel                   = "alternate"
+
+[outputFormats.RSS]
+    MediaType             = "application/rss+xml"
+    BaseName              = "feed"
+    suffix                = "rss"
+    IsHTML                = false
+    IsPlainText           = false
+    noUgly                = true
+    Rel                   = "alternate"
+
 
 [outputFormats.SITEMAP]
     MediaType             = "application/atom+xml"
@@ -132,8 +136,17 @@ taskLists                  = false
     noUgly                = false
     Rel                   = "alternate"
 
+[outputFormats.MANIFEST]
+    MediaType             = "application/json"
+    BaseName              = "manifest"
+    suffix                = "json"
+    IsHTML                = false
+    IsPlainText           = true
+    noUgly                = false
+    Rel                   = "alternate"
+
 [outputs]
-    home                  = [ "HTML", "ATOM", "JSON", "MANIFEST"]
+    home                  = [ "HTML", "ATOM", "JSON", "RSS", "MANIFEST", "SITEMAP"]
     section               = [ "HTML" ]
     page                  = [ "HTML" ]
     taxonomy              = [ "HTML" ]
@@ -167,7 +180,7 @@ taskLists                  = false
 ###############################################################
 
 [Params]
-    title              = "G's Spielwiese"
+    title              = "My Playground"
     copyright          = "Mr. Nobody"
     copyright1         = "© 2019 Mr. Nobody"
     

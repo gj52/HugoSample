@@ -1,10 +1,5 @@
-<urlset xmlns="http://wwwsitemaps.org/schemassitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-{{ range site.RegularPages -}}
+<urlset xmlns="http://wwwsitemaps.org/schemassitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">{{ range (where site.RegularPages "Section" "not in" site.Params.invisibleSections) }}
 <url>
- <loc>{{ .Permalink }}</loc>
- {{ if not .Lastmod.IsZero }}<lastmod>{{ safeHTML ( .Lastmod.Format site.Params.dateFormatFeed ) }}</lastmod>{{ end }}
- {{ with .Sitemap.ChangeFreq }}<changefreq>{{ . }}</changefreq>{{ end }}
- {{ if ge .Sitemap.Priority 0.0 }}<priority>{{ .Sitemap.Priority }}</priority>{{ end }}
-</url>
-{{- end }}
+ <loc>{{ .Permalink }}</loc>{{ if not .Lastmod.IsZero -}}<lastmod>{{ safeHTML ( .Lastmod.Format site.Params.dateFormatFeed ) }}</lastmod>{{- end }}{{ with .Sitemap.ChangeFreq -}}<changefreq>{{ . }}</changefreq>{{- end }}{{ if ge .Sitemap.Priority 0.0 -}}<priority>{{ .Sitemap.Priority }}</priority>{{- end }}
+</url>{{ end }}
 </urlset>

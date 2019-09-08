@@ -12,21 +12,21 @@ body {
 }
 
 h1 {
-  text-shadow: 2px 2px 6px rgb(80,80,80);
+  text-shadow: 2px 2px 6px #202020;
   font-family: georgia, athelas, serif;
   white-space: pre-wrap;
 }
 
 a {
-  color: rgb(48,96,156);
+  color: #00449e;
 }
 
   a:hover {
-    color: red;
+    color: #ff4136;
   }
 
   a:focus {
-    color: red;
+    color: #ff4136;;
   }
 
 
@@ -44,36 +44,40 @@ img {
   page-break-inside: avoid;
 }
 
+/* Foto */
+
+.foto {
+	margin: .25rem;
+	box-shadow: 2px 2px 4px 2px rgba( 0, 0, 0, 0.5 );
+}
+
+.foto:hover {
+	box-shadow: 2px 2px 4px 2px #00449e;
+}
+
 /* Index */
 
 .tagbutton {
   text-align: center;
   white-space: nowrap;
   border-style: solid;
+  border-color: gray;
   border-width: 1px;
-  border-top-width: 2px;
-  border-left-width: 3px;
-  border-color: #606060;
-  border-radius: 9999px;
+  border-radius: 6px;
   cursor: pointer;
-  border-color: rgb(12,24,55);
+  box-shadow: inset 2px 2px 3px #909090;
   transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, border-color 0.1s ease-in-out;
 }
 
   .tagbutton:hover {
     background-color: #fffdd5;
     border-width: 1px;
-    border-top-width: 1px;
-    border-bottom-width: 2px;
-    border-right-width: 3px;
+	box-shadow: 2px 2px 2px #757575;
   }
 
   .tagbutton:active {
     background-color: #fffdd5;
-    border-top-width: 2px;
-    border-left-width: 3px;
-    border-bottom-width: 1px;
-    border-right-width: 1px;
+	box-shadow: 2px 2px 2px #757575;
   }
 
 /* table styles */
