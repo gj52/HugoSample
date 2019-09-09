@@ -1,5 +1,7 @@
+{{ print "<?xml version=\"1.0\" encoding=\"utf-8\" ?>"  | safeHTML }}
 <urlset xmlns="http://wwwsitemaps.org/schemassitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">{{ range .CurrentSection.RegularPages }}
-<url>
- <loc>{{ .Permalink }}</loc>{{ if not .Lastmod.IsZero }}<lastmod>{{ safeHTML ( .Lastmod.Format site.Params.dateFormatFeed ) }}</lastmod>{{ end }}{{ with .Sitemap.ChangeFreq }}<changefreq>{{ . }}</changefreq>{{ end }}{{ if ge .Sitemap.Priority 0.0 }}<priority>{{ .Sitemap.Priority }}</priority>{{ end }}
-</url>{{ end }}
+  <url>
+    <loc>{{ .Permalink }}</loc>
+    <lastmod>{{ safeHTML ( .Lastmod.Format site.Params.dateFormatFeed ) }}</lastmod>
+  </url>{{ end }}
 </urlset>

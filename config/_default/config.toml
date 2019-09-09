@@ -147,7 +147,7 @@ taskLists                  = false
 
 [outputs]
     home                  = [ "HTML", "ATOM", "JSON", "RSS", "MANIFEST", "SITEMAP"]
-    section               = [ "HTML" ]
+    section               = [ "HTML", "SITEMAP" ]
     page                  = [ "HTML" ]
     taxonomy              = [ "HTML" ]
     taxonomyTerm          = [ "HTML" ]
@@ -190,7 +190,7 @@ taskLists                  = false
     dateFormatYear      = "2006"
     dateFormatFeed      = "2006-01-02T15:04:05Z"
 
-    invisibleSections   = ["menu","serie","about"]
+    invisibleSections   = ["menu","serie","about", "links"]
 
     digest              = "sha256"
     
