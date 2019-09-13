@@ -1,5 +1,6 @@
 +++
 categories  = ["menu"]
 title       = "Menü"
-layout = "menu"
+layout      = "menu"
+PrevNext    = false
 +++

@@ -1,5 +1,5 @@
 {{ print "<?xml version=\"1.0\" encoding=\"utf-8\" ?>"  | safeHTML }}
-<urlset xmlns="http://wwwsitemaps.org/schemassitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">{{ range .CurrentSection.RegularPages }}
+<urlset xmlns="http://wwwsitemaps.org/schemassitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">{{ range first site.Params.sitemapMax .CurrentSection.RegularPages }}
   <url>
     <loc>{{ .Permalink }}</loc>
     <lastmod>{{ safeHTML ( .Lastmod.Format site.Params.dateFormatFeed ) }}</lastmod>

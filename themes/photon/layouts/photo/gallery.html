@@ -7,7 +7,6 @@
 	{{ .Content }}
 	<br/>
 	{{range .Resources.Match "gallery/*" -}}{{$alt := .Name}}{{ $image := .Fit "370x246" }}{{ $preview := .Fit "36x24" }} {{ $title := ""}}
-		{{ if in "jpg tiff" .MediaType.SubType }}{{ with .Exif }}{{ if ne (.Date.Format "2006") "0001"}}{{ $title = .Date.Format "02.01.2006 15:04" }}{{end}}{{ end }}{{ end }}
 		<a data-fancybox=gallery href={{.RelPermalink}}><figure><img 
 			loading=lazy class=foto src={{ $image.RelPermalink }} 
 			width={{ $image.Width }} height={{ $image.Height }} alt="{{ $alt }}" title="{{$title}}"

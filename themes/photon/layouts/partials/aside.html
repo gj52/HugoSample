@@ -7,5 +7,13 @@
 	</a>
 {{end}}
 
-	<div class="dn-ns no-print tr f1"><a href=/menu/ ><i class="fas fa-bars"></i></a></div>
+<div class="dn-ns no-print tr f2 pt4">
+{{ if and .IsPage (eq .Params.PrevNext nil)  }}
+		{{if .NextInSection}}<a href={{.NextInSection.Permalink}}  title="{{.NextInSection.Title}}"><i class="far fa-hand-point-left pr2"></i></i></a>{{else}}<i class="far fa-hand-rock light-gray pr2"></i>{{end}} 
+{{end}}		
+		<a href=/menu/ ><i class="fas fa-bars"></i></a>
+{{ if and .IsPage (eq .Params.PrevNext nil)  }}
+		{{if .PrevInSection}}<a href={{.PrevInSection.Permalink}}  title="{{.PrevInSection.Title}}"><i class="far fa-hand-point-right pl2"></i></a>{{else}}<i class="far fa-hand-rock light-gray pl2"></i>{{end}}
+{{end}}
+</div>
 </aside>
