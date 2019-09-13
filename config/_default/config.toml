@@ -93,12 +93,6 @@ taskLists                  = false
   [mediaTypes."application/rss+xml"]
     suffixes              = ["rss"]
 
-
-#[outputFormats.HTML]
-#    baseName              = "index"
-#    NoUgly                = true
-#    IsHTML                = true
-	
 [outputFormats.ATOM]
     MediaType             = "application/atom+xml"
     BaseName              = "feed"
@@ -191,7 +185,8 @@ taskLists                  = false
     dateFormatFeed      = "2006-01-02T15:04:05Z"
 
     invisibleSections   = ["menu","serie","about", "links"]
-
+	sitemapMax          = 49999
+	
     digest              = "sha256"
     
     [Params.sidebar]
