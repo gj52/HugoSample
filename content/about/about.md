@@ -3,7 +3,7 @@ categories  = ["about"]
 date        = "2016-08-23T18:21:48+02:00"
 description = "ist kein Impressum"
 title       = "about"
-PrevNext    = false
+PrevNext    = "No"
 +++
 ## über mich
 

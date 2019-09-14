@@ -31,14 +31,17 @@
 			{{- end}}
 		</div>
 	{{- end}}
+
+{{ $pn := .Params.PrevNext | default "Yes" }}
 	
 	<div id=feed class="pt4"><a href=/feed.xml target=_blank type=application/atom+xml Title="ATOM Feed"><i class="fas fa-rss fa-fw"></i></a></div>  
-	
-{{ if and .IsPage (eq .Params.PrevNext nil)  }}
+<!-- {{ if in site.Params.invisibleSections .Section }}{{end}} -->
+{{ if and .IsPage (eq $pn "Yes")  }}
 	<div class=pt4>
 		{{if .NextInSection}}<a href={{.NextInSection.Permalink}} title="{{.NextInSection.Title}}"><i class="far fa-hand-point-left pr2"></i></i></a>{{else}}<i class="far fa-hand-rock light-gray pr2"></i>{{end}} 
 		<i class="far fa-file"></i>
 		{{if .PrevInSection}}<a href={{.PrevInSection.Permalink}} title="{{.PrevInSection.Title}}"><i class="far fa-hand-point-right pl2"></i></a>{{else}}<i class="far fa-hand-rock light-gray pl2"></i>{{end}}
 	</div>
 {{end}}
+
 </nav>
