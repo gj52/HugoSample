@@ -20,7 +20,7 @@
 
 	{{if isset .Params "tags" -}}
 		<span class=nowrap>
-		<a href="/tags/" title="{{ $.Scratch.Get "index" }}"><i class="fas fa-tag fa-fw"></i></a>
+		<a href={{ relref . "tags" }} title="{{ $.Scratch.Get "index" }}"><i class="fas fa-tag fa-fw"></i></a>
 		{{ range $index, $name := sort .Params.tags -}}
 			<a class=ph1 href={{ (printf "/tags/%s/" $name) | urlize }} title="Index: {{$name | markdownify }}">{{$name | markdownify}}</a>
 		{{- end}}
@@ -29,7 +29,7 @@
 	  
 	{{if isset .Params "series" -}}{{ $serLen := len .Params.series -}}
 		{{if gt $serLen 0 -}}
-			<span class=nowrap><a href="/series/" title="{{ $.Scratch.Get "serie" }}"><i class="fas fa-book fa-fw"></i></a>
+			<span class=nowrap><a href={{ relref . "series" }} title="{{ $.Scratch.Get "serie" }}"><i class="fas fa-book fa-fw"></i></a>
 				{{range $index, $name := sort .Page.Params.series -}}
 					<a class=ph1 href=/series/{{($name|urlize)}}/ title="Serie: {{ $name | markdownify}}">{{ $name | markdownify }}</a>
 				{{- end}}

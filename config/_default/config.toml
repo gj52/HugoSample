@@ -85,7 +85,7 @@ taskLists                  = false
     tags                   = "/tags/:slug/"
     post                   = "/:section/:year/:month/:day/:title"
     photo                  = "/:section/:year/:month/:day/:title"
-    series                 = "/series/:slug"
+    series                 = "/series/:slug/"
 
 [mediaTypes]
   [mediaTypes."application/atom+xml"]
@@ -113,7 +113,7 @@ taskLists                  = false
 
 
 [outputFormats.SITEMAP]
-    MediaType             = "application/atom+xml"
+    MediaType             = "application/xml"
     BaseName              = "sitemap"
     suffix                = "xml"
     IsHTML                = false
@@ -169,7 +169,7 @@ taskLists                  = false
 
 [Author]
     name               = "Gerhard Junker"
-    email              = "gmtju@hotmail.com"
+    email              = "me@example.com"
 
 ###############################################################
 

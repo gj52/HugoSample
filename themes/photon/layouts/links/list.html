@@ -11,7 +11,7 @@
 		{{ range sort $data.items "title"}}
 			{{ if not .draft }}
 				<div class="dib pt3 pl2 w-100">
-					<div class=f4><i class="fas fa-external-link-alt fa-fw"></i> <a class=b href="{{ .url }}" target="_blank">{{ .title }}</a></div>
+					<div class=f4><i class="fas fa-external-link-alt fa-fw"></i> <a class=b href={{ .url }} target=_blank rel=noopener>{{ .title }}</a></div>
 					<div class="pt2 f5">{{ .description }}</div>
 				</div>
 			{{end}}
