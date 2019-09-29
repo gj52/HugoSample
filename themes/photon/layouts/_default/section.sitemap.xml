@@ -3,5 +3,7 @@
   <url>
     <loc>{{ .Permalink }}</loc>
     <lastmod>{{ safeHTML ( .Lastmod.Format site.Params.dateFormatFeed ) }}</lastmod>
+	{{ with site.Params.Sitemap.changeFreq }}<changefreq>{{ . }}</changefreq>{{end}}
+	{{ with site.Params.Sitemap.priority   }}<priority>{{.}}</priority>{{end}}
   </url>{{ end }}
 </urlset>

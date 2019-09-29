@@ -3,14 +3,16 @@
 <meta name=viewport content="width=device-width, initial-scale=1" />
 <meta name=robots   content="noindex,nofollow" />
 <meta name=referrer content=no-referrer />
+
 {{ if site.IsServer }}<meta http-equiv="cache-control" content="no-cache">{{end}}
 {{ if .IsHome -}}
-<!--	<link rel=dns-prefetch href=//code.jquery.com />     <!-- jquery       -->
-	<link rel=dns-prefetch href=//www.jsdelivr.com />    <!-- Fancybox     -->
-	<link rel=dns-prefetch href=//jsonfeed.org />        <!-- JSON Schema  -->
-	<link rel=dns-prefetch href=//www.w3.org />          <!-- ATOM Schema  -->
+	<link rel=dns-prefetch href=www.jsdelivr.com />   
+	<link rel=dns-prefetch href=cdn.materialdesignicons.com />
+	<link rel=dns-prefetch href=cdnjs.cloudflare.com />
+	
 	<title>{{ site.Title  | markdownify }}</title>
 	{{ partial "manifest" . }}
+	<meta name="application-name" content="{{ site.Title  | markdownify }}">
 	<meta name=keywords content="{{ range first 25 site.Taxonomies.tags.ByCount }}{{ $f := slicestr  .Name 0 1}}{{if ne $f "2"}}{{.Name}},{{end}}{{end}}" />
 {{- else -}}
 	<title>{{ site.Title  | markdownify }} &ndash; {{ .Title  | markdownify }}</title>

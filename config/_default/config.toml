@@ -92,11 +92,17 @@ taskLists                  = false
     suffixes              = ["xml"]
   [mediaTypes."application/rss+xml"]
     suffixes              = ["rss"]
-
+  [mediaTypes."application/manifest+json"]
+    suffixes              = ["webmanifest"]
+	
+[outputFormats.HTML]
+    baseName              = "index"
+    NoUgly                = true
+    IsHTML                = true
+	
 [outputFormats.ATOM]
     MediaType             = "application/atom+xml"
     BaseName              = "feed"
-    suffix                = "xml"
     IsHTML                = false
     IsPlainText           = false
     noUgly                = true
@@ -105,7 +111,6 @@ taskLists                  = false
 [outputFormats.RSS]
     MediaType             = "application/rss+xml"
     BaseName              = "feed"
-    suffix                = "rss"
     IsHTML                = false
     IsPlainText           = false
     noUgly                = true
@@ -115,29 +120,27 @@ taskLists                  = false
 [outputFormats.SITEMAP]
     MediaType             = "application/xml"
     BaseName              = "sitemap"
-    suffix                = "xml"
     IsHTML                = false
     IsPlainText           = false
     noUgly                = true
-    Rel                   = "alternate"
+    Rel                   = "sitemap"
 
 [outputFormats.JSON]
     MediaType             = "application/json"
     BaseName              = "feed"
-    suffix                = "json"
     IsHTML                = false
     IsPlainText           = true
     noUgly                = false
     Rel                   = "alternate"
 
 [outputFormats.MANIFEST]
-    MediaType             = "application/json"
+    MediaType             = "application/manifest+json"
     BaseName              = "manifest"
-    suffix                = "json"
+    suffix                = "webmanifest"
     IsHTML                = false
     IsPlainText           = true
     noUgly                = false
-    Rel                   = "alternate"
+    Rel                   = "manifest"
 
 [outputs]
     home                  = [ "HTML", "ATOM", "JSON", "RSS", "MANIFEST", "SITEMAP"]
@@ -145,6 +148,7 @@ taskLists                  = false
     page                  = [ "HTML" ]
     taxonomy              = [ "HTML" ]
     taxonomyTerm          = [ "HTML" ]
+
 
 ###############################################################
 
@@ -189,9 +193,14 @@ taskLists                  = false
 	
     digest              = "sha256"
     
-    [Params.sidebar]
-        avatar          = "/img/head.jpg"
-        bio             = "**Mr. Nobody**"
+[Params.sidebar]
+	avatar          = "/img/head.jpg"
+	bio             = "**Mr. Nobody**"
+
+[Params.Sitemap]
+	changeFreq = "weekly"
+	priority   = 0.5
+
 
 ###############################################################
 
