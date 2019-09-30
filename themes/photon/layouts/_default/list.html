@@ -1,7 +1,7 @@
 {{ define "main" }}
 <header><h1><span class="dn di-l w-90-ns">{{ site.Title  | markdownify }}</span><i class="fas fa-dragon fa-fw ph3"></i>{{ .Page.Title }}</h1>{{if isset .Params "description" }}<div class="f5 b w-90-ns">{{ .Description }}</div>{{end}}</header>
 <article class="pa2 bt bb bw2 b--blue">
-<h2 class=dn>{{ .Page.Title }}</h2>{{ $paginator := .Paginate .Data.Pages }} 
+<h2 class=dn>{{ .Page.Title }}</h2>{{ $paginator := .Paginate .CurrentSection.RegularPages }} 
 {{ range $paginator.Pages -}}
 {{ .Render "summary" }}
 {{- end }}
