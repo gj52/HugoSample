@@ -6,8 +6,8 @@
 <article class="pa4 bt bb bw2 b--blue">
 	<h2 class=dn>{{ .Page.Title }}</h2>
 	{{range site.Taxonomies.series.Alphabetical -}}
-		<div class="f4 pv1">
-			<a class=b href="{{ .Page.RelPermalink }}" title="Serie: {{.Page.Title}}"><i class="far fa-folder-open fa-fw"></i>&nbsp;{{ .Page.Title  | markdownify }}</a><sup class=no-underline>{{.Count}}</sup>
+		<div class="f5 pv1">
+			<a class=b href="{{ .Page.RelPermalink }}" title="Serie: {{.Page.Title}}"><i class="far fa-folder-open fa-fw"></i>&nbsp;{{ .Page.Title  | markdownify }}</a>&nbsp;<sup class=b>{{.Count}}</sup>
 		</div>
 	{{- end}}
 </article>
