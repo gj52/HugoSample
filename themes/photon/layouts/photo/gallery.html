@@ -8,7 +8,7 @@
 	<br/>
 	{{range .Resources.Match "gallery/*" -}}{{$alt := .Name}}{{ $image := .Fit "370x246" }}{{ $preview := .Fit "36x24" }} {{ $title := ""}}
 		<a data-fancybox=gallery href={{.RelPermalink}}><figure><img 
-			loading=lazy class=foto src={{ $image.RelPermalink }} 
+			loading=lazy class=polaroid src={{ $image.RelPermalink }} 
 			width={{ $image.Width }} height={{ $image.Height }} alt="{{ $alt }}" title="{{$title}}"
 			style="background: url(data:image/jpeg;base64,{{ $preview.Content | base64Encode  }}); background-size:100% 100%;" 
 		/></figure></a>

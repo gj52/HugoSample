@@ -7,7 +7,7 @@
 	</a>
 {{end}}
 
-<div class="dn-ns no-print tr f2 pt4">
+<div class="dn no-print tr f2 pt4">
 {{ if and .IsPage (eq .Params.PrevNext nil)  }}
 	{{if .NextInSection}}<a href={{.NextInSection.Permalink}}  title="{{.NextInSection.Title}}"><i class="far fa-hand-point-left pr2"></i></i></a>{{else}}<i class="far fa-hand-rock light-gray pr2"></i>{{end}} 
 {{end}}

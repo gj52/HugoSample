@@ -6,7 +6,7 @@
 	<div class=flex-l>
 		<div class="pa2 mt2 w50">
 			<a data-fancybox=gallery href="{{$orig.RelPermalink | relURL}}" >
-			<figure><img loading=lazy class=foto loading=lazy src="{{ $img.RelPermalink | relURL  }}" 
+			<figure><img loading=lazy class=polaroid loading=lazy src="{{ $img.RelPermalink | relURL  }}" 
 				width={{ $img.Width }} height={{ $img.Height }} alt="{{.Name}}" 
 				style="background: url(data:image/jpeg;base64,{{ $preview.Content | base64Encode  }}); background-size: 100% 100%;" /></figure></a>
 		</div>

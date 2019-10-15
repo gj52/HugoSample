@@ -30,6 +30,14 @@ a {
     color: #ff4136;;
   }
 
+ul {
+    display: block;
+    margin-block-start: 0.8em;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
 
 textarea {
   resize: vertical;
@@ -55,6 +63,20 @@ img {
 .foto:hover {
 	box-shadow: 2px 2px 4px 2px #00449e;
 }
+
+.polaroid {
+	margin: .25rem;
+    border:solid #fff;
+    border-width:6px 6px 6px 6px;
+	box-shadow: 2px 2px 4px 2px rgba( 0, 0, 0, 0.5 );   
+}
+
+.polaroid:hover {
+	border:solid #ddd;
+	border-width:6px 6px 6px 6px;
+}
+
+
 
 /* Index */
 
@@ -97,19 +119,14 @@ table {
     padding: 0.5em 0.5em;
   }
 
+/*
   table tr:hover {
     background-color: rgb(240,240,240);
   }
-
-  table th {
-    color: white;
-    background-color: rgb(96,96,96);
-  }
-
-  table td {
-    border: solid 1px;
-  }
-
+*/
+  tbody tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
 
 .w500 {
   min-width: 500px;
@@ -130,18 +147,16 @@ table {
   padding-left: .5rem; 
   padding-right: .5rem; 
   display: grid;
-  grid-template-columns: 1fr;
+      columns: 2;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto 1fr auto;
-  grid-template-areas: "aa" "hh" "mm" "ft";
+  grid-template-areas: "aa nn" "hh hh" "mm mm" "ft ft";
   column-gap: 10px;
 }
 
 @supports (display:grid) {
   aside {
-    display: grid;
     grid-area: aa;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
   }
 
   nav {
@@ -189,6 +204,7 @@ section {
 @media screen and (min-width: 30em) and (max-width: 60em) {
   body {
     background-image: url("/img/wave-ms.jpg");
+    background-size: cover;	
   }
 
   .site {
@@ -205,6 +221,7 @@ section {
 @media screen and (min-width: 60em) {
   body {
     background-image: url("/img/wave-ls.jpg");
+	background-size: cover;
   }
 
   .site {
