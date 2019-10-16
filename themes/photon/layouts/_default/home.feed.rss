@@ -1,0 +1,25 @@
+{{ print "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"  ?>"  | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"> 
+  <channel>
+    <title>{{ htmlEscape .Site.Title }}</title>
+    <link>{{ .Permalink }}</link>
+	{{ with  $.OutputFormats.Get "FEED" }}<atom:link href="{{.Permalink}}" rel="self" type="{{ .MediaType }}"/>{{ end }}
+    <description>{{htmlEscape .Site.Title }}</description>
+    <generator>Hugo -- gohugo.io</generator>
+    {{ with .Site.LanguageCode }}<language>{{.}}</language>{{end}}
+    {{ with .Site.Author.name }}<managingEditor>{{ with $.Site.Author.email }}{{.}}{{end}}({{.}})</managingEditor>{{end}}
+    {{ with .Site.Author.name }}<webMaster>{{ with $.Site.Author.email }}{{.}}{{end}}({{.}})</webMaster>{{end}}
+    {{ with .Site.Copyright }}<copyright>{{.}}</copyright>{{end}}
+    <lastBuildDate>{{site.LastChange.UTC.Format  .Site.Params.dateFormatRFC822Z | safeHTML }}</lastBuildDate>
+    {{ range first 25 (where site.RegularPages "Section" "not in" site.Params.invisibleSections)}}
+    <item>
+      <title>{{htmlEscape .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.UTC.Format .Site.Params.dateFormatRFC822Z | safeHTML }}</pubDate>
+      {{ with .Site.Author.name }}<author>{{ with $.Site.Author.email }}{{.}}{{end}}({{.}})</author>{{end}}
+      <guid isPermaLink="false">{{ md5 .Permalink }}</guid>
+      <description>{{ htmlEscape .Summary }}</description>
+    </item>
+    {{ end }}
+  </channel>
+</rss>

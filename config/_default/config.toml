@@ -103,15 +103,15 @@ taskLists                  = false
     MediaType             = "application/atom+xml"
     BaseName              = "feed"
     IsHTML                = false
-    IsPlainText           = false
+    IsPlainText           = true
     noUgly                = true
     Rel                   = "alternate"
 
-[outputFormats.RSS]
+[outputFormats.FEED]
     MediaType             = "application/rss+xml"
     BaseName              = "feed"
     IsHTML                = false
-    IsPlainText           = false
+    IsPlainText           = true
     noUgly                = true
     Rel                   = "alternate"
 
@@ -120,7 +120,7 @@ taskLists                  = false
     MediaType             = "application/xml"
     BaseName              = "sitemap"
     IsHTML                = false
-    IsPlainText           = false
+    IsPlainText           = true
     noUgly                = true
     Rel                   = "sitemap"
 
@@ -142,7 +142,7 @@ taskLists                  = false
     Rel                   = "manifest"
 
 [outputs]
-    home                  = [ "HTML", "ATOM", "JSON", "RSS", "MANIFEST", "SITEMAP"]
+    home                  = [ "HTML", "ATOM", "JSON", "FEED", "MANIFEST", "SITEMAP"]
     section               = [ "HTML", "SITEMAP" ]
     page                  = [ "HTML" ]
     taxonomy              = [ "HTML" ]
@@ -159,10 +159,9 @@ taskLists                  = false
     PagesPerList       = 10
     PagesPerListHome   = 10
     Paginate           = 10
-	PaginatePath       = "pages"
-    firstIndicator     = "<i class=\"fas fa-angle-double-left \"></i>" 
-    previousIndicator  = "<i class=\"fas fa-angle-left        \"></i>" 
-    nextIndicator      = "<i class=\"fas fa-angle-right       \"></i>"
+    firstIndicator     = "<i class=\"fas fa-angle-double-left\"></i>" 
+    previousIndicator  = "<i class=\"fas fa-angle-left\"></i>" 
+    nextIndicator      = "<i class=\"fas fa-angle-right\"></i>"
     lastIndicator      = "<i class=\"fas fa-angle-double-right\"></i>"        
     showBeginEnd       = false
     spaceIndicator     = "<b> ... </b>"
