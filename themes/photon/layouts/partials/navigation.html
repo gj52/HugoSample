@@ -38,18 +38,19 @@
 	</lo>  
 
 </ul>
-<div class="db dn-ns pt4 mw5">
-<select class="b dark-blue bw0 bg-transparent" onchange="window.location.replace(this.value);">
-	{{ range site.Menus.main -}}
+
+<div class="db dn-ns pt3 pr2 h-100 w-100 hamburg">
+<select class="dn b dark-blue bw0 bg-transparent" onchange="window.location.replace(this.value);">
+	{{ range site.Menus.main }}
 		<lo class=pt1>
 			{{ if $.Page.IsMenuCurrent "main" . -}}
 				<option value={{ .URL }} selected>{{.Name | markdownify}}</option>
-			{{- else -}}
+			{{ else }}
 				<option value={{ .URL }}>{{ .Name | markdownify }}</option>
-			{{- end}}
+			{{ end }}
 		</lo>
-	{{- end}}
-</select>
+	{{ end }}
+</select><i class="f2 b dark-blue fas fa-bars fw"></i>
 </div>
 
 </nav>

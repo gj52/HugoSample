@@ -76,6 +76,14 @@ img {
 	border-width:6px 6px 6px 6px;
 }
 
+.hamburg:hover select{
+	display: inline-block;
+	position: right;
+}
+
+.hamburg:hover i{
+	display: none;
+}
 
 
 /* Index */

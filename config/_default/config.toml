@@ -19,16 +19,15 @@ LanguageCode                   = "de-de"
 DefaultContentLanguage         = "de"
 DefaultContentLanguageInSubdir = true
 
+archetypedir               = "archetypes"
 assetdir                   = "assets"
 contentdir                 = "content"
+dataDir                    = "data"
 layoutdir                  = "layouts"
 publishdir                 = "public"
-archetypedir               = "archetypes"
-dataDir                    = "data"
+paginatepath               = "page"
+resourcedir                = "resources"
 staticdir                  = "static"
-resourceDir                = "resources"
-
-PaginatePath               = "page"
 
 builddrafts                = false
 canonifyurls               = false
@@ -190,8 +189,8 @@ taskLists                  = false
 
     invisibleSections   = ["menu","serie","about", "links"]
 	sitemapMax          = 49999
-	
-    digest              = "sha256"
+
+    digest              = "sha384"
     
 [Params.sidebar]
 	avatar          = "/img/head.jpg"
@@ -227,19 +226,19 @@ taskLists                  = false
     pre                = "<i class=\"fas fa-image fa-fw\"></i>"
 
 [[menu.main]]
-    identifier          = "link"
-    name                = "Links"
-    url                 = "/links/"
-    weight              = 40
-    pre                = "<i class=\"fas fa-external-link-square-alt fa-fw\"></i>"  
-    
-[[menu.main]]
     identifier          = "serie"
     name                = "Serien"
     url                 = "/series/"
-    weight              = 50 
+    weight              = 40 
     pre                = "<i class=\"fas fa-book fa-fw\"></i>"
-    
+
+[[menu.main]]
+    identifier          = "link"
+    name                = "Links"
+    url                 = "/links/"
+    weight              = 50
+    pre                = "<i class=\"fas fa-external-link-square-alt fa-fw\"></i>"  
+
 [[menu.main]]
     identifier          = "index"
     name                = "Index"
