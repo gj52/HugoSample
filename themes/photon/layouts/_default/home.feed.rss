@@ -18,7 +18,7 @@
       <pubDate>{{ .Date.UTC.Format .Site.Params.dateFormatRFC822Z | safeHTML }}</pubDate>
       {{ with .Site.Author.name }}<author>{{ with $.Site.Author.email }}{{.}}{{end}}({{.}})</author>{{end}}
       <guid isPermaLink="false">{{ md5 .Permalink }}</guid>
-      <description>{{ htmlEscape .Summary }}</description>
+      <description>{{ plainify .Summary | htmlEscape }}</description>
     </item>
     {{ end }}
   </channel>
