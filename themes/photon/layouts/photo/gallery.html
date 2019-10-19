@@ -6,7 +6,7 @@
 <article class="bt bb bw2 b--blue">
 	{{ .Content }}
 	<br/>
-	{{range .Resources.Match "gallery/*" -}}{{$alt := .Name}}{{ $image := .Fit "370x246" }}{{ $preview := .Fit "36x24" }} {{ $title := ""}}
+	{{range .Resources.Match "gallery/*" -}}{{$alt := .Name}}{{ $image := .Fit "360x240" }}{{ $preview := .Fit "36x24" }} {{ $title := ""}}
 		<a data-fancybox=gallery href={{.RelPermalink}}><figure><img 
 			loading=lazy class=polaroid src={{ $image.RelPermalink }} 
 			width={{ $image.Width }} height={{ $image.Height }} alt="{{ $alt }}" title="{{$title}}"
