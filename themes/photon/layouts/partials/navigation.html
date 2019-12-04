@@ -1,17 +1,17 @@
 <nav class="f3 pr2 tr br-ns bw2-ns b--blue navigation">
-<ul class="dn db-ns">
+<ul class="dn db-ns list" >
 	{{ range site.Menus.main -}}
-		<lo class=pt1>
+		<li class=pt1>
 			{{ if $.Page.IsMenuCurrent "main" . -}}
 				<span class="white bg-blue ph1">{{.Name | markdownify}}</span>
 			{{- else -}}
 				<span class="db ph1" ><a href="{{ .URL }}" Title="{{ .Name }}">{{ .Name | markdownify }}</a></span>
 			{{- end}}
-		</lo>
+		</li>
 	{{- end}}
 
 	{{ if site.IsServer -}}
-		<lo class=pt1>
+		<li class=pt1>
 			{{ $isIntern := (and (eq "intern" .Page.Section) (eq "section" .Page.Kind)) }}
 			{{ if $isIntern -}}
 				<span class="white bg-blue ph1">Intern</span>
@@ -20,8 +20,8 @@
 					<span class="db ph1"><a href={{.RelPermalink}} Title=Intern>Intern</a></span>
 				{{end}}
 			{{- end}}
-		</lo>
-		<lo class=pt1>
+		</li>
+		<li class=pt1>
 			{{ $isTest := (and (eq "test" .Page.Section) (eq "section" .Page.Kind)) }}
 			{{ if $isTest -}}
 				<span class="white bg-blue ph1">Test</span>
@@ -30,27 +30,36 @@
 					<span class="db ph1"><a href={{.RelPermalink}} Title=Intern>Test</a></span>
 				{{end}}
 			{{- end}}
-		</lo>
+		</li>
 	{{- end}}
 
-	<lo id=feed class=pt1>
-		<span class="db pv1" ><a href=/feed.xml target=_blank type=application/atom+xml Title="ATOM Feed"><i class="pt4 fas fa-rss fa-fw"></i></a></span>
-	</lo>  
 
+	<li id=feed class=pt1>
+		<span class="db pv1" ><a href=/feed.xml target=_blank type=application/atom+xml Title="ATOM Feed"><i class="pt4 fas fa-rss fa-fw"></i></a></span>
+	</li>  
+
+<!-- {{ if in site.Params.invisibleSections .Section }}{{end}} -->
+{{ $pn := .Params.PrevNext | default "Yes" }}
+
+{{ if and .IsPage (eq $pn "Yes")  }}
+	<li class=pt4>
+		{{if .NextInSection}}<a href={{.NextInSection.Permalink}} title="{{.NextInSection.Title}}"><i class="far fa-hand-point-left pr2"></i></a>{{else}}<i class="far fa-hand-rock light-gray pr2"></i>{{end}} 
+		<i class="far fa-file"></i>
+		{{if .PrevInSection}}<a href={{.PrevInSection.Permalink}} title="{{.PrevInSection.Title}}"><i class="far fa-hand-point-right pl2"></i></a>{{else}}<i class="far fa-hand-rock light-gray pl2"></i>{{end}}
+	</li>
+{{end}}
 </ul>
 
-<div class="db dn-ns pt3 pr2 h-100 w-100 hamburg">
-<select class="dn b dark-blue bw0 bg-transparent" onchange="window.location.replace(this.value);">
+<div class="db dn-ns hamburg">
+<select onchange="window.location.replace(this.value);">
 	{{ range site.Menus.main }}
-		<lo class=pt1>
 			{{ if $.Page.IsMenuCurrent "main" . -}}
-				<option value={{ .URL }} selected>{{.Name | markdownify}}</option>
+				<option selected>{{.Name | markdownify}}</option>
 			{{ else }}
 				<option value={{ .URL }}>{{ .Name | markdownify }}</option>
 			{{ end }}
-		</lo>
 	{{ end }}
-</select><i class="f2 b dark-blue fas fa-bars fa-fw"></i>
+</select><i class="f2 fas fa-bars fa-fw"></i>
 </div>
 
 </nav>

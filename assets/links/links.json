@@ -12,15 +12,15 @@
 	  "draft" : false
     },
     {
-      "title": "Blackfriday Markdown",
-      "description": "Markdown Beschreibung",
-      "url": "https://daringfireball.net/projects/markdown/"
+      "title": "Markdown’s formatting syntax",
+      "description": "CommonMark Spec",
+      "url": "https://spec.commonmark.org/0.29/"
     },
     {
-      "title": "Blackfriday Project",
-      "description": "Markdown Projekt auf Github",
-      "url": "https://github.com/russross/blackfriday/"
-    },
+      "title": "Goldmark project",
+      "description": "A markdown parser compliant to CommonMark.",
+      "url": "https://github.com/yuin/goldmark/"
+    },	
     {
       "title": "CSS Snippets",
       "description": "50 Useful CSS Snippets Every Designer Should Have",

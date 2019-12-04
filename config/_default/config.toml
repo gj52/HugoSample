@@ -56,26 +56,6 @@ expiryDate                 = [ "expiryDate"]
 
 ###############################################################
 
-[blackfriday]
-autoHeaderIds              = false
-angledQuotes               = false 
-definitionLists            = false
-fractions                  = true
-headerIds                  = false
-hrefTargetBlank            = true
-latexDashes                = false
-nofollowLinks              = true
-noreferrerLinks            = true
-plainIDAnchors             = true
-smartDashes                = false
-smartyPants                = true
-smartypantsQuotesNBSP      = true
-strikethrough              = true   
-tables                     = true
-taskLists                  = false
-
-###############################################################
-
 [taxonomies]
     tag                    = "tags"
     serie                  = "series"
@@ -84,7 +64,7 @@ taskLists                  = false
     tags                   = "/tags/:slug/"
     post                   = "/:section/:year/:month/:day/:title"
     photo                  = "/:section/:year/:month/:day/:title"
-    series                 = "/series/:slug/"
+    series                 = "/series/:slug"
 
 [mediaTypes]
   [mediaTypes."application/atom+xml"]
@@ -154,6 +134,7 @@ taskLists                  = false
 [imaging]
     resampleFilter     = "Lanczos"
     quality            = 85
+	bgColor            = "#ffffff"
 
 [Params.Pagination]
     PagesPerList       = 10
@@ -185,6 +166,7 @@ taskLists                  = false
     dateFormatShort     = "2006-01-02"
     dateFormatYear      = "2006"
     dateFormatFeed      = "2006-01-02T15:04:05Z"
+	dateFormatRFC822Z   = "02 Jan 2006 15:04:05 UT" 
 
     invisibleSections   = ["menu","serie","about", "links"]
 	sitemapMax          = 49999

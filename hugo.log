@@ -1,0 +1,18 @@
+INFO 2019/12/04 18:10:14 Using config file: 
+INFO 2019/12/04 18:10:14 removing all files from destination that don't exist in static dirs
+INFO 2019/12/04 18:10:14 syncing static files to M:\HugoSample\HugoSample\
+LOG:   2019/12/04 18:10:32 Built in 18042 ms
+INFO 2019/12/04 18:11:17 Using config file: 
+INFO 2019/12/04 18:11:17 removing all files from destination that don't exist in static dirs
+INFO 2019/12/04 18:11:17 syncing static files to M:\HugoSample\HugoSample\
+LOG:   2019/12/04 18:11:46 Built in 28640 ms
+INFO 2019/12/04 18:14:07 Using config file: 
+INFO 2019/12/04 18:14:07 removing all files from destination that don't exist in static dirs
+INFO 2019/12/04 18:14:07 syncing static files to M:\HugoSample\HugoSample\
+LOG:   2019/12/04 18:14:08 Built in 888 ms
+LOG:   2019/12/04 18:14:08 Watching for config changes in M:\HugoSample\HugoSample\config\_default
+INFO 2019/12/04 18:15:08 Received System Events: ["M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\index.md": REMOVE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\index.md": CREATE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI": WRITE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\index.md": WRITE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03298.jpg": REMOVE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03298.jpg": CREATE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images": WRITE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03298.jpg": WRITE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03299.jpg": REMOVE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03299.jpg": CREATE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images": WRITE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03299.jpg": WRITE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03299hdr.jpg": REMOVE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03299hdr.jpg": CREATE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images": WRITE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03299hdr.jpg": WRITE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03299opt.jpg": REMOVE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03299opt.jpg": CREATE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images": WRITE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03299opt.jpg": WRITE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03299web.jpg": REMOVE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images": WRITE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03299web.jpg": CREATE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03299web.jpg": WRITE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03300.jpg": REMOVE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03300.jpg": CREATE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images": WRITE "M:\\HugoSample\\HugoSample\\content\\photo\\2018-08-24_HDRI\\images\\dsc03300.jpg": WRITE]
+LOG:   2019/12/04 18:15:08 
+Change detected, rebuilding site.
+LOG:   2019/12/04 18:15:08 2019-12-04 18:15:08.667 +0100
+LOG:   2019/12/04 18:15:08 Total in 36 ms
