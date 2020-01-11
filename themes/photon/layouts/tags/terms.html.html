@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ .Paginate nil }}
+
 <header>
 	<h1><span>{{ site.Title  | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1>
 	<div class=b>{{ .Description }}</div>
@@ -9,7 +9,7 @@
 	<div class="dib f5 lh-copy">
 		{{range site.Taxonomies.tags.Alphabetical -}} 
 			<div class="fl ph2 pv1 ma1 b tagbutton">
-				<a href={{ .Page.RelPermalink }} title="Alle Webseiten mit &quot;{{.Page.Title}}&quot; anzeigen">{{.Page.Title}}</a>&nbsp;<sup class="no-underline b">{{.Count}}</sup>
+				<a href={{ .Page.RelPermalink }} title="Alle Webseiten mit &quot;{{.Page.Title}}&quot; anzeigen">{{.Page.Title}}</a>&nbsp;<sup class=b>{{.Count}}</sup>
 			</div>
 		{{- end}}
 	</div>

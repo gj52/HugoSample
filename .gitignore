@@ -46,3 +46,6 @@ resources/_gen/images/post/2019-03-11_ATOM/images/rss-xml-atom-icon_hu60a3539c50
 resources/_gen/images/post/2019-04-06_halinks/images/home-assistant-arch-linux_hue23d34b6cbd5e45bcd1a71e34d2bcd4b_63647_480x360_fit_lanczos_2.png
 resources/_gen/images/post/2019-05-07_QR_Codes/images/qrcodefeed_hu483d5224cbd5f8d951b1622b3bea4439_580_480x360_fit_lanczos_2.png
 resources/_gen/images/post/2019-05-10_grid_rocks/images/grid_hudb7e124d1533ade7b8ebd4da60d42521_10723_480x360_fit_lanczos_2.png
+hugo.log
+hugo.exe
+themes/photon/layouts/_default/_markup/render-image000.html

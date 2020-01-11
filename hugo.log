@@ -16,3 +16,11 @@ LOG:   2019/12/04 18:15:08
 Change detected, rebuilding site.
 LOG:   2019/12/04 18:15:08 2019-12-04 18:15:08.667 +0100
 LOG:   2019/12/04 18:15:08 Total in 36 ms
+INFO 2020/01/11 14:14:45 Using config file: 
+INFO 2020/01/11 14:14:45 removing all files from destination that don't exist in static dirs
+INFO 2020/01/11 14:14:45 syncing static files to M:\HugoSample\HugoSample\
+INFO 2020/01/11 14:15:11 Using config file: 
+INFO 2020/01/11 14:15:11 removing all files from destination that don't exist in static dirs
+INFO 2020/01/11 14:15:11 syncing static files to M:\HugoSample\HugoSample\
+LOG:   2020/01/11 14:15:30 Built in 19876 ms
+LOG:   2020/01/11 14:15:31 Watching for config changes in M:\HugoSample\HugoSample\config\_default

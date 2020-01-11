@@ -10,7 +10,7 @@
 {{ partial "aside" . }}
 <article id=sidebar class="f3 w-100 pv2 bt bb bw2 b--blue">
 	<div class="flex flex-column items-center w-100">
-		{{ range .Site.Menus.main}}
+		{{ range site.Menus.main}}
 		<div id={{.Identifier}} class=pv1><a href="{{ .URL }}" Title="{{ .Name }}">{{ .Name }}</a></div>
 		{{end}}
 		{{ if site.IsServer -}}

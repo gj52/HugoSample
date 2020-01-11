@@ -1,7 +1,7 @@
 {
   "name": {{ site.Title | htmlUnescape | jsonify }},
   "short_name": "Spielwiese",
-  "description":  "Gerhard's Spielwiese - ein technologischer Experimentierraum",
+  {{with site.Params.description}}"description": "{{htmlEscape site.Params.description }}",{{end}}
   {{ with site.LanguageCode }}"lang": {{ . | jsonify }},{{ end }} 
   "start_url":  "/index.html",
   "display": "fullscreen",
