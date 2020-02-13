@@ -6,9 +6,12 @@
 
 {{ if site.IsServer }}<meta http-equiv="cache-control" content="no-cache">{{end}}
 {{ if .IsHome -}}
-	<link rel=dns-prefetch href=www.jsdelivr.com />   
-	<link rel=dns-prefetch href=cdn.materialdesignicons.com />
-	<link rel=dns-prefetch href=cdnjs.cloudflare.com />
+	<link rel=dns-prefetch href=//www.jsdelivr.com />   
+	<link rel=dns-prefetch href=//cdn.materialdesignicons.com />
+	<link rel=dns-prefetch href=//cdnjs.cloudflare.com />
+	<link rel=preconnect   href=https://www.jsdelivr.com />   
+	<link rel=preconnect   href=https://cdn.materialdesignicons.com />
+	<link rel=preconnect   href=https://cdnjs.cloudflare.com />
 	
 	<title>{{ site.Title  | markdownify }}</title>
 	{{ partial "manifest" . }}
