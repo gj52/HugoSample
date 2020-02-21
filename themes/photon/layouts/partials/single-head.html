@@ -5,10 +5,12 @@
 {{ $.Scratch.Set "Intern" "Internes"}}
 
 {{if (ne .Type "menu") -}}
+
+	{{if not .IsHome }}
+		<a href="/" title="{{ $.Scratch.Get "home" }}"><i class="fas fa-home fa-fw"></i></a>
+	{{end}}
+
 	<span class=nowrap>
-		{{if not .IsHome -}}
-			<a href="/" title="{{ $.Scratch.Get "home" }}"><i class="fas fa-home fa-fw"></i></a>
-		{{- end}}
 		{{ if isset .Params "categories" -}}
 		  {{ range $index, $name := sort .Params.categories -}}
 			{{ with site.GetPage (printf "/%s" ($name | urlize )) -}} 
@@ -18,23 +20,22 @@
 		{{- end }}
 	</span>
 
-	{{if isset .Params "tags" -}}
+	{{if isset .Params "tags"}}
 		<span class=nowrap>
-		<a href={{ relref . "tags" }} title="{{ $.Scratch.Get "index" }}"><i class="fas fa-tag fa-fw"></i></a>
-		{{ range $index, $name := sort .Params.tags -}}
-			<a class=ph1 href={{ (printf "/tags/%s/" $name) | urlize }} title="Index: {{$name | markdownify }}">{{$name | markdownify}}</a>
-		{{- end}}
+		<a href=/tags title=Index><i class="fas fa-tag fa-fw"></i></a>
+		{{ range (.GetTerms "tags") }}
+			<a class=ph1 href={{ .Permalink }} title="Index: {{ .LinkTitle }}">{{ .LinkTitle }}</a>
+		{{ end}}
 		</span>
-	{{- end}}
+	{{end}}
 	  
-	{{if isset .Params "series" -}}{{ $serLen := len .Params.series -}}
-		{{if gt $serLen 0 -}}
-			<span class=nowrap><a href={{ relref . "series" }} title="{{ $.Scratch.Get "serie" }}"><i class="fas fa-book fa-fw"></i></a>
-				{{range $index, $name := sort .Page.Params.series -}}
-					<a class=ph1 href=/series/{{($name|urlize)}}/ title="Serie: {{ $name | markdownify}}">{{ $name | markdownify }}</a>
-				{{- end}}
-			</span>
-		{{- end}}
-	{{- end}}
+	{{if isset .Params "series"}}
+	{{ $serLen := len .Params.series }}{{if gt $serLen 0}}
+		<span class=nowrap><a href=/series title=Serien><i class="fas fa-book fa-fw"></i></a>
+			{{ range (.GetTerms "series") }}
+				<a class=ph1 href={{ .Permalink }} title="Index: {{ .LinkTitle }}">{{ .LinkTitle }}</a>
+			{{- end}}
+		</span>
+	{{end}}{{end}}
 {{- end}}
 </div>
