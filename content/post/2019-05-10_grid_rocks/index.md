@@ -1,10 +1,8 @@
 +++
-categories  = ["Post"]
 tags        = ["2019", "CSS", "HTML"]
 description = "CSS Grid rocks!"
 title       = "CSS grid"
 date        = "2019-05-10T13:38:12+02:00"
-expirydate  = "2021-05-10T13:38:12+02:00"
 draft       = false
 series      = ["Tuning"]
 +++

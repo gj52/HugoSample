@@ -1,10 +1,8 @@
 +++
-categories  = ["Post"]
 tags        = ["2019", "ATOM"]
 description = "atomare Anpassungen mit xml:lang und xml:base"
 title       = "XML Attribute"
 date        = "2019-03-11T12:33:25+01:00"
-expirydate  = "2021-03-11T12:33:25+01:00"
 draft       = false
 series      = []
 +++

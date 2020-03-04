@@ -1,5 +1,4 @@
 +++
-categories  = ["Photo"]
 tags        = ["2019", "Garten", "Tiere"]
 description = "Fast täglich ist dieser Besucher da."
 title       = "Besuch im Garten"

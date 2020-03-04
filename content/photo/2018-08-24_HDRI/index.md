@@ -1,5 +1,4 @@
 +++
-categories  = ["Photo"]
 tags        = ["2018", "Foto", "HDRI"]
 description = "Wie mache ich HDRI-Bilder?"
 title       = "HDRI Fotos"

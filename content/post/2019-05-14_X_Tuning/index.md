@@ -1,10 +1,8 @@
 +++
-categories  = ["Post"]
 tags        = ["2019", "HTML", "Links", "Apache"]
 description = "Tuning mit Xenu"
 title       = "X Tuning"
 date        = "2019-05-14T12:23:44+02:00"
-expirydate  = "2021-05-14T12:23:44+02:00"
 draft       = false
 series      = ["Tuning"]
 +++

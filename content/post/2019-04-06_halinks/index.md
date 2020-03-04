@@ -1,5 +1,4 @@
 +++
-categories  = ["Post"]
 date        = "2019-04-06T10:42:00+01:00"
 description = "Home Assistant Links"
 title       = "Home Assistant Links"

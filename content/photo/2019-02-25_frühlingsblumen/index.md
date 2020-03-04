@@ -1,5 +1,4 @@
 +++
-categories  = ["Photo"]
 tags        = ["2019", "Fühling", "Blumen", "Garten"]
 description = "Frühlingsblumen im Garten"
 title       = "Frühlingsblumen"

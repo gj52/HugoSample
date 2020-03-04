@@ -11,13 +11,9 @@
 	{{end}}
 
 	<span class=nowrap>
-		{{ if isset .Params "categories" -}}
-		  {{ range $index, $name := sort .Params.categories -}}
-			{{ with site.GetPage (printf "/%s" ($name | urlize )) -}} 
-				<a class=ph1 href="{{ .RelPermalink }}" title="Bereich: {{ .Name | markdownify}}">{{ .Name | markdownify}}</a> 
-			{{- end}}
-		  {{- end}}
-		{{- end }}
+		{{ with site.GetPage (printf "/%s" .Section) }} 
+			<a class=ph1 href={{ .RelPermalink }} >{{ .Name }}</a> 
+		{{ end}}
 	</span>
 
 	{{if isset .Params "tags"}}

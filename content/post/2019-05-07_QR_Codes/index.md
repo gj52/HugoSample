@@ -1,10 +1,8 @@
 +++
-categories  = ["Post"]
 tags        = ["2019", "QR Codes", "HTML"]
 description = "Seiten mit QR Code drucken"
 title       = "QR-Codes"
 date        = "2019-05-07T13:31:20+02:00"
-expirydate  = "2021-05-07T13:31:20+02:00"
 draft       = false
 series      = []
 +++
