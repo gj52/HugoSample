@@ -18,6 +18,8 @@ theme                       = "photon"
 LanguageCode                   = "de-de"
 DefaultContentLanguage         = "de"
 DefaultContentLanguageInSubdir = true
+defaultExtension           = "html"
+defaultLayout              = "post"
 
 archetypedir               = "archetypes"
 assetdir                   = "assets"
@@ -32,8 +34,6 @@ staticdir                  = "static"
 builddrafts                = false
 canonifyurls               = false
 cleandestinationdir        = true
-defaultExtension           = "html"
-defaultLayout              = "post"
 disableHugoGeneratorInject = true
 disablePathToLower         = false
 enableRobotsTXT            = true
@@ -53,6 +53,15 @@ date                       = [ "date", ":filename", ":default"]
 publishDate                = [ "publishDate", "date"]
 lastmod                    = [ "lastmod", ":fileModTime", "publishDate"]
 expiryDate                 = [ "expiryDate"]
+
+###############################################################
+
+[markup]
+    defaultMarkdownHandler = "goldmark"
+    
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 ###############################################################
 

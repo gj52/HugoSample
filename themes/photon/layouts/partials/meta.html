@@ -8,10 +8,8 @@
 {{ if .IsHome -}}
 	<link rel=dns-prefetch href=//www.jsdelivr.com />   
 	<link rel=dns-prefetch href=//cdn.materialdesignicons.com />
-	<link rel=dns-prefetch href=//cdnjs.cloudflare.com />
 	<link rel=preconnect   href=https://www.jsdelivr.com />   
 	<link rel=preconnect   href=https://cdn.materialdesignicons.com />
-	<link rel=preconnect   href=https://cdnjs.cloudflare.com />
 	
 	<title>{{ site.Title  | markdownify }}</title>
 	{{ partial "manifest" . }}
@@ -28,7 +26,7 @@
 {{ hugo.Generator }}
 
 <!-- Dubline Core -->
-<meta name=DC.Title       content="{{ site.Title  | markdownify }} - {{ .Page.Title  | markdownify}}"/><!-- Dublin Core --><!--	<link rel=schema.dc       href=http://purl.org/dc/elements/1.1/ > -->
+<meta name=DC.Title       content="{{ site.Title  | markdownify }} - {{ .Page.Title  | markdownify}}"/><!-- Dublin Core -->
 <meta name=DC.Subject     content="{{ range $index, $director := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ end }}"/> 
 {{ with  .Description }}<meta name=DC.Description content="{{ . | markdownify }}"/>{{ end}}
 {{ with site.Author.name }}<meta name=DC.Creator     content="{{ . }}"/>{{ end}}
@@ -41,12 +39,12 @@
 {{ partial "feeds"   . }}
 {{ partial "css/css" . }}
 {{ partial "js/jquery" . }}
-{{if eq .Type "photo" -}}
+{{ if eq .Type "photo" }}
 {{ partial "css/fancybox" . }}
 {{ partial "js/fancybox"  . }}
-{{- end }}
+{{ end }}
 {{ if eq .Params.Layout "panorama" }}
-	<link rel=preload as=script href=https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.1/openseadragon.min.js />
-{{end}}
+{{ partial "js/osd"  . }}
+{{ end }}
 {{ partial "js/qr"   . }}
 </head>

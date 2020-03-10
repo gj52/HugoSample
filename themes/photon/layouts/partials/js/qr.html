@@ -1,2 +1,2 @@
-{{ $jqr := resources.Get "js/jquery.qrcode.js" | minify }}{{ $secureJQR := $jqr | resources.Fingerprint site.Params.digest }}<script src={{ $secureJQR.RelPermalink }} ></script>
-{{ $qr := resources.Get "js/qrcode.js" | minify }}{{ $secureQR := $qr | resources.Fingerprint site.Params.digest }}<script src={{ $secureQR.RelPermalink }} ></script>
+{{ $jqr := resources.Get "js/jquery.qrcode.js" | minify }}{{ $secureJQR := $jqr | resources.Fingerprint site.Params.digest }}<script src={{ $secureJQR.RelPermalink }} integrity={{ $secureJQR.Data.Integrity }}></script>
+{{ $qr := resources.Get "js/qrcode.js" | minify }}{{ $secureQR := $qr | resources.Fingerprint site.Params.digest }}<script src={{ $secureQR.RelPermalink }} integrity={{ $secureQR.Data.Integrity }}></script>

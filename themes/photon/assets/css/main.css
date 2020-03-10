@@ -166,14 +166,25 @@ table {
     padding: 0.5em 0.5em;
   }
 
-/*
-  table tr:hover {
-    background-color: rgb(240,240,240);
-  }
-*/
   tbody tr:nth-child(odd) {
     background-color: #f0f0f0;
 }
+
+.thead {
+	border-collapse: collapse;
+    border-spacing: 0;
+	padding: 0.2em;
+}
+
+.thead td {
+    border: 0px;
+    padding: 0 0.2em;
+  }
+  
+.thead tbody tr:nth-child(odd) {
+    background-color: transparent;
+}
+  
 
 .w500 {
   min-width: 500px;

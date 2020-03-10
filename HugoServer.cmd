@@ -1,2 +1,2 @@
-hugo server --watch -b http://localhost --verboseLog --disableFastRender 
+hugo server --watch -b http://localhost --verboseLog 
 pause

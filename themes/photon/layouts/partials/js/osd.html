@@ -1,0 +1,1 @@
+{{ $osd := resources.Get "osd242/openseadragon.min.js" | minify }}{{ $secureOSD := $osd | resources.Fingerprint site.Params.digest }}<script src={{ $secureOSD.RelPermalink }} integrity={{ $secureOSD.Data.Integrity }} ></script>

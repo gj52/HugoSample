@@ -1,3 +1,5 @@
-{{ with  .OutputFormats.Get "ATOM" }}<link href={{.RelPermalink}} rel=alternate type={{.MediaType }} title="{{ site.Title | safeHTML }}" />{{ end }}
-{{ with  .OutputFormats.Get "RSS"  }}<link href={{.RelPermalink}} rel=alternate type={{.MediaType }} title="{{ site.Title | safeHTML }}" />{{ end }}
-{{ with  .OutputFormats.Get "JSON" }}<link href={{.RelPermalink}} rel=alternate type={{.MediaType }} title="{{ site.Title | safeHTML }}" />{{ end }}
+{{ range $index, $name := slice "ATOM" "FEED" "JSON" }}
+    {{ with  $.OutputFormats.Get $name  -}}
+		<link href={{.RelPermalink}} rel=alternate type={{ .MediaType }} title="{{ site.Title | safeHTML }}" />
+	{{- end }}
+{{ end }}

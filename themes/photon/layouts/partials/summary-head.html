@@ -1,8 +1,14 @@
 {{if not .IsHome -}}
 <div class="no-print">
-	<div class=pl2><i class="far fa-calendar-alt fa-fw"></i>
-		<time class=pl1 datetime="{{ .Date.UTC.Format site.Params.dateFormatFeed }}">{{ .Date.Format site.Params.dateFormatShort }}</time>
-	</div>
-	<div class="dib pl2">{{- partial "symbol" . -}}&nbsp;{{ .Description | markdownify }}</div>
+	<table class="dib pl2 thead">
+		<tr>
+			<td><i class="far fa-calendar-alt fa-fw"></i></td>
+			<td>{{ .Date.Format site.Params.dateFormatShort }}</time></td>
+		</tr>
+		<tr>
+			<td class=v-top>{{- partial "symbol" . -}}</td>
+			<td>{{ .Description | markdownify }}</td>
+		</tr>
+	</table>
 </div>
 {{- end}}
