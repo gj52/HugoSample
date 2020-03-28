@@ -43,23 +43,27 @@
 
 {{ if and .IsPage (eq $pn "Yes")  }}
 	<li class=pt4>
-		{{if .NextInSection}}<a href={{.NextInSection.Permalink}} title="{{.NextInSection.Title}}"><i class="far fa-hand-point-left pr2"></i></a>{{else}}<i class="far fa-hand-rock light-gray pr2"></i>{{end}} 
-		<i class="far fa-file"></i>
-		{{if .PrevInSection}}<a href={{.PrevInSection.Permalink}} title="{{.PrevInSection.Title}}"><i class="far fa-hand-point-right pl2"></i></a>{{else}}<i class="far fa-hand-rock light-gray pl2"></i>{{end}}
+		{{if .NextInSection -}}
+			<a href={{.NextInSection.Permalink}} title="{{.NextInSection.Title}}"><i class="far fa-hand-point-left"></i></a>{{else}}<i class="far fa-hand-rock light-gray"></i>
+		{{- end}}<span class=ph1>|</span>{{if .PrevInSection -}}
+			<a href={{.PrevInSection.Permalink}} title="{{.PrevInSection.Title}}"><i class="far fa-hand-point-right"></i></a>{{else}}<i class="far fa-hand-rock light-gray"></i>
+		{{- end}}
 	</li>
 {{end}}
 </ul>
 
 <div class="db dn-ns hamburg">
-<select onchange="window.location.replace(this.value);">
-	{{ range site.Menus.main }}
+<i class="ma0 f2 fas fa-bars fa-fw"></i>
+<ul class=menu>
+	{{ range site.Menus.main }}<li class=menu-item>
 			{{ if $.Page.IsMenuCurrent "main" . -}}
-				<option selected>{{.Name | markdownify}}</option>
+				{{.Name | markdownify}}
 			{{ else }}
-				<option value={{ .URL }}>{{ .Name | markdownify }}</option>
-			{{ end }}
+				<a href={{ .URL }}>{{ .Name | markdownify }}</a>
+			{{ end }}</li>
 	{{ end }}
-</select><i class="f2 fas fa-bars fa-fw"></i>
+</ul>	
+
 </div>
 
 </nav>

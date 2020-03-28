@@ -1,37 +1,30 @@
-<div class="b no-print w-100">
-{{ range site.Menus.main -}}
+{{ range site.Menus.main }}
 	{{ $.Scratch.Set .Identifier .Name }}
-{{- end}}
+{{ end}}
 {{ $.Scratch.Set "Intern" "Internes"}}
 
-{{if (ne .Type "menu") -}}
-
-	{{if not .IsHome }}
-		<a href="/" title="{{ $.Scratch.Get "home" }}"><i class="fas fa-home fa-fw"></i></a>
-	{{end}}
-
-	<span class=nowrap>
-		{{ with site.GetPage (printf "/%s" .Section) }} 
-			<a class=ph1 href={{ .RelPermalink }} >{{ .Name }}</a> 
-		{{ end}}
-	</span>
-
-	{{if isset .Params "tags"}}
+{{if not .IsHome -}}
+<div class="b no-print w-100">
+	<a href="/" title="{{ $.Scratch.Get "home" }}"><i class="fas fa-home fa-fw"></i></a>
+	<span class=nowrap>{{ with site.GetPage (printf "/%s" .Section) }}<a class=ph1 href={{ .RelPermalink }} >{{ .Name }}</a>{{ end}}</span>
+	{{if isset .Params "tags" -}}
 		<span class=nowrap>
 		<a href=/tags title=Index><i class="fas fa-tag fa-fw"></i></a>
-		{{ range (.GetTerms "tags") }}
-			<a class=ph1 href={{ .Permalink }} title="Index: {{ .LinkTitle }}">{{ .LinkTitle }}</a>
-		{{ end}}
+		{{ range (.GetTerms "tags") -}}
+			<a class=ph1 href={{ .RelPermalink }} title="Index: {{ .LinkTitle }}">{{ .LinkTitle }}</a>
+		{{- end}}
 		</span>
-	{{end}}
+	{{- end}}
 	  
-	{{if isset .Params "series"}}
-	{{ $serLen := len .Params.series }}{{if gt $serLen 0}}
-		<span class=nowrap><a href=/series title=Serien><i class="fas fa-book fa-fw"></i></a>
-			{{ range (.GetTerms "series") }}
-				<a class=ph1 href={{ .Permalink }} title="Index: {{ .LinkTitle }}">{{ .LinkTitle }}</a>
-			{{- end}}
-		</span>
-	{{end}}{{end}}
-{{- end}}
+	{{if isset .Params "series" -}}
+	    {{ $serLen := len .Params.series }}
+		{{if gt $serLen 0 }}
+			<span class=nowrap><a href=/series title=Serien><i class="fas fa-book fa-fw"></i></a>
+				{{ range (.GetTerms "series") }}
+					<a class=ph1 href={{ .RelPermalink }} title="Index: {{ .LinkTitle }}">{{ .LinkTitle }}</a>
+				{{- end}}
+			</span>
+		{{end}}
+	{{- end}}
 </div>
+{{- end}}

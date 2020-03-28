@@ -31,8 +31,12 @@ paginatepath               = "page"
 resourcedir                = "resources"
 staticdir                  = "static"
 
-builddrafts                = false
-canonifyurls               = false
+
+buildDrafts                = false
+buildExpired               = false
+buildFuture                = false
+canonifyURLs               = false
+disableAliases             = false
 cleandestinationdir        = true
 disableHugoGeneratorInject = true
 disablePathToLower         = false
@@ -70,7 +74,7 @@ expiryDate                 = [ "expiryDate"]
     serie                  = "series"
 
 [permalinks]
-    tags                   = "/tags/:slug/"
+    tags                   = "/tags/:slug"
     post                   = "/:section/:year/:month/:day/:title"
     photo                  = "/:section/:year/:month/:day/:title"
     series                 = "/series/:slug"

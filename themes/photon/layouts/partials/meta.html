@@ -8,8 +8,15 @@
 {{ if .IsHome -}}
 	<link rel=dns-prefetch href=//www.jsdelivr.com />   
 	<link rel=dns-prefetch href=//cdn.materialdesignicons.com />
+	<link rel=dns-prefetch href=https://kit.fontawesome.com />
+	<link rel=dns-prefetch href=https://kit-free.fontawesome.com />
+	
 	<link rel=preconnect   href=https://www.jsdelivr.com />   
 	<link rel=preconnect   href=https://cdn.materialdesignicons.com />
+	<link rel=preconnect   href=https://kit.fontawesome.com />
+	<link rel=preconnect   href=https://kit-free.fontawesome.com />
+	
+	<link rel=dns-prefetch href=//gohugo.io />
 	
 	<title>{{ site.Title  | markdownify }}</title>
 	{{ partial "manifest" . }}

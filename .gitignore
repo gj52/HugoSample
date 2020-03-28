@@ -53,3 +53,4 @@ hugo.exe
 hugo.log
 hugo.exe
 hugo.log
+*.log

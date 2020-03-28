@@ -39,6 +39,13 @@ ul {
 	/* list-style-type: none; */
 }
 
+ol {
+    display: block;
+	margin: 0;
+	padding-left: 1em;
+	list-style-type: none; 
+}
+
 
 textarea {
   resize: vertical;
@@ -54,29 +61,63 @@ img {
   page-break-inside: avoid;
 }
 
-select {
+/* menu */
+
+/* https://w3bits.com/css-dropdown-menu/ */
+
+.hamburg {
+    float: right;
+    overflow: hidden;	
+	width: 100%;
+	height: 100%;
+	padding: .5rem;
 	background-color: transparent;
-	padding-top: .25rem;
-	border-width: 0;
-	color: #00449e;
 	font-weight: bolder;
+	transition: visibility .5s, opacity .5s ease-in-out;
+}
+
+.menu {
+	display: none;
+	list-style-type: none;
+	margin:  24px 0 0 0;
+    padding: 4px 8px;
+    z-index: 1;	
+
+	a {  
+      display: flex;
+	  padding:  1px;
+      justify-content: space-between;	
+	}
+}
+
+.menu .menu-item {
+	display: block; 
+	border: 0 solid;
+	}	
+
+.hamburg:hover {
+
+}
+
+.hamburg:hover i{
 	display: none;
 }
 
-select option {
-	background-color: transparent;
-	color: #00449e;
+.hamburg:hover .menu {
+    background-color: #fff;
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.2);		
+  float: none;
+  display: block;
 }
 
-select option:checked {
-	color: white;	
-	background-color: #357edd;
+.hamburg .menu:hover {
+  float: none;
+  display: block;
 }
 
-select option:hover
-{
-    color: red !important;
-}
+
+
+
 
 /* Foto */
 
@@ -100,29 +141,6 @@ select option:hover
 	border:solid #ddd;
 	border-width:6px 6px 6px 6px;
 }
-
-.hamburg {
-	width: 100%;
-	height: 100%;
-	padding-right: .5rem;
-	padding-top: 1rem;
-	background-color: transparent;
-	color: #00449e;
-	font-weight: bolder;
-}
-
-	
-.hamburg:hover select{
-	display: inline-block;
-	position: right;
-}
-
-.hamburg:hover i{
-	display: none;
-}
-
-
-
 
 
 /* Index */
