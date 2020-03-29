@@ -1,1 +1,9 @@
-<a href="{{ .Destination | safeURL }}" class="b" {{ with .Title}} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Text }}</a>
+<a href="{{ .Destination | safeURL }}" class="b" 
+{{ with .Title}} title="{{ . }}"{{ end }}
+{{ if strings.HasPrefix .Destination "http" }} 
+	target="_blank" rel="noopener noreferrer"
+{{else}}
+	{{ with site.GetPage .Destination}} href={{.RelPermalink}} {{end}}
+{{end}}>{{ .Text }}</a>	
+
+
