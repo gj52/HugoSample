@@ -52,3 +52,18 @@ INFO 2020/03/10 21:50:56 removing all files from destination that don't exist in
 INFO 2020/03/10 21:50:56 syncing static files to M:\HugoSample\HugoSample\
 LOG:   2020/03/10 21:50:57 Built in 1200 ms
 LOG:   2020/03/10 21:50:57 Watching for config changes in M:\HugoSample\HugoSample\config\_default
+INFO 2020/04/08 12:26:00 Using config file: 
+INFO 2020/04/08 12:26:00 removing all files from destination that don't exist in static dirs
+INFO 2020/04/08 12:26:00 syncing static files to M:\HugoSample\
+LOG:   2020/04/08 12:26:23 Built in 23419 ms
+LOG:   2020/04/08 12:26:23 Watching for config changes in M:\HugoSample\config\_default
+INFO 2020/04/08 12:27:40 Received System Events: ["M:\\HugoSample\\content\\photo\\2018-08-24_HDRI\\index.md": WRITE "M:\\HugoSample\\content\\photo\\2018-08-24_HDRI\\index.md": WRITE "M:\\HugoSample\\content\\photo\\2018-08-24_HDRI\\index.md": WRITE]
+LOG:   2020/04/08 12:27:40 
+Change detected, rebuilding site.
+LOG:   2020/04/08 12:27:40 2020-04-08 12:27:40.810 +0200
+LOG:   2020/04/08 12:27:40 Total in 11 ms
+INFO 2020/04/08 12:29:04 Received System Events: ["M:\\HugoSample\\content\\photo\\2018-08-24_HDRI\\index.md": WRITE "M:\\HugoSample\\content\\photo\\2018-08-24_HDRI\\index.md": WRITE "M:\\HugoSample\\content\\photo\\2018-08-24_HDRI\\index.md": WRITE]
+LOG:   2020/04/08 12:29:04 
+Change detected, rebuilding site.
+LOG:   2020/04/08 12:29:04 2020-04-08 12:29:04.811 +0200
+LOG:   2020/04/08 12:29:04 Total in 11 ms

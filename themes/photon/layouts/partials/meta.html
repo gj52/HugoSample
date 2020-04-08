@@ -8,6 +8,7 @@
 {{ if .IsHome -}}
 	<link rel=dns-prefetch href=//www.jsdelivr.com />   
 	<link rel=dns-prefetch href=//cdn.materialdesignicons.com />
+	
 	<link rel=dns-prefetch href=https://kit.fontawesome.com />
 	<link rel=dns-prefetch href=https://kit-free.fontawesome.com />
 	
@@ -15,7 +16,10 @@
 	<link rel=preconnect   href=https://cdn.materialdesignicons.com />
 	<link rel=preconnect   href=https://kit.fontawesome.com />
 	<link rel=preconnect   href=https://kit-free.fontawesome.com />
-	
+
+	<link rel=dns-prefetch href=//polyfill.io />
+	<link rel=preconnect   href=https://polyfill.io />
+
 	<link rel=dns-prefetch href=//gohugo.io />
 	
 	<title>{{ site.Title  | markdownify }}</title>
@@ -54,4 +58,5 @@
 {{ partial "js/osd"  . }}
 {{ end }}
 {{ partial "js/qr"   . }}
+{{ if .HasShortcode "tex" }}{{ partial "js/mathjax" .}}{{end}}
 </head>
