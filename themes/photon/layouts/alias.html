@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html {{ with site.Language.Lang }}lang="{{ . }}"{{ end }} >
+<head>
+	<title>Page Redirection</title>
+	<link rel="canonical" href="{{ .Permalink }}"/>
+	<meta name="robots" content="noindex">
+	<meta charset="utf-8" />
+	<meta http-equiv="refresh" content="0; url={{ .Permalink }}" />
+	<script type="text/javascript">window.location.href = "{{ .Permalink }}";</script>
+</head>
+<body>
+Die aktuelle Webseite finden Sie <a href="{{ .Permalink }}">hier</a>!
+</body>	
+</html>
