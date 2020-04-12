@@ -1,5 +1,12 @@
 {{ partial "css/awesome" }}
 {{ partial "css/tachyons"}}
 {{ partial "css/material"}}
-{{ $mccs := resources.Get "css/main.css" | minify }}{{ $secureMCCS := $mccs | resources.Fingerprint site.Params.digest }}<link type=text/css rel=stylesheet href={{ $secureMCCS.RelPermalink }} integrity={{ $secureMCCS.Data.Integrity }} media="screen, print" />
-{{ $pccs := resources.Get "css/print.css" | minify }}{{ $securePCCS := $pccs | resources.Fingerprint site.Params.digest }}<link type=text/css rel=stylesheet href={{ $securePCCS.RelPermalink }} integrity={{ $securePCCS.Data.Integrity }} media=print />
+
+{{ $mccs := resources.Get "css/main.css" }}
+{{ if hugo.IsProduction }} {{ $mccs  = $mccs | minify | resources.Fingerprint site.Params.digest }} {{end}}
+<link type=text/css rel=stylesheet href={{ $mccs.RelPermalink }} {{ if hugo.IsProduction }} integrity={{ $mccs.Data.Integrity }} {{end}} media="screen, print" />
+
+{{ $pccs := resources.Get "css/print.css" }}
+{{ if hugo.IsProduction }} {{ $pccs  = $pccs | minify | resources.Fingerprint site.Params.digest }} {{end}}
+<link type=text/css rel=stylesheet href={{ $pccs.RelPermalink }} {{ if hugo.IsProduction }} integrity={{ $pccs.Data.Integrity }} {{end}} media=print />
+

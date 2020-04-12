@@ -1,1 +1,3 @@
-{{ $fccs := resources.Get "css/jquery.fancybox.css" | minify }}{{ $securefccs := $fccs | resources.Fingerprint site.Params.digest }}<link type=text/css rel=stylesheet href={{ $securefccs.RelPermalink }} integrity={{ $securefccs.Data.Integrity }} />
+{{ $fccs := resources.Get "css/jquery.fancybox.css" }}
+{{ if hugo.IsProduction }} {{ $fccs  = $fccs | minify | resources.Fingerprint site.Params.digest }} {{end}}
+<link type=text/css rel=stylesheet href={{ $fccs.RelPermalink }} {{ if hugo.IsProduction }} integrity={{ $fccs.Data.Integrity }} {{ end}} media=screen />

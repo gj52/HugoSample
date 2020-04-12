@@ -1,1 +1,3 @@
-{{ $jq := resources.Get "js/jquery-3.4.1.js" | minify }}{{ $secureJQ := $jq | resources.Fingerprint site.Params.digest }}<script src={{ $secureJQ.RelPermalink }} integrity={{ $secureJQ.Data.Integrity }}></script>
+{{ $jq := resources.Get "js/jquery-3.4.1.js" }}
+{{ if hugo.IsProduction }} {{ $jq = $jq | minify | resources.Fingerprint site.Params.digest }} {{end}}
+<script src={{ $jq.RelPermalink }} {{ if hugo.IsProduction }} integrity={{ $jq.Data.Integrity }} {{end}}></script>
