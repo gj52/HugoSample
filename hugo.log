@@ -67,3 +67,23 @@ LOG:   2020/04/08 12:29:04
 Change detected, rebuilding site.
 LOG:   2020/04/08 12:29:04 2020-04-08 12:29:04.811 +0200
 LOG:   2020/04/08 12:29:04 Total in 11 ms
+INFO 2020/04/13 10:05:23 Using config file: 
+INFO 2020/04/13 10:05:23 removing all files from destination that don't exist in static dirs
+INFO 2020/04/13 10:05:23 syncing static files to M:\HugoSample\
+LOG:   2020/04/13 10:05:49 Built in 25850 ms
+LOG:   2020/04/13 10:05:49 Watching for config changes in M:\HugoSample\config\_default
+INFO 2020/04/13 10:08:25 Received System Events: ["M:\\HugoSample\\themes\\photon\\layouts\\photo\\gallery.html": WRITE "M:\\HugoSample\\themes\\photon\\layouts\\photo\\gallery.html": WRITE]
+LOG:   2020/04/13 10:08:25 
+Change detected, rebuilding site.
+LOG:   2020/04/13 10:08:25 2020-04-13 10:08:25.525 +0200
+LOG:   2020/04/13 10:08:25 Total in 43 ms
+INFO 2020/04/13 10:09:00 Received System Events: ["M:\\HugoSample\\themes\\photon\\layouts\\shortcodes\\imglist.html": WRITE "M:\\HugoSample\\themes\\photon\\layouts\\shortcodes\\imglist.html": WRITE]
+LOG:   2020/04/13 10:09:00 
+Change detected, rebuilding site.
+LOG:   2020/04/13 10:09:00 2020-04-13 10:09:00.522 +0200
+LOG:   2020/04/13 10:09:00 Total in 69 ms
+INFO 2020/04/13 10:09:16 Received System Events: ["M:\\HugoSample\\themes\\photon\\layouts\\photo\\gallery.html": WRITE "M:\\HugoSample\\themes\\photon\\layouts\\photo\\gallery.html": WRITE]
+LOG:   2020/04/13 10:09:16 
+Change detected, rebuilding site.
+LOG:   2020/04/13 10:09:16 2020-04-13 10:09:16.532 +0200
+LOG:   2020/04/13 10:09:16 Total in 36 ms
