@@ -17,8 +17,8 @@
     {{ $timerange := int (sub 0 $timerange)}}{{ $start := now.AddDate 0 $timerange 0}}
     {{ $r1 := where site.RegularPages "PublishDate" "gt" $start }}{{ $r2 := where site.RegularPages "Section" "not in" site.Params.invisibleSections }}
     {{ $rall := intersect $r1 $r2 }}
-	{{ range first 25 $rall }}
-    <entry> {{ $url := .RelPermalink }}{{ $uuid := sha1 (.Permalink | absURL)}}{{ $page := .}}
+	{{ range first site.Params.feedSize $rall }}
+    <entry> {{ $url := .Permalink }}{{ $uuid := sha1 (.Permalink | absURL)}}{{ $page := .}}
       <category term="{{$page.Section}}" />
       <link rel='alternate' type='type/html' href='{{ $url }}' />
       <title type="xhtml">{{htmlEscape .Title }}</title> 

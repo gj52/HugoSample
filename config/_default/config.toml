@@ -10,6 +10,7 @@ timeout                     = 300000
 
 baseUrl                     = "http://localhost:1313"
 disableKinds                = ["RSS", "sitemap"]
+refLinksNotFoundURL        = "/404.html"
 
 title                       = "G's Playground"
 titleCaseStyle              = "Chicago"
@@ -66,6 +67,9 @@ expiryDate                 = [ "expiryDate"]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+#[build]
+#  writeStats = true
 
 ###############################################################
 
@@ -184,7 +188,8 @@ expiryDate                 = [ "expiryDate"]
     invisibleSections   = ["menu","serie","about", "links"]
 	sitemapMax          = 49999
 
-    digest              = "sha384"
+	feedSize               = 25
+    digest                 = "sha384"
     
 [Params.sidebar]
 	avatar          = "/img/head.jpg"

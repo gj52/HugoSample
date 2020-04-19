@@ -47,6 +47,16 @@
       "url": "https://discourse.gohugo.io/t/recommended-reading-reference/14815"
     },
     {
+      "title": "JSON ECMA",
+      "description": "Standard ECMA-404 - The JSON Data Interchange Syntax",
+      "url": "https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf"
+    },
+    {
+      "title": "JSON Feed ORG",
+      "description": "We developed JSON Feed, a format similar to RSS and Atom but in JSON",
+      "url": "https://jsonfeed.org/"
+    },
+    {
       "title": "Let's Encrypt",
       "description": "Let's Encrypt ist eine freie, automatisierte und offene Zertifizierungsstelle (CA)",
       "url": "https://letsencrypt.org/"
@@ -94,6 +104,12 @@
       "url": "https://validator.w3.org/"
     },
 	{
+      "title": "RSS - Validator",
+      "description": "RSS Advisory Board - validates RSS feeds",
+      "url": "http://www.rssboard.org/rss-validator/"
+    },
+
+	{
 	  "title": "Material Design Icons",
 	  "description": "Material Design Icons",
 	  "url": "https://materialdesignicons.com/"
@@ -137,6 +153,32 @@
 		"title": "Web App Manifest",
 		"description": "Web App Manifest Draft",
 		"url": "https://www.w3.org/TR/appmanifest/"
+	},
+
+	{
+		"title": "Content Security Policy",
+		"description": "Content Security Policy (CSP) is an added layer of security",
+		"url": "https://content-security-policy.com/"
+	},
+	{
+		"title": "WebHint Scanner",
+		"description": "webhint to improve your website",
+		"url": "https://webhint.io/scanner/"
+	},
+	{
+		"title": "JSON-LD",
+		"description": "This website is a tool intended for SEO’s and webmasters",
+		"url": "https://jsonld.com/"
+	},
+	{
+		"title": "Beautiful Math in all browsers",
+		"description": "A JavaScript display engine for mathematics that works in all browsers.",
+		"url": "https://www.mathjax.org/"
+	},
+	{
+		"title": "BGP, is it safe yet? No.",
+		"description": "ISPs and other major Internet players (Comcast, Sprint, Verizon, and others) would need to implement a certification system, called RPKI.",
+		"url": "https://isbgpsafeyet.com/"
 	}
   ]
 }

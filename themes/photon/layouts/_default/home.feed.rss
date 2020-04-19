@@ -3,7 +3,7 @@
   <channel>
     <title>{{ htmlEscape .Site.Title }}</title>
     <link>{{ .Permalink }}</link>
-	{{with  $.OutputFormats.Get "FEED" }}<atom:link href="{{.Permalink}}" rel="self" type="{{ .MediaType }}"/>{{end}}
+	{{ with  $.OutputFormats.Get "FEED" }}<atom:link href="{{.Permalink}}" rel="self" type="{{ .MediaType }}"/>{{ end }}
     {{with site.Params.description}}<description>{{htmlEscape site.Params.description }}</description>{{end}}
     <generator>Hugo -- gohugo.io</generator>
     {{ with site.LanguageCode }}<language>{{.}}</language>{{end}}
@@ -11,7 +11,7 @@
     {{ with site.Author.name }}<webMaster>{{ with site.Author.email }}{{.}}{{end}}({{.}})</webMaster>{{end}}
     {{ with site.Copyright }}<copyright>{{.}}</copyright>{{end}}
     <lastBuildDate>{{site.LastChange.UTC.Format  site.Params.dateFormatRFC822Z | safeHTML }}</lastBuildDate>
-    {{ range first 25 (where site.RegularPages "Section" "not in" site.Params.invisibleSections)}}
+    {{ range first site.Params.feedSize (where site.RegularPages "Section" "not in" site.Params.invisibleSections)}}
     <item>
       <title>{{htmlEscape .Title }}</title>
       <link>{{ .Permalink }}</link>

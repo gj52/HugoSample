@@ -13,7 +13,7 @@
   {{ $r1 := where site.RegularPages "PublishDate" "gt" (now.AddDate -1 0 0) }}{{ $r2 := where site.RegularPages "Section" "not in" site.Params.invisibleSections }}
   {{ $list := $r1 | intersect $r2 }}{{ $len := len $list }}
   "items": 
-  [{{ range $index, $item := first 25 $list }}
+  [{{ range $index, $item := first site.Params.feedSize $list }}
     {
       "id"            : {{ $uuid := sha1 (.Permalink  | absURL)}}"{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}",
       "url"           : {{ $item.Permalink | jsonify  }},
