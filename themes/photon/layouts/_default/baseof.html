@@ -3,7 +3,6 @@
 {{ $section := .Section | default "home" }}
 {{ partial "meta" . }}
 <body class="site">
-
 {{ partialCached "aside" . $section }}
 {{ partialCached "navigation" . $section}}
 {{ block "main" . }}{{ end }}

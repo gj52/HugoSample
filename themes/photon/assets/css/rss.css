@@ -9,7 +9,7 @@ generator, author, id, updated {
 
 feed {
 	color: #606060;
-	font-family: "Source Sans Pro", Helvetica, "sans-serif";
+	font-family: "Source Sans Pro", Helvetica, "sans-serif"
 	font-display: fallback;
 	margin-left: 36px;
 }

@@ -1,5 +1,3 @@
-{{ range $index, $name := slice "ATOM" "FEED" "JSON" }}
-    {{ with  $.OutputFormats.Get $name  -}}
-		<link href={{.Permalink}} rel=alternate type={{ .MediaType }} title="{{ site.Title | safeHTML }}" />
-	{{- end }}
+{{ range .AlternativeOutputFormats }}
+	<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
 {{ end }}

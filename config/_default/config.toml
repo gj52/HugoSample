@@ -8,7 +8,7 @@ verboseLog                  = "info.log"
 ignoreFiles                 = [ "\\.cmd$", "\\.log$", "\\.bat$", "\\.tmp$" , "\\.swp$"]
 timeout                     = 300000
 
-baseUrl                     = "http://localhost:1313"
+#baseUrl                    = "http://localhost:1313"
 disableKinds                = ["RSS", "sitemap"]
 refLinksNotFoundURL        = "/404.html"
 
@@ -76,12 +76,18 @@ expiryDate                 = [ "expiryDate"]
 [taxonomies]
     tag                    = "tags"
     serie                  = "series"
+	post                   = "post"
+	photo                  = "photo"
+	
 
 [permalinks]
-    tags                   = "/tags/:slug"
     post                   = "/:section/:year/:month/:day/:title"
     photo                  = "/:section/:year/:month/:day/:title"
-    series                 = "/series/:slug"
+    series                 = "/:section/:slug"
+    tags                   = "/:section/:slug"
+	about                  = "/:section/:slug"
+    intern                 = "/:section/:year/:month/:day/:title"
+    test                   = "/:section/:title"
 
 [mediaTypes]
   [mediaTypes."application/atom+xml"]
@@ -95,6 +101,7 @@ expiryDate                 = [ "expiryDate"]
     baseName              = "index"
     NoUgly                = true
     IsHTML                = true
+	permalinkable          = true
 	
 [outputFormats.ATOM]
     MediaType             = "application/atom+xml"

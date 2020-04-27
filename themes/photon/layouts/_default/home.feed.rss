@@ -1,8 +1,9 @@
-{{ print "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"  ?>"  | safeHTML }}
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"> 
+{{ print "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\" ?>"  | safeHTML }}
+{{ partial "xml/rss" .}}
+<rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom" {{ with site.LanguageCode }}xml:lang="{{ . }}"{{ end }} xml:base="{{site.BaseURL }}"> 
   <channel>
-    <title>{{ htmlEscape .Site.Title }}</title>
-    <link>{{ .Permalink }}</link>
+    <title>{{ htmlEscape site.Title }}</title>
+    <link>{{ .RelPermalink }}</link>
 	{{ with  $.OutputFormats.Get "FEED" }}<atom:link href="{{.Permalink}}" rel="self" type="{{ .MediaType }}"/>{{ end }}
     {{with site.Params.description}}<description>{{htmlEscape site.Params.description }}</description>{{end}}
     <generator>Hugo -- gohugo.io</generator>
@@ -14,7 +15,7 @@
     {{ range first site.Params.feedSize (where site.RegularPages "Section" "not in" site.Params.invisibleSections)}}
     <item>
       <title>{{htmlEscape .Title }}</title>
-      <link>{{ .Permalink }}</link>
+      <link>{{ .RelPermalink }}</link>
       <pubDate>{{ .Date.UTC.Format site.Params.dateFormatRFC822Z | safeHTML }}</pubDate>
       {{ with site.Author.name }}<author>{{ with site.Author.email }}{{.}}{{end}}({{.}})</author>{{end}}
       <guid isPermaLink="false">{{ md5 .Permalink }}</guid>

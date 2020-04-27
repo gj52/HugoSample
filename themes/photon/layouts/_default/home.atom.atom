@@ -1,0 +1,41 @@
+{{ print "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"  ?>"  | safeHTML }}
+{{ partial "xml/atom" .}}
+<feed xmlns="https://www.w3.org/2005/Atom" {{ with site.LanguageCode }}xml:lang="{{ . }}"{{ end }} xml:base="{{site.BaseURL }}">{{ $timerange := 24 }}
+    <title type="text">{{ htmlEscape site.Title }}</title>
+    <subtitle type="text">Alle Beiträge der letzten {{$timerange}} Monate</subtitle>
+    {{ with  .OutputFormats.Get "ATOM" -}}<link rel="self"  type="application/atom+xml" href="{{.RelPermalink}}" />{{- end }}
+    {{ partial "xml/icon" .}}
+    {{ with site.Author.name }}<author>
+        <name>{{.}}</name>
+        {{ with site.Author.email }}<email>{{.}}</email>{{end}}
+    </author>{{end}}
+    {{ with site.Params.Copyright }}<rights type="text">© {{ now.Format "2006"}} {{.}}</rights>{{end}}
+    <generator uri="https://gohugo.io" version="{{hugo.Version}}">Hugo</generator>
+    {{ if not site.LastChange.IsZero }}<updated>{{site.LastChange.UTC.Format site.Params.dateFormatFeed }}</updated>{{ end }} 
+<!--	{{ with site.Params.published }}<published>{{site.Params.published}}</published>{{end}} -->
+    {{ $uuid := sha1 (site.BaseURL | absURL)}}<id>urn:uuid:{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}</id>
+    {{ $timerange := int (sub 0 $timerange)}}{{ $start := now.AddDate 0 $timerange 0}}
+    {{ $r1 := where site.RegularPages "PublishDate" "gt" $start }}{{ $r2 := where site.RegularPages "Section" "not in" site.Params.invisibleSections }}
+    {{ $rall := intersect $r1 $r2 }}
+	{{ range first site.Params.feedSize $rall }}
+    <entry> {{ $url := .RelPermalink }}{{ $uuid := sha1 (.Permalink | absURL)}}{{ $page := .}}
+      <category term="{{$page.Section}}" />
+      <link rel='alternate' type='type/html' href='{{ $url }}' />
+      <title type="text">{{ htmlEscape .Title | plainify}}</title> 
+      <published>{{ .PublishDate.UTC.Format site.Params.dateFormatFeed }}</published>
+      <updated>{{ .Lastmod.UTC.Format site.Params.dateFormatFeed  }}</updated>
+      <id>urn:uuid:{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}</id>
+      <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+	  {{ range first 1 (.Resources.ByType "image") }}
+        {{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x360") }}{{ $image := $.Scratch.Get "image" }}
+            <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{.Name}}" /><br/>
+        {{ end }}
+        <p>{{ plainify .Summary | htmlEscape}}</p>
+		<a href="{{ $url }}">Read more..</a>
+      </div>
+      </summary>
+	  <content type="application/xhtml+xml" src="{{ .RelPermalink }}" {{ with site.LanguageCode }} xml:lang="{{ . }}"{{ end }} />
+    </entry>{{ end }}
+</feed>
+

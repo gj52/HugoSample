@@ -1,49 +1,58 @@
 <nav class="f3 pr2 tr br-ns bw2-ns b--blue navigation">
 <ul class="dn db-ns list" >
+	{{ $currentPage := . }}
+
 	{{ range site.Menus.main -}}
-		<li class=pt1>
-			{{ if $.Page.IsMenuCurrent "main" . -}}
-				<span class="white bg-blue ph1">{{.Name | markdownify}}</span>
+		{{ $is := $currentPage.IsMenuCurrent "main" . }}
+		<li class=pb2>
+			{{ if $is -}}
+				<span class="f4 b white bg-blue pv1 ph2">{{.Name | markdownify}}</span>
 			{{- else -}}
-				<span class="db ph1" ><a href="{{ .URL }}" Title="{{ .Name }}">{{ .Name | markdownify }}</a></span>
+				<span class="f4 b db" ><a href="{{ .URL }}" Title="{{ .Name }}">{{ .Name | markdownify }}</a></span>
 			{{- end}}
 		</li>
 	{{- end}}
 
 	{{ if site.IsServer -}}
-		<li class=pt1>
+		<li class=pb2>
 			{{ $isIntern := (and (eq "intern" .Page.Section) (eq "section" .Page.Kind)) }}
 			{{ if $isIntern -}}
-				<span class="white bg-blue ph1">Intern</span>
+				<span class="f4 b white bg-blue ph2">Intern</span>
 			{{- else -}}
 				{{ with site.GetPage "/intern/_index.md" }}
-					<span class="db ph1"><a href={{.RelPermalink}} Title=Intern>Intern</a></span>
+					<span class="f4 b db"><a href={{.RelPermalink}} Title=Intern>Intern</a></span>
 				{{end}}
 			{{- end}}
 		</li>
-		<li class=pt1>
+		<li class=pb2>
 			{{ $isTest := (and (eq "test" .Page.Section) (eq "section" .Page.Kind)) }}
 			{{ if $isTest -}}
-				<span class="white bg-blue ph1">Test</span>
+				<span class="f4 b white bg-blue ph2">Test</span>
 			{{- else -}}
 				{{ with site.GetPage "/test/_index.md" }}
-					<span class="db ph1"><a href={{.RelPermalink}} Title=Intern>Test</a></span>
+					<span class="f4 b db"><a href={{.RelPermalink}} Title=Intern>Test</a></span>
 				{{end}}
 			{{- end}}
 		</li>
 	{{- end}}
 
-
 	<li id=feed class=pt1>
-		<span class="db pv1" ><a href=/feed.xml target=_blank type=application/atom+xml Title="ATOM Feed"><i class="pt4 fas fa-rss fa-fw"></i></a></span>
+		<span class="db pv1" ><a href=/feed.atom target=_blank type=application/atom+xml Title="ATOM Feed"><i class="pt4 fas fa-rss fa-fw"></i></a></span>
 	</li>  
 </ul>
+<!--
+{{ range site.Menus.main -}}
+	<span class=f5>{{ .Identifier }} {{$currentPage.IsMenuCurrent "main" . }} </span>  <br>
+{{- end}}
+-->
 
 <div class="db dn-ns hamburg">
 <i class="ma0 f2 fas fa-bars fa-fw"></i>
 <ul class=menu>
 	{{ range site.Menus.main }}<li class=menu-item>
-			{{ if $.Page.IsMenuCurrent "main" . -}}
+		{{ $is := $currentPage.IsMenuCurrent "main" . }}
+		{{ $has := $currentPage.HasMenuCurrent "main" . }}
+			{{ if or $is $has -}}
 				{{.Name | markdownify}}
 			{{ else }}
 				<a href={{ .URL }}>{{ .Name | markdownify }}</a>
