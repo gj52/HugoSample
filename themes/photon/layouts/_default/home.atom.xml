@@ -14,10 +14,7 @@
     {{ if not site.LastChange.IsZero }}<updated>{{site.LastChange.UTC.Format site.Params.dateFormatFeed }}</updated>{{ end }} 
 <!--	{{ with site.Params.published }}<published>{{site.Params.published}}</published>{{end}} -->
     {{ $uuid := sha1 (site.BaseURL | absURL)}}<id>urn:uuid:{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}</id>
-    {{ $timerange := int (sub 0 $timerange)}}{{ $start := now.AddDate 0 $timerange 0}}
-    {{ $r1 := where site.RegularPages "PublishDate" "gt" $start }}{{ $r2 := where site.RegularPages "Section" "not in" site.Params.invisibleSections }}
-    {{ $rall := intersect $r1 $r2 }}
-	{{ range first site.Params.feedSize $rall }}
+	{{ range first site.Params.feedSize (where site.RegularPages "Section" "not in" site.Params.invisibleSections)}}
     <entry> {{ $url := .RelPermalink }}{{ $uuid := sha1 (.Permalink | absURL)}}{{ $page := .}}
       <category term="{{$page.Section}}" />
       <link rel='alternate' type='type/html' href='{{ $url }}' />
