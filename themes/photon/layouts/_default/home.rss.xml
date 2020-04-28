@@ -2,21 +2,22 @@
 {{ partial "xml/rss" .}}
 <rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom" {{ with site.LanguageCode }}xml:lang="{{ . }}"{{ end }} xml:base="{{site.BaseURL }}"> 
   <channel>
-    <title>{{ htmlEscape site.Title }}</title>
+    <title>{{ plainify site.Title }}</title>
     <link>{{ .RelPermalink }}</link>
 	{{ with  $.OutputFormats.Get "FEED" }}<atom:link href="{{.Permalink}}" rel="self" type="{{ .MediaType }}"/>{{ end }}
-    {{with site.Params.description}}<description>{{htmlEscape site.Params.description }}</description>{{end}}
+    {{with site.Params.description}}<description>{{plainify site.Params.description }}</description>{{end}}
     <generator>Hugo -- gohugo.io</generator>
     {{ with site.LanguageCode }}<language>{{.}}</language>{{end}}
-    {{ with site.Author.name }}<managingEditor>{{ with site.Author.email }}{{.}}{{end}}({{.}})</managingEditor>{{end}}
-    {{ with site.Author.name }}<webMaster>{{ with site.Author.email }}{{.}}{{end}}({{.}})</webMaster>{{end}}
-    {{ with site.Copyright }}<copyright>{{.}}</copyright>{{end}}
+	{{$n := site.Author.name }}{{ $e := site.Author.email }}
+    {{ with $n }}<managingeditor>{{.}} {{ with $e }}({{.}}){{end}}</managingeditor>{{end}}
+    {{ with $n }}<webmaster>{{.}} {{ with $e }}({{.}}){{end}}</webmaster>{{end}}
+    {{ with site.Params.Copyright }}<copyright>© {{ now.Format "2006"}} {{.}}</copyright>{{end}}
     <lastBuildDate>{{site.LastChange.UTC.Format  site.Params.dateFormatRFC822Z | safeHTML }}</lastBuildDate>
     {{ range first site.Params.feedSize (where site.RegularPages "Section" "not in" site.Params.invisibleSections)}}
     <item>
       <title>{{htmlEscape .Title }}</title>
       <link>{{ .RelPermalink }}</link>
-      <pubDate>{{ .Date.UTC.Format site.Params.dateFormatRFC822Z | safeHTML }}</pubDate>
+      <pubdate>{{ .Date.UTC.Format site.Params.dateFormatRFC822Z | safeHTML }}</pubdate>
       {{ with site.Author.name }}<author>{{ with site.Author.email }}{{.}}{{end}}({{.}})</author>{{end}}
       <guid isPermaLink="false">{{ md5 .Permalink }}</guid>
       <description>{{ plainify .Summary | htmlEscape }}</description>

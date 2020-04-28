@@ -14,6 +14,11 @@ feed {
 	margin-left: 36px;
 }
 
+feed > icon, logo, published, generator, updated {
+	display: none;
+}
+
+
 feed > title {
 	padding-top: 1em;
 	font-size: 2em;
@@ -31,23 +36,16 @@ feed > rights {
 	margin-bottom: 1em;
 }
 
-feed > icon {
-	display: none;
-}
-
-feed > logo {
-	display: none;
-}
-
-feed > published {
-	display: none;
-}
 
 feed > entry {
 	padding-top: 1em;
 	border-top: 1px solid;
 	color: #202020;
 	margin-left: 0;
+}
+
+feed > entry > category, link, published, id, content {
+	display: none;
 }
 
 feed > entry > title {
@@ -57,7 +55,7 @@ feed > entry > title {
 	text-decoration: underline;
 }
 
-feed > entry > published {
+feed > entry > updated {
 	color: #606060;
 	font-size: 1em;
 }

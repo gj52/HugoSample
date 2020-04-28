@@ -3,67 +3,62 @@
 	display: block;
 }
 
-generator, author, id, updated {
-	display: none;
-}
-
-feed {
+channel {
 	color: #606060;
 	font-family: "Source Sans Pro", Helvetica, "sans-serif"
 	font-display: fallback;
 	margin-left: 36px;
 }
 
-feed > title {
+channel > atom, link, generator, language, managingeditor, webMaster {
+	display: none;
+}
+
+
+channel > title {
 	padding-top: 1em;
 	font-size: 2em;
 	font-weight: bold;
 	border-bottom: 2px solid;
 }
 
-feed > subtitle {
+channel > description {
 	padding-top: 1em;
 	font-size: 1em;
 }
 
-feed > rights {
+channel > rights {
 	font-size: 1em;
 	margin-bottom: 1em;
 }
 
-feed > icon {
-	display: none;
-}
-
-feed > logo {
-	display: none;
-}
-
-feed > published {
-	display: none;
-}
-
-feed > entry {
+channel > item {
 	padding-top: 1em;
 	border-top: 1px solid;
 	color: #202020;
 	margin-left: 0;
 }
 
-feed > entry > title {
+channel > item > author, link, guid {
+	display: none;
+}
+
+channel > item > title {
 	margin-bottom: 0.2em;
 	font-size: 1.25em;
 	font-weight: bold;
 	text-decoration: underline;
 }
 
-feed > entry > published {
+channel > item > pubDate {
 	color: #606060;
 	font-size: 1em;
 }
 
-feed > entry > summary {
+
+channel > item > description {
 	margin-top: 1em;
 	margin-bottom: 1em;
 	font-size: 1em;
 }
+

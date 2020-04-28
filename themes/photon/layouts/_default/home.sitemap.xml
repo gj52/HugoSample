@@ -1,6 +1,7 @@
-{{ print "<?xml version=\"1.0\" encoding=\"utf-8\" ?>"  | safeHTML }}
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{{ range (where site.Sections "Section" "not in" site.Params.invisibleSections) }}
+{{ print "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\" ?>"  | safeHTML }}
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xml:base="{{site.BaseURL }}">
+{{ range (where site.Sections "Section" "not in" site.Params.invisibleSections) }}
  <sitemap>
-  <loc>{{ .Permalink }}sitemap.xml</loc>
+  <loc>{{ .RelPermalink }}sitemap.xml</loc>
  </sitemap>{{end}}
 </sitemapindex>

@@ -5,59 +5,20 @@
 	{{ range site.Menus.main -}}
 		{{ $is := $currentPage.IsMenuCurrent "main" . }}
 		<li class=pb2>
-			{{ if $is -}}
-				<span class="f4 b white bg-blue pv1 ph2">{{.Name | markdownify}}</span>
-			{{- else -}}
-				<span class="f4 b db" ><a href="{{ .URL }}" Title="{{ .Name }}">{{ .Name | markdownify }}</a></span>
-			{{- end}}
+			<span class="f4 b db" ><a href="{{ .URL }}" Title="{{ .Name }}">{{ .Name | markdownify }}</a></span>
 		</li>
 	{{- end}}
 
-	{{ if site.IsServer -}}
-		<li class=pb2>
-			{{ $isIntern := (and (eq "intern" .Page.Section) (eq "section" .Page.Kind)) }}
-			{{ if $isIntern -}}
-				<span class="f4 b white bg-blue ph2">Intern</span>
-			{{- else -}}
-				{{ with site.GetPage "/intern/_index.md" }}
-					<span class="f4 b db"><a href={{.RelPermalink}} Title=Intern>Intern</a></span>
-				{{end}}
-			{{- end}}
-		</li>
-		<li class=pb2>
-			{{ $isTest := (and (eq "test" .Page.Section) (eq "section" .Page.Kind)) }}
-			{{ if $isTest -}}
-				<span class="f4 b white bg-blue ph2">Test</span>
-			{{- else -}}
-				{{ with site.GetPage "/test/_index.md" }}
-					<span class="f4 b db"><a href={{.RelPermalink}} Title=Intern>Test</a></span>
-				{{end}}
-			{{- end}}
-		</li>
-	{{- end}}
-
-	<li id=feed class=pt1>
-		<span class="db pv1" ><a href=/feed.atom target=_blank type=application/atom+xml Title="ATOM Feed"><i class="pt4 fas fa-rss fa-fw"></i></a></span>
+	<li id=feed class=pt4>{{ with  .OutputFormats.Get "ATOM" -}}
+		<span class="f4 b db" ><a href="{{.RelPermalink}}" target=_blank type="{{ .MediaType.Type }}"><i class="fas fa-rss fa-fw"></i></a></span>
+		{{- end }}
 	</li>  
 </ul>
-<!--
-{{ range site.Menus.main -}}
-	<span class=f5>{{ .Identifier }} {{$currentPage.IsMenuCurrent "main" . }} </span>  <br>
-{{- end}}
--->
 
 <div class="db dn-ns hamburg">
 <i class="ma0 f2 fas fa-bars fa-fw"></i>
 <ul class=menu>
-	{{ range site.Menus.main }}<li class=menu-item>
-		{{ $is := $currentPage.IsMenuCurrent "main" . }}
-		{{ $has := $currentPage.HasMenuCurrent "main" . }}
-			{{ if or $is $has -}}
-				{{.Name | markdownify}}
-			{{ else }}
-				<a href={{ .URL }}>{{ .Name | markdownify }}</a>
-			{{ end }}</li>
-	{{ end }}
+	{{ range site.Menus.main }}<li class=menu-item><a href={{ .URL }}>{{ .Name | markdownify }}</a></li>{{ end }}
 </ul>	
 </div>
 

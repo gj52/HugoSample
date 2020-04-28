@@ -258,7 +258,8 @@ table {
 
 header {
   grid-area: hh;
-}
+  height: auto;
+  }
 
 
 footer {
@@ -280,6 +281,11 @@ section {
 
 /* -ns */
 @media screen and (min-width: 30em) {
+	
+  header {
+    height: 150px;
+  }
+	
 }
 
 /* -m */

@@ -76,9 +76,6 @@ expiryDate                 = [ "expiryDate"]
 [taxonomies]
     tag                    = "tags"
     serie                  = "series"
-	post                   = "post"
-	photo                  = "photo"
-	
 
 [permalinks]
     post                   = "/:section/:year/:month/:day/:title"
@@ -91,9 +88,12 @@ expiryDate                 = [ "expiryDate"]
 
 [mediaTypes]
   [mediaTypes."application/atom+xml"]
-    suffixes              = ["xml"]
+    suffixes               = ["atom.xml"]
   [mediaTypes."application/rss+xml"]
-    suffixes              = ["rss"]
+    suffixes               = ["rss.xml"]
+  [mediaTypes."application/json"]
+    suffixes               = ["json"]
+
   [mediaTypes."application/manifest+json"]
     suffixes              = ["webmanifest"]
 	
@@ -119,6 +119,13 @@ expiryDate                 = [ "expiryDate"]
     noUgly                = true
     Rel                   = "alternate"
 
+[outputFormats.JSON]
+    MediaType             = "application/json"
+    BaseName              = "feed"
+    IsHTML                = false
+    IsPlainText           = true
+    noUgly                = false
+    Rel                   = "alternate"
 
 [outputFormats.SITEMAP]
     MediaType             = "application/xml"
@@ -127,14 +134,6 @@ expiryDate                 = [ "expiryDate"]
     IsPlainText           = true
     noUgly                = true
     Rel                   = "sitemap"
-
-[outputFormats.JSON]
-    MediaType             = "application/json"
-    BaseName              = "feed"
-    IsHTML                = false
-    IsPlainText           = true
-    noUgly                = false
-    Rel                   = "alternate"
 
 [outputFormats.MANIFEST]
     MediaType             = "application/manifest+json"
@@ -215,39 +214,33 @@ expiryDate                 = [ "expiryDate"]
     name                = "Startseite"
     url                 = "/"
     weight              = 10
-    pre                = "<i class=\"fas fa-home fa-fw\"></i>"
 
 [[menu.main]]
     identifier          = "post"
     name                = "Beiträge"
     url                 = "/post/"
     weight              = 20
-    pre                = "<i class=\"fas fa-file-alt fa-fw\"></i>"
 
 [[menu.main]]
     identifier          = "photo"
     name                = "Fotos"
     url                 = "/photo/"
     weight              = 30
-    pre                = "<i class=\"fas fa-image fa-fw\"></i>"
 
 [[menu.main]]
     identifier          = "serie"
     name                = "Serien"
     url                 = "/series/"
     weight              = 40 
-    pre                = "<i class=\"fas fa-book fa-fw\"></i>"
 
 [[menu.main]]
     identifier          = "link"
     name                = "Links"
     url                 = "/links/"
     weight              = 50
-    pre                = "<i class=\"fas fa-external-link-square-alt fa-fw\"></i>"  
 
 [[menu.main]]
     identifier          = "index"
     name                = "Index"
     url                 = "/tags/"
     weight              = 110
-    pre                = "<i class=\"fas fa-tag fa-fw\"></i>"
