@@ -10,10 +10,13 @@ channel {
 	margin-left: 36px;
 }
 
-channel > atom, link, generator, language, managingeditor, webMaster {
+.channel > atom, link, generator, language, .managingEditor, .webMaster {
 	display: none;
 }
 
+managingEditor, webmaster {
+	display: none;
+}
 
 channel > title {
 	padding-top: 1em;
@@ -39,7 +42,7 @@ channel > item {
 	margin-left: 0;
 }
 
-channel > item > author, link, guid {
+channel > item > author, link, guid, enclosure {
 	display: none;
 }
 
@@ -61,4 +64,3 @@ channel > item > description {
 	margin-bottom: 1em;
 	font-size: 1em;
 }
-

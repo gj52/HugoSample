@@ -33,11 +33,6 @@ a {
 ul {
     display: block;
 	margin: 0.8em 0 0 0;
-	/*
-    margin-block-start: 0.8em;
-    margin-block-end: 0px;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;*/
 }
 
 ol {
@@ -141,6 +136,7 @@ img {
   padding-bottom: 56.25%; /* 16:9 */ 
   height: 0; 
 } 
+
 .videoWrapper iframe { 
   position: absolute; 
   top: 0; 
@@ -163,16 +159,16 @@ img {
   transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, border-color 0.1s ease-in-out;
 }
 
-  .tagbutton:hover {
-    background-color: #fffdd5;
-    border-width: 1px;
+.tagbutton:hover {
+	background-color: #fffdd5;
+	border-width: 1px;
 	box-shadow: 2px 2px 2px #757575;
-  }
+}
 
-  .tagbutton:active {
-    background-color: #fffdd5;
+.tagbutton:active {
+	background-color: #fffdd5;
 	box-shadow: 2px 2px 2px #757575;
-  }
+}
 
 /* table styles */
 table {
@@ -229,7 +225,7 @@ table {
   padding-left: .5rem; 
   padding-right: .5rem; 
   display: grid;
-      columns: 2;
+  columns: 2;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas: "aa nn" "hh hh" "mm mm" "ft ft";

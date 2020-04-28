@@ -9,8 +9,22 @@
 		</li>
 	{{- end}}
 
-	<li id=feed class=pt4>{{ with  .OutputFormats.Get "ATOM" -}}
-		<span class="f4 b db" ><a href="{{.RelPermalink}}" target=_blank type="{{ .MediaType.Type }}"><i class="fas fa-rss fa-fw"></i></a></span>
+	{{ if site.IsServer -}}
+		<li class=pb2>
+			{{ with site.GetPage "/intern/_index.md" }}
+				<span class="f4 b db"><a href={{.RelPermalink}} Title=Intern>Intern</a></span>
+			{{end}}
+		</li>
+		<li class=pb2>
+			{{ with site.GetPage "/test/_index.md" }}
+				<span class="f4 b db"><a href={{.RelPermalink}} Title=Intern>Test</a></span>
+			{{end}}
+		</li>
+	{{- end}}
+
+	<li id=feed class=pt4>
+		{{ with  site.Home.OutputFormats.Get "ATOM" -}}
+			<span class="f4 b db" ><a href="{{.RelPermalink}}" target=_blank type="{{ .MediaType.Type }}"><i class="fas fa-rss fa-fw"></i></a></span>
 		{{- end }}
 	</li>  
 </ul>
