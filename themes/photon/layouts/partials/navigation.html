@@ -1,28 +1,12 @@
 <nav class="f4 b tr pt3">
 <div class="dn db-ns" >
-	{{ $currentPage := . }}
-
 	{{ range site.Menus.main -}}
-		{{ $is := $currentPage.IsMenuCurrent "main" . }}
-		<div class=pb2>
-			<a href={{ .URL }} >{{ .Name | markdownify }}</a>
-		</div>
+		{{ if or (lt .Weight 900) site.IsServer }}
+			<div class=pb2><a href={{ .URL }}>{{ .Name | markdownify }}</a></div>
+		{{end}}
 	{{- end}}
 
-	{{ if site.IsServer -}}
-		<div class=pb2>
-			{{ with site.GetPage "/intern/_index.md" }}
-				<a href={{.RelPermalink}}>Intern</a>
-			{{end}}
-		</div>
-		<div class=pb2>
-			{{ with site.GetPage "/test/_index.md" }}
-				<a href={{.RelPermalink}}>Test</a>
-			{{end}}
-		</div>
-	{{- end}}
-
-	<div id=feed class=pt4>
+	<div class=pt4>
 		{{ with  site.Home.OutputFormats.Get "ATOM" -}}
 			<a href={{.RelPermalink}} target=_blank type="{{ .MediaType.Type }}"><i class="fas fa-rss fa-fw"></i></a>
 		{{- end }}
@@ -32,7 +16,11 @@
 <div class="db dn-ns hamburg">
 <i class="ma0 f2 fas fa-bars fa-fw"></i>
 <div class="f3 menu">
-	{{ range site.Menus.main }}<div class="menu-item pb2"><a href={{ .URL }}>{{ .Name | markdownify }}</a></div>{{ end }}
+	{{ range site.Menus.main }}
+	  {{ if or (lt .Weight 900) site.IsServer }}
+		<div class="menu-item pb2"><a href={{ .URL }}>{{ .Name | markdownify }}</a></div>
+	  {{ end }}
+	{{ end }}
 </div>	
 </div>
 
