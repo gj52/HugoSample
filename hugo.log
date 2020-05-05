@@ -1,5 +1,0 @@
-INFO 2020/04/26 14:45:03 Using config file: 
-INFO 2020/04/26 14:45:03 removing all files from destination that don't exist in static dirs
-INFO 2020/04/26 14:45:03 syncing static files to M:\HugoSample\
-LOG:   2020/04/26 14:45:35 Built in 32055 ms
-LOG:   2020/04/26 14:45:35 Watching for config changes in M:\HugoSample\config\_default
