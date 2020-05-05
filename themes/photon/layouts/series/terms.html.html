@@ -1,15 +1,18 @@
 {{ define "main" }}
 <header>
-	<h1><span class="dn di-l">{{ site.Title  | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1>
-	<div class=b>Das ist die Sammelstelle für alle Serien.</div>
+	<h1><span>{{ site.Title  | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1>
+	<div class=b>{{ .Description }}</div>
 </header>
-<article class="pa4 bt bb bw2 b--blue">
+<article class=pv2>
 	<h2 class=dn>{{ .Page.Title }}</h2>
+	<div class="pl4 pt2 db f4 b liste" >
 	{{range site.Taxonomies.series.Alphabetical -}}
-		<div class="f4 pv1">
-			<a class=b href="{{ .Page.RelPermalink }}" title="Serie: {{.Page.Title}}"><i class="far fa-folder-open fa-fw"></i>&nbsp;{{ .Page.Title  | markdownify }}</a>&nbsp;<sup class=b>{{.Count}}</sup>
+		<div class=pb2>
+			<span><a href="{{ .Page.RelPermalink }}" title="Serie: {{.Page.Title}}"><i class="fas fa-book fa-fw"></i>&nbsp;{{ .Page.Title  | markdownify }}</a>&nbsp;<sup class=b>{{.Count}}</sup></span>
 		</div>
 	{{- end}}
+	</div>
 </article>
 {{end}}
+
 

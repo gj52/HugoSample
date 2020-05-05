@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html {{ with site.Language.Lang }}lang="{{ . }}"{{ end }} >
+<html {{ with site.Language.Lang }}lang="{{ . }}"{{ end }}>
 {{ $section := .Section | default "home" }}
 {{ partial "meta" . }}
-<body class="site">
+<body>
 {{ partialCached "aside" . $section }}
 {{ partialCached "navigation" . $section}}
 {{ block "main" . }}{{ end }}

@@ -1,13 +1,14 @@
 {{ define "main" }}
-{{ $half := div .Site.Params.pagination.PagesPerListHome 2}}
+{{ $half := div .Site.Params.pagination.PagesPerListHome 2}} <!-- small screens --> 
 <header>
-	<h1 class="tc f3 f2-ns"><i class="fas fa-dragon fa-fw"></i>&nbsp; {{ .Site.Params.Title | markdownify }}</h1>
+	<h1>{{ .Site.Params.Title | markdownify }}&nbsp; <i class="fas fa-dragon fa-fw"></i></h1>
+	<div class="f5 b w-90-ns">{{.Title}}</div>
 </header>
-<section class="bb bw2 b--blue pb4">
-	<div class=pb2>
+<section class="ph3 pb3">
+	<div>
 		{{ $posts := site.GetPage "/post" }}
 		{{ with $posts -}}
-			<h2 class="f4 b white bg-blue pv1 ph2"><a class="white" href={{.RelPermalink}}>Beiträge</a></h2>
+			<h2 class="f4 b tc white bg-blue pv1"><a class="white" href={{.RelPermalink}}>Beiträge</a></h2>
 		{{- end }} 
 		{{ range $index, $element := first site.Params.pagination.PagesPerListHome $posts.Pages -}}
 			<div {{if (ge $index $half)}}class="dn di-l"{{end}}>
@@ -16,10 +17,10 @@
 		{{- end }}
 	</div>
 
-	<div class=pb2>
+	<div>
 		{{ $photos := site.GetPage "/photo" }}
 		{{ with $photos -}}
-			<h2 class="f4 b white bg-blue pv1 ph2"><a class="white" href={{.RelPermalink}}>Fotos</a></h2>
+			<h2 class="f4 b tc white bg-blue pv1"><a class="white" href={{.RelPermalink}}>Fotos</a></h2>
 		{{- end }}
 		{{ range $index, $element := first site.Params.pagination.PagesPerListHome $photos.Pages -}}
 			<div {{if (ge $index $half)}}class="dn di-l"{{end}}>

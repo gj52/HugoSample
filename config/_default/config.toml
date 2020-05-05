@@ -16,11 +16,15 @@ title                       = "G's Playground"
 titleCaseStyle              = "Chicago"
 theme                       = "photon"
 
+###############################################################
+
 LanguageCode                   = "de-de"
 DefaultContentLanguage         = "de"
 DefaultContentLanguageInSubdir = true
 defaultExtension           = "html"
 defaultLayout              = "post"
+
+###############################################################
 
 archetypedir               = "archetypes"
 assetdir                   = "assets"
@@ -32,6 +36,7 @@ paginatepath               = "page"
 resourcedir                = "resources"
 staticdir                  = "static"
 
+###############################################################
 
 buildDrafts                = false
 buildExpired               = false
@@ -47,8 +52,8 @@ forceSyncStatic            = false
 #pluralizelisttitles       = false
 relativeURLs               = false
 removePathAccents          = true
+summaryLength              = 10
 taskLists                  = false
-
 
 
 ###############################################################
@@ -68,9 +73,6 @@ expiryDate                 = [ "expiryDate"]
     [markup.goldmark.renderer]
       unsafe = true
 
-#[build]
-#  writeStats = true
-
 ###############################################################
 
 [taxonomies]
@@ -85,6 +87,8 @@ expiryDate                 = [ "expiryDate"]
 	about                  = "/:section/:slug"
     intern                 = "/:section/:year/:month/:day/:title"
     test                   = "/:section/:title"
+
+###############################################################
 
 [mediaTypes]
   [mediaTypes."application/atom+xml"]
@@ -111,7 +115,7 @@ expiryDate                 = [ "expiryDate"]
     noUgly                = true
     Rel                   = "alternate"
 
-[outputFormats.FEED]
+[outputFormats.FEED]       ##### ==> no collision with buildin RSS!
     MediaType             = "application/rss+xml"
     BaseName              = "feed"
     IsHTML                = false
@@ -159,20 +163,6 @@ expiryDate                 = [ "expiryDate"]
     quality            = 85
 	bgColor            = "#ffffff"
 
-[Params.Pagination]
-    PagesPerList       = 10
-    PagesPerListHome   = 10
-    Paginate           = 10
-    firstIndicator     = "<i class=\"fas fa-angle-double-left\"></i>" 
-    previousIndicator  = "<i class=\"fas fa-angle-left\"></i>" 
-    nextIndicator      = "<i class=\"fas fa-angle-right\"></i>"
-    lastIndicator      = "<i class=\"fas fa-angle-double-right\"></i>"        
-    showBeginEnd       = false
-    spaceIndicator     = "<b> ... </b>"
-    pagesBetweenActive = 5 
-
-###############################################################
-
 [Author]
     name               = "Gerhard Junker"
     email              = "me@example.com"
@@ -205,7 +195,26 @@ expiryDate                 = [ "expiryDate"]
 	changeFreq = "weekly"
 	priority   = 0.5
 
+[Params.Pagination]
+    PagesPerList           = 10
+    PagesPerListHome       = 10
+    Paginate               = 10
+    firstIndicator         = "<i class=\"fas fa-angle-double-left\"></i>" 
+    previousIndicator      = "<i class=\"fas fa-angle-left\"></i>" 
+    nextIndicator          = "<i class=\"fas fa-angle-right\"></i>"
+    lastIndicator          = "<i class=\"fas fa-angle-double-right\"></i>"        
+    showBeginEnd           = false
+    spaceIndicator         = "<b> ... </b>"
+    pagesBetweenActive     = 5 
 
+################# Image handling ###########
+# shortcode   figure.html
+# render hook render-image.html
+
+[Params.Images]
+	maxSize                = 1480
+	listSizes              = [ 480, 800, 1200 ]
+	
 ###############################################################
 
 [menu]		

@@ -3,13 +3,13 @@
 	display: block;
 }
 
-generator, author, id, updated {
+generator, author, id {
 	display: none;
 }
 
 feed {
 	color: #606060;
-	font-family: Helvetica, "sans-serif";
+	font-family: Helvetica, sans-serif;
 	font-display: fallback;
 	margin-left: 36px;
 }
@@ -44,7 +44,7 @@ feed > entry {
 	margin-left: 0;
 }
 
-feed > entry > category, link, published, id, content {
+feed > entry > category, link, id, content {
 	display: none;
 }
 
@@ -58,6 +58,7 @@ feed > entry > title {
 feed > entry > updated {
 	color: #606060;
 	font-size: 1em;
+	display: block;
 }
 
 feed > entry > summary {

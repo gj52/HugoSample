@@ -3,7 +3,7 @@
 	<h1><span class="dn di-l">{{ site.Title | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title | markdownify }}</h1>
 	{{ partial "single-head" . }}
 </header>
-<article class="bt bb bw2 b--blue">
+<article>
 	{{ .Content }}
 	<br/>
 	{{range .Resources.Match "gallery/*" -}}{{$alt := .Name}}{{ $image := .Fit "360x240 jpg #ffffff q75" }}{{ $preview := .Fit "30x20 jpg #ffffff q50" }} {{ $title := ""}}

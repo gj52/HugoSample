@@ -1,39 +1,39 @@
-<nav class="f3 pr2 tr br-ns bw2-ns b--blue navigation">
-<ul class="dn db-ns list" >
+<nav class="f4 b tr pt3">
+<div class="dn db-ns" >
 	{{ $currentPage := . }}
 
 	{{ range site.Menus.main -}}
 		{{ $is := $currentPage.IsMenuCurrent "main" . }}
-		<li class=pb2>
-			<span class="f4 b db" ><a href="{{ .URL }}" Title="{{ .Name }}">{{ .Name | markdownify }}</a></span>
-		</li>
+		<div class=pb2>
+			<a href={{ .URL }} >{{ .Name | markdownify }}</a>
+		</div>
 	{{- end}}
 
 	{{ if site.IsServer -}}
-		<li class=pb2>
+		<div class=pb2>
 			{{ with site.GetPage "/intern/_index.md" }}
-				<span class="f4 b db"><a href={{.RelPermalink}} Title=Intern>Intern</a></span>
+				<a href={{.RelPermalink}}>Intern</a>
 			{{end}}
-		</li>
-		<li class=pb2>
+		</div>
+		<div class=pb2>
 			{{ with site.GetPage "/test/_index.md" }}
-				<span class="f4 b db"><a href={{.RelPermalink}} Title=Intern>Test</a></span>
+				<a href={{.RelPermalink}}>Test</a>
 			{{end}}
-		</li>
+		</div>
 	{{- end}}
 
-	<li id=feed class=pt4>
+	<div id=feed class=pt4>
 		{{ with  site.Home.OutputFormats.Get "ATOM" -}}
-			<span class="f4 b db" ><a href="{{.RelPermalink}}" target=_blank type="{{ .MediaType.Type }}"><i class="fas fa-rss fa-fw"></i></a></span>
+			<a href={{.RelPermalink}} target=_blank type="{{ .MediaType.Type }}"><i class="fas fa-rss fa-fw"></i></a>
 		{{- end }}
-	</li>  
-</ul>
+	</div>  
+</div>
 
 <div class="db dn-ns hamburg">
 <i class="ma0 f2 fas fa-bars fa-fw"></i>
-<ul class=menu>
-	{{ range site.Menus.main }}<li class=menu-item><a href={{ .URL }}>{{ .Name | markdownify }}</a></li>{{ end }}
-</ul>	
+<div class="f3 menu">
+	{{ range site.Menus.main }}<div class="menu-item pb2"><a href={{ .URL }}>{{ .Name | markdownify }}</a></div>{{ end }}
+</div>	
 </div>
 
 </nav>

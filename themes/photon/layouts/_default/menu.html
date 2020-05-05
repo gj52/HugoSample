@@ -11,11 +11,11 @@
 <article id=sidebar class="f3 w-100 pv2 bt bb bw2 b--blue">
 	<div class="flex flex-column items-center w-100">
 		{{ range site.Menus.main}}
-		<div id={{.Identifier}} class=pv1><a href="{{ .URL }}" Title="{{ .Name }}">{{ .Name }}</a></div>
+		<div id={{.Identifier}} class=pv1><a href={{ .URL }}>{{ .Name }}</a></div>
 		{{end}}
 		{{ if site.IsServer -}}
-		{{ with site.GetPage "/intern/_index.md" }}<div id=Intern><a href={{.RelPermalink}} Title=Intern>Intern</a></div>{{end}}
-		{{ with site.GetPage "/test/_index.md" }}<div id=Test><a href={{.RelPermalink}} Title=Tests>Tests</a></div>{{end}}
+		{{ with site.GetPage "/intern/_index.md" }}<div id=Intern><a href={{.RelPermalink}}>Intern</a></div>{{end}}
+		{{ with site.GetPage "/test/_index.md" }}<div id=Test><a href={{.RelPermalink}}>Tests</a></div>{{end}}
 		{{- end}}
 	</div>
 </article>

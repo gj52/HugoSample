@@ -53,7 +53,7 @@
 {{ partial "favicon" . }}
 {{ partial "css/css" . }}
 {{ partial "js/jquery" . }}
-{{ if eq .Type "photo" }}
+{{ if eq .Params.Layout "gallery" }}
 	{{ partial "css/fancybox" . }}
 	{{ partial "js/fancybox"  . }}
 {{ end }}

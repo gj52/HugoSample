@@ -8,9 +8,6 @@ date        = "2018-08-24T22:07:49+02:00"
 Von der Taunuswanderung habe ich einige Bilder als [HDRI][] gekennzeichnet.
 Wie mache ich diese HDRI-Bilder?  
 
-Etwas MathJax für die Brüche.
-<!--more-->
-
 ### Aufnahme
 
 Zu 99% benutze ich das [RAW][]-Format der Kamera, dieses enthält je Farbe 12bit Werte, d.h. gegenüber JPEG mit 8bit eine 16-fach bessere Farbauflösung.
@@ -30,7 +27,7 @@ Im Ergebnis werden dunkle (zugelaufene / abgesoffene) Bereiche aufgehellt und di
 
 ### Beispiele 
 
-Blenheim Palace Eingangshalle
+Blenheim Palace Eingangshalle. Etwas MathJax für die Brüche.
 
 {{< imglist dsc03298    >}} Aufnahme **-2 EV**, Belichtungszeit {{<tex>}}\frac1{250}{{</tex>}}<br/>Äußere Strukturen sind zu gut erkennen.{{< /imglist >}}
 {{< imglist dsc03299    >}} Aufnahme  **0 EV**, Belichtungszeit {{<tex>}}\frac1{25}{{</tex>}}<br/>Die Decke und die Erker auf der unteren linken Seite sid abgesoffen, durch die Fenster sind äußere Strukturen kaum zu erkennen.{{< /imglist >}}

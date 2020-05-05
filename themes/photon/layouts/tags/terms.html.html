@@ -4,12 +4,12 @@
 	<h1><span>{{ site.Title  | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title }}</h1>
 	<div class=b>{{ .Description }}</div>
 </header>
-<article class="ph2 pv4 bt bb bw2 b--blue">
-	<h2 class=dn>{{ .Page.Title }}</h2>
-	<div class="dib f5 lh-copy">
+<article>
+	<h2 class=dn>{{ .Title }}</h2>
+	<div class="dib f5 pt2 lh-copy">
 		{{range .Data.Terms.Alphabetical -}} 
 			<div class="fl ph2 pv1 ma1 b tagbutton">
-				<a href={{ .Page.RelPermalink }} title="Alle Webseiten mit &quot;{{.Page.Title}}&quot; anzeigen">{{.Page.Title}}</a>&nbsp;<sup class=b>{{.Count}}</sup>
+				<a href={{ .Page.RelPermalink }}>{{.Page.Title}}</a>&nbsp;<sup class=b>{{.Count}}</sup>
 			</div>
 		{{- end}}
 	</div>

@@ -1,9 +1,10 @@
-<aside class="pa2 no-print">
+{{ $avw := 80 }}
+<aside class="mt3 no-print" style="width:{{mul 2 $avw}}px"><span class=tr>
 {{if not .IsHome}}
-	<a class="dim no-print" href=/>
+	<a class=dim href=/>
 {{end}}
-		<img class="f1 br-100 contain no-print" src="{{ site.Params.sidebar.avatar | relURL}}" alt=myself Title="{{ site.Params.Title | markdownify}}" />
+		<img class="f1 br-100 contain" src="{{ site.Params.sidebar.avatar | relURL}}" width={{$avw}} height=auto  />
 {{if not .IsHome}}
-	</a>
+	</a></span>
 {{end}}
 </aside>

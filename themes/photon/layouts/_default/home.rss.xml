@@ -1,6 +1,6 @@
 {{ print "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\" ?>"  | safeHTML }}
 {{ partial "xml/rss" .}}
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" {{ with site.LanguageCode }}xml:lang="{{ . }}"{{ end }} xml:base="{{site.BaseURL }}"> 
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" {{ with site.LanguageCode }}xml:lang="{{ . }}"{{ end }}> 
   <channel>
     <title>{{ plainify site.Title }}</title>
     <link>{{ .Permalink }}</link>
@@ -22,12 +22,6 @@
       <pubDate>{{ .Date.UTC.Format site.Params.dateFormatRFC822Z | safeHTML }}</pubDate>
       {{ with site.Author.name }}<author>{{ with site.Author.email }}{{.}}{{end}}({{.}})</author>{{end}}
       <guid isPermaLink="false">{{ md5 .Permalink }}</guid>
-<!--	  
-	  {{ range first 1 (.Resources.ByType "image") }}
-        {{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x360 jpg") }}{{ $image := $.Scratch.Get "image" }}
-            <enclosure url="{{ $image.Permalink }}"  length="{{ len $image.Content }}"   type="{{safeHTML $image.MediaType}}" />
-        {{ end }}
--->		
       <description>{{ plainify .Summary | htmlEscape }}</description>
     </item>
     {{ end }}

@@ -1,9 +1,9 @@
 
-<footer class=pv2 ><span class=nowrap><i class="fas fa-copyright fa-fw ph2"></i>{{ now.Format "2006"}}<a class=ph2 title=about href=/about/>{{ site.Params.Copyright }}</a></span>
+<footer class="mt3 pt2 tc bt b--black-20"><span class=nowrap><i class="fas fa-copyright fa-fw ph2"></i>{{ now.Format "2006"}}<a class=ph2 title=about href=/about/>{{ site.Params.Copyright }}</a></span>
 {{ if .IsHome -}}
 	<span class=nowrap><i class="fas fa-clock fa-fw ph2"></i>{{ now.Format site.Params.dateFormatLong }}</span>
 	<span class=nowrap><i class="fas fa-pen-fancy fa-fw ph2"></i><time datetime="{{ site.LastChange.Format site.Params.dateFormatLong }}">{{site.LastChange.Format	site.Params.dateFormatLong}}</time></span>
-	<span class=nowrap><i class="fas fa-cog fa-fw ph2"></i><a rel='noopener noreferrer' title="go Hugo" href=https://gohugo.io target=_blank>Hugo {{ hugo.Version }}</a></span>
+	<span class=nowrap><i class="fas fa-cog fa-fw ph2"></i><a rel='noopener noreferrer' href=https://gohugo.io target=_blank>Hugo {{ hugo.Version }}</a></span>
 {{- else -}}
 	{{ if .IsPage -}}
 		<span class=nowrap><i class="fas fa-plus-circle fa-fw ph2"></i><time datetime="{{ .Date.UTC.Format site.Params.dateFormatLong }}">{{ .Date.Format site.Params.dateFormatShort }}</time></span>
