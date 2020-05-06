@@ -26,29 +26,6 @@ feed {
     padding-top: 1em;
   }
 
-    feed > entry > category, link, id, content {
-      display: none;
-    }
-
-    feed > entry > title {
-      font-size: 1.25em;
-      font-weight: bold;
-      margin-bottom: 0.2em;
-      text-decoration: underline;
-    }
-
-    feed > entry > updated {
-      color: #606060;
-      display: block;
-      font-size: 1em;
-    }
-
-    feed > entry > summary {
-      font-size: 1em;
-      margin-top: 1em;
-      margin-bottom: 1em;
-    }
-
   feed > title {
     border-bottom: 2px solid;
     font-size: 2em;
@@ -65,3 +42,34 @@ feed {
     font-size: 1em;
     padding-top: 1em;
   }
+  
+    feed > entry > category, link, id, content {
+      display: none;
+    }
+
+
+
+    feed > entry > title {
+      font-size: 1.25em;
+      font-weight: bold;
+      margin-bottom: 0.2em;
+      text-decoration: underline;
+    }
+
+    feed > entry > updated {
+      color: #606060;
+      display: block;
+      font-size: 1em;
+    }
+
+    feed > entry > summary {
+ 	  display: block;
+      font-size: 1em;
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+
+    feed > entry > summary * {
+ 	  display: run-in;
+    }
+

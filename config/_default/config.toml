@@ -163,6 +163,9 @@ expiryDate                 = [ "expiryDate"]
     quality            = 85
 	bgColor            = "#ffffff"
 
+[imaging.exif]
+    includeFields = ".*"
+    
 [Author]
     name               = "Gerhard Junker"
     email              = "me@example.com"
@@ -253,3 +256,10 @@ expiryDate                 = [ "expiryDate"]
     name                = "Index"
     url                 = "/tags/"
     weight              = 110
+
+[[menu.main]]
+    identifier             = "intern"
+    name                   = "Intern"
+    url                    = "/intern/"
+    weight                 = 910
+
