@@ -5,21 +5,20 @@
   body {
     background-color: transparent;
     color: #000;
-    font-family: georgia, athelas, serif;
+    font-family: Helvetica, Avenir, System sans-serif;
     font-size: 12pt;
     line-height: 1.25;
     margin: 1cm;
     margin-left: 2cm;
     padding: 0;
-	
-  /* site */
+    /* site */
     column-gap: 0;
     columns: 2;
     grid-template-columns: auto 148px;
     grid-template-rows: 148px auto;
     grid-template-areas: "hh qr" "mm mm" "ft ft";
-  }	
   }
+
 
   h1 {
     text-shadow: none;
@@ -72,6 +71,20 @@
     font-weight: bold;
     line-height: 1.15;
     margin: .25rem;
+  }
+
+  ul {
+    display: block;
+    list-style: disc;
+  }
+
+  ol {
+    display: block;
+    list-style: disc;
+  }
+
+  li {
+    line-height: 1.25;
   }
 
 

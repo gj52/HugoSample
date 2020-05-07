@@ -1,14 +1,6 @@
 {{if not .IsHome -}}
-<div class="no-print">
-	<table class="dib pl2 thead">
-		<tr>
-			<td><i class="far fa-calendar-alt fa-fw"></i></td>
-			<td>{{ .Date.Format site.Params.dateFormatShort }}</time></td>
-		</tr>
-		<tr>
-			<td class=v-top>{{- partial "symbol" . -}}</td>
-			<td>{{ .Description | markdownify }}</td>
-		</tr>
-	</table>
+<div class="sumhead no-print pl2">
+	<div class=sumcal><i class="far fa-calendar-alt fa-fw"></i></div><div class=sumdate><time datetime="{{ .Date.Format site.Params.dateFormatFeed }}">{{ .Date.Format site.Params.dateFormatShort }}</time></div>
+	<div class=sumsym>{{ partial "symbol" . }}</div><div class=sumtext>{{ .Description | markdownify }}</div>
 </div>
 {{- end}}

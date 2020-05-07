@@ -11,7 +11,7 @@
   <a href={{ $image.RelPermalink }}>
     <img class=foto sizes=600px src={{ $image.RelPermalink }}
 	{{ if gt (len $srcset) 0 }}{{ $sl := delimit $srcset ", "}}srcset="{{$sl}}" {{ end }}	  
-      width={{ $image.Width }} height=auto alt="{{ if $alt }}{{ $alt }}{{ else if $caption }}{{ $caption | markdownify | plainify }}{{ else }}&nbsp;{{ end }}" ></a>
+      width={{ $image.Width }} height={{ $image.Height }} alt="{{ if $alt }}{{ $alt }}{{ else if $caption }}{{ $caption | markdownify | plainify }}{{ else }}&nbsp;{{ end }}" ></a>
   {{ with $caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
 </figure>
 {{- else -}}

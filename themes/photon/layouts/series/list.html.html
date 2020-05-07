@@ -2,13 +2,12 @@
 <header><h1><span class="dn di-l w-90-ns">{{ site.Title  | markdownify }}</span><i class="fas fa-dragon fa-fw ph3"></i>{{ .Page.Title }}</h1>{{if isset .Params "description" }}<div class="f5 b w-90-ns">{{ .Description }}</div>{{end}}</header>	
 <article>
 <h2 class=dn>{{ .Page.Title }}</h2>
-<ul class="dn db-ns list" >
-	<div class=liste>
-		{{ $paginator := .Paginate .Data.Pages 40}} 
-		{{ range $paginator.Pages -}}
-			{{ .Render "summary" }}
-		{{- end }}
-	</div>
-	{{ partial "pagination" . }}
+<div class=liste>
+	{{ $paginator := .Paginate .Data.Pages 40}} 
+	{{ range $paginator.Pages -}}
+		{{ .Render "summary" }}
+	{{- end }}
+</div>
+{{ partial "pagination" . }}
 </article>
 {{ end }}

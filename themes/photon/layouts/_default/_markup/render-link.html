@@ -3,4 +3,4 @@
 	target="_blank" rel="noopener noreferrer"
 {{- else -}}
 	{{ with site.GetPage .Destination}} href={{.RelPermalink}} {{end}}
-{{- end}}>{{ .Text }}</a>
+{{- end}}>{{ htmlEscape .Text }}</a>

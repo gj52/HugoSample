@@ -104,8 +104,8 @@ expiryDate                 = [ "expiryDate"]
 [outputFormats.HTML]
     baseName              = "index"
     NoUgly                = true
-    IsHTML                = true
-	permalinkable          = true
+    IsHTML                 = true 
+    permalinkable          = true 
 	
 [outputFormats.ATOM]
     MediaType             = "application/atom+xml"
@@ -256,10 +256,4 @@ expiryDate                 = [ "expiryDate"]
     name                = "Index"
     url                 = "/tags/"
     weight              = 110
-
-[[menu.main]]
-    identifier             = "intern"
-    name                   = "Intern"
-    url                    = "/intern/"
-    weight                 = 910
 
