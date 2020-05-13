@@ -2,7 +2,7 @@
 {{ if $image -}}
 {{ $iw := $image.Width }}{{ $ih := $image.Height }}{{ $ms   := site.Params.Images.maxSize | default 1024 }}
 {{ if or (ge $iw $ms) (ge $ih $ms) }}{{ $image = $image.Fit (print $ms "x" $ms) }}{{end}}
-{{ $srcset := slice }}{{ range site.Params.Images.listSizes -}}
+{{ $srcset := slice }}{{ range site.Params.Images.setSizes -}}
   {{ if lt (mul . 1.2) $iw }}{{ $thumb := $image.Fit (print  . "x" .) }}{{ $srcset = $srcset | append (printf ("%s %dw") $thumb.RelPermalink . ) }}{{ end }}
 {{- end }}
 

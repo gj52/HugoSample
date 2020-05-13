@@ -102,30 +102,30 @@ expiryDate                 = [ "expiryDate"]
     suffixes              = ["webmanifest"]
 	
 [outputFormats.HTML]
-    baseName              = "index"
-    NoUgly                = true
+    baseName               = "index"
+    NoUgly                 = true
     IsHTML                 = true 
     permalinkable          = true 
-	
+    
 [outputFormats.ATOM]
-    MediaType             = "application/atom+xml"
-    BaseName              = "feed"
-    IsHTML                = false
-    IsPlainText           = true
-    noUgly                = true
-    Rel                   = "alternate"
+    MediaType              = "application/atom+xml"
+    BaseName               = "feeds/feed"   # YES, subdir works!
+    IsHTML                 = false
+    IsPlainText            = true
+    noUgly                 = true
+    Rel                    = "alternate"
 
 [outputFormats.FEED]       ##### ==> no collision with buildin RSS!
-    MediaType             = "application/rss+xml"
-    BaseName              = "feed"
-    IsHTML                = false
-    IsPlainText           = true
-    noUgly                = true
-    Rel                   = "alternate"
+    MediaType              = "application/rss+xml"
+    BaseName               = "feeds/feed"
+    IsHTML                 = false
+    IsPlainText            = true
+    noUgly                 = true
+    Rel                    = "alternate"
 
 [outputFormats.JSON]
-    MediaType             = "application/json"
-    BaseName              = "feed"
+    MediaType              = "application/json"
+    BaseName               = "feeds/feed"
     IsHTML                = false
     IsPlainText           = true
     noUgly                = false
@@ -187,7 +187,7 @@ expiryDate                 = [ "expiryDate"]
     invisibleSections   = ["menu","serie","about", "links"]
 	sitemapMax          = 49999
 
-	feedSize               = 25
+    feedSize               = 25 # rssLimit 
     digest                 = "sha384"
     
 [Params.sidebar]
@@ -216,7 +216,7 @@ expiryDate                 = [ "expiryDate"]
 
 [Params.Images]
 	maxSize                = 1480
-	listSizes              = [ 480, 800, 1200 ]
+    setSizes              = [ 480, 800, 1200 ]
 	
 ###############################################################
 
