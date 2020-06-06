@@ -15,7 +15,7 @@
     {{with site.Params.description}}<description>{{plainify site.Params.description }}</description>{{end}}
     <generator>>Hugo {{hugo.Version}}</generator>
     {{ with site.LanguageCode }}<language>{{.}}</language>{{end}}
-	{{$n := site.Author.name }}{{ $e := site.Author.email }}
+	{{$n := site.Author.name }}
 	{{ with $n }}<dc:creator>{{plainify $n}}</dc:creator>{{end}}
     {{ with site.Params.Copyright }}<copyright>@ {{ now.Format "2006"}} {{htmlEscape .}}</copyright>{{end}}
 	<lastBuildDate>{{site.LastChange.UTC.Format  site.Params.dateFormatRFC822Z | safeHTML }}</lastBuildDate>
@@ -24,7 +24,9 @@
       <title>{{htmlEscape .Title }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .Date.UTC.Format site.Params.dateFormatRFC822Z | safeHTML }}</pubDate>
+<!--	  
       {{ with site.Author.name }}<author>{{ with site.Author.email }}{{.}}{{end}}({{.}})</author>{{end}}
+-->
 	    <category>{{htmlEscape .Section}}</category>
 	  {{ range (.GetTerms "tags") }}
 		<category>{{htmlEscape .LinkTitle }}</category>{{end}}

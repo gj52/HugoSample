@@ -50,6 +50,10 @@ a {
     color: var(--link-color);
   }
 
+.anchor {
+	color: lightblue;
+}	
+
 ul {
   display: block;
   list-style: "★ ";

@@ -1,0 +1,1 @@
+<h{{ .Level }} id={{ .Anchor | safeHTML }} >{{ .Text | safeHTML }} {{ if le .Level 3 }}<a href={{.Page.RelPermalink}}#{{ .Anchor | safeHTML }} ><i class="anchor fas fa-link"></i></a>{{end}}</h{{ .Level }}>

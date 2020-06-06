@@ -51,6 +51,10 @@
       font-weight: normal;
     }
 
+.anchor {
+	display: none;
+}	
+
   p, ul, pre, blockquote, foot {
     display: block;
     widows: 3;
