@@ -26,7 +26,7 @@ body {
   columns: 2;
   display: grid;
   font-family: georgia, athelas, system serif;
-  grid-template-columns: auto 1fr;
+  grid-auto-columns: auto;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas: "aa nn" "hh hh" "mm mm" "ft ft";
   padding-left: .5rem;
@@ -40,6 +40,7 @@ h1 {
 
 a {
   color: var(--link-color);
+  font-weight: bold;
 }
 
   a:hover {
@@ -52,6 +53,7 @@ a {
 
 .anchor {
 	color: lightblue;
+	font-size: small !important; 
 }	
 
 ul {
@@ -90,67 +92,16 @@ img {
   page-break-inside: avoid;
 }
 
-/* menu */
-
-/* https://w3bits.com/css-dropdown-menu/ */
-
-.hamburg {
-  background-color: transparent;
-  float: right;
-  font-weight: bolder;
-  height: 100%;
-  overflow: hidden;
-  padding: .5rem;
-  transition: visibility .5s, opacity .5s ease-in-out;
-  width: 100%;
-}
-
-.menu .menu-item {
-  border: 0 solid;
-  display: block;
-}
-
-
-.hamburg:hover i {
-  display: none;
-}
-
-/* touch */
-.hamburg:visited .menu {
-  display: block;
-}
-
-.hamburg:hover .menu {
-  display: block;
-}
-
-.hamburg .menu:hover {
-  display: block;
-}
-
-.menu {
-  background-color: var(--background-color);
-  box-shadow: 0px 0px 16px 0px var(--shadow-opacity);
-  display: none;
-  float: none;
-  padding: 4px 8px;
-  position: absolute;
-  right: 16px;
-  top: 24px;
-  z-index: 1;
-}
-
-  .menu > a {
-    display: flex;
-    justify-content: space-between;
-    padding: 1px;
-  }
-
 /* Foto */
+
+.flex-thumbs {
+    display: flex;
+    flex-wrap: wrap;
+	gap: 12px;
+}
 
 .foto {
   box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
-  margin: .25rem;
 }
 
   .foto:hover {
@@ -273,6 +224,7 @@ section {
 
 .liste {
   column-width: auto;
+  display: grid | inline-grid;
 }
 
 .sumhead {
@@ -305,6 +257,7 @@ section {
 
   aside {
     grid-area: aa;
+	text-align: center;
   }
 
   nav {
@@ -337,14 +290,6 @@ section {
     height: 580px;
   }
 
-
-/* -ns */
-@media screen and (min-width: 30em) {
-
-  header {
-    height: 150px;
-  }
-}
 
 /* -m */
 @media screen and (min-width: 30em) and (max-width: 60em) {

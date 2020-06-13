@@ -5,7 +5,6 @@
 			<div class=pb2><a href={{ .URL }}>{{ .Name | markdownify }}</a></div>
 		{{end}}
 	{{- end}}
-
 	<div class=pt4>
 		{{ with  site.Home.OutputFormats.Get "ATOM" -}}
 			<a href={{.RelPermalink}} target=_blank type="{{ .MediaType.Type }}"><i class="fas fa-rss fa-fw"></i></a>
@@ -13,15 +12,13 @@
 	</div>  
 </div>
 
-<div class="db dn-ns hamburg">
-<i class="ma0 f2 fas fa-bars fa-fw"></i>
-<div class="f3 menu">
+<div class="db dn-ns f3">
 	{{ range site.Menus.main }}
 	  {{ if or (lt .Weight 900) site.IsServer }}
-		<div class="menu-item pb2"><a href={{ .URL }}>{{ .Name | markdownify }}</a></div>
+		<a class=ma2 href={{ .URL }}>{{ .Name | markdownify }}</a>
 	  {{ end }}
 	{{ end }}
-</div>	
 </div>
+
 
 </nav>

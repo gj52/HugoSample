@@ -58,9 +58,11 @@
 	{{ partial "css/fancybox" . }}
 	{{ partial "js/fancybox"  . }}
 {{ end }}
+<!--
 {{ if eq .Params.Layout "panorama" }}
 	{{ partial "js/osd"  . }}
 {{ end }}
+-->
 {{ partial "js/qr"   . }}
 {{ if .HasShortcode "tex" }}
 	{{ partial "js/mathjax" .}}
