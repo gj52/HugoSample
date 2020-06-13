@@ -51,20 +51,15 @@
 {{ with site.Language.Lang -}}<meta name=DC.Language    content={{ . }} />{{- end }}
 <meta name=DC.Date        content="{{ .Date.Format site.Params.dateFormatFeed}}" /> <!-- Fine Dublin Core -->
 
-{{ partial "favicon" . }}
-{{ partial "css/css" . }}
-{{ partial "js/jquery" . }}
+{{ partialCached "favicon" . }}
+{{ partialCached "css/css" . }}
+{{ partialCached "js/jquery" . }}
 {{ if eq .Params.Layout "gallery" }}
-	{{ partial "css/fancybox" . }}
-	{{ partial "js/fancybox"  . }}
+	{{ partialCached "css/fancybox" . }}
+	{{ partialCached "js/fancybox"  . }}
 {{ end }}
-<!--
-{{ if eq .Params.Layout "panorama" }}
-	{{ partial "js/osd"  . }}
-{{ end }}
--->
 {{ partial "js/qr"   . }}
 {{ if .HasShortcode "tex" }}
-	{{ partial "js/mathjax" .}}
+	{{ partialCached "js/mathjax" .}}
 {{end}}
 </head>

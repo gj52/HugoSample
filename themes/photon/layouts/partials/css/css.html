@@ -1,6 +1,6 @@
-{{ partial "css/awesome" }}
-{{ partial "css/tachyons"}}
-{{ partial "css/material"}}
+{{ partialCached  "css/awesome"  . }}
+{{ partialCached  "css/tachyons" . }}
+{{ partialCached  "css/material" . }}
 
 {{ $mccs := resources.Get "css/main.css" }}
 {{ if hugo.IsProduction }} {{ $mccs  = $mccs | minify | resources.Fingerprint site.Params.digest }} {{end}}
