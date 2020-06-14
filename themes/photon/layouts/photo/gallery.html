@@ -5,7 +5,7 @@
 </header>
 <article>
 	{{ with .Content}}{{ . }}<br/>{{end}}
-	<div class='flex-thumbs'>
+	<div class=flex-pics>
 	{{range .Resources.Match "gallery/*" -}}{{$alt := .Name}}{{ $image := .Fit "360x240 jpg #ffffff q75" }}{{ $preview := .Fit "30x20 jpg #ffffff q50" }} {{ $title := ""}}
 		<a data-fancybox=gallery href={{.RelPermalink}}><figure><img 
 			loading=lazy class=foto src={{ $image.RelPermalink }} 

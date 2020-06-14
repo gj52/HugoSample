@@ -12,6 +12,7 @@
   --th-background: #d0f0f0;
   --tr-odd-background: white;
   --tr-even-background: #e8f8f8;
+  	--gap: 12px;
 }
 
 /* special styles */
@@ -22,7 +23,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   color: black;
-  column-gap: 10px;
+  column-gap: var(--gap);
   columns: 2;
   display: grid;
   font-family: georgia, athelas, system serif;
@@ -94,10 +95,15 @@ img {
 
 /* Foto */
 
-.flex-thumbs {
-    display: flex;
+.flex-pics {
+    display: inline-flex;
     flex-wrap: wrap;
-	gap: 12px;
+	margin: calc(-1 * var(--gap)) 0 0 calc(-1 * var(--gap));
+    width: calc(100% + var(--gap));
+}
+
+.flex-pics > a {
+  margin: var(--gap) 0 0 var(--gap);
 }
 
 .foto {
