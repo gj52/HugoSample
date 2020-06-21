@@ -95,12 +95,14 @@ img {
 
 /* Foto */
 
-.flex-pics {
+.gallery {
     display: inline-flex;
     flex-wrap: wrap;
+	gap: var(--gap);
 	margin: calc(-1 * var(--gap)) 0 0 calc(-1 * var(--gap));
     width: calc(100% + var(--gap));
 }
+
 
 .flex-pics > a {
   margin: var(--gap) 0 0 var(--gap);

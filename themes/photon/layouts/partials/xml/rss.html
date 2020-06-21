@@ -1,1 +1,2 @@
-{{ $css := resources.Get "css/rss.css" | minify }}{{ safeHTML "<?xml-stylesheet" }} type="text/css"  href="{{ $css.Permalink  }}" ?>
+{{ $css := resources.Get "css/rss.css"}}{{ if hugo.IsProduction }}{{ $css = $css | minify | resources.Fingerprint site.Params.digest }}{{end}}
+{{ safeHTML "<?xml-stylesheet" }} type="text/css"  href="{{ $css.Permalink  }}" ?>

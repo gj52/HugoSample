@@ -66,9 +66,36 @@ expiryDate                 = [ "expiryDate"]
 
 ###############################################################
 
+[minify]
+    disableCSS   = false
+    disableHTML  = false
+    disableJS    = false
+    disableJSON  = false
+    disableSVG   = false
+    disableXML   = false
+    minifyOutput = true
+    [minify.tdewolff]
+#        [minify.tdewolff.css]
+#        decimals = -1
+#        keepCSS2 = true
+        [minify.tdewolff.html]
+            keepConditionalComments = false
+            keepDefaultAttrVals     = false
+            keepDocumentTags        = true
+            keepEndTags             = true
+            keepWhitespace          = false
+#        [minify.tdewolff.js]
+#        [minify.tdewolff.json]
+#        [minify.tdewolff.svg]
+#           decimals = -1
+#        [minify.tdewolff.xml]
+#            keepWhitespace = false
+
+###############################################################
+
 [markup]
     defaultMarkdownHandler = "goldmark"
-    
+
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
@@ -92,24 +119,26 @@ expiryDate                 = [ "expiryDate"]
 
 [mediaTypes]
   [mediaTypes."application/atom+xml"]
-    suffixes               = ["atom.xml"]
+    suffixes               = ["xml"]
+
   [mediaTypes."application/rss+xml"]
-    suffixes               = ["rss.xml"]
+    suffixes               = ["xml"]
+
   [mediaTypes."application/json"]
     suffixes               = ["json"]
 
   [mediaTypes."application/manifest+json"]
     suffixes              = ["webmanifest"]
-	
+
 [outputFormats.HTML]
     baseName               = "index"
     NoUgly                 = true
-    IsHTML                 = true 
-    permalinkable          = true 
-    
+    IsHTML                 = true
+    permalinkable          = true
+
 [outputFormats.ATOM]
     MediaType              = "application/atom+xml"
-    BaseName               = "feeds/feed"   # YES, subdir works!
+    BaseName               = "feeds/feed.atom"
     IsHTML                 = false
     IsPlainText            = true
     noUgly                 = true
@@ -117,7 +146,7 @@ expiryDate                 = [ "expiryDate"]
 
 [outputFormats.FEED]       ##### ==> no collision with buildin RSS!
     MediaType              = "application/rss+xml"
-    BaseName               = "feeds/feed"
+    BaseName               = "feeds/feed.rss"
     IsHTML                 = false
     IsPlainText            = true
     noUgly                 = true
@@ -138,6 +167,7 @@ expiryDate                 = [ "expiryDate"]
     IsPlainText           = true
     noUgly                = true
     Rel                   = "sitemap"
+
 
 [outputFormats.MANIFEST]
     MediaType             = "application/manifest+json"
@@ -202,13 +232,13 @@ expiryDate                 = [ "expiryDate"]
     PagesPerList           = 10
     PagesPerListHome       = 10
     Paginate               = 10
-    firstIndicator         = "<i class=\"fas fa-angle-double-left\"></i>" 
-    previousIndicator      = "<i class=\"fas fa-angle-left\"></i>" 
+    firstIndicator         = "<i class=\"fas fa-angle-double-left\"></i>"
+    previousIndicator      = "<i class=\"fas fa-angle-left\"></i>"
     nextIndicator          = "<i class=\"fas fa-angle-right\"></i>"
-    lastIndicator          = "<i class=\"fas fa-angle-double-right\"></i>"        
+    lastIndicator          = "<i class=\"fas fa-angle-double-right\"></i>"
     showBeginEnd           = false
     spaceIndicator         = "<b> ... </b>"
-    pagesBetweenActive     = 5 
+    pagesBetweenActive     = 5
 
 ################# Image handling ###########
 # shortcode   figure.html
@@ -217,10 +247,11 @@ expiryDate                 = [ "expiryDate"]
 [Params.Images]
 	maxSize                = 1480
     setSizes              = [ 480, 800, 1200 ]
-	
+
 ###############################################################
 
-[menu]		
+
+[menu]
 [[menu.main]]
     identifier          = "home"
     name                = "Startseite"
@@ -243,7 +274,7 @@ expiryDate                 = [ "expiryDate"]
     identifier          = "serie"
     name                = "Serien"
     url                 = "/series/"
-    weight              = 40 
+    weight              = 40
 
 [[menu.main]]
     identifier          = "link"
