@@ -4,12 +4,12 @@
 	{{ partial "single-head" . }}
 </header>
 <article>
-	{{ with .Content}}{{ . }}<br/>{{end}}
+	{{ with .Content}}{{ . }}{{end}}
 	<div class=gallery>
-	{{range .Resources.Match "gallery/*" -}}{{$alt := .Name}}{{ $image := .Fit "360x240 jpg #ffffff q75" }}{{ $preview := .Fit "30x20 jpg #ffffff q50" }} {{ $title := ""}}
+	{{range .Resources.Match "gallery/*" -}}{{$alt := .Name}}{{ $image := .Fit "330x220 jpg #ffffff q75" }}{{ $preview := .Fit "33x22 jpg #ffffff q50" }} {{ $title := ""}}
 		<a data-fancybox=gallery href={{.RelPermalink}}><figure><img 
 			loading=lazy class=foto src={{ $image.RelPermalink }} 
-			width={{ $image.Width }} height={{ $image.Height }} alt="{{ $alt }}" title="{{$title}}"
+			max-width={{ $image.Width }} max-height={{ $image.Height }} alt="{{ $alt }}" title="{{$title}}"
 			style="background: url(data:image/jpeg;base64,{{ $preview.Content | base64Encode  }}); background-size:100% 100%;" /></figure></a>
 	{{- end }}
 	</div>

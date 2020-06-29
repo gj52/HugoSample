@@ -4,7 +4,7 @@
 	<h1>{{ .Site.Params.Title | markdownify }}&nbsp; <i class="fas fa-dragon fa-fw"></i></h1>
 	<div class="f5 b w-90-ns">{{.Title}}</div>
 </header>
-<section class="ph3 pb3">
+<section class="pb3">
 	<div>
 		{{ $posts := site.GetPage "/post" }}
 		{{ with $posts -}}

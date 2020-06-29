@@ -6,7 +6,7 @@
 {{if not .IsHome -}}
 <div class="b no-print w-100">
 	<a href={{ site.Home.RelPermalink}} ><i class="fas fa-home fa-fw"></i></a>
-	<span class=nowrap>{{ with site.GetPage (printf "/%s" .Section) }}<a class=ph1 href={{ .RelPermalink }} >{{ .Name }}</a>{{ end}}</span>
+	<span class=nowrap>{{ with site.GetPage .Section }}<a class=ph1 href={{ .RelPermalink }} >{{ .Name }}</a>{{ end}}</span> 
 	{{if isset .Params "tags" -}}
 		<span class=nowrap>
 		<a href=/tags/ ><i class="fas fa-tag fa-fw"></i></a>

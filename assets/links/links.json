@@ -9,7 +9,7 @@
       "title": "Apache portable",
       "description": "Der Apache als PortableAPP",
       "url": "https://sourceforge.net/projects/apache2portable",
-	  "draft" : false
+      "draft" : false
     },
     {
       "title": "Markdown’s formatting syntax",
@@ -20,7 +20,7 @@
       "title": "Goldmark project",
       "description": "A markdown parser compliant to CommonMark.",
       "url": "https://github.com/yuin/goldmark/"
-    },	
+    },  
     {
       "title": "CSS Snippets",
       "description": "50 Useful CSS Snippets Every Designer Should Have",
@@ -29,14 +29,14 @@
     {
       "title": "Fancybox",
       "description": "Lichtkasten-Bibliothek für Fotos und andere Medien",
-      "url": "https://fancyapps.com/fancybox/3/"
+      "url": " https://github.com/fancyapps/fancybox/"
     },
     {
       "title": "Font-Awesome",
       "description": "Das weltweit populärste und am einfachsten zu benutzende Icon-Set",
-      "url": "https://fontawesome.com/"
+      "url": "https://fontawesome.com/icons?d=gallery&m=free"
     },
-	{
+    {
       "title": "Hugo",
       "description": "Das weltweit schnellste Framework zum erstellen von Webseiten",
       "url": "https://gohugo.io/"
@@ -90,95 +90,99 @@
       "title": "W3 - validate ATOM",
       "description": "W3 - validate my ATOM feed",
       "url": "https://validator.w3.org/feed/",
-	  "draft": true
+      "draft": true
     },
     {
       "title": "W3 - validate CSS",
       "description": "W3 - validate my CSS file",
       "url": "http://jigsaw.w3.org/css-validator/",
-	  "draft": true
+      "draft": true
     },
     {
       "title": "W3 - Validator",
       "description": "W3 - validate HTML, CSS and feed filed",
       "url": "https://validator.w3.org/"
     },
-	{
+    {
       "title": "RSS - Validator",
       "description": "RSS Advisory Board - validates RSS feeds",
       "url": "http://www.rssboard.org/rss-validator/"
     },
 
-	{
-	  "title": "Material Design Icons",
-	  "description": "Material Design Icons",
-	  "url": "https://materialdesignicons.com/"
-	},
-	{
-		"title": "Xenu",
-		"description": "Find broken links on web sites",
-		"url": "http://home.snafu.de/tilman/xenulink.html"
-	},
-	{
-		"title": "UUID",
-		"description": "Online UUID generator",
-		"url": "https://www.uuidgenerator.net/"
-	},
-	{
-		"title": "Material Design Icons - cheet sheet",
-		"description": "Need some icons? Have a look below.",
-		"url": "https://cdn.materialdesignicons.com/3.7.95/"
-	},
-	{
-		"title": "Atom Syndication Format",
-		"description": "The Atom Syndication Format.",
-		"url": "https://tools.ietf.org/html/rfc4287"
-	},
-	{
-		"title": "HTML5 Reference",
-		"description": "The Syntax, Vocabulary and APIs of HTML5",
-		"url": "https://dev.w3.org/html5/html-author/"
-	},
-	{
-		"title": "GitHub Flavored Markdown Spec",
-		"description": "Markdown is a plain text format for writing structured documents",
-		"url": "https://github.github.com/gfm/"
-	},
-	{
-		"title": "Markdown Tables Generator",
-		"description": "Tables Generator for LaTeX, HTML, Text, Markdown und MediaWiki",
-		"url": "http://www.tablesgenerator.com/markdown_tables"
-	},
-	{
-		"title": "Web App Manifest",
-		"description": "Web App Manifest Draft",
-		"url": "https://www.w3.org/TR/appmanifest/"
-	},
-
-	{
-		"title": "Content Security Policy",
-		"description": "Content Security Policy (CSP) is an added layer of security",
-		"url": "https://content-security-policy.com/"
-	},
-	{
-		"title": "WebHint Scanner",
-		"description": "webhint to improve your website",
-		"url": "https://webhint.io/scanner/"
-	},
-	{
-		"title": "JSON-LD",
-		"description": "This website is a tool intended for SEO’s and webmasters",
-		"url": "https://jsonld.com/"
-	},
-	{
-		"title": "Beautiful Math in all browsers",
-		"description": "A JavaScript display engine for mathematics that works in all browsers.",
-		"url": "https://www.mathjax.org/"
-	},
-	{
-		"title": "BGP, is it safe yet? No.",
-		"description": "ISPs and other major Internet players (Comcast, Sprint, Verizon, and others) would need to implement a certification system, called RPKI.",
-		"url": "https://isbgpsafeyet.com/"
-	}
+    {
+      "title": "Material Design Icons",
+      "description": "Material Design Icons",
+      "url": "https://materialdesignicons.com/"
+    },
+    {
+        "title": "Xenu",
+        "description": "Find broken links on web sites",
+        "url": "http://home.snafu.de/tilman/xenulink.html"
+    },
+    {
+        "title": "UUID",
+        "description": "Online UUID generator",
+        "url": "https://www.uuidgenerator.net/"
+    },
+    {
+        "title": "Atom Syndication Format",
+        "description": "The Atom Syndication Format.",
+        "url": "https://tools.ietf.org/html/rfc4287"
+    },
+    {
+        "title": "HTML5 Reference",
+        "description": "The Syntax, Vocabulary and APIs of HTML5",
+        "url": "https://dev.w3.org/html5/html-author/"
+    },
+    {
+        "title": "GitHub Flavored Markdown Spec",
+        "description": "Markdown is a plain text format for writing structured documents",
+        "url": "https://github.github.com/gfm/"
+    },
+    {
+        "title": "Markdown Tables Generator",
+        "description": "Tables Generator for LaTeX, HTML, Text, Markdown und MediaWiki",
+        "url": "https://www.tablesgenerator.com/markdown_tables"
+    },
+    {
+        "title": "Web App Manifest",
+        "description": "Web App Manifest Draft",
+        "url": "https://www.w3.org/TR/appmanifest/"
+    },
+    {
+        "title": "Content Security Policy",
+        "description": "Content Security Policy (CSP) is an added layer of security",
+        "url": "https://content-security-policy.com/"
+    },
+    {
+        "title": "WebHint Scanner",
+        "description": "webhint to improve your website",
+        "url": "https://webhint.io/scanner/"
+    },
+    {
+        "title": "JSON-LD",
+        "description": "This website is a tool intended for SEO’s and webmasters",
+        "url": "https://jsonld.com/"
+    },
+    {
+        "title": "Beautiful Math in all browsers",
+        "description": "A JavaScript display engine for mathematics that works in all browsers.",
+        "url": "https://www.mathjax.org/"
+    },
+    {
+        "title": "CommonMark",
+        "description": "A strongly defined, highly compatible specification of Markdown",
+        "url": "https://commonmark.org/"
+    },
+    {
+        "title": "JSON Formatter and Validator",
+        "description": "The JSON Formatter was created to help folks with debugging.",
+        "url": "https://jsonformatter.curiousconcept.com/"
+    },
+    {
+        "title": "QR Code",
+        "description": "QR Code Generator implementation in JavaScript, Java and more.",
+        "url": "https://github.com/kazuhikoarase/qrcode-generator"
+    }
   ]
 }
