@@ -96,6 +96,7 @@ expiryDate                 = [ "expiryDate"]
 [taxonomies]
     tag                    = "tags"
     serie                  = "series"
+#   categorie NOT used!
 
 [permalinks]
     post                   = "/:section/:year/:month/:day/:title"
