@@ -156,16 +156,16 @@ table {
   border-collapse: collapse;
 }
 
-  table th {
-    border: solid 1px;
-    background-color: var(--th-background);
-    padding: 0.5em 0.5em 0.25em 0.5em;
-  }
+table th {
+  border: solid 1px;
+  background-color: var(--th-background);
+  padding: 0.5em 0.5em 0.25em 0.5em;
+}
 
-  table td {
-    border: solid 1px;
-    padding: 0.5em 0.5em;
-  }
+table td {
+  border: solid 1px;
+  padding: 0.5em 0.5em;
+}
 
 tbody tr:nth-child(even) {
   background-color: var(--tr-even-background);
@@ -213,10 +213,7 @@ footer {
 
 article {
   grid-area: mm;
-}
-
-section {
-  grid-area: mm;
+  width: 100%;
 }
 
 .liste {
@@ -263,10 +260,6 @@ section {
 }
 
 @supports not (display:grid) {
-
-  aside {
-    columns: 2;
-  }
 
   nav {
     columns: 4;
@@ -315,9 +308,6 @@ body {
 	padding-right: 2rem;
   }
 
-  aside {
-    display: grid;
-  }
 }
 
 /* -l */
@@ -329,19 +319,6 @@ body {
     grid-template-areas: "aa hh hh hh" "nn mm mm mm" "ft ft ft ft";
     padding-left: 3rem;
 	padding-right: 3rem;
-  }
-
-
-  aside {
-    display: grid;
-  }
-
-  section {
-    column-gap: 10px;
-    display: grid;
-    grid-area: mm;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
   }
 
   .liste {

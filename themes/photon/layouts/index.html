@@ -4,8 +4,8 @@
 	<h1>{{ .Site.Params.Title | markdownify }}&nbsp; <i class="fas fa-dragon fa-fw"></i></h1>
 	<div class="f5 b w-90-ns">{{.Title}}</div>
 </header>
-<section class="pb3">
-	<div>
+<article class=pb3>
+	<div class="fl-l w-50-l ph2-l">
 		{{ $posts := site.GetPage "/post" }}
 		{{ with $posts -}}
 			<h2 class="f4 b tc white bg-blue pv1"><a class="white" href={{.RelPermalink}}>Beiträge</a></h2>
@@ -17,7 +17,7 @@
 		{{- end }}
 	</div>
 
-	<div>
+	<div class="fl-l w-50-l ph2-l">
 		{{ $photos := site.GetPage "/photo" }}
 		{{ with $photos -}}
 			<h2 class="f4 b tc white bg-blue pv1"><a class="white" href={{.RelPermalink}}>Fotos</a></h2>
@@ -28,5 +28,5 @@
 			</div>
 		{{- end }}
 	</div>
-</section>
+</article>
 {{ end }}
