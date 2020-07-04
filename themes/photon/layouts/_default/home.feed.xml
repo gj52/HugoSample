@@ -17,7 +17,7 @@
     {{ with site.LanguageCode }}<language>{{.}}</language>{{end}}
 	{{$n := site.Author.name }}
 	{{ with $n }}<dc:creator>{{plainify $n}}</dc:creator>{{end}}
-    {{ with site.Params.Copyright }}<copyright>@ {{ now.Format "2006"}} {{htmlEscape .}}</copyright>{{end}}
+    {{ with site.Params.Copyright }}<copyright>@ {{ site.Params.CopyrightYear }} {{htmlEscape .}}</copyright>{{end}}
 	<lastBuildDate>{{site.LastChange.UTC.Format  site.Params.dateFormatRFC822Z | safeHTML }}</lastBuildDate>
     {{ range first site.Params.feedSize (where site.RegularPages "Section" "not in" site.Params.invisibleSections)}}
     <item>

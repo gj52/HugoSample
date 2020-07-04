@@ -10,11 +10,13 @@
 		{{ with $posts -}}
 			<h2 class="f4 b tc white bg-blue pv1"><a class="white" href={{.RelPermalink}}>Beiträge</a></h2>
 		{{- end }} 
+		<div class="flex-l flex-wrap-l">
 		{{ range $index, $element := first site.Params.pagination.PagesPerListHome $posts.Pages -}}
-			<div {{if (ge $index $half)}}class="dn di-l"{{end}}>
+			<div class={{if (ge $index $half)}}"dn di-l fl-l w-50-l"{{else}}"di-l fl-l w-50-l"{{end}}>
 				{{.Render "summary"}}
 			</div>
 		{{- end }}
+		</div>
 	</div>
 
 	<div class="fl-l w-50-l ph2-l">
@@ -22,11 +24,13 @@
 		{{ with $photos -}}
 			<h2 class="f4 b tc white bg-blue pv1"><a class="white" href={{.RelPermalink}}>Fotos</a></h2>
 		{{- end }}
+		<div class="flex-l flex-wrap-l">
 		{{ range $index, $element := first site.Params.pagination.PagesPerListHome $photos.Pages -}}
-			<div {{if (ge $index $half)}}class="dn di-l"{{end}}>
+			<div class={{if (ge $index $half)}}"dn di-l fl-l w-50-l"{{else}}"di-l fl-l w-50-l"{{end}}>
 				{{.Render "summary"}}
 			</div>
 		{{- end }}
+		</div>
 	</div>
 </article>
 {{ end }}

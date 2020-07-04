@@ -11,7 +11,7 @@
         <name>{{.}}</name>
         {{ with site.Author.email }}<email>{{.}}</email>{{end}}
     </author>{{end}}
-    {{ with site.Params.Copyright }}<rights type="text">© {{ now.Format "2006"}} {{htmlEscape .}}</rights>{{end}}
+    {{ with site.Params.Copyright }}<rights type="text">© {{ site.Params.CopyrightYear }} {{htmlEscape .}}</rights>{{end}}
     <generator uri="https://gohugo.io" version="{{hugo.Version}}">Hugo</generator>
     {{ if not site.LastChange.IsZero }}<updated>{{site.LastChange.UTC.Format site.Params.dateFormatFeed }}</updated>{{ end }} 
 <!--	{{ with site.Params.published }}<published>{{site.Params.published}}</published>{{end}} -->

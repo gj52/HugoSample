@@ -216,37 +216,6 @@ article {
   width: 100%;
 }
 
-.liste {
-  column-width: auto;
-  display: grid | inline-grid;
-}
-
-.sumhead {
-  column-gap: 5px;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr;
-  grid-template-areas: "c d" "s t";
-}
-
-.sumcal {
-  grid-area: c;
-}
-
-.sumdate {
-  grid-area: d;
-}
-
-.sumsym {
-  grid-area: s;
-}
-
-.sumtext {
-  grid-area: t;
-}
-
-
-
 @supports (display:grid) {
 
   aside {
@@ -305,9 +274,7 @@ body {
     grid-template-columns: auto 1fr 1fr;
     grid-template-areas: "aa hh hh" "nn mm mm" "ft ft ft";
     padding-left: 2rem;
-	padding-right: 2rem;
   }
-
 }
 
 /* -l */
@@ -318,7 +285,6 @@ body {
     grid-template-columns: auto 1fr 1fr 1fr;
     grid-template-areas: "aa hh hh hh" "nn mm mm mm" "ft ft ft ft";
     padding-left: 3rem;
-	padding-right: 3rem;
   }
 
   .liste {
@@ -343,13 +309,13 @@ body {
 @media screen and (min-width: 100em) {
 
   .liste {
-    column-count: 4;
+    column-count: 5;
   }
 }
 
 @media screen and (min-width: 125em) {
 
   .liste {
-    column-count: 5;
+    column-count: 6;
   }
 }

@@ -181,7 +181,7 @@ expiryDate                 = [ "expiryDate"]
 [Params]
     title              = "My Playground"
     copyright          = "Mr. Nobody"
-    copyrightyear      = "1972"
+    copyrightyear      = "2000"
 	published           = "2016-08-21T00:00:00Z"
     dateFormatLong      = "2006-01-02 15:04"
     dateFormatShort     = "2006-01-02"
@@ -205,7 +205,7 @@ expiryDate                 = [ "expiryDate"]
 
 [Params.Pagination]
     PagesPerList           = 10
-    PagesPerListHome       = 10
+    PagesPerListHome       = 12
     Paginate               = 10
     firstIndicator         = "<i class=\"fas fa-angle-double-left\"></i>"
     previousIndicator      = "<i class=\"fas fa-angle-left\"></i>"
