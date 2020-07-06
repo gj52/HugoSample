@@ -65,7 +65,10 @@ lastmod                    = [ "lastmod", ":fileModTime", "publishDate"]
 expiryDate                 = [ "expiryDate"]
 
 ###############################################################
-# no minify
+
+[_build]
+  publishResources = false
+
 ###############################################################
 
 [markup]

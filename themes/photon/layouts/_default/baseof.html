@@ -4,7 +4,7 @@
 {{ partial "meta" . }}
 <body>
 {{ partialCached "aside" . $section }}
-{{ partialCached "navigation" . $section}}
+{{ partial "navigation" . $section}}
 {{ block "main" . }}{{ end }}
 {{ partial "qr" . }}
 {{ partial "footer" . }}

@@ -275,6 +275,7 @@ body {
     grid-template-areas: "aa hh hh" "nn mm mm" "ft ft ft";
     padding-left: 2rem;
   }
+
 }
 
 /* -l */
