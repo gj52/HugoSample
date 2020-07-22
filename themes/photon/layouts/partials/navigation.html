@@ -1,5 +1,5 @@
-<nav class="f4 b tr pt3">
-<div class="dn db-ns" >
+<nav class="f4 b pt3">
+<div class="dn db-ns tr" >
 	{{ range site.Menus.main -}}
 		{{ if or (lt .Weight 900) site.IsServer }}
 			<div class=pb2><a href={{ .URL }}>{{ .Name | markdownify }}</a></div>
@@ -11,13 +11,20 @@
 		{{- end }}
 	</div>  
 </div>
+<!-- thanks to https://css-tricks.com/three-css-alternatives-to-javascript-navigation/ -->
 
-<div class="db dn-ns f3">
+<div class="db dn-ns f3 pl4">
+ <div id="menuToggle">
+	<input name=toggle type=checkbox >
+	<label><i class="f2 fas fa-bars fa-fw"></i></label>
+	<ul id="menu">
 	{{ range site.Menus.main }}
 	  {{ if or (lt .Weight 900) site.IsServer }}
-		<a class=ma2 href={{ .URL }}>{{ .Name | markdownify }}</a>
+		<li><a href={{ .URL }}>{{ .Name | markdownify }}</a></li>
 	  {{ end }}
 	{{ end }}
+	</ul>
+</div>
 </div>
 
 
