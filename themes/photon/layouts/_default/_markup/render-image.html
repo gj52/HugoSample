@@ -6,7 +6,6 @@
 {{ $srcset := slice }}{{ range site.Params.Images.setSizes -}}
   {{ if lt (mul . 1.2) $iw }}{{ $thumb := $image.Fit (print  . "x" .) }}{{ $srcset = $srcset | append (printf ("%s %dw") $thumb.RelPermalink . ) }}{{ end }}
 {{- end }}
-
 <figure><a href={{ $image.RelPermalink }}>
 <img   class=foto sizes=600px  loading=lazy  src={{ $image.RelPermalink }}
 {{ if gt (len $srcset) 0 }}{{ $sl := delimit $srcset ", "}}srcset="{{$sl}}" {{ end }}

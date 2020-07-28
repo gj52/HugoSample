@@ -20,6 +20,9 @@
   --tr-even-background: #e8f8f8;
   --fonts: Georgia, Athelas, System Serif;
   --gap: 1rem;
+  
+  --menu-width: 180px;
+  --hamburger: 40px;
 }
 
 /* special styles */
@@ -94,7 +97,7 @@ figcaption {
   color: var(--caption-color);
   font-weight: bold;
   line-height: 1.15;
-  margin: .5rem 0 0 1rem;
+  margin: .5rem 0 1em 1rem;
   
 }
 
@@ -111,15 +114,14 @@ img {
 /* The hamburger button hidden inside an input element */
 #menuToggle input {
   display: block;
-  width: 40px;
-  height: 40px;
-  left: 85px;
+  width: var(--hamburger);
+  height: var(--hamburger);
+  left: 80px;
   position: absolute;
   cursor: pointer;  
   opacity: 0; /* hide this */
   z-index: 2; /* and place it over the hamburger */  
 }
-
 
 /* 
  * Change the color of the hamburger when toggled
@@ -133,35 +135,14 @@ img {
   position: relative;
   z-index: 1;  
   color: var(--link-color);
-  left: 85px;
+  left: 80px;
+  width: var(--hamburger);
+  height: var(--hamburger);
 }
 
 #menuToggle label:hover {
   color: var(--hover-color);
 }
-
-
-/*
- * Use absolute positioning to place the menu off-screen
- */
-#menu {
-  position: absolute;
-  width: 200px;
-  margin: -100px 0 0 -55px;
-  padding: 10px;
-  padding-top: 125px;
-  list-style-type: none;
-  opacity: 100; 
-}
-
-#menu li {
-  text-align: right;
-  padding-right: 8px;
-}	
-
-/*
- * Slide the menu in from left when the input is checked
- */
 
 #menuToggle input:not(:checked) ~ ul {
   display: none;
@@ -171,6 +152,22 @@ img {
   right 0px;
   background: var(--background-menu);
 }
+
+
+
+#menu {
+  position: absolute;
+  width: var(--menu-width);
+  margin: -100px 0 0 -50px;
+  padding: 10px;
+  padding-top: 120px;
+  list-style-type: none;
+  opacity: 100; 
+}
+
+#menu li {
+  text-align: right;
+}	
 
 /* Foto */
 
