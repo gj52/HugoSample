@@ -22,7 +22,7 @@
   --gap: 1rem;
   
   --menu-width: 180px;
-  --hamburger: 40px;
+  --hamburger: 45px;
 }
 
 /* special styles */
@@ -106,20 +106,19 @@ img {
 }
 /* Menu */
 #menuToggle {
-  display: block;
   position: relative;
-  top: 20px;
   z-index: 1;  
   }
 /* The hamburger button hidden inside an input element */
 #menuToggle input {
-  display: block;
   width: var(--hamburger);
   height: var(--hamburger);
-  left: 80px;
-  position: absolute;
   cursor: pointer;  
   opacity: 0; /* hide this */
+  position: relative;
+  text-align: right;
+  top: 8px;
+  right: 8px;
   z-index: 2; /* and place it over the hamburger */  
 }
 
@@ -131,11 +130,10 @@ img {
 }
 
 #menuToggle label {
-  display: block;
-  position: relative;
   z-index: 1;  
   color: var(--link-color);
-  left: 80px;
+  position: relative;
+  left: var(--hamburger);
   width: var(--hamburger);
   height: var(--hamburger);
 }
@@ -149,25 +147,23 @@ img {
 } 
  
 #menuToggle input:checked ~ ul {
-  right 0px;
   background: var(--background-menu);
 }
 
-
-
 #menu {
   position: absolute;
-  width: var(--menu-width);
-  margin: -100px 0 0 -50px;
   padding: 10px;
-  padding-top: 120px;
+  margin: 8px 0 0 0;
   list-style-type: none;
   opacity: 100; 
+  right: 0px;
+  top: var(--hamburger);
+  z-index: 2; 
+  border-style: solid;
+  border-color: var(--box-border);
+  border-width: 1px;
+  box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
 }
-
-#menu li {
-  text-align: right;
-}	
 
 /* Foto */
 

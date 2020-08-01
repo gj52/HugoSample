@@ -7,16 +7,16 @@
 	{{- end}}
 	<div class=pt4>
 		{{ with  site.Home.OutputFormats.Get "ATOM" -}}
-			<a href={{.RelPermalink}} target=_blank type="{{ .MediaType.Type }}"><i class="fas fa-rss fa-fw"></i></a>
+			<a href={{.RelPermalink}} target=_blank type="{{ .MediaType.Type }}" title="Atom Feed"><i class="fas fa-rss fa-fw"></i></a>
 		{{- end }}
 	</div>  
 </div>
 <!-- thanks to https://css-tricks.com/three-css-alternatives-to-javascript-navigation/ -->
 
-<div class="db dn-ns f3 pl4">
+<div class="db dn-ns f3 tr">
   <div id="menuToggle">
+	<label><i class="tc f2 fas fa-bars fa-fw"></i></label>
 	<input name=toggle type=checkbox >
-	<label><i class="f2 fas fa-bars fa-fw"></i></label>
 	<ul id="menu">
 	{{ range site.Menus.main }}
 	  {{ if or (lt .Weight 900) site.IsServer }}
