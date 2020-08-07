@@ -10,17 +10,14 @@
   --hover-color: DarkSlateBlue;
   --h1-shadow-color: DimGray;
   --shadow-opacity: rgba(0,0,0,0.5);
-  
   --box-border: Gray;
   --box-background-color: #fffdd5;
   --box-shadow-color: #757575;
-  
   --th-background: #d0f0f0;
   --tr-odd-background: White;
   --tr-even-background: #e8f8f8;
   --fonts: Georgia, Athelas, System Serif;
   --gap: 1rem;
-  
   --menu-width: 180px;
   --hamburger: 45px;
 }
@@ -36,7 +33,6 @@ body {
   font-family: var(--fonts);
   padding-left: .5rem;
   padding-right: .5rem;
-
   column-gap: var(--gap);
   columns: 2;
   display: grid;
@@ -64,9 +60,9 @@ a {
   }
 
 .anchor {
-	color: var(--anchor-color);
-	font-size: small !important; 
-}	
+  color: var(--anchor-color);
+  font-size: small !important;
+}
 
 ul {
   display: block;
@@ -98,67 +94,67 @@ figcaption {
   font-weight: bold;
   line-height: 1.15;
   margin: .5rem 0 1em 1rem;
-  
 }
 
 img {
   page-break-inside: avoid;
 }
+
 /* Menu */
 #menuToggle {
   position: relative;
-  z-index: 1;  
-  }
-/* The hamburger button hidden inside an input element */
-#menuToggle input {
-  width: var(--hamburger);
-  height: var(--hamburger);
-  cursor: pointer;  
-  opacity: 0; /* hide this */
-  position: relative;
-  text-align: right;
-  top: 8px;
-  right: 8px;
-  z-index: 2; /* and place it over the hamburger */  
+  z-index: 1;
 }
+  /* The hamburger button hidden inside an input element */
+  #menuToggle input {
+    width: var(--hamburger);
+    height: var(--hamburger);
+    cursor: pointer;
+    opacity: 0; /* hide this */
+    position: relative;
+    text-align: right;
+    top: 8px;
+    right: 8px;
+    z-index: 2; /* and place it over the hamburger */
+  }
 
-/* 
+    /* 
  * Change the color of the hamburger when toggled
  */
-#menuToggle input:checked + label  {
-  background: var(--background-menu);
-}
+    #menuToggle input:checked + label {
+      background: var(--background-menu);
+    }
 
-#menuToggle label {
-  z-index: 1;  
-  color: var(--link-color);
-  position: relative;
-  left: var(--hamburger);
-  width: var(--hamburger);
-  height: var(--hamburger);
-}
+  #menuToggle label {
+    z-index: 1;
+    color: var(--link-color);
+    position: relative;
+    left: var(--hamburger);
+    width: var(--hamburger);
+    height: var(--hamburger);
+  }
 
-#menuToggle label:hover {
-  color: var(--hover-color);
-}
+    #menuToggle label:hover {
+      color: var(--hover-color);
+    }
 
-#menuToggle input:not(:checked) ~ ul {
-  display: none;
-} 
- 
-#menuToggle input:checked ~ ul {
-  background: var(--background-menu);
-}
+  #menuToggle input:not(:checked) ~ ul {
+    display: none;
+  }
+
+  #menuToggle input:checked ~ ul {
+    background: var(--background-menu);
+  }
 
 #menu {
   position: absolute;
   padding: 10px;
   margin: 8px 0 0 0;
   list-style-type: none;
-  opacity: 100; 
+  opacity: 100;
   right: 0px;
   top: var(--hamburger);
-  z-index: 2; 
+  z-index: 2;
   border-style: solid;
   border-color: var(--box-border);
   border-width: 1px;
@@ -168,10 +164,11 @@ img {
 /* Foto */
 
 .gallery {
-    display: inline-flex;
-    flex-wrap: wrap;
-	margin: calc(-1 * var(--gap)) 0 0 calc(-1 * var(--gap));
-    width: calc(100% +  var(--gap));
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+  margin: calc(-1 * var(--gap)) 0 0 calc(-1 * var(--gap));
+  width: calc(100% + var(--gap));
 }
 
 .foto {
@@ -228,16 +225,16 @@ table {
   border-collapse: collapse;
 }
 
-table th {
-  border: solid 1px;
-  background-color: var(--th-background);
-  padding: 0.5em 0.5em 0.25em 0.5em;
-}
+  table th {
+    border: solid 1px;
+    background-color: var(--th-background);
+    padding: 0.5em 0.5em 0.25em 0.5em;
+  }
 
-table td {
-  border: solid 1px;
-  padding: 0.5em 0.5em;
-}
+  table td {
+    border: solid 1px;
+    padding: 0.5em 0.5em;
+  }
 
 tbody tr:nth-child(even) {
   background-color: var(--tr-even-background);
@@ -292,7 +289,7 @@ article {
 
   aside {
     grid-area: aa;
-	text-align: center;
+    text-align: center;
   }
 
   nav {
@@ -331,7 +328,6 @@ article {
     grid-template-areas: "aa hh hh" "nn mm mm" "ft ft ft";
     padding-left: 2rem;
   }
-
 }
 
 /* -l */
