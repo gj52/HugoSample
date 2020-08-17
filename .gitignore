@@ -1,3 +1,4 @@
-/resources/_gen/**
-/hugo.exe
+/resources
+/public
+*.exe
 *.log
