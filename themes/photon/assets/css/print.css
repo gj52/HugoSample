@@ -52,7 +52,7 @@
     }
 
 .anchor {
-	display: none;
+	display: none !important; 
 }	
 
   p, ul, pre, blockquote, foot {

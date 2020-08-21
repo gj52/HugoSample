@@ -1,6 +1,6 @@
 window.MathJax = {
   tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    inlineMath: [['$', '$'], ['$$', '$$']],
 	digits: /^(?:[0-9]+(?:\{,\}[0-9]*)?|\{,\}[0-9]+)/
   },
   svg: {
@@ -15,5 +15,3 @@ window.MathJax = {
   script.async = true;
   document.head.appendChild(script);
 })();
-
-
