@@ -11,6 +11,8 @@ Wie mache ich diese HDRI-Bilder?
 Etwas MathJax für die Brüche.
 <!--more-->
 
+{{<tex>}}
+
 ### Aufnahme
 
 Zu 99% benutze ich das [RAW][]-Format der Kamera, dieses enthält je Farbe 12bit Werte, d.h. gegenüber JPEG mit 8bit eine 16-fach bessere Farbauflösung.
@@ -32,9 +34,9 @@ Im Ergebnis werden dunkle (zugelaufene / abgesoffene) Bereiche aufgehellt und di
 
 Blenheim Palace Eingangshalle
 
-{{< imglist dsc03298    >}} Aufnahme **-2 EV**, Belichtungszeit {{<tex>}}^1/_{250}{{</tex>}}<br/>Äußere Strukturen sind zu gut erkennen.{{< /imglist >}}
-{{< imglist dsc03299    >}} Aufnahme  **0 EV**, Belichtungszeit {{<tex>}}^1/_{25}{{</tex>}}<br/>Die Decke und die Erker auf der unteren linken Seite sid abgesoffen, durch die Fenster sind äußere Strukturen kaum zu erkennen.{{< /imglist >}}
-{{< imglist dsc03300    >}} Aufnahme **+2 EV**, Belichtungszeit {{<tex>}}^1/_{60}{{</tex>}}<br/>Äußere Strukturen sind zu fast unsichtbar, die Fenster verlieren an Struktur, der Innenraum ist sehr gut abgebildet.{{< /imglist >}}
+{{< imglist dsc03298    >}} Aufnahme **-2 EV**, Belichtungszeit $^1/_{250}$<br/>Äußere Strukturen sind zu gut erkennen.{{< /imglist >}}
+{{< imglist dsc03299    >}} Aufnahme  **0 EV**, Belichtungszeit $^1/_{25}$<br/>Die Decke und die Erker auf der unteren linken Seite sind abgesoffen, durch die Fenster sind äußere Strukturen kaum zu erkennen.{{< /imglist >}}
+{{< imglist dsc03300    >}} Aufnahme **+2 EV**, Belichtungszeit $^1/_{60}$<br/>Äußere Strukturen sind zu fast unsichtbar, die Fenster verlieren an Struktur, der Innenraum ist sehr gut abgebildet.{{< /imglist >}}
 {{< imglist dsc03299hdr >}} **HDRI** Ergebnis: Der Innenraum ist gut abgebildet, die Strukturen um die Fenster herum sind gut erkennbar, äußere Strukturen bleiben sichtbar. Ein HDR Foto hat mehr Textur als ein optimiertes.{{< /imglist >}}
 {{< imglist dsc03299web >}} **RAW** Einzelaufnahme mit Nacharbeitung<br/>Den Innenraum ist gut sichtbar, die äußeren Strukturen noch erkennbar {{< /imglist >}}
 

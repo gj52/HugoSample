@@ -4,7 +4,6 @@ tags        = ["2020", "Java", "MathJax", "TeX"]
 description = "MathJax zur schönen Darstellung von Formeln"
 title       = "MathJax"
 date        = "2020-04-02T13:07:14+02:00"
-draft       = false
 series      = ["Tricks"]
 +++
 ## Java
@@ -12,6 +11,8 @@ series      = ["Tricks"]
 Eigentlich mag ich kein Java auf den Webseiten. Wofür wird es hier verwendet?
 
 <!--more-->
+
+{{<tex>}}
 
 * [Fancybox][] - für die einfache Bildergalerie
 * [OpenSeaDragon][] - für die Panoramen
@@ -29,12 +30,19 @@ Hier ein kleiner Versuch mit den Maxwell-Gleichungen - sieht doch gut aus
 
 |Name|Formel|
 |----|:----:|
-|Gaußsches Gesetz|{{<tex>}}{\vec {\nabla }}\cdot {\vec {E}}={\frac {\rho }{\varepsilon _{0}}}{{</tex>}}|
-|Gaußsches Gesetz für Magnetfelder|{{<tex>}}{\vec {\nabla }}\cdot {\vec {B}}=0{{</tex>}}|
-|Faraday's Induktionsgesetz|{{<tex>}}{\vec {\nabla }}\times {\vec {E}}=-{\frac {\partial {\vec {B}}}{\partial t}}{{</tex>}}|
-|Ampère's Durchflutungsgesetz|{{<tex>}}{\vec {\nabla }}\times {\vec {B}}=\mu _{0}{\vec {j}}+\mu _{0}\varepsilon _{0}{\frac {\partial {\vec {E}}}{\partial t}}{{</tex>}}|
+|Gaußsches Gesetz|${\vec {\nabla }}\cdot {\vec {E}}={\frac {\rho }{\varepsilon _{0}}}$|
+|Gaußsches Gesetz für Magnetfelder|${\vec {\nabla }}\cdot {\vec {B}}=0$|
+|Faraday's Induktionsgesetz|${\vec {\nabla }}\times {\vec {E}}=-{\frac {\partial {\vec {B}}}{\partial t}}$|
+|Ampère's Durchflutungsgesetz|${\vec {\nabla }}\times {\vec {B}}=\mu _{0}{\vec {j}}+\mu _{0}\varepsilon _{0}{\frac {\partial {\vec {E}}}{\partial t}}$|
 
-Wobei auch {{<tex>}}\mu _{0}\varepsilon _{0}={\frac {1}{c^{2}}}{{</tex>}} gesetzt wird.
+Wobei auch $\mu _{0}\varepsilon _{0}={\frac {1}{c^{2}}}$ gesetzt wird.
+
+---
+
+Eine gute Einführung gibt es von **Prof. Dr. Edmund Weitz** der **Hochschule für Angewandte Wissenschaften Hamburg**
+<div class=w-50-l>
+{{< tube 7ovgNXRiJ6g >}}
+</div>
 
 [Fancybox]:  https://github.com/fancyapps/fancybox "fancyBox"
 [OpenSeaDragon]: https://openseadragon.github.io/ "OpenSeaDragon"
