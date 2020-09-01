@@ -6,7 +6,7 @@
 <article>
 	<h2 class=dn>{{ .Title }}</h2>
 	<div class="dib f5 pt2 lh-copy">
-		{{range .Data.Terms.Alphabetical -}} 
+		{{range .Site.Taxonomies.tags -}} 
 			<div class="fl ph2 pv1 ma1 b tagbutton">
 				<a href={{ .Page.RelPermalink }}>{{.Page.Title}}</a>&nbsp;<sup class=b>{{.Count}}</sup>
 			</div>

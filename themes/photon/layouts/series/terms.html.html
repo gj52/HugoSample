@@ -6,7 +6,7 @@
 <article class=pv2>
 	<h2 class=dn>{{ .Page.Title }}</h2>
 	<div class=liste >
-	{{range site.Taxonomies.series.Alphabetical -}}
+	{{range site.Taxonomies.series -}}
 		<div class="pb3 f4 db"><a href="{{ .Page.RelPermalink }}" title="Serie: {{.Page.Title}}"><i class="fas fa-book fa-fw"></i>&nbsp;{{ .Page.Title  | markdownify }}</a>&nbsp;<sup class=b>{{.Count}}</sup></div>
 	{{- end}}
 	</div>

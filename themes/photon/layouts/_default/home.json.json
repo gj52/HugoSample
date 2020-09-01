@@ -20,8 +20,10 @@
       "content_text"  : {{ .Plain              | chomp | jsonify }},{{ range first 1 (.Resources.ByType "image") -}}{{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x360") }}{{ $image := $.Scratch.Get "image" }}
       "banner_image"  : "{{ $image.Permalink }}",{{- end }}
       "date_published": {{ .PublishDate.UTC.Format site.Params.dateFormatFeed | jsonify  }},
-      "date_modified" : {{ .Lastmod.UTC.Format site.Params.dateFormatFeed | jsonify  }},{{ $lt := len .Params.tags }}{{ $it := 1}}
-      "tags"          : [{{ range .Params.tags }}"{{ . }}"{{ if lt $it $lt }},{{ end }}{{ $it = add $it 1}}{{ end }}]
+      "date_modified" : {{ .Lastmod.UTC.Format site.Params.dateFormatFeed | jsonify  }},
+      {{with .Params -}}{{with .Params.tags -}}{{ $lt := len .Params.tags }}{{ $it := 1}}
+	  "tags"          : [{{ range .Params.tags }}"{{ . }}"{{ if lt $it $lt }},{{ end }}{{ $it = add $it 1}}{{ end }}]
+	  {{- end}}{{- end}}
     }{{ if lt $ir $lr }},{{ end }}{{ $ir = add $ir 1}}{{ end }}
   ]
 }
