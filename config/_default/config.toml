@@ -230,6 +230,7 @@ expiryDate                 = [ "expiryDate"]
 [Params.Images]
     maxSize                = 1480
     setSizes              = [ 480, 800, 1200 ]
+	sizes                 = "(max-width: 1480px) 480px, 800px, 1200px"
 
 ###############################################################
 

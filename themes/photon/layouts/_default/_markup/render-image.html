@@ -7,7 +7,7 @@
   {{ if lt (mul . 1.2) $iw }}{{ $size := print  . "x" .}}{{ $thumb := $image.Fit $size }}{{ $srcset = $srcset | append (printf ("%s %dw") $thumb.RelPermalink $thumb.Width ) }}{{ end }}
 {{- end }}
 <figure><a href={{ $image.RelPermalink }}>
-<img loading=lazy  src={{ $image.RelPermalink }}
+<img loading=lazy  src={{ $image.RelPermalink }} sizes={{site.Params.Images.sizes }}
 {{ if gt (len $srcset) 0 }}{{ $sl := delimit $srcset ", "}}srcset="{{$sl}}" {{ end }}
 width={{ $image.Width }} height=auto alt="{{ if $alt }}{{ $alt }}{{ else if $caption }}{{ $caption | markdownify | plainify }}{{ else }}&nbsp;{{ end }}" ></a>{{ with $caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
 </figure>
