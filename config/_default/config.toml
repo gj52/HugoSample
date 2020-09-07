@@ -55,7 +55,6 @@ removePathAccents          = true
 summaryLength              = 10
 taskLists                  = false
 
-
 ###############################################################
 
 [frontmatter]
@@ -90,7 +89,7 @@ expiryDate                 = [ "expiryDate"]
     photo                  = "/:section/:year/:month/:day/:title"
     series                 = "/:section/:slug"
     tags                   = "/:section/:slug"
-	about                  = "/:section/:slug"
+    about                  = "/:section/:slug"
     intern                 = "/:section/:year/:month/:day/:title"
     test                   = "/:section/:title"
 
@@ -170,7 +169,7 @@ expiryDate                 = [ "expiryDate"]
 [imaging]
     resampleFilter     = "Lanczos"
     quality            = 85
-	bgColor            = "#ffffff"
+    bgColor            = "#ffffff"
 
 [imaging.exif]
     includeFields = ".*"
@@ -185,26 +184,32 @@ expiryDate                 = [ "expiryDate"]
     title              = "My Playground"
     copyright          = "Mr. Nobody"
     copyrightyear      = "2000"
-	published           = "2016-08-21T00:00:00Z"
+
+# Doubline Core
+    Creator                = "lastname, firstname"
+    Publisher              = "lastname, firstname"
+
+
+    published           = "2016-08-21T00:00:00Z"
     dateFormatLong      = "2006-01-02 15:04"
     dateFormatShort     = "2006-01-02"
     dateFormatYear      = "2006"
     dateFormatFeed      = "2006-01-02T15:04:05Z"
-	dateFormatRFC822Z   = "02 Jan 2006 15:04:05 UT" 
+    dateFormatRFC822Z   = "02 Jan 2006 15:04:05 UT" 
 
     invisibleSections   = ["menu","serie","about", "links"]
-	sitemapMax          = 49999
+    sitemapMax          = 49999
 
     feedSize               = 25 # rssLimit 
     digest                 = "sha384"
     
 [Params.sidebar]
-	avatar          = "/img/head.jpg"
-	bio             = "**Mr. Nobody**"
+    avatar          = "/img/head.jpg"
+    bio             = "**Mr. Nobody**"
 
 [Params.Sitemap]
-	changeFreq = "weekly"
-	priority   = 0.5
+    changeFreq = "weekly"
+    priority   = 0.5
 
 [Params.Pagination]
     PagesPerList           = 10
@@ -223,7 +228,7 @@ expiryDate                 = [ "expiryDate"]
 # render hook render-image.html
 
 [Params.Images]
-	maxSize                = 1480
+    maxSize                = 1480
     setSizes              = [ 480, 800, 1200 ]
 
 ###############################################################
