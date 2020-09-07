@@ -1,0 +1,5 @@
+{{ partialCached  "css/tachyons"  . }}
+
+{{ $mccs := resources.Get "css/main.css" }}
+{{ if hugo.IsProduction }} {{ $mccs  = $mccs | minify | resources.Fingerprint site.Params.digest }} {{end}}
+<link type=text/css rel=stylesheet href={{ $mccs.RelPermalink }} {{ if hugo.IsProduction }} integrity={{ $mccs.Data.Integrity }} {{end}} media="screen, print" />

@@ -1,10 +1,5 @@
-{{ partialCached  "css/awesome"  . }}
-{{ partialCached  "css/tachyons" . }}
-{{ partialCached  "css/material" . }}
-
-{{ $mccs := resources.Get "css/main.css" }}
-{{ if hugo.IsProduction }} {{ $mccs  = $mccs | minify | resources.Fingerprint site.Params.digest }} {{end}}
-<link type=text/css rel=stylesheet href={{ $mccs.RelPermalink }} {{ if hugo.IsProduction }} integrity={{ $mccs.Data.Integrity }} {{end}} media="screen, print" />
+{{ partialCached  "css/awesome"   . }}
+{{ partialCached  "css/material"  . }}
 
 {{ $pccs := resources.Get "css/print.css" }}
 {{ if hugo.IsProduction }} {{ $pccs  = $pccs | minify | resources.Fingerprint site.Params.digest }} {{end}}

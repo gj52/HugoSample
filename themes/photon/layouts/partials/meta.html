@@ -20,6 +20,8 @@
     <link rel=preconnect   href=https://kit.fontawesome.com />
     <link rel=preconnect   href=https://kit-free.fontawesome.com />
 
+	{{ partialCached  "css/preload"  . }}
+
     <title>{{ site.Title  | markdownify }}</title>
 <!--    {{ partial "manifest" . }} -->
     <meta name="application-name" content="{{ site.Title  | markdownify }}">
