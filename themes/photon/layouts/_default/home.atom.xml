@@ -2,10 +2,11 @@
 {{ partial "xml/atom" .}}
 <feed xmlns="http://www.w3.org/2005/Atom" {{ with site.LanguageCode }}xml:lang="{{ . }}"{{ end }} xml:base="{{site.BaseURL }}">
     <title>{{ htmlEscape site.Title }} ATOM</title>
-	{{with site.Params.description}}<subtitle>{{htmlEscape site.Params.description }}</subtitle>{{end}}
-    {{ with  site.Home.OutputFormats.Get "ATOM"}}<link href="{{.Permalink}}" rel="self"      type="{{ safeHTML .MediaType.Type }}" />{{end}}
-	{{ with  site.Home.OutputFormats.Get "ATOM"}}<link href="{{.Permalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
-	{{ with  site.Home.OutputFormats.Get "FEED"}}<link href="{{.Permalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
+    {{with site.Params.description}}<subtitle>{{htmlEscape site.Params.description }}</subtitle>{{end}}
+    {{ with  site.Home.OutputFormats.Get "ATOM"}}<link href="{{.RelPermalink}}" rel="self"      type="{{ safeHTML .MediaType.Type }}" />{{end}}
+    {{ with  site.Home.OutputFormats.Get "FEED"}}<link href="{{.RelPermalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
+    {{ with  site.Home.OutputFormats.Get "JSON"}}<link href="{{.RelPermalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
+    
     {{ partial "xml/icon" .}}
     {{ with site.Author.name }}<author>
         <name>{{.}}</name>
@@ -14,13 +15,13 @@
     {{ with site.Params.Copyright }}<rights type="text">© {{ site.Params.CopyrightYear }} {{htmlEscape .}}</rights>{{end}}
     <generator uri="https://gohugo.io" version="{{hugo.Version}}">Hugo</generator>
     {{ if not site.LastChange.IsZero }}<updated>{{site.LastChange.UTC.Format site.Params.dateFormatFeed }}</updated>{{ end }} 
-<!--	{{ with site.Params.published }}<published>{{site.Params.published}}</published>{{end}} -->
+<!--    {{ with site.Params.published }}<published>{{site.Params.published}}</published>{{end}} -->
     {{ $uuid := sha1 (site.BaseURL | absURL)}}<id>urn:uuid:{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}</id>
-	{{ range first site.Params.feedSize (where site.RegularPages "Section" "not in" site.Params.invisibleSections)}}
+    {{ range first site.Params.feedSize (where site.RegularPages "Section" "not in" site.Params.invisibleSections)}}
     <entry> {{ $url := .RelPermalink }}{{ $uuid := sha1 (.Permalink | absURL)}}{{ $page := .}}
         <category term="{{htmlEscape .Section}}"/>
-	{{ range (.GetTerms "tags") }}
-		<category term="{{htmlEscape .LinkTitle }}" />{{end}}
+    {{ range (.GetTerms "tags") }}
+        <category term="{{htmlEscape .LinkTitle }}" />{{end}}
       <link rel='alternate' type='type/html' href='{{ $url }}' />
       <title type="text">{{ htmlEscape .Title | plainify}}</title> 
       <published>{{ .PublishDate.UTC.Format site.Params.dateFormatFeed }}</published>
@@ -28,15 +29,15 @@
       <id>urn:uuid:{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}</id>
       <summary type="xhtml">
       <div xmlns="http://www.w3.org/1999/xhtml">
-	  {{ range first 1 (.Resources.ByType "image") }}
+      {{ range first 1 (.Resources.ByType "image") }}
         {{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x360 jpg #ffffff q75") }}{{ $image := $.Scratch.Get "image" }}
             <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{.Name}}" /><br/>
         {{ end }}
         <p>{{ plainify .Summary | htmlEscape}}</p>
-		<a href="{{ $url }}">Jetzt den Artikel lesen</a>
+        <a href="{{ $url }}">Jetzt den Artikel lesen</a>
       </div>
       </summary>
-	  <!-- <content type="application/xhtml+xml" src="{{ .RelPermalink }}" {{ with site.LanguageCode }} xml:lang="{{ . }}"{{ end }} /> -->
+      <!-- <content type="application/xhtml+xml" src="{{ .RelPermalink }}" {{ with site.LanguageCode }} xml:lang="{{ . }}"{{ end }} /> -->
     </entry>{{ end }}
 </feed>
 

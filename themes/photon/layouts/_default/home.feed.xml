@@ -1,43 +1,45 @@
 {{ print "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\" ?>"  | safeHTML }}
 {{ partial "xml/rss" .}}
 <rss version="2.0" {{ with site.LanguageCode }}xml:lang="{{ . }}"{{ end }}
-	xmlns:atom="http://www.w3.org/2005/Atom" 
-	xmlns:dc="http://purl.org/dc/elements/1.1/"
-	xmlns:media="http://search.yahoo.com/mrss/"
-	xmlns:content="http://purl.org/rss/1.0/modules/content/"
-	> 
+    xmlns:atom="http://www.w3.org/2005/Atom" 
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:media="http://search.yahoo.com/mrss/"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    > 
   <channel>
     <title>{{ site.Title }} RSS</title>
-    <link>{{ .Permalink }}</link>
-	{{ with  site.Home.OutputFormats.Get "FEED"}}<atom:link href="{{.Permalink}}" rel="self"      type="{{ safeHTML .MediaType.Type }}" />{{end}}
-	{{ with  site.Home.OutputFormats.Get "ATOM"}}<atom:link href="{{.Permalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
-	{{ with  site.Home.OutputFormats.Get "JSON"}}<atom:link href="{{.Permalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
+    <link>{{ absURL .Permalink }}</link>
+    {{ with  site.Home.OutputFormats.Get "FEED"}}<atom:link href="{{.RelPermalink}}" rel="self"      type="{{ safeHTML .MediaType.Type }}" />{{end}}
+    {{ with  site.Home.OutputFormats.Get "ATOM"}}<atom:link href="{{.RelPermalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
+    {{ with  site.Home.OutputFormats.Get "JSON"}}<atom:link href="{{.RelPermalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
+
+
     {{with site.Params.description}}<description>{{plainify site.Params.description }}</description>{{end}}
     <generator>>Hugo {{hugo.Version}}</generator>
     {{ with site.LanguageCode }}<language>{{.}}</language>{{end}}
-	{{$n := site.Author.name }}
-	{{ with $n }}<dc:creator>{{plainify $n}}</dc:creator>{{end}}
+    {{$n := site.Author.name }}
+    {{ with $n }}<dc:creator>{{plainify $n}}</dc:creator>{{end}}
     {{ with site.Params.Copyright }}<copyright>@ {{ site.Params.CopyrightYear }} {{htmlEscape .}}</copyright>{{end}}
-	<lastBuildDate>{{site.LastChange.UTC.Format  site.Params.dateFormatRFC822Z | safeHTML }}</lastBuildDate>
+    <lastBuildDate>{{site.LastChange.UTC.Format  site.Params.dateFormatRFC822Z | safeHTML }}</lastBuildDate>
     {{ range first site.Params.feedSize (where site.RegularPages "Section" "not in" site.Params.invisibleSections)}}
     <item>
       <title>{{htmlEscape .Title }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .Date.UTC.Format site.Params.dateFormatRFC822Z | safeHTML }}</pubDate>
-<!--	  
+<!--      
       {{ with site.Author.name }}<author>{{ with site.Author.email }}{{.}}{{end}}({{.}})</author>{{end}}
 -->
-	    <category>{{htmlEscape .Section}}</category>
-	  {{ range (.GetTerms "tags") }}
-		<category>{{htmlEscape .LinkTitle }}</category>{{end}}
+        <category>{{htmlEscape .Section}}</category>
+      {{ range (.GetTerms "tags") }}
+        <category>{{htmlEscape .LinkTitle }}</category>{{end}}
       <guid isPermaLink="false">{{ md5 .Permalink }}</guid>
       <description>{{plainify .Summary | htmlEscape }}</description>
-	  {{ range first 1 (.Resources.ByType "image") }}{{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x360 jpg #ffffff q75") }}{{ $image := $.Scratch.Get "image" }}
-		<enclosure url="{{ $image.Permalink }}" length="{{len $image.Content}}" type="image/jpeg" />
-		<media:content   url="{{ $image.Permalink }}" width="{{$image.Width}}" height="{{$image.Height}}" medium="image" type="image/jpeg" >	
-		<media:thumbnail url="{{ $image.Permalink }}" width="{{$image.Width}}" height="{{$image.Height}}"  />		
-		{{ with site.Params.Copyright }}<media:copyright>{{ now.Format "2006"}} {{.}}</media:copyright>{{end}}
-		</media:content>
+      {{ range first 1 (.Resources.ByType "image") }}{{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x360 jpg #ffffff q75") }}{{ $image := $.Scratch.Get "image" }}
+        <enclosure url="{{ $image.Permalink }}" length="{{len $image.Content}}" type="image/jpeg" />
+        <media:content   url="{{ $image.Permalink }}" width="{{$image.Width}}" height="{{$image.Height}}" medium="image" type="image/jpeg" >    
+        <media:thumbnail url="{{ $image.Permalink }}" width="{{$image.Width}}" height="{{$image.Height}}"  />       
+        {{ with site.Params.Copyright }}<media:copyright>{{ now.Format "2006"}} {{.}}</media:copyright>{{end}}
+        </media:content>
         {{ end }}
     </item>{{ end }}
   </channel>
