@@ -20,8 +20,6 @@
     <link rel=preconnect   href=https://kit.fontawesome.com />
     <link rel=preconnect   href=https://kit-free.fontawesome.com />
 
-	{{ partialCached  "css/preload"  . }}
-
     <title>{{ site.Title  | markdownify }}</title>
 <!--    {{ partial "manifest" . }} -->
     <meta name="application-name" content="{{ site.Title  | markdownify }}">
@@ -32,6 +30,9 @@
 {{- else -}}
     <title>{{ site.Title  | markdownify }} &ndash; {{ .Title  | markdownify }}</title>
 {{- end }}
+
+{{ partialCached  "css/preload"  . }}
+
 {{ with .Description }}<meta name=description content="{{ . | markdownify }}" />{{end}}
 <meta name=keywords content="{{ range $index, $director := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ end }}" />
 <meta name=date content="{{site.LastChange.Format site.Params.dateFormatFeed }}" />
