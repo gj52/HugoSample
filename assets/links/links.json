@@ -29,7 +29,7 @@
     {
       "title": "Fancybox",
       "description": "Lichtkasten-Bibliothek für Fotos und andere Medien",
-      "url": " https://github.com/fancyapps/fancybox/"
+      "url": "http://fancyapps.com/fancybox/3/"
     },
     {
       "title": "Font-Awesome",
@@ -104,12 +104,6 @@
       "url": "https://validator.w3.org/"
     },
     {
-      "title": "RSS - Validator",
-      "description": "RSS Advisory Board - validates RSS feeds",
-      "url": "http://www.rssboard.org/rss-validator/"
-    },
-
-    {
       "title": "Material Design Icons",
       "description": "Material Design Icons",
       "url": "https://materialdesignicons.com/"
@@ -165,7 +159,7 @@
         "url": "https://jsonld.com/"
     },
     {
-        "title": "Beautiful Math in all browsers",
+		"title": "MathJax - beautiful Math in all browsers",
         "description": "A JavaScript display engine for mathematics that works in all browsers.",
         "url": "https://www.mathjax.org/"
     },
