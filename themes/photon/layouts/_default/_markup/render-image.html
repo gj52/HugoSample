@@ -6,12 +6,9 @@
 {{ $srcset := slice }}{{ range site.Params.Images.setSizes -}}
   {{ if lt (mul . 1.2) $iw }}{{ $size := print  . "x" .}}{{ $thumb := $image.Fit $size }}{{ $srcset = $srcset | append (printf ("%s %dw") $thumb.RelPermalink $thumb.Width ) }}{{ end }}
 {{- end }}
-<figure><a href={{ $image.RelPermalink }}>
+<figure>
 <img loading=lazy  src={{ $image.RelPermalink }} sizes={{site.Params.Images.sizes }}
 {{ if gt (len $srcset) 0 }}{{ $sl := delimit $srcset ", "}}srcset="{{$sl}}" {{ end }}
-width={{ $image.Width }} height=auto alt="{{ if $alt }}{{ $alt }}{{ else if $caption }}{{ $caption | markdownify | plainify }}{{ else }}&nbsp;{{ end }}" ></a>{{ with $caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
-</figure>
-{{- else -}}
-  {{- warnf "Unable to find '%s' -- ensure image exists alongside document in page bundle" .Destination -}}
+width={{ $image.Width }} height=auto alt="{{ if $alt }}{{ $alt }}{{ else if $caption }}{{ $caption | markdownify | plainify }}{{ else }}&nbsp;{{ end }}" >{{ with $caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
 {{- end }}
 
