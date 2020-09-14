@@ -60,7 +60,7 @@ taskLists                  = false
 [frontmatter]
 date                       = [ "date", ":filename", ":default"]
 publishDate                = [ "publishDate", "date"]
-lastmod                    = [ "lastmod", ":fileModTime", "publishDate"]
+lastmod                    = [ ":git", "lastmod", ":fileModTime", "publishDate"]
 expiryDate                 = [ "expiryDate"]
 
 ###############################################################
@@ -264,7 +264,7 @@ expiryDate                 = [ "expiryDate"]
     identifier          = "link"
     name                = "Links"
     url                 = "/links/"
-    weight              = 50
+    weight                 = 100
 
 [[menu.main]]
     identifier          = "index"
