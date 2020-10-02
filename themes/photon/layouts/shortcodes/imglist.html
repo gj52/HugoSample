@@ -2,7 +2,7 @@
 {{ $images := .Page.Resources.ByType "image" }}{{ $mask := printf "**/%s.*" (.Get 0)}}{{ $original := $images.GetMatch $mask }}
 {{ with $original -}}
 	{{$orig := .}}
-	{{ $.Scratch.Set "image" ($orig.Fit "480x360") }}{{ $img := $.Scratch.Get "image" }}{{ $.Scratch.Set "prev"  ($orig.Fit "48x36") }}{{ $preview := $.Scratch.Get "prev" }}
+	{{ $.Scratch.Set "image" ($orig.Fit "480x480 #ffffff q75") }}{{ $img := $.Scratch.Get "image" }}{{ $.Scratch.Set "prev"  ($orig.Fit "48x36") }}{{ $preview := $.Scratch.Get "prev" }}
 <div class=flex-l>
 	<div class="pa2 mt2 w50">
 		<a data-fancybox=gallery href="{{$orig.RelPermalink | relURL}}" >

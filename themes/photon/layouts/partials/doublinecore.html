@@ -1,0 +1,11 @@
+<!-- Dubline Core - see https://www.dublincore.org/specifications/dublin-core/usageguide/elements/ -->
+<meta name=DC.Title content="{{ site.Title  | markdownify }} - {{ .Page.Title  | markdownify}}"/>
+<meta name=DC.Subject content="{{ range $index, $director := .Page.Params.tags }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ end }}"/>
+{{ with  .Description }}<meta name=DC.Description content="{{ . | markdownify }}"/>{{ end}}
+<meta name=DC.Identifier content="{{ .Permalink }}" /> 
+<meta name=DC.Date content="{{ .Date.UTC.Format site.Params.dateFormatShort }}" /> 
+{{ with site.Params.Creator }}<meta name=DC.Creator content="{{ . }}"/>{{ end}}
+{{ with site.Params.Publisher }}<meta name=DC.Publisher content="{{ . }}"/>{{ end}}
+{{ with site.Params.Copyright }}<meta name=DC.Rights content="{{ . }}"/>{{- end }}
+{{ with site.Language.Lang -}}<meta name=DC.Language content={{ . }} />{{- end }}
+<!-- Dublin Core -->

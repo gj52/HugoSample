@@ -40,17 +40,7 @@
 
 {{ hugo.Generator }}
 
-<!-- Dubline Core - see https://www.dublincore.org/specifications/dublin-core/usageguide/elements/ -->
-<meta name=DC.Title content="{{ site.Title  | markdownify }} - {{ .Page.Title  | markdownify}}"/>
-<meta name=DC.Subject content="{{ range $index, $director := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ end }}"/>
-{{ with  .Description }}<meta name=DC.Description content="{{ . | markdownify }}"/>{{ end}}
-{{ with site.Params.Creator }}<meta name=DC.Creator content="{{ . }}"/>{{ end}}
-{{ with site.Params.Publisher }}<meta name=DC.Publisher content="{{ . }}"/>{{ end}}
-<meta name=DC.Date content="{{ site.Params.CopyrightYear }}" /> 
-<meta name=DC.Identifier content="{{ site.BaseURL }}" /> 
-{{ with site.Params.Copyright }}<meta name=DC.Rights content="{{ . }}"/>{{- end }}
-{{ with site.Language.Lang -}}<meta name=DC.Language content={{ . }} />{{- end }}
-<!-- Dublin Core -->
+{{ partial "doublinecore" . }}
 
 {{ partialCached "battery" . }}
 

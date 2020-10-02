@@ -5,11 +5,13 @@
 	<span class=nowrap><a rel='noopener noreferrer' href=https://gohugo.io title="Hugo Home Page" target=_blank><i class="fas fa-cog fa-fw ph2"></i>Hugo {{ hugo.Version }}</a></span>
 {{- else -}}
 	{{ if .IsPage -}}
-		<span class=nowrap title="page created"><i class="fas fa-plus-circle fa-fw ph2"></i><time datetime="{{ .Date.UTC.Format site.Params.dateFormatLong }}">{{ .Date.Format site.Params.dateFormatShort }}</time></span>
-		<span class=nowrap title="page updated"><i class="fas fa-user-edit fa-fw ph2"></i><time datetime="{{ .Lastmod.Format	 site.Params.dateFormatLong}}">{{.Lastmod.Format  site.Params.dateFormatShort}}</time></span>
+		<span class=nowrap title="page created"><i class="far fa-plus-square fa-fw ph2"></i><time datetime="{{ .Date.UTC.Format site.Params.dateFormatLong }}">{{ .Date.Format site.Params.dateFormatShort }}</time></span>
+		<span class=nowrap title="page updated"><i class="far fa-edit        fa-fw ph2"></i><time datetime="{{ .Lastmod.Format	 site.Params.dateFormatLong}}">{{.Lastmod.Format  site.Params.dateFormatShort}}</time></span>
+<!-- 
 		{{if ne (.ExpiryDate.Format "2006") "0001" -}}
 			<span  class=nowrap title="page show end"><i class="fas fa-trash-alt fa-fw ph2"></i><time datetime="{{ .ExpiryDate.Format	site.Params.dateFormatLong}}">{{.ExpiryDate.Format	 site.Params.dateFormatShort}}</time></span>
 		{{- end}}
+-->
 	{{- end}}
 {{- end }}
 </footer>
