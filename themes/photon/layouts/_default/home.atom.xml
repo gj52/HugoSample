@@ -30,7 +30,7 @@
       <summary type="xhtml">
       <div xmlns="http://www.w3.org/1999/xhtml">
       {{ range first 1 (.Resources.ByType "image") }}
-        {{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x360 jpg #ffffff q75") }}{{ $image := $.Scratch.Get "image" }}
+        {{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480 jpg #ffffff q75") }}{{ $image := $.Scratch.Get "image" }}
             <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{.Name}}" /><br/>
         {{ end }}
         <p>{{ plainify .Summary | htmlEscape}}</p>
