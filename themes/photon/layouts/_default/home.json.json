@@ -16,8 +16,7 @@
       "id"            : {{ $uuid := sha1 (.Permalink  | absURL)}}"{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}",
       "url"           : {{ .Permalink | jsonify  }},
       "title"         : {{ .Title   | plainify | chomp | jsonify }},
-      "summary"       : {{ .Summary | plainify | chomp | jsonify }},
-      "content_text"  : {{ .Plain              | chomp | jsonify }},{{ range first 1 (.Resources.ByType "image") -}}{{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480 #ffffff q75") }}{{ $image := $.Scratch.Get "image" }}
+      "summary"       : {{ .Summary | plainify | chomp | jsonify }},{{ range first 1 (.Resources.ByType "image") -}}{{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480 #ffffff q75") }}{{ $image := $.Scratch.Get "image" }}
       "banner_image"  : "{{ $image.Permalink }}",{{- end }}
       "date_published": {{ .PublishDate.UTC.Format site.Params.dateFormatFeed | jsonify  }},
       "date_modified" : {{ .Lastmod.UTC.Format site.Params.dateFormatFeed | jsonify  }},
