@@ -10,7 +10,7 @@
     "name"       : {{ . | jsonify }},
     "avatar"     : {{ site.Params.sidebar.avatar | absURL | jsonify }}
   },  {{ end }}
-  "items": {{ $r := first site.Params.feedSize (where site.RegularPages "Section" "not in" site.Params.invisibleSections)}} {{ $lr := len $r }} {{ $ir := 1}} 
+  "items": {{ $r := first site.Params.feedSize (where site.RegularPages.ByDate.Reverse "Section" "not in" site.Params.invisibleSections)}} {{ $lr := len $r }} {{ $ir := 1}} 
   [{{ range $r}}
     {
       "id"            : {{ $uuid := sha1 (.Permalink  | absURL)}}"{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}",
