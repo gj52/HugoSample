@@ -17,7 +17,7 @@
     {{ if not site.LastChange.IsZero }}<updated>{{site.LastChange.UTC.Format site.Params.dateFormatFeed }}</updated>{{ end }} 
 <!--    {{ with site.Params.published }}<published>{{site.Params.published}}</published>{{end}} -->
     {{ $uuid := sha1 (site.BaseURL | absURL)}}<id>urn:uuid:{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}</id>
-    {{ range first site.Params.feedSize (where site.RegularPages "Section" "not in" site.Params.invisibleSections)}}
+    {{ range first site.Params.feedSize (where site.RegularPages.ByDate.Reverse "Section" "not in" site.Params.invisibleSections)}}
     <entry> {{ $url := .RelPermalink }}{{ $uuid := sha1 (.Permalink | absURL)}}{{ $page := .}}
         <category term="{{htmlEscape .Section}}"/>
     {{ range (.GetTerms "tags") }}

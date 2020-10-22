@@ -38,7 +38,7 @@ body {
   column-gap: var(--gap);
   columns: 2;
   display: grid;
-  grid-auto-columns: auto;
+  grid-auto-columns: 1fr;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas: "aa nn" "hh hh" "mm mm" "ft ft";
 }
