@@ -10,7 +10,7 @@
 	{{if isset .Params "tags" -}}
 		<span class=nowrap>
 		<a href=/tags/ ><i class="fas fa-tag fa-fw"></i></a>
-		{{ range (.GetTerms "tags") -}}
+		{{ range sort (.GetTerms "tags") "LinkTitle" -}}
 			<a class=ph1 href={{ .RelPermalink }} >{{ .LinkTitle }}</a>
 		{{- end}}
 		</span>
@@ -20,7 +20,7 @@
 	    {{ $serLen := len .Params.series }}
 		{{if gt $serLen 0 }}
 			<span class=nowrap><a href=/series/ ><i class="fas fa-book fa-fw"></i></a>
-				{{ range (.GetTerms "series") }}
+				{{ range sort (.GetTerms "series") "LinkTitle" }}
 					<a class=ph1 href={{ .RelPermalink }} >{{ .LinkTitle }}</a>
 				{{- end}}
 			</span>
