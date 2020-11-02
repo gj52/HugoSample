@@ -235,12 +235,15 @@ img {
 /* table styles */
 table {
   border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
 }
 
   table th {
     border: solid 1px;
     background-color: var(--th-background);
     padding: 0.5em 0.5em 0.25em 0.5em;
+    white-space: nowrap;
   }
 
   table td {
