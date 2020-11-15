@@ -203,7 +203,7 @@ expiryDate                 = [ "expiryDate"]
     digest                 = "sha384"
     
 [Params.sidebar]
-    avatar          = "/img/head.jpg"
+    avatar          = "images/head.jpg"
     bio             = "**Mr. Nobody**"
 
 [Params.Sitemap]

@@ -1,5 +1,5 @@
-<nav class="f4 b pt3">
-<div class="dn db-ns tr" >
+<nav class="f4 pt3">
+<div class="dn db-ns tr fixed">
 	{{ range site.Menus.main -}}
 		{{ if or (lt .Weight 900) site.IsServer }}
 			<div class=pb2><a href={{ .URL }}>{{ .Name | markdownify }}</a></div>
@@ -10,13 +10,12 @@
 			<a href={{.RelPermalink}} target=_blank type="{{ .MediaType.Type }}" title="Atom Feed"><i class="fas fa-rss fa-fw"></i></a>
 		{{- end }}
 	</div>  
+
 </div>
 <!-- thanks to https://css-tricks.com/three-css-alternatives-to-javascript-navigation/ -->
-
-<div class="db dn-ns f3 tr">
-  <div id="menuToggle">
-	<label><i class="tc f2 fas fa-bars fa-fw"></i></label>
-	<input name=toggle type=checkbox >
+<div id="menuToggle" class="db dn-ns f3 tr">
+	<label for=toggle><i class="tc f2 fas fa-bars fa-fw"></i></label>
+	<input id=toggle type=checkbox>
 	<ul id="menu">
 	{{ range site.Menus.main }}
 	  {{ if or (lt .Weight 900) site.IsServer }}
@@ -24,6 +23,5 @@
 	  {{ end }}
 	{{ end }}
 	</ul>
-  </div>
 </div>
 </nav>

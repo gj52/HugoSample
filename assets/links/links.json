@@ -1,17 +1,6 @@
 {
   "items": [
     {
-      "title": "Apache",
-      "description": "Das Apache httpd Server Projekt",
-      "url": "https://httpd.apache.org/"
-    },
-    {
-      "title": "Apache portable",
-      "description": "Der Apache als PortableAPP",
-      "url": "https://sourceforge.net/projects/apache2portable",
-      "draft" : false
-    },
-    {
       "title": "Markdown’s formatting syntax",
       "description": "CommonMark Spec",
       "url": "https://spec.commonmark.org/0.29/"
@@ -65,16 +54,6 @@
       "title": "OpenSeaDragon",
       "description": "OpenSeaDragon ist ein Open Source Viewer für hochauflösende, zoombare Bilder",
       "url": "https://openseadragon.github.io/"
-    },
-    {
-      "title": "Raspberry",
-      "description": "Ein kleiner und erschwinglicher Computer",
-      "url": "https://www.raspberrypi.org/"
-    },
-    {
-      "title": "Raspbian",
-      "description": "Raspbian ist ein freies Betriebssystem für den Raspberry Pi",
-      "url": "https://www.raspbian.org/"
     },
     {
       "title": "SSL Labs",
@@ -177,6 +156,11 @@
         "title": "QR Code",
         "description": "QR Code Generator implementation in JavaScript, Java and more.",
         "url": "https://github.com/kazuhikoarase/qrcode-generator"
-    }
+    },
+	{
+		"title": "CSS Grid Layout",
+		"description": "This site is a collection of examples, video and other information to help you learn CSS Grid Layout.",
+		"url": "https://gridbyexample.com/"
+	}
   ]
 }
