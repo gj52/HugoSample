@@ -1,25 +1,25 @@
 <nav class="f4 pt3">
-<div class="dn db-ns tr fixed">
+<div class="dn db-ns tr">
 	{{ range site.Menus.main -}}
 		{{ if or (lt .Weight 900) site.IsServer }}
-			<div class=pb2><a href={{ .URL }}>{{ .Name | markdownify }}</a></div>
+			<div class=pb2><a class="link hover-blue" href={{ .URL }}>{{ .Name | markdownify }}</a></div>
 		{{end}}
 	{{- end}}
 	<div class=pt4>
 		{{ with  site.Home.OutputFormats.Get "ATOM" -}}
-			<a href={{.RelPermalink}} target=_blank type="{{ .MediaType.Type }}" title="Atom Feed"><i class="fas fa-rss fa-fw"></i></a>
+			<a class="link hover-blue" href={{.RelPermalink}} target=_blank type="{{ .MediaType.Type }}" title="Atom Feed"><i class="fas fa-rss fa-fw"></i></a>
 		{{- end }}
 	</div>  
 
 </div>
 <!-- thanks to https://css-tricks.com/three-css-alternatives-to-javascript-navigation/ -->
-<div id="menuToggle" class="db dn-ns f3 tr">
+<div id="menuToggle" class="db dn-ns tr">
 	<label for=toggle><i class="tc f2 fas fa-bars fa-fw"></i></label>
 	<input id=toggle type=checkbox>
 	<ul id="menu">
 	{{ range site.Menus.main }}
 	  {{ if or (lt .Weight 900) site.IsServer }}
-		<li><a href={{ .URL }}>{{ .Name | markdownify }}</a></li>
+		<li class=pb1><a class="link hover-blue" href={{ .URL }}>{{ .Name | markdownify }}</a></li>
 	  {{ end }}
 	{{ end }}
 	</ul>

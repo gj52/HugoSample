@@ -120,7 +120,6 @@ img {
     position: relative;
     text-align: right;
     top: 8px;
-    right: 8px;
     z-index: 2; /* and place it over the hamburger */
   }
 
@@ -304,7 +303,7 @@ article {
 
   aside {
     grid-area: aa;
-    text-align: center;
+    place-items: center;
   }
 
   nav {
