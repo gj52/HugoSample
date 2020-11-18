@@ -1,3 +1,3 @@
-{{ $mjx := resources.Get "/js/load-mathjax.js" | minify }}
-{{ if hugo.IsProduction }} {{ $mjx = $mjx | resources.Fingerprint site.Params.digest }} {{end}}
-<script src={{ $mjx.RelPermalink }} {{ if hugo.IsProduction }} integrity={{ $mjx.Data.Integrity }} {{end}} async></script>
+<!-- script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script -->
+<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
