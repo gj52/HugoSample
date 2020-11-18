@@ -1,9 +1,10 @@
-<div class=no-print>
-<div class="pa2 mt2 videoWrapper">
-<iframe width=854 height=480 src="https://www.youtube.com/embed/{{ index .Params 0 }}?html5=1" frameborder="0" allowfullscreen></iframe><br/><br/>
+<div class="no-print  mw7-ns">
+<div class="pa2 mt2 videoWrapper">{{ $t := index .Params 0 }}
+<iframe src="https://www.youtube.com/embed/{{$t}}?html5=1" name="{{$t}}" frameborder="0" allowfullscreen></iframe><br/><br/>
 </div><br/>
-<span>oder gleich auf <a class=ph2 href="https://www.youtube.com/watch?v={{ index .Params 0 }}" target=_blank rel=noopener type="video/mp4">Youtube<i class="fab fa-youtube pl2  fa-fw" title=youtube></i></a>ansehen.</span>
+<span>oder gleich auf <a class=ph2 href="https://www.youtube.com/watch?v={{ index .Params 0 }}" target=_blank rel=noopener type="video/mp4">Youtube<i class="fab fa-youtube pl2 fa-fw" title=youtube></i></a>ansehen.</span>
 </div>
 <div class="dn print">
 <a class=b href="https://www.youtube.com/watch?v={{ index .Params 0 }}">Video auf Youtube</a>
 </div>
+
