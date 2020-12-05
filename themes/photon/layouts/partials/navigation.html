@@ -2,12 +2,12 @@
 <div class="dn db-ns tr">
 	{{ range site.Menus.main -}}
 		{{ if or (lt .Weight 900) site.IsServer }}
-			<div class=pb2><a class="link hover-blue" href={{ .URL }}>{{ .Name | markdownify }}</a></div>
+			<div class=pb2><a class="b link hover-dark-pink" href={{ .URL }}>{{ .Name | markdownify }}</a></div>
 		{{end}}
 	{{- end}}
 	<div class=pt4>
 		{{ with  site.Home.OutputFormats.Get "ATOM" -}}
-			<a class="link hover-blue" href={{.RelPermalink}} target=_blank type="{{ .MediaType.Type }}" title="Atom Feed"><i class="fas fa-rss fa-fw"></i></a>
+			<a class="link hover-dark-pink" href={{.RelPermalink}} target=_blank type="{{ .MediaType.Type }}" title="Atom Feed"><i class="fas fa-rss fa-fw"></i></a>
 		{{- end }}
 	</div>  
 
@@ -19,7 +19,7 @@
 	<ul id="menu">
 	{{ range site.Menus.main }}
 	  {{ if or (lt .Weight 900) site.IsServer }}
-		<li class=pb1><a class="link hover-blue" href={{ .URL }}>{{ .Name | markdownify }}</a></li>
+		<li class=pb1><a class="b link hover-dark-pink" href={{ .URL }}>{{ .Name | markdownify }}</a></li>
 	  {{ end }}
 	{{ end }}
 	</ul>

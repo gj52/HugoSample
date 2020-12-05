@@ -13,6 +13,8 @@ Mit einem kleinem, alten aber feinem [Java-Script][JS] können [QR-Codes][QR] au
 
 Ein Danke an [Jerome Etienne][JE] für das Script.
 
+![](images/qrcodefeed.png "Sample QR Code")
+
 [QR]: https://de.wikipedia.org/wiki/QR-Code "QR-Code"
 [JS]: https://github.com/jeromeetienne/jquery-qrcode  "Java Script"
 [JE]: https://github.com/jeromeetienne "Jerome Etienne"

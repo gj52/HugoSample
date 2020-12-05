@@ -1,3 +1,3 @@
 {{ $tccs := resources.Get "css/tachyons.css" }}
-{{ if hugo.IsProduction }} {{ $tccs  = $tccs | minify | resources.Fingerprint site.Params.digest }} {{end}}
-<link type=text/css rel=stylesheet href={{ $tccs.RelPermalink }} {{ if hugo.IsProduction }}  integrity={{ $tccs.Data.Integrity }} {{end}} media="screen, print" />
+{{ $tccs  = $tccs | minify | resources.Fingerprint site.Params.digest }}
+<link type=text/css rel=stylesheet href={{ $tccs.RelPermalink }} integrity={{ $tccs.Data.Integrity }} media="screen, print" />

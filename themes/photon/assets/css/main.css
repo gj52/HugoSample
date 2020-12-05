@@ -8,6 +8,7 @@
   --background-menu: Snow;
   --caption-color: DarkSlateBlue;
   --link-color: DarkBlue;
+  --link-hover: #D5008F;
   --anchor-color: LightBlue;
   --hover-color: DarkSlateBlue;
   --h1-shadow-color: DimGray;
@@ -57,11 +58,10 @@ h1 {
 
 a {
   color: var(--link-color);
-  font-weight: bold;
 }
 
   a:hover {
-    color: var(--link-color);
+    color: var(--link-hover); 
   }
 
   a:focus {
@@ -104,6 +104,8 @@ figcaption {
 
 img {
   page-break-inside: avoid;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Menu */
@@ -199,11 +201,12 @@ img {
 }
 
   .videoWrapper iframe {
+    position: absolute;
     height: 100%;
     left: 0;
-    position: absolute;
     top: 0;
     width: 100%;
+    border: none:
   }
 
 /* Index */

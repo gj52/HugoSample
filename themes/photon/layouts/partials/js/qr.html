@@ -1,7 +1,7 @@
 {{ $jqr := resources.Get "js/jquery.qrcode.js" | minify }}
-{{ if hugo.IsProduction }} {{ $jqr = $jqr | resources.Fingerprint site.Params.digest }} {{end}}
-<script src={{ $jqr.RelPermalink }} {{ if hugo.IsProduction }} integrity={{ $jqr.Data.Integrity }} {{end}}></script>
+{{ $jqr = $jqr | resources.Fingerprint site.Params.digest }} 
+<script src={{ $jqr.RelPermalink }} integrity={{ $jqr.Data.Integrity }} ></script>
 
 {{ $qr := resources.Get "js/qrcode.js" }}
-{{ if hugo.IsProduction }} {{ $qr = $qr | minify | resources.Fingerprint site.Params.digest }} {{end}}
-<script src={{ $qr.RelPermalink }} {{ if hugo.IsProduction }} integrity={{ $qr.Data.Integrity }} {{end}}></script>
+{{ $qr = $qr | minify | resources.Fingerprint site.Params.digest }} 
+<script src={{ $qr.RelPermalink }} integrity={{ $qr.Data.Integrity }} ></script>

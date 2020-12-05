@@ -19,21 +19,20 @@
     <link rel=preconnect   href=https://cdn.materialdesignicons.com />
     <link rel=preconnect   href=https://kit.fontawesome.com />
     <link rel=preconnect   href=https://kit-free.fontawesome.com />
-
     <title>{{ site.Title  | markdownify }}</title>
-<!--    {{ partial "manifest" . }} -->
+<!--    
+	{{ partial "manifest" . }} 
+-->
     <meta name="application-name" content="{{ site.Title  | markdownify }}">
     <meta name=keywords content="{{ range first 25 site.Taxonomies.tags.ByCount }}{{ $f := slicestr  .Name 0 1}}{{if ne $f "2"}}{{.Name}},{{end}}{{end}}" />
-	{{ with .Description }}<meta name=description content="{{ $.Description | safeHTML }}" />{{end}}
-{{ partial "feeds"   . }}
+
+	{{ partial "feeds"   . }}
 
 {{- else -}}
     <title>{{ site.Title  | markdownify }} &ndash; {{ .Title  | markdownify }}</title>
 {{- end }}
 
-{{ partialCached  "css/preload"  . }}
-
-{{ with .Description }}<meta name=description content="{{ . | markdownify }}" />{{end}}
+{{ with .Description }}<meta name=description content="{{ . | safeHTML }}" />{{end}}
 <meta name=keywords content="{{ range $index, $director := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ end }}" />
 <meta name=date content="{{site.LastChange.Format site.Params.dateFormatFeed }}" />
 {{ with site.Author.name }}<meta name=author content="{{ . }}" />{{ end }}
@@ -42,7 +41,7 @@
 
 {{ partial "doublinecore" . }}
 
-{{ partialCached "battery" . }}
+<!-- {{ partialCached "battery" . }} -->
 
 {{ partialCached "favicon" . }}
 {{ partialCached "css/css" . }}
