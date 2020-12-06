@@ -6,8 +6,8 @@
   {{ if lt (mul . 1.2) $iw }}{{ $size := print  . "x" .}}{{ $thumb := $image.Fit $size }}{{ $srcset = $srcset | append (printf ("%s %dw") $thumb.RelPermalink $thumb.Width ) }}{{ end }}
 {{- end }}
 <div class="fr-l pa2">
-<img loading=lazy  src={{ $image.RelPermalink }} 
+<img loading=lazy  src={{ $image.RelPermalink }} alt=picture
 {{ if gt (len $srcset) 0 }}{{ $sl := delimit $srcset ", "}}srcset="{{$sl}}" {{ end }}
 width={{ $image.Width }} />
-{{- with $title }}<p class=figcaption>{{ . | markdownify }}</p>{{ end -}}
+{{- with $title }}<span class=figcaption>{{ . | markdownify }}</span>{{ end -}}
 </div>
