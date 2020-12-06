@@ -95,7 +95,7 @@ figure {
   padding: 0;
 }
 
-figcaption {
+figcaption, .figcaption {
   color: var(--caption-color);
   font-weight: bold;
   line-height: 1.15;

@@ -1,9 +1,13 @@
 {{ $images := .Page.Resources.ByType "image" }}{{ $mask := printf "images/%s.*" (.Get 0)}}{{ $image := $images.GetMatch $mask }} 
 {{ $iw := $image.Width }}{{ $ih := $image.Height }}{{ $ms   := site.Params.Images.maxSize | default 1024}}
+{{ $title := .Get 1 }}
 {{ if or (ge $iw $ms) (ge $ih $ms) }}{{ $image = $image.Fit (print $ms "x" $ms) }}{{end}}
 {{ $srcset := slice }}{{ range site.Params.Images.setSizes -}}
   {{ if lt (mul . 1.2) $iw }}{{ $size := print  . "x" .}}{{ $thumb := $image.Fit $size }}{{ $srcset = $srcset | append (printf ("%s %dw") $thumb.RelPermalink $thumb.Width ) }}{{ end }}
 {{- end }}
-<img loading=lazy class=fr-l  src={{ $image.RelPermalink }} 
+<div class="fr-l pa2">
+<img loading=lazy  src={{ $image.RelPermalink }} 
 {{ if gt (len $srcset) 0 }}{{ $sl := delimit $srcset ", "}}srcset="{{$sl}}" {{ end }}
-width={{ $image.Width }} height=auto />
+width={{ $image.Width }} />
+{{- with $title }}<p class=figcaption>{{ . | markdownify }}</p>{{ end -}}
+</div>
