@@ -89,6 +89,7 @@ textarea {
   resize: vertical;
 }
 
+/*
 figure {
   display: inline;
   margin: 0 auto;
@@ -101,12 +102,14 @@ figcaption, .figcaption {
   line-height: 1.15;
   margin: .5rem 0 1em 1rem;
 }
+*/
 
 img {
   page-break-inside: avoid;
   max-width: 100%;
   height: auto;
 }
+
 
 /* Menu */
 #menuToggle {

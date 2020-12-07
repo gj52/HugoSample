@@ -7,5 +7,5 @@
 {{- end }}
 <img loading=lazy  src={{ $image.RelPermalink }}
 {{ if gt (len $srcset) 0 }}sizes="(max-width: 480px) 90vw, (max-width: 960px) 80vw, {{ $image.Width }}px" {{ $sl := delimit $srcset ", "}}srcset="{{$sl}}" {{ end }}
-width={{ $image.Width }} alt={{ $alt }} />
-{{- with $caption }}<span class=figcaption>{{ . | markdownify }}</span>{{ end -}}
+width={{ $image.Width }} alt={{ $alt }} /></br>
+{{- with $caption }}<span class="ml3 i f6">{{ . | markdownify }}</span>{{ end -}}

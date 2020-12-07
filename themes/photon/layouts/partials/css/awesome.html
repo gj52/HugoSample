@@ -1,3 +1,0 @@
-{{ $accs := resources.Get "css/awesome.css" }}
-{{ $accs  = $accs | minify | resources.Fingerprint site.Params.digest }}
-<link  rel=stylesheet href={{ $accs.RelPermalink }} integrity={{ $accs.Data.Integrity }} media="screen, print" />

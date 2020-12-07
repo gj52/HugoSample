@@ -1,13 +1,16 @@
 {{ $tccs := resources.Get "css/tachyons.css" }}
 {{ $tccs  = $tccs | minify | resources.Fingerprint site.Params.digest }}
-<link  rel=stylesheet href={{ $tccs.RelPermalink }} integrity={{ $tccs.Data.Integrity }} media="screen, print" />
+<link  rel=stylesheet href={{ $tccs.RelPermalink }} integrity={{ $tccs.Data.Integrity }} />
 
 {{ $mccs := resources.Get "css/main.css" }}
 {{ $mccs  = $mccs | minify | resources.Fingerprint site.Params.digest }} 
-<link  rel=stylesheet href={{ $mccs.RelPermalink }} integrity={{ $mccs.Data.Integrity }}  media="screen, print" />
+<link  rel=stylesheet href={{ $mccs.RelPermalink }} integrity={{ $mccs.Data.Integrity }} />
 
-{{ partialCached  "css/awesome"   . }}
-{{ partialCached  "css/material"  . }}
+{{ $accs := resources.Get "css/awesome.css" }}
+{{ $accs  = $accs | minify | resources.Fingerprint site.Params.digest }}
+<link rel=stylesheet href={{ $accs.RelPermalink }} integrity={{ $accs.Data.Integrity }} />
+
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css >
 
 {{ $pccs := resources.Get "css/print.css" }}
 {{ $pccs  = $pccs | minify | resources.Fingerprint site.Params.digest }}

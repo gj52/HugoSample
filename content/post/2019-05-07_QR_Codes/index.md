@@ -6,7 +6,7 @@ date        = "2019-05-07T13:31:20+02:00"
 draft       = false
 series      = []
 +++
-{{< fr-image "qrcodefeed" "Sample QR Code" >}}
+{{< fr-image "qrcode" "Sample QR Code" >}}
 
 Auf ausgedruckten HTML-Seiten ist je nach Einstellung im Browser der URL enthalten oder auch nicht.
 
