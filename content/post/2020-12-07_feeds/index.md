@@ -1,5 +1,5 @@
 +++
-tags        = ["2020", "RSS", "ATOM", "JSON"]
+tags        = ["2020", "Feed", "RSS", "ATOM", "JSON"]
 description = "Feeds - RSS, ATOM und JSON"
 title       = "Füttere mich"
 date        = "2020-12-07T13:01:40+01:00"
@@ -36,12 +36,12 @@ Das Atom Syndication Format wurde als Standard IETF [RFC 4287][] im Dezember 200
 Aktuell ist Version 1.1. vom 7.8.2020
 
 Für die meisten (Java-) Entwickler ist JSON viel einfacher zu lesen und schreiben als XML. 
-Entwickler könnten einen XML Parser verwenden, aber für das Entschlüsseln von JSON-Feeds ist meist nur eine Zeile Code notwendig.
 
 ## RSS vs ATOM vs JSON
 
 - Alle RSS und ATOM Dateien müssen konform zur XML 1.0 Spezifikation sein.
 - Für RSS und ATOM können XML Stylesheet definiert werden, das geht bei JSON nicht.
+- Entwickler könnten einen XML Parser verwenden, aber für das Entschlüsseln von JSON-Feeds ist meist nur eine Zeile Code notwendig.
 
 - Größenvergleich
 	- RSS  52KB

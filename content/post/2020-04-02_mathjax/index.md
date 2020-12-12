@@ -1,6 +1,6 @@
 +++
 categories  = ["Post"]
-tags        = ["2020", "Java", "MathJax", "TeX"]
+tags        = ["2020", "Java", "MathJax", "TeX", "Video"]
 description = "MathJax zur schönen Darstellung von Formeln"
 title       = "MathJax"
 date        = "2020-04-02T13:07:14+02:00"
@@ -37,12 +37,15 @@ Hier ein kleiner Versuch mit den Maxwell-Gleichungen - sieht doch gut aus
 
 Wobei auch $\mu _{0}\varepsilon _{0}={\frac {1}{c^{2}}}$ gesetzt wird.
 
+eine Matrix
+
+$ \begin{vmatrix}a & b \\\\ c & d \end{vmatrix}$ 
+
+
 ---
 
 Eine gute Einführung gibt es von **Prof. Dr. Edmund Weitz** der **Hochschule für Angewandte Wissenschaften Hamburg**
-<div class=w-50-l>
-{{< tube 7ovgNXRiJ6g >}}
-</div>
+{{< tube 7ovgNXRiJ6g "Prof. Dr. Edmund Weitz"  >}}
 
 [Fancybox]:  https://github.com/fancyapps/fancybox "fancyBox"
 [OpenSeaDragon]: https://openseadragon.github.io/ "OpenSeaDragon"

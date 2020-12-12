@@ -9,16 +9,11 @@
 {{ if site.IsServer }}<meta http-equiv="cache-control" content="no-cache">{{end}}
 {{ if .IsHome -}}
     <link rel=dns-prefetch href=//www.jsdelivr.com />   
-    <link rel=dns-prefetch href=//kit.fontawesome.com />
-    <link rel=dns-prefetch href=//kit-free.fontawesome.com />
     <link rel=dns-prefetch href=//cdn.materialdesignicons.com />
-    <link rel=dns-prefetch href=//polyfill.io/v3/ />
     <link rel=dns-prefetch href=//gohugo.io />
-    
     <link rel=preconnect   href=https://www.jsdelivr.com />   
     <link rel=preconnect   href=https://cdn.materialdesignicons.com />
-    <link rel=preconnect   href=https://kit.fontawesome.com />
-    <link rel=preconnect   href=https://kit-free.fontawesome.com />
+
     <title>{{ site.Title  | markdownify }}</title>
 <!--
 	{{ partial  "preload"  . }}

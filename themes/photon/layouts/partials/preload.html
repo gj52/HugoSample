@@ -8,26 +8,6 @@
 {{ $mccs  = $mccs | minify | resources.Fingerprint site.Params.digest }}
 <link rel=preload as=style type=text/css href={{ $mccs.RelPermalink }} integrity={{ $mccs.Data.Integrity }}  />
 
-<!-- external fonts 
-<link rel=modulepreload as=script href=https://kit.fontawesome.com/c030b5a3dd.js />
-<link rel=preload as=style type=text/css href=https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css />
--->
-<!-- print stylesheet 
-{{ $pccs := resources.Get "css/print.css" }}
-{{ $pccs  = $pccs | minify | resources.Fingerprint site.Params.digest }}
-<link rel=prefetch as=style href={{ $pccs.RelPermalink }} integrity={{ $pccs.Data.Integrity }} />
--->
-<!-- QR code for printing
-{{ $jqr := resources.Get "js/jquery.qrcode.js" | minify }}
-{{ $jqr = $jqr | resources.Fingerprint site.Params.digest }}
-<link rel=modulepreload as=script href={{ $jqr.RelPermalink }} integrity={{ $jqr.Data.Integrity }} />
- -->
-<!-- QR code uses jquery 
-{{ $qr := resources.Get "js/qrcode.js" }}
-{{ $qr = $qr | minify | resources.Fingerprint site.Params.digest }}
-<link rel=modulepreload as=script href={{ $qr.RelPermalink }} integrity={{ $qr.Data.Integrity }} />
--->
-
 <!-- fancybox CSS for gallery -->
 {{ $fccs := resources.Get "css/jquery.fancybox.css" }}
 {{ $fccs  = $fccs | minify | resources.Fingerprint site.Params.digest }}
