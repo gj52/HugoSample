@@ -1,11 +1,18 @@
 {
   "name": {{ site.Title | htmlUnescape | jsonify }},
-  "short_name": "Spielwiese",
-  {{with site.Params.description}}"description": "{{htmlEscape site.Params.description }}",{{end}}
+  {{with site.Params.description}}"description": {{ site.Params.description | htmlUnescape | jsonify }},{{end}}
   {{ with site.LanguageCode }}"lang": {{ . | jsonify }},{{ end }} 
   "start_url":  "/index.html",
   "display": "fullscreen",
   "orientation": "natural",
+  "dir": "ltr",
+  "shortcuts": [ {{ range site.Menus.main }} {{ if or (lt .Weight 900) site.IsServer }}
+    { 
+      "name": {{ .Name | jsonify}},
+      "short_name" : {{ .Identifier | jsonify}},
+      "url": {{ .URL | jsonify }}
+    },{{ end}}{{ end}}
+  ],
   "icons": [{{ $t := slice 144 192 256 512}}{{ range $t -}}
   {
     "src": "/img/yy{{.}}.png",

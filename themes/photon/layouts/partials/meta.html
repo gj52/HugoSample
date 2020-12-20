@@ -16,15 +16,15 @@
 
     <title>{{ site.Title  | markdownify }}</title>
 <!--
-	{{ partial  "preload"  . }}
+    {{ partial  "preload"  . }}
 -->
-<!--    
-	{{ partial "manifest" . }} 
--->
+  
+    {{ partial "manifest" . }} 
+
     <meta name="application-name" content="{{ site.Title  | markdownify }}">
     <meta name=keywords content="{{ range first 25 site.Taxonomies.tags.ByCount }}{{ $f := slicestr  .Name 0 1}}{{if ne $f "2"}}{{.Name}},{{end}}{{end}}" />
 
-	{{ partial "feeds"   . }}
+    {{ partial "feeds"   . }}
 
 {{- else -}}
     <title>{{ site.Title  | markdownify }} &ndash; {{ .Title  | markdownify }}</title>
