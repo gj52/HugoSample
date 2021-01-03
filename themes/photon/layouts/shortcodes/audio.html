@@ -1,0 +1,3 @@
+{{ $audio := printf "**/%s.*" (.Get 0) }}{{ $sound := .Page.Resources.GetMatch $audio }}
+{{ $type := (.Get "type") | default "audio/mpeg" }}
+{{with $sound }}<audio autoplay src={{.Permalink}} type={{$type}} />{{end}}
