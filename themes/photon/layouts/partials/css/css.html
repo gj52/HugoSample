@@ -8,7 +8,7 @@
 
 {{ $accs := resources.Get "css/awesome.css" }}
 {{ $accs  = $accs | minify | resources.Fingerprint site.Params.digest }}
-<link rel=stylesheet href={{ $accs.RelPermalink }} integrity={{ $accs.Data.Integrity }} />
+<link rel=stylesheet href={{ $accs.RelPermalink }} integrity={{ $accs.Data.Integrity }}  />
 
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css >
 

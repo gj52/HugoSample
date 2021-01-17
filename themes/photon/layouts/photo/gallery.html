@@ -1,20 +1,23 @@
 {{ define "main" }}
 <header>
-	<h1><span class="dn di-l">{{ site.Title | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title | markdownify }}</h1>
-	{{ partial "single-head" . }}
+    <h1><span class="dn di-l">{{ site.Title | markdownify }} &nbsp;</span><i class="fas fa-dragon fa-fw"></i>&nbsp;&nbsp;{{ .Page.Title | markdownify }}</h1>
+    {{ partial "single-head" . }}
 </header>
 <article>
-	{{ with .Content}}{{ . }}{{end}} {{ $ms := site.Params.Images.maxSize | default 1024}}
-	<div class="flex flex-wrap  gallery">
-	{{range .Resources.Match "gallery/*" -}}{{$alt := .Name}}{{ $image := .Fit "480x320 jpg #ffffff q75" }}{{ $preview := .Fit "33x22 jpg #ffffff q50" }} {{ $title := ""}}
+    {{ with .Content}}{{ . }}{{end}} {{ $ms := site.Params.Images.maxSize | default 1024}}
+    <div class=gallery>
+    {{range .Resources.Match "gallery/*" -}}{{$alt := .Name}}{{ $image := .Fit "480x320 jpg #ffffff q75" }}{{ $preview := .Fit "33x22 jpg #ffffff q50" }} {{ $title := ""}}
     {{ $mx := .Fit (print $ms "x" $ms ) }} 
-		<a data-fancybox="gallery" href={{$mx.RelPermalink}}><figure><img 
-			loading=lazy class=foto src={{ $image.RelPermalink }} 
-			max-width={{ $image.Width }} max-height={{ $image.Height }} alt="{{ $alt }}" title="{{$title}}"
-			style="background: url(data:image/jpeg;base64,{{ $preview.Content | base64Encode  }}); background-size:100% 100%;" /></figure></a>
-	{{- end }}
-	</div>
-{{ partial "prevnext" .}}	
+        <a data-fancybox="gallery" href={{$mx.RelPermalink}}>
+            <figure class=ma3>
+                <img loading=lazy class=foto src={{ $image.RelPermalink }}  alt="{{ $alt }}" title="{{$title}}
+                max-width={{ $image.Width }} max-height={{ $image.Height }}"
+                style="background: url(data:image/jpeg;base64,{{ $preview.Content | base64Encode  }}); background-size:100% 100%;" />
+            </figure>
+        </a>
+    {{- end }}
+    </div>
+{{ partial "prevnext" .}}   
 </article>
 {{ end }}
 
