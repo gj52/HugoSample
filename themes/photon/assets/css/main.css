@@ -8,9 +8,8 @@
   --background-menu: Snow;
   --caption-color: DarkSlateBlue;
   --link-color: DarkBlue;
-  --link-hover: #D5008F;
+  --link-hover: #1e81b0;
   --anchor-color: LightBlue;
-  --hover-color: DarkSlateBlue;
   --h1-shadow-color: DimGray;
   --shadow-opacity: rgba(0,0,0,0.5);
   --box-border: Gray;
@@ -34,8 +33,8 @@ body {
   background-attachment: fixed;
   color: var(--text-color);
   font-family: var(--fonts);
-  padding-left: .5rem;
-  padding-right: .5rem;
+  padding-left: calc( var(--gap) / 2);
+  padding-right: calc( var(--gap) / 2);
   column-gap: var(--gap);
   columns: 2;
   display: grid;
@@ -49,6 +48,10 @@ h1 {
   white-space: pre-wrap;
 }
 
+nav {
+  padding-right: calc( var(--gap) / 2);
+}
+
 .anchor {
   position: relative;
   left: 0.1em;
@@ -58,10 +61,12 @@ h1 {
 
 a {
   color: var(--link-color);
+  text-decoration: none;
 }
 
   a:hover {
     color: var(--link-hover); 
+	text-decoration: underline;
   }
 
   a:focus {
@@ -145,7 +150,7 @@ img {
   }
 
     #menuToggle label:hover {
-      color: var(--hover-color);
+      color: var(--link-hover);
     }
 
   #menuToggle input:not(:checked) ~ ul {
@@ -174,7 +179,9 @@ img {
 /* Foto */
 
 .gallery {
-  margin: calc(-1 * var(--gap)) 0 0 calc(-1 * var(--gap));
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(-1 * var(--gap)/ 2) 0 0 calc(-1 * var(--gap) / 2);
   width: calc(100% + var(--gap));
 }
 
@@ -188,12 +195,11 @@ img {
 }
 
 .foto {
-  margin: var(--gap ) 0 0 var(--gap);
   box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
 }
 
   .foto:hover {
-    box-shadow: 2px 2px 4px 2px var(--hover-color);
+    box-shadow: 2px 2px 4px 2px var(--link-hover);
   }
 
 

@@ -1,15 +1,15 @@
 {{ $pag := $.Paginator }}
 {{ if gt $pag.TotalPages 1 -}}
-<div class="f3 pt5 pl4 courier">
+<div class="f3 b pt5 pl4 courier">
 <span>
 	{{ if (and (not $pag.HasPrev) (eq site.Params.pagination.showBeginEnd false)) -}}{{- else -}}
 		{{ if not (eq site.Params.pagination.showFirst false) }}
 			{{ with $pag.First }}
-				<a href="{{ .URL }}" class=link>{{ with site.Params.pagination.firstIndicator }}{{ . | markdownify }}{{else}}<span>&laquo;&laquo;</span>{{end}}</a>
+				<a href="{{ .URL }}">{{ with site.Params.pagination.firstIndicator }}{{ . | markdownify }}{{else}}<span>&laquo;&laquo;</span>{{end}}</a>
 			{{ end }}
 		{{ end }}
 		{{ if not (eq site.Params.pagination.showPrevious false) }}
-			<a href="{{ if $pag.HasPrev }}{{ $pag.Prev.URL }}{{ end }}" class=link>{{ with site.Params.pagination.previousIndicator }}{{ . | markdownify }}{{else}}<span>&laquo;</span>{{end}}</a>
+			<a href="{{ if $pag.HasPrev }}{{ $pag.Prev.URL }}{{ end }}">{{ with site.Params.pagination.previousIndicator }}{{ . | markdownify }}{{else}}<span>&laquo;</span>{{end}}</a>
 		{{ end }}
 	{{- end }}
 
@@ -28,9 +28,9 @@
 			{{- end }}
 			{{ if $showNumber -}}
 				{{if eq . $pag }}
-					<span class="b  blue">{{ .PageNumber }}</span>
+					<span>{{ .PageNumber }}</span>
 				{{- else -}}
-					<a href="{{ .URL }}" class=link>{{ .PageNumber }}</a>
+					<a href="{{ .URL }}">{{ .PageNumber }}</a>
 				{{- end}}
 			{{ else if ($.Scratch.Get "__paginator.shouldEllipse") }}
 				<span>{{with site.Params.pagination.spaceIndicator }}{{ . | markdownify }}{{end}}</span>
@@ -41,11 +41,11 @@
 	{{ if (and (not $pag.HasNext ) (eq site.Params.pagination.showBeginEnd false)) -}}
 	{{- else -}}
 		{{ if not (eq site.Params.pagination.showNext false) }}
-			<a href="{{ if $pag.HasNext }}{{ $pag.Next.URL }}{{ end }}" class=link>{{ with site.Params.pagination.nextIndicator }}{{ . | markdownify }}{{else}}<span>&raquo;</span>{{end}}</a>
+			<a href="{{ if $pag.HasNext }}{{ $pag.Next.URL }}{{ end }}">{{ with site.Params.pagination.nextIndicator }}{{ . | markdownify }}{{else}}<span>&raquo;</span>{{end}}</a>
 		{{ end }}
 		{{ if not (eq site.Params.pagination.showLast false) }}
 			{{ with $pag.Last }}
-				<a href="{{ .URL }}" class=link>{{ with site.Params.pagination.lastIndicator }}{{ . | markdownify }}{{else}}<span>&raquo;&raquo;</span>{{end}}</a>
+				<a href="{{ .URL }}">{{ with site.Params.pagination.lastIndicator }}{{ . | markdownify }}{{else}}<span>&raquo;&raquo;</span>{{end}}</a>
 			{{ end }}
 		{{- end }}
 	{{- end }}
