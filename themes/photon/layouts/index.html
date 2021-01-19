@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $half := div .Site.Params.pagination.PagesPerListHome 2}} <!-- small screens --> 
-<header>
+<header class=bw0>
 	<h1>{{ .Site.Params.Title | markdownify }}&nbsp; <i class="fas fa-dragon fa-fw"></i></h1>
 	<div class="f5 b w-90-ns">{{.Title}}</div>
 </header>
