@@ -52,6 +52,17 @@ nav {
   padding-right: calc( var(--gap) / 2);
 }
 
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height: 1px;
+    border:0;  
+    margin: 0;
+    padding:0;
+    border-top: 1px solid rgba( 0,0,0,.4 );
+}
+
+
 .anchor {
   position: relative;
   left: 0.1em;
@@ -299,6 +310,9 @@ tbody tr:nth-child(odd) {
 header {
   grid-area: hh;
   height: auto;
+  border-bottom-style: solid; 
+  border-bottom-width: 1px;
+  border-color: rgba( 0, 0, 0, .4 );
 }
 
 
