@@ -1,6 +1,8 @@
 {{ print "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\" ?>"  | safeHTML }}
 {{ partial "xml/atom" .}}
-<feed xmlns="http://www.w3.org/2005/Atom" {{ with site.LanguageCode }}xml:lang="{{ . }}"{{ end }} xml:base="{{site.BaseURL }}">
+<feed xmlns="http://www.w3.org/2005/Atom"  
+      xmlns:media="http://search.yahoo.com/mrss/"
+      {{ with site.LanguageCode }}xml:lang="{{ . }}"{{ end }} xml:base="{{site.BaseURL }}">
     <title>{{ htmlEscape site.Title }} ATOM</title>
     {{with site.Params.description}}<subtitle>{{htmlEscape site.Params.description }}</subtitle>{{end}}
     {{ with  site.Home.OutputFormats.Get "ATOM"}}<link href="{{.RelPermalink}}" rel="self"      type="{{ safeHTML .MediaType.Type }}" />{{end}}
@@ -17,20 +19,29 @@
     {{ if not site.LastChange.IsZero }}<updated>{{site.LastChange.UTC.Format site.Params.dateFormatFeed }}</updated>{{ end }} 
 <!--    {{ with site.Params.published }}<published>{{site.Params.published}}</published>{{end}} -->
     {{ $uuid := sha1 (site.BaseURL | absURL)}}<id>urn:uuid:{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}</id>
-	{{ $feedsize := site.Params.feedSize | default 25 }}{{ range first $feedsize (where site.RegularPages.ByDate.Reverse "Section" "not in" site.Params.invisibleSections)}}
+    {{ $feedsize := site.Params.feedSize | default 25 }}{{ range first $feedsize (where site.RegularPages.ByDate.Reverse "Section" "not in" site.Params.invisibleSections)}}
     <entry> {{ $url := .RelPermalink }}{{ $uuid := sha1 (.Permalink | absURL)}}{{ $page := .}}
         <category term="{{htmlEscape .Section}}"/>
     {{ range (.GetTerms "tags") }}
-        <category term="{{htmlEscape .LinkTitle }}" />{{end}}
+        <category term="{{htmlEscape .LinkTitle }}" />
+    {{end}}
       <link rel='alternate' type='type/html' href='{{ $url }}' />
       <title type="text">{{ htmlEscape .Title | plainify}}</title> 
-      <published>{{ .PublishDate.UTC.Format site.Params.dateFormatFeed }}</published>
+      <published>{{ .PublishDate.Format site.Params.dateFormatFeed }}</published>
       <updated>{{ .Lastmod.UTC.Format site.Params.dateFormatFeed  }}</updated>
       <id>urn:uuid:{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}</id>
+
+      {{ range first 1 (.Resources.ByType "image") }}
+        {{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480") }}{{ $image := $.Scratch.Get "image" }}
+        <media:content   url="{{ $image.Permalink }}" width="{{$image.Width}}" height="{{$image.Height}}" medium="{{$image.MediaType.MainType}}" type="{{$image.MediaType}}" >    
+        <media:thumbnail url="{{ $image.Permalink }}" width="{{$image.Width}}" height="{{$image.Height}}"  />       
+        </media:content>
+      {{ end }}   
+
       <summary type="xhtml">
       <div xmlns="http://www.w3.org/1999/xhtml">
       {{ range first 1 (.Resources.ByType "image") }}
-        {{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480 jpg #ffffff q75") }}{{ $image := $.Scratch.Get "image" }}
+        {{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480") }}{{ $image := $.Scratch.Get "image" }}
             <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{.Name}}" /><br/>
         {{ end }}
         <p>{{ plainify .Summary | htmlEscape}}</p>
