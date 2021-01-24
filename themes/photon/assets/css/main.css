@@ -100,6 +100,25 @@ li {
   line-height: 1.25;
 }
 
+pre {
+  overflow-x:auto;
+  scrollbar-width: thin;
+  scrollbar-color: auto;
+}
+
+::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.15);
+}
+
+::-webkit-scrollbar-corner {
+    background: gray;
+}
 
 textarea {
   resize: vertical;
@@ -379,7 +398,7 @@ article {
 
   body {
     background-image: url("/img/wave-ms.jpg");
-    grid-template-columns: auto 1fr 1fr;
+    grid-template-columns: auto repeat(2, minmax(10px, 1fr)); /* https://css-tricks.com/you-want-minmax10px-1fr-not-1fr/ */
     grid-template-areas: "aa hh hh" "nn mm mm" "ft ft ft";
     padding-left: 2rem;
   }
@@ -390,7 +409,7 @@ article {
 
   body {
     background-image: url("/img/wave-ls.jpg");
-    grid-template-columns: auto 1fr 1fr 1fr;
+    grid-template-columns: auto repeat(3, minmax(10px, 1fr));
     grid-template-areas: "aa hh hh hh" "nn mm mm mm" "ft ft ft ft";
     padding-left: 3rem;
   }
