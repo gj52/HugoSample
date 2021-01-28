@@ -1,0 +1,5 @@
+<span class=ph1>
+{{ $v := .Get 0 | default 0}}
+{{ $m := .Get 1 | default 100 }}
+<progress value={{$v}} max={{$m}} ><span class=ba>{{$v}}/{{$m}}</span></progress>
+</span>

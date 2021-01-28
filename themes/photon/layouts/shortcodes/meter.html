@@ -1,0 +1,14 @@
+{{ $v    := .Get "value" }}  <!-- should be a value between the min and max  -->
+{{ $min  := .Get "min"  }} <!-- minimum value of the meter - default 0 -->
+{{ $max  := .Get "max"  | default 100 }} <!-- maximum value of the meter - default 1 -->
+{{ $low  := .Get "low"  }} 
+{{ $high := .Get "high" }}
+<span class=ph1>
+<meter 
+{{with $v }} value={{.}} {{end}} 
+{{with $min }} min={{.}} {{end}}
+{{with $max }} max={{.}} {{end}}
+{{with $low }} low={{.}} {{end}}
+{{with $high }} high={{.}} {{end}}
+><span class=ba>{{$v}}</span></meter>
+</span>

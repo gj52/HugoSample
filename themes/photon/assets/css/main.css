@@ -2,26 +2,28 @@
 
 /* load tachyons before! */
 
-:root {
-  --text-color: Black;
+:root { /* alphabetical */
+  --anchor-color: LightBlue;
   --background-color: GhostWhite;
   --background-menu: Snow;
+  --box-background-color: #fffdd5;
+  --box-border: Gray;
+  --box-shadow-color: #757575;
   --caption-color: DarkSlateBlue;
+  --fonts: Baskerville, Georgia, Athelas, System Serif;
+  --gap: 1rem;
+  --h1-shadow-color: DimGray;
+  --hamburger: 45px;
   --link-color: DarkBlue;
   --link-hover: #1e81b0;
-  --anchor-color: LightBlue;
-  --h1-shadow-color: DimGray;
+  --menu-width: 180px;
+  --progress-bar: Green;
+  --progress-background: Snow;
   --shadow-opacity: rgba(0,0,0,0.5);
-  --box-border: Gray;
-  --box-background-color: #fffdd5;
-  --box-shadow-color: #757575;
+  --text-color: Black;
   --th-background: #d0f0f0;
   --tr-odd-background: White;
   --tr-even-background: #e8f8f8;
-  --fonts: Baskerville, Georgia, Athelas, System Serif;
-  --gap: 1rem;
-  --menu-width: 180px;
-  --hamburger: 45px;
 }
 
 /* special styles */
@@ -106,6 +108,8 @@ pre {
   scrollbar-color: auto;
 }
 
+/*   SCROLL BAR */
+
 ::-webkit-scrollbar {
     height: 6px;
     width: 6px;
@@ -120,9 +124,65 @@ pre {
     background: gray;
 }
 
+/*   PROGRESS BAR */
+
+
+progress::-moz-progress-bar {
+    background: var(--progress-bar);
+	box-shadow: 0 3px 5px rgba(255, 255, 255, 0.7) inset;
+}
+
+progress::-webkit-progress-bar {
+    background: var(--progress-background);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress::-webkit-progress-value {
+    background: var(--progress-bar);
+	box-shadow: 0 3px 5px rgba(255, 255, 255, 0.7) inset;
+}
+
+progress {
+	border: none;
+	box-sizing: border-box;
+	display: inline-block ! important;
+    height: 1em;
+    width: 10em;
+	vertical-align: -0.2em;
+    background: var(--progress-background);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+/*   METER BAR */
+
+meter::-webkit-meter-bar {
+	background: none;
+    background-color: var(--progress-background);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+	height: 1.1em;
+	border-radius: 0;
+}
+
+meter::-moz-meter-bar {
+	box-shadow: 0 3px 5px rgba(255, 255, 255, 0.7) inset;
+}
+
+meter {
+	border: none;
+	box-sizing: border-box;
+    width: 10em;
+    height: 1em;
+	border: none;
+    display: inline-block ! important;
+	background: var(--progress-background);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+
 textarea {
   resize: vertical;
 }
+
 
 /*
 figure {
