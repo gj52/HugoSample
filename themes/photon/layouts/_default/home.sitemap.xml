@@ -2,6 +2,6 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xml:base="{{site.BaseURL }}">
 {{ range (where site.Sections "Section" "not in" site.Params.invisibleSections) }}
  <sitemap>
-  <loc>{{ .RelPermalink }}sitemap.xml</loc>
+ {{ if .RelPermalink }}<loc>{{ .RelPermalink }}sitemap.xml</loc>{{end}}
  </sitemap>{{end}}
 </sitemapindex>

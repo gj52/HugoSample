@@ -1,11 +1,13 @@
 {{ print "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\" ?>"  | safeHTML }}
 <urlset xmlns="http://wwwsitemaps.org/schemassitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xml:base="{{site.BaseURL }}">
 {{ range first site.Params.sitemapMax .CurrentSection.RegularPages }}
-  <url>
+{{ if .Permalink -}}
+<url>
     <loc>{{ .RelPermalink }}</loc>
     <lastmod>{{ safeHTML ( .Lastmod.Format site.Params.dateFormatFeed ) }}</lastmod>
 	{{ with site.Params.Sitemap.changeFreq }}<changefreq>{{ . }}</changefreq>{{end}}
 	{{ with site.Params.Sitemap.priority   }}<priority>{{.}}</priority>{{end}}
   </url>
+  {{- end }}
 {{ end }}
 </urlset>

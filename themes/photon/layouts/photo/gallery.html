@@ -11,12 +11,21 @@
         <a data-fancybox="gallery" href={{$mx.RelPermalink}}>
             <figure class=ma3>
                 <img loading=lazy class=foto src={{ $image.RelPermalink }}  alt="{{ $alt }}" title="{{$title}}
-                max-width={{ $image.Width }} max-height={{ $image.Height }}"
+                max-width={{ $image.Width }} max-height={{ $image.Height }}" data-width={{$mx.Width}} data-height={{$mx.Height}}
                 style="background: url(data:image/jpeg;base64,{{ $preview.Content | base64Encode  }}); background-size:100% 100%;" />
             </figure>
         </a>
     {{- end }}
     </div>
+	
+<script id="rendered-js">
+$('[data-fancybox="gallery"]').fancybox({
+ // see http://fancyapps.com/fancybox/3/docs/#options
+  lang: "de",
+  loop: true,
+  buttons: [ "zoom", "fullScreen", "thumbs", "close" ],
+  protect: true });
+</script>	
 {{ partial "prevnext" .}}   
 </article>
 {{ end }}

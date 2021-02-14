@@ -64,7 +64,6 @@ hr {
     border-top: 1px solid rgba( 0,0,0,.4 );
 }
 
-
 .anchor {
   position: relative;
   left: 0.1em;
@@ -79,14 +78,12 @@ a {
 
   a:hover {
     color: var(--link-hover); 
-	text-decoration: underline;
+    text-decoration: underline;
   }
 
   a:focus {
     color: var(--link-color);
   }
-
-
 
 ul {
   display: block;
@@ -117,7 +114,7 @@ pre {
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
 ::-webkit-scrollbar-corner {
@@ -126,78 +123,60 @@ pre {
 
 /*   PROGRESS BAR */
 
-
 progress::-moz-progress-bar {
     background: var(--progress-bar);
-	box-shadow: 0 3px 5px rgba(255, 255, 255, 0.7) inset;
+    box-shadow: 0 3px 5px rgba(255, 255, 255, 0.7) inset;
 }
 
 progress::-webkit-progress-bar {
     background: var(--progress-background);
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
 
 progress::-webkit-progress-value {
     background: var(--progress-bar);
-	box-shadow: 0 3px 5px rgba(255, 255, 255, 0.7) inset;
+    box-shadow: 0 3px 5px rgba(255, 255, 255, 0.7) inset;
 }
 
 progress {
-	border: none;
-	box-sizing: border-box;
-	display: inline-block ! important;
+    border: none;
+    box-sizing: border-box;
+    display: inline-block ! important;
     height: 1em;
     width: 10em;
-	vertical-align: -0.2em;
+    vertical-align: -0.2em;
     background: var(--progress-background);
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
 
 /*   METER BAR */
 
 meter::-webkit-meter-bar {
-	background: none;
+    background: none;
     background-color: var(--progress-background);
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-	height: 1.1em;
-	border-radius: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    height: 1.1em;
+    border-radius: 0;
 }
 
 meter::-moz-meter-bar {
-	box-shadow: 0 3px 5px rgba(255, 255, 255, 0.7) inset;
+    box-shadow: 0 3px 5px rgba(255, 255, 255, 0.7) inset;
 }
 
 meter {
-	border: none;
-	box-sizing: border-box;
+    border: none;
+    box-sizing: border-box;
     width: 10em;
     height: 1em;
-	border: none;
+    border: none;
     display: inline-block ! important;
-	background: var(--progress-background);
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    background: var(--progress-background);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
-
 
 textarea {
   resize: vertical;
 }
-
-
-/*
-figure {
-  display: inline;
-  margin: 0 auto;
-  padding: 0;
-}
-
-figcaption, .figcaption {
-  color: var(--caption-color);
-  font-weight: bold;
-  line-height: 1.15;
-  margin: .5rem 0 1em 1rem;
-}
-*/
 
 img {
   page-break-inside: avoid;
@@ -205,8 +184,8 @@ img {
   height: auto;
 }
 
-
 /* Menu */
+
 #menuToggle {
   position: relative;
   z-index: 1;
@@ -291,7 +270,6 @@ img {
   .foto:hover {
     box-shadow: 2px 2px 4px 2px var(--link-hover);
   }
-
 
 .videoWrapper {
   height: 0;

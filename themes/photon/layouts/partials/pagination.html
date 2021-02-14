@@ -1,15 +1,15 @@
 {{ $pag := $.Paginator }}
 {{ if gt $pag.TotalPages 1 -}}
-<div class="f3 b pt5 pl4 courier">
+<div class="f3 b pt4 pl4 courier">
 <span>
 	{{ if (and (not $pag.HasPrev) (eq site.Params.pagination.showBeginEnd false)) -}}{{- else -}}
 		{{ if not (eq site.Params.pagination.showFirst false) }}
 			{{ with $pag.First }}
-				<a href="{{ .URL }}">{{ with site.Params.pagination.firstIndicator }}{{ . | markdownify }}{{else}}<span>&laquo;&laquo;</span>{{end}}</a>
+				<a class=pr2 href="{{ .URL }}">{{ with site.Params.pagination.firstIndicator }}{{ . | markdownify }}{{else}}<span>&laquo;&laquo;</span>{{end}}</a>
 			{{ end }}
 		{{ end }}
 		{{ if not (eq site.Params.pagination.showPrevious false) }}
-			<a href="{{ if $pag.HasPrev }}{{ $pag.Prev.URL }}{{ end }}">{{ with site.Params.pagination.previousIndicator }}{{ . | markdownify }}{{else}}<span>&laquo;</span>{{end}}</a>
+			<a class=pr2 href="{{ if $pag.HasPrev }}{{ $pag.Prev.URL }}{{ end }}">{{ with site.Params.pagination.previousIndicator }}{{ . | markdownify }}{{else}}<span>&laquo;</span>{{end}}</a>
 		{{ end }}
 	{{- end }}
 
@@ -28,7 +28,7 @@
 			{{- end }}
 			{{ if $showNumber -}}
 				{{if eq . $pag }}
-					<span>{{ .PageNumber }}</span>
+					<span class=red>{{ .PageNumber }}</span>
 				{{- else -}}
 					<a href="{{ .URL }}">{{ .PageNumber }}</a>
 				{{- end}}
@@ -45,7 +45,7 @@
 		{{ end }}
 		{{ if not (eq site.Params.pagination.showLast false) }}
 			{{ with $pag.Last }}
-				<a href="{{ .URL }}">{{ with site.Params.pagination.lastIndicator }}{{ . | markdownify }}{{else}}<span>&raquo;&raquo;</span>{{end}}</a>
+				<a class=pl2 href="{{ .URL }}">{{ with site.Params.pagination.lastIndicator }}{{ . | markdownify }}{{else}}<span>&raquo;&raquo;</span>{{end}}</a>
 			{{ end }}
 		{{- end }}
 	{{- end }}

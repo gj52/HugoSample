@@ -2,13 +2,13 @@
 {{- $title := .Get 1 | default "YouTube Video" -}}
 <div class="no-print  mw7-ns">
 <div class="pa2 mt2 videoWrapper">
-<iframe src="https://www.youtube.com/embed/{{$id}}?html5=1" name={{$id}} title="{{ $title }}" allowfullscreen ></iframe><br/><br/>
+<iframe src="https://www.youtube.com/embed/{{$id}}?html5=1" name={{$id}} title="{{ $title }}" aspect-ratio=auto allowfullscreen ></iframe><br/><br/>
 </div><br/>
 <span>oder gleich auf <a class=ph2 href="https://www.youtube.com/watch?v={{ $id }}" target=_blank rel=noopener type="video/mp4" >
 Youtube <i class="fab fa-youtube pl2 fa-fw" title="{{ $title }}"></i> </a>
 ansehen.</span>
 </div>
 <div class="dn print">
-<a class=f5 href="https://www.youtube.com/watch?v={{ $id }}" >Video: {{ $title }}</a>
+<img class=w-100 src="https://img.youtube.com/vi/{{$id}}/mqdefault.jpg">
+<span class="mb3 i f6">&raquo;  {{ $title }} &laquo;</span> <a href="https://www.youtube.com/watch?v={{$id}}"></a>
 </div>
-
