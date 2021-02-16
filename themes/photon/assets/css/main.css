@@ -271,20 +271,13 @@ img {
     box-shadow: 2px 2px 4px 2px var(--link-hover);
   }
 
+
 .videoWrapper {
   height: 0;
   padding-bottom: 56.25%; /* 16:9 */
   position: relative;
+  background-size:cover
 }
-
-  .videoWrapper iframe {
-    position: absolute;
-    height: 100%;
-    left: 0;
-    top: 0;
-    width: 100%;
-    border: none:
-  }
 
 /* Index */
 
