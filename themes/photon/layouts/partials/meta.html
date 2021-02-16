@@ -15,20 +15,17 @@
     <link rel=dns-prefetch href=//gohugo.io />
     <link rel=preconnect   href=https://www.jsdelivr.com />   
     <link rel=preconnect   href=https://cdn.materialdesignicons.com />
-  
-    {{ partial "manifest" . }} 
-
-    <meta name="application-name" content="{{ site.Title  | markdownify }}">
     <meta name=keywords content="{{ range first 25 site.Taxonomies.tags.ByCount }}{{ $f := slicestr  .Name 0 1}}{{if ne $f "2"}}{{.Name}},{{end}}{{end}}" />
 
-    {{ partial "feeds"   . }}
-
+    {{ partial "feeds"   . }} <!-- with sitemap and manifest -->
+    <meta name="application-name" content="{{ site.Title  | markdownify }}">
+    
 {{- else -}}
     <title>{{ site.Title  | markdownify }} &ndash; {{ .Title  | markdownify }}</title>
+    <meta name=keywords content="{{ range $index, $director := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ end }}" />
 {{- end }}
 
 {{ with .Description }}<meta name=description content="{{ . | safeHTML }}" />{{end}}
-<meta name=keywords content="{{ range $index, $director := .Params.tags }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ end }}" />
 <meta name=date content="{{site.LastChange.Format site.Params.dateFormatFeed }}" />
 {{ with site.Author.name }}<meta name=author content="{{ . }}" />{{ end }}
 {{ hugo.Generator }}
