@@ -1,7 +1,7 @@
 +++
 tags        = ["2020", "Feed", "RSS", "ATOM", "JSON"]
 description = "Feeds - RSS, ATOM und JSON"
-title       = "Füttere mich"
+title       = "Feed me!"
 date        = "2020-12-07T13:01:40+01:00"
 draft       = false
 +++
@@ -43,12 +43,12 @@ Für die meisten (Java-) Entwickler ist JSON viel einfacher zu lesen und schreib
 - Für RSS und ATOM können XML Stylesheet definiert werden, das geht bei JSON nicht.
 - Entwickler könnten einen XML Parser verwenden, aber für das Entschlüsseln von JSON-Feeds ist meist nur eine Zeile Code notwendig.
 
-- Größenvergleich
+- Größenvergleich / compare size
 	- RSS  52KB
 	- Atom 40KB
 	- JSON 24KB
 
-## meine Feeds
+## meine Feeds / my feeds
 
 [RSS](/feeds/feed.rss.xml) 
 
