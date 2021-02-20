@@ -1,8 +1,8 @@
 <!-- left & right hand for prev & next article in this sesction -->
 <div class="pt4 no-print">
 {{if .NextInSection -}}
-	<a href={{.NextInSection.Permalink}}><i class="far fa-hand-point-left"></i></a>{{else}}<i class="far fa-hand-rock light-gray"></i>
+	<a href={{.NextInSection.RelPermalink}}><i class="far fa-hand-point-left"></i></a>{{else}}<i class="far fa-hand-rock light-gray"></i>
 {{- end}}<span class=ph1>|</span>{{if .PrevInSection -}}
-	<a href={{.PrevInSection.Permalink}}><i class="far fa-hand-point-right"></i></a>{{else}}<i class="far fa-hand-rock light-gray"></i>
+	<a href={{.PrevInSection.RelPermalink}}><i class="far fa-hand-point-right"></i></a>{{else}}<i class="far fa-hand-rock light-gray"></i>
 {{- end}}
 </div>

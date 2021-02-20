@@ -4,7 +4,7 @@
 {{ if .Permalink -}}
 <url>
     <loc>{{ .RelPermalink }}</loc>
-    <lastmod>{{ safeHTML ( .Lastmod.Format site.Params.dateFormatFeed ) }}</lastmod>
+	{{ with .Lastmod }}<lastmod>{{ safeHTML ( .Format site.Params.dateFormatFeed ) }}</lastmod>{{ end }}
 	{{ with site.Params.Sitemap.changeFreq }}<changefreq>{{ . }}</changefreq>{{end}}
 	{{ with site.Params.Sitemap.priority   }}<priority>{{.}}</priority>{{end}}
   </url>

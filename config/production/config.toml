@@ -12,5 +12,6 @@
             keepDefaultAttrVals     = false
             keepDocumentTags        = true
             keepEndTags             = true
+			keepQuotes              = false
             keepWhitespace          = false
 

@@ -5,7 +5,9 @@
 {{ $srcset := slice }}{{ range site.Params.Images.setSizes -}}
   {{ if lt (mul . 1.2) $iw }}{{ $size := print  . "x" .}}{{ $thumb := $image.Fit $size }}{{ $srcset = $srcset | append (printf ("%s %dw") $thumb.RelPermalink $thumb.Width ) }}{{ end }}
 {{- end }}
+<div class=dib>
 <img loading=lazy src={{ $image.RelPermalink }}
 {{ if gt (len $srcset) 0 }}sizes="(max-width: 480px) 90vw, (max-width: 960px) 80vw, {{ $image.Width }}px" {{ $sl := delimit $srcset ", "}}srcset="{{$sl}}" {{ end }}
 width={{ $image.Width }} alt={{ $alt }} /><br/>
 {{- with $caption }}<span class="mb3 i f6">&raquo; {{ . | markdownify }} &laquo;</span>{{ end -}}
+</div>

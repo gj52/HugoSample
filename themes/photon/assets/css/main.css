@@ -105,6 +105,12 @@ pre {
   scrollbar-color: auto;
 }
 
+/* Add scroll margin to all elements which can be targeted */
+
+[id] {
+  scroll-margin-top: 2ex;
+}
+
 /*   SCROLL BAR */
 
 ::-webkit-scrollbar {
@@ -245,22 +251,27 @@ img {
   box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
 }
 
-/* Foto */
+/* Gallery */
 
 .gallery {
   display: flex;
   flex-wrap: wrap;
   margin: calc(-1 * var(--gap)/ 2) 0 0 calc(-1 * var(--gap) / 2);
-  width: calc(100% + var(--gap));
-}
+  width: calc(100% + var(--gap)); 
+ }
 
-.fullpage{
-    width:      100%;
-    border:     none;
-    position:   fixed;
-    z-index:    999999;
-    left:       0;
-    top:        0;
+ /* 
+   https://www.smashingmagazine.com/2021/02/things-you-can-do-with-css-today/ 
+   gallery with grid
+ */
+
+.masonry {
+  display: grid;
+    margin: calc(-1 * var(--gap)/ 2) 0 0 calc(-1 * var(--gap) / 2);
+  width: calc(100% + var(--gap));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-rows: masonry;
+  grid-gap: 3px;
 }
 
 .foto {
@@ -271,6 +282,18 @@ img {
     box-shadow: 2px 2px 4px 2px var(--link-hover);
   }
 
+/* missed in jquery.fancybox.css */
+
+.fullpage{
+    width:      100%;
+    border:     none;
+    position:   fixed;
+    z-index:    999999;
+    left:       0;
+    top:        0;
+}
+
+/* tube shortcode */
 
 .videoWrapper {
   height: 0;
@@ -305,6 +328,7 @@ img {
   }
 
 /* table styles */
+
 table {
   border-collapse: collapse;
   display: block;
@@ -387,21 +411,6 @@ article {
   }
 }
 
-/* Chrome experimental!!
-   This media query will apply if the User Agent has decided to enter
-   "reduced-framerate" mode based on a combination of OS & user
-   preferences, system state (such as limited battery availability),
-   and the value of the aforementioned meta tag.
-
-   https://github.com/chrishtr/battery-savings/blob/master/explainer.md
-*/
-
-@reduced-framerate {
-  * {
-    animation: none !important; /* or change animations to use keyframes optimized for battery-savings */
-  }
-}
-
 @supports not (display:grid) {
 
   nav {
@@ -429,7 +438,9 @@ article {
 
   body {
     background-image: url("/img/wave-ms.jpg");
-    grid-template-columns: auto repeat(2, minmax(10px, 1fr)); /* https://css-tricks.com/you-want-minmax10px-1fr-not-1fr/ */
+
+	/* https://css-tricks.com/you-want-minmax10px-1fr-not-1fr/ */
+    grid-template-columns: auto repeat(2, minmax(10px, 1fr)); 
     grid-template-areas: "aa hh hh" "nn mm mm" "ft ft ft";
     padding-left: 2rem;
   }
