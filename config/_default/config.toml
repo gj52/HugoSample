@@ -73,8 +73,23 @@ expiryDate                 = [ "expiryDate"]
 
 [markup]
   [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote       = true
+      linkify        = true
+      strikethrough  = true
+      table          = true
+      taskList       = true
+      typographer    = true
+    [markup.goldmark.parser]
+#      autoHeadingID     = false
+#      autoHeadingIDType = "github"
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
     [markup.goldmark.renderer]
       unsafe = true
+      xhtml  = true
 
 ###############################################################
 
@@ -194,7 +209,8 @@ expiryDate                 = [ "expiryDate"]
     dateFormatShort     = "2006-01-02"
     dateFormatYear      = "2006"
     dateFormatFeed      = "2006-01-02T15:04:05Z"
-    dateFormatRFC822Z   = "02 Jan 2006 15:04:05 UT" 
+	dateFormatISO8601      = "2006-01-02T15:04:05-07:00" 
+    dateFormatRFC822Z      = "02 Jan 2006 15:04:05 UT"
 
     invisibleSections   = ["menu","serie","about", "links"]
     sitemapMax          = 49999
