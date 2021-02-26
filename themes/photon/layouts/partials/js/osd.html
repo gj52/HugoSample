@@ -1,3 +1,3 @@
 {{ $osd := resources.Get "js/openseadragon.js" }}
-{{ $osd = $osd | minify | resources.Fingerprint site.Params.digest }}
+{{ $osd = $osd | resources.Minify | resources.Fingerprint site.Params.digest }}
 <script src={{ $osd.RelPermalink }} integrity={{ $osd.Data.Integrity }} ></script>

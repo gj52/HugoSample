@@ -26,6 +26,8 @@
   --tr-even-background: #e8f8f8;
 }
 
+
+
 /* special styles */
 body {
   background-color: var(--background-color);
@@ -103,6 +105,7 @@ pre {
   overflow-x:auto;
   scrollbar-width: thin;
   scrollbar-color: auto;
+  tab-size: 4;             /* Set tab size to 4 characters wide */
 }
 
 /* Add scroll margin to all elements which can be targeted */
@@ -312,6 +315,7 @@ img {
   box-shadow: inset 2px 2px 3px var(--box-shadow-color);
   cursor: pointer;
   text-align: center;
+  will-change: auto;
   transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, border-color 0.1s ease-in-out;
   white-space: nowrap;
 }

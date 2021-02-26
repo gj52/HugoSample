@@ -1,5 +1,5 @@
 {{ print "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\" ?>"  | safeHTML }}
-<urlset xmlns="http://wwwsitemaps.org/schemassitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xml:base="{{site.BaseURL }}">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xml:base="{{site.BaseURL }}">
 {{ range first site.Params.sitemapMax .CurrentSection.RegularPages }}
 {{ if .Permalink -}}
 <url>
