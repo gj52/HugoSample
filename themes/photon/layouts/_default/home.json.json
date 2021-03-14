@@ -12,20 +12,18 @@
       "avatar"     : {{ site.Params.sidebar.avatar | absURL | jsonify }}
     }
   ],  {{ end }}
-  {{ with site.LanguageCode }}"languge" : "{{ . }}",{{ end }}
-  
-  {{ $feedsize := site.Params.feedSize | default 25 }}
-  "items": [{{ $r := first $feedsize (where site.RegularPages.ByDate.Reverse "Section" "not in" site.Params.invisibleSections)}} {{ $lr := len $r }} {{ $ir := 1}}{{ range $r}}
+  {{ with site.LanguageCode }}"languge" : "{{ . }}",{{ end }}{{ $feedsize := site.Params.feedSize | default 25 }}
+  "items": [{{ $r := first $feedsize (where site.RegularPages.ByDate.Reverse "Section" "not in" site.Params.invisibleSections)}} {{ range $i, $ := $r}}{{ if $i }},{{end}}  
     {
       "id"            : {{ $uuid := sha1 (.Permalink  | absURL)}}"{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}",
       "url"           : {{ .Permalink | jsonify  }},
       "title"         : {{ .Title   | plainify | chomp | jsonify }},
-      "content_text"  : {{ .Content | plainify | chomp | jsonify }},
       "summary"       : {{ .Summary | plainify | chomp | jsonify }},
       {{ range first 1 (.Resources.ByType "image") -}}{{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480 #ffffff q75") }}{{ $image := $.Scratch.Get "image" }}"banner_image"  : "{{ $image.Permalink }}",{{- end }}
       "date_published": {{ .PublishDate.UTC.Format site.Params.dateFormatFeed | jsonify  }},
       "date_modified" : {{ .Lastmod.UTC.Format site.Params.dateFormatFeed | jsonify  }},
       "tags"          : [{{with .Params.tags -}}{{ $lt := len . }}{{ $it := 1}}{{ range . }}"{{ . }}"{{ if lt $it $lt }},{{ end }}{{ $it = add $it 1}}{{ end }}{{- end}}]
-    }{{ if lt $ir $lr }},{{ end }}{{ $ir = add $ir 1}}{{- end}}
+    }
+  {{- end}}
   ]
 }

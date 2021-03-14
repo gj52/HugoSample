@@ -23,31 +23,26 @@
     <entry> {{ $url := .RelPermalink }}{{ $uuid := sha1 (.Permalink | absURL)}}{{ $page := .}}
         <category term="{{htmlEscape .Section}}"/>
     {{ range (.GetTerms "tags") }}
-        <category term="{{htmlEscape .LinkTitle }}" />
-    {{end}}
-      <link rel='alternate' type='type/html' href='{{ $url }}' />
-      <title type="text">{{ htmlEscape .Title | plainify}}</title> 
-      <published>{{ .PublishDate.Format site.Params.dateFormatFeed }}</published>
-      <updated>{{ .Lastmod.UTC.Format site.Params.dateFormatFeed  }}</updated>
-      <id>urn:uuid:{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}</id>
-
-      {{ range first 1 (.Resources.ByType "image") }}
-        {{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480") }}{{ $image := $.Scratch.Get "image" }}
+        <category term="{{htmlEscape .LinkTitle }}" />{{end}}
+		<link rel='alternate' type='type/html' href='{{ $url }}' />
+		<title type="text">{{ htmlEscape .Title | plainify}}</title> 
+		<published>{{ .PublishDate.Format site.Params.dateFormatFeed }}</published>
+		<updated>{{ .Lastmod.UTC.Format site.Params.dateFormatFeed  }}</updated>
+		<id>urn:uuid:{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}</id>
+      {{ range first 1 (.Resources.ByType "image") }}{{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480") }}{{ $image := $.Scratch.Get "image" }}
         <media:content   url="{{ $image.Permalink }}" width="{{$image.Width}}" height="{{$image.Height}}" medium="{{$image.MediaType.MainType}}" type="{{$image.MediaType}}" >    
-        <media:thumbnail url="{{ $image.Permalink }}" width="{{$image.Width}}" height="{{$image.Height}}"  />       
+          <media:thumbnail url="{{ $image.Permalink }}" width="{{$image.Width}}" height="{{$image.Height}}"  />       
         </media:content>
       {{ end }}   
-
-      <summary type="xhtml">
-      <div xmlns="http://www.w3.org/1999/xhtml">
-      {{ range first 1 (.Resources.ByType "image") }}
-        {{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480") }}{{ $image := $.Scratch.Get "image" }}
+        <summary type="xhtml">
+          <div xmlns="http://www.w3.org/1999/xhtml">
+      {{ range first 1 (.Resources.ByType "image") }}{{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480") }}{{ $image := $.Scratch.Get "image" }}
             <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{.Name}}" /><br/>
         {{ end }}
-        <p>{{ plainify .Summary | htmlEscape}}</p>
-        <a href="{{ $url }}">Jetzt den Artikel lesen</a>
-      </div>
-      </summary>
+            <p>{{ plainify .Summary | htmlEscape}}</p>
+            <a href="{{ $url }}">Jetzt den Artikel lesen</a>
+          </div>
+        </summary>
       <!-- <content type="application/xhtml+xml" src="{{ .RelPermalink }}" {{ with site.LanguageCode }} xml:lang="{{ . }}"{{ end }} /> -->
     </entry>{{ end }}
 </feed>
