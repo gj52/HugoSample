@@ -7,7 +7,7 @@
 <article class=pb3>
 	<div class="fl-l w-50-l ph2-l">
 		{{ $posts := site.GetPage "/post" }}
-		<h2 class="f4 b tc bg-blue pv1"><a class="white" href={{$posts.RelPermalink}}>Beiträge</a></h2>
+		<h2 class="f4 b tc bg-blue pv1"><a class="white hover-moon-gray" href={{$posts.RelPermalink}}>Beiträge</a></h2>
 		<div class=flex>
 			<div class="di-l w-50-l">
 			{{ range $index, $element := first site.Params.pagination.PagesPerListHome $posts.Pages -}}
@@ -20,7 +20,7 @@
 
 	<div class="fl-l w-50-l ph2-l">
 		{{ $photos := site.GetPage "/photo" }}
-		<h2 class="f4 b tc bg-blue pv1"><a class="white" href={{$photos.RelPermalink}}>Fotos</a></h2>
+		<h2 class="f4 b tc bg-blue pv1"><a class="white  hover-moon-gray" href={{$photos.RelPermalink}}>Fotos</a></h2>
 		<div class=flex>
 			<div class=w-50-l>
 			{{ range $index, $element := first site.Params.pagination.PagesPerListHome $photos.Pages -}}
