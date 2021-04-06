@@ -1,9 +1,9 @@
-{{-     if eq .Type   "post"     }}<i class="far fa-file-alt fa-fw"></i>
-{{ else if eq .Layout "panorama" }}<span class="b mdi mdi-panorama-horizontal"></span>
-{{ else if eq .Layout "gallery"  }}<i class="far fa-images fa-fw"></i>
-{{ else if eq .Type   "photo"    }}<i class="far fa-image  fa-fw"></i>
-{{ else if eq .Type   "serie"    }}<i class="far fa-book   fa-fw"></i>
+{{-     if eq .Type   "post"     }}<i class="far fa-file-alt fa-fw" title=Beitrag></i>
+{{ else if eq .Layout "panorama" }}<span class="b mdi mdi-panorama-horizontal" title=Panorama ></span>
+{{ else if eq .Layout "gallery"  }}<i class="far fa-images fa-fw" title=Galerie ></i>
+{{ else if eq .Type   "photo"    }}<i class="far fa-image  fa-fw" title=Foto  ></i>
+{{ else if eq .Type   "serie"    }}<i class="far fa-book   fa-fw" title=Serie ></i>
 {{ else if eq .Type   "intern"   }}<i class="fas fa-lock   fa-fw red"></i>
-{{ else if eq .Type   "links"    }}<i class="far fa-link   fa-fw"></i>
-{{ else if eq .Type   "tags"     }}<i class="far fa-tag    fa-fw"></i>
+{{ else if eq .Type   "links"    }}<i class="far fa-link   fa-fw" title=Links ></i>
+{{ else if eq .Type   "tags"     }}<i class="far fa-tag    fa-fw" title=Tags ></i>
 {{ else                          }}<i class="far fa-sticky-note fa-fw"></i>{{end -}}

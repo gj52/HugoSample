@@ -1,12 +1,12 @@
-<footer class="mv3 pt3 tc bt b--black-20"><span class=nowrap><a class=ph2 title=about href=/about/><i class="fas fa-copyright fa-fw ph2"></i>{{ site.Params.CopyrightYear}} {{ site.Params.Copyright }}</a></span>
+<footer class="mv3 pt3 tc bt b--black-20"><span class=nowrap><a class=ph2 title=about href=/about/><i class="fas fa-copyright fa-fw ph2" title=copyright ></i>{{ site.Params.CopyrightYear}} {{ site.Params.Copyright }}</a></span>
 {{ if .IsHome -}}
-	<span class=nowrap title="site build"><i class="fas fa-clock fa-fw ph2"></i>{{ now.Format site.Params.dateFormatLong }}</span>
-	<span class=nowrap title="site updated"><i class="fas fa-pen-fancy fa-fw ph2"></i><time datetime="{{ site.LastChange.Format site.Params.dateFormatLong }}">{{site.LastChange.Format	site.Params.dateFormatLong}}</time></span>
+	<span class=nowrap title="site build"><i class="fas fa-clock fa-fw ph2" title=generated ></i>{{ now.Format site.Params.dateFormatLong }}</span>
+	<span class=nowrap title="site updated"><i class="fas fa-pen-fancy fa-fw ph2" title=updated ></i><time datetime="{{ site.LastChange.Format site.Params.dateFormatLong }}">{{site.LastChange.Format	site.Params.dateFormatLong}}</time></span>
 	<span class=nowrap><a rel='noopener noreferrer' href=https://gohugo.io title="Hugo Home Page" target=_blank><i class="fas fa-cog fa-fw ph2"></i>Hugo {{ hugo.Version }}</a></span>
 {{- else -}}
 	{{ if .IsPage -}}
-		<span class=nowrap title="page created"><i class="far fa-plus-square fa-fw ph2"></i><time datetime="{{ .Date.UTC.Format site.Params.dateFormatLong }}">{{ .Date.Format site.Params.dateFormatShort }}</time></span>
-		<span class=nowrap title="page updated"><i class="far fa-edit        fa-fw ph2"></i><time datetime="{{ .Lastmod.Format	 site.Params.dateFormatLong}}">{{.Lastmod.Format  site.Params.dateFormatShort}}</time></span>
+		<span class=nowrap title="page created"><i class="far fa-plus-square fa-fw ph2" title=created ></i><time datetime="{{ .Date.UTC.Format site.Params.dateFormatLong }}">{{ .Date.Format site.Params.dateFormatShort }}</time></span>
+		<span class=nowrap title="page updated"><i class="far fa-edit        fa-fw ph2" title=updated ></i><time datetime="{{ .Lastmod.Format	 site.Params.dateFormatLong}}">{{.Lastmod.Format  site.Params.dateFormatShort}}</time></span>
 	{{- end}}
 {{- end }}
 </footer>

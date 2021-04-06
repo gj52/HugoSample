@@ -1,5 +1,5 @@
 {{ if strings.HasPrefix .Destination "mailto" -}}<i class="fas fa-envelope"></i> {{end}}
 <a href={{ .Destination | safeURL }} 
    {{ if strings.HasPrefix .Destination "http" -}} target=_blank rel="noopener noreferrer" {{- end }}>
-   {{ .PlainText | htmlEscape }}
+   {{ .PlainText | safeHTML }}
 </a>

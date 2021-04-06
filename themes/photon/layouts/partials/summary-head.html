@@ -1,8 +1,8 @@
 {{if not .IsHome -}}
 <div class="no-print pt1">
-	<div class="fl w-10 pt1 tr"><i class="far fa-calendar-alt fa-fw"></i></div>
+	<div class="fl w-10 pt1 tr"><i class="far fa-calendar-alt fa-fw" title=created ></i></div>
 	<div class="fl w-90 pa1"><time datetime="{{ .Date.Format site.Params.dateFormatFeed }}">{{ .Date.Format site.Params.dateFormatShort }}</time></div>
-	<div class="fl w-10 pt1 tr">{{ partial "symbol" . }}</div>
+	<div class="fl w-10 pt1 tr">{{ partialCached "symbol" . .Type .Layout }}</div>
 	<div class="fl w-90 pa1">{{ .Description | markdownify }}</div>
 </div>
 {{- end}}
