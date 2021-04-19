@@ -1,4 +1,5 @@
 {{ $image := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL)) }}
+{{ if ne $image nil }}
 {{ $alt := (.PlainText | safeHTML) | default "picture" }}{{ $caption := "" }} {{ with .Title }}{{ $caption = . | safeHTML }}{{ end }}
 {{ $iw := $image.Width }}{{ $ih := $image.Height }}{{ $ms   := site.Params.Images.maxSize | default 1024}}
 {{ if or (ge $iw $ms) (ge $ih $ms) }}{{ $image = $image.Fit (print $ms "x" $ms ) }}{{end}}
@@ -11,3 +12,6 @@
 width={{ $image.Width }} alt={{ $alt }} /><br/>
 {{- with $caption }}<span class="mb3 i f6">&raquo; {{ . | markdownify }} &laquo;</span>{{ end -}}
 </div>
+{{else}}
+{{ errorf "Failed on page %q - missing image %q" .Page.File.Path .Destination }}
+{{end}}
