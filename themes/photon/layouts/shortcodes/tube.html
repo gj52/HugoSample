@@ -4,10 +4,11 @@
  <div class="mv2 videoWrapper" style="background-image:url(https://img.youtube.com/vi/{{$id}}/mqdefault.jpg)" >
  <iframe loading=lazy class="bn w-100 h-100 absolute" 
  name={{$id}} title="{{ $title }}" 
- src="https://www.youtube.com/embed/{{$id}}?html5=1" 
- referrerpolicy=no-referrer sandbox="allow-same-origin allow-scripts"
- aspect-ratio=auto allowfullscreen  ></iframe>
+ src="https://www.youtube.com/embed/{{$id}}" 
+ referrerpolicy=no-referrer  frameborder="0"
+ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen  ></iframe>
  </div>
 </div>
-<div><img class="dn print w-80" src="https://img.youtube.com/vi/{{$id}}/mqdefault.jpg"></div>
+<div class=pv2>
 <a class="mb3 i f6" href="https://www.youtube.com/watch?v={{$id}}">&raquo;  {{ $title }} &laquo;</a>
+</div>

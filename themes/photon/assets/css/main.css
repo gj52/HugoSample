@@ -261,21 +261,8 @@ img {
   flex-wrap: wrap;
   margin: calc(-1 * var(--gap)/ 2) 0 0 calc(-1 * var(--gap) / 2);
   width: calc(100% + var(--gap)); 
+  gap: calc(var(--gap) / 2);
  }
-
- /* 
-   https://www.smashingmagazine.com/2021/02/things-you-can-do-with-css-today/ 
-   gallery with grid
- */
-
-.masonry {
-  display: grid;
-    margin: calc(-1 * var(--gap)/ 2) 0 0 calc(-1 * var(--gap) / 2);
-  width: calc(100% + var(--gap));
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  grid-template-rows: masonry;
-  grid-gap: 3px;
-}
 
 .foto {
   box-shadow: 2px 2px 4px 2px var(--shadow-opacity);

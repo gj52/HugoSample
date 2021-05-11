@@ -1,6 +1,7 @@
 {
   "name": {{ site.Title | htmlUnescape | jsonify }},
-  {{with site.Params.description}}"description": {{ site.Params.description | htmlUnescape | jsonify }},{{end}}
+  {{ with site.Params.shortTitle }}"short_name": {{ . | htmlUnescape | jsonify }},{{end}}
+  {{with site.Params.description}}"description": {{ . | htmlUnescape | jsonify }},{{end}}
   {{ with site.LanguageCode }}"lang": {{ . | jsonify }},{{ end }} 
   "start_url":  "/index.html",
   "display": "fullscreen",

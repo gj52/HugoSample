@@ -10,5 +10,6 @@
 	{{ errorf "missing value for 2nd param 'name': %s" .Position }}
 {{ end }}
 {{ $tmp := default "14" (.Get 2) }}{{ $scale := int $tmp }}
-<a class="dib ph1"  target=_blank rel=noopener title="Karte anzeigen" href="https://www.openstreetmap.org/#map={{$scale}}/{{float ($scratch.Get "latitude")}}/{{float ($scratch.Get "longitude")}}"><i class="far fa-map"></i></a>
-
+{{ $lat := float ($scratch.Get "latitude") }}{{ $lon := float ($scratch.Get "longitude")}}
+<a class="dib ph1"  target=_blank rel=noopener title="Karte anzeigen" 
+href="https://www.openstreetmap.org/?mlat={{$lat}}&mlon={{$lon}}#map={{$scale}}/{{$lat}}/{{$lon}}"><i class="far fa-map"></i></a>

@@ -1,18 +1,22 @@
 {{ $tccs := resources.Get "css/tachyons.css" }}
 {{ $tccs  = $tccs | resources.Minify | resources.Fingerprint site.Params.digest }}
+<link rel="preload" href={{ $tccs.RelPermalink }} as="style">
 <link  rel=stylesheet href={{ $tccs.RelPermalink }} integrity={{ $tccs.Data.Integrity }} />
 
 {{ $mccs := resources.Get "css/main.css" }}
 {{ $mccs  = $mccs | resources.Minify | resources.Fingerprint site.Params.digest }} 
+<link rel="preload" href={{ $mccs.RelPermalink }} as="style">
 <link  rel=stylesheet href={{ $mccs.RelPermalink }} integrity={{ $mccs.Data.Integrity }} />
 
 {{ $accs := resources.Get "css/awesome.css" }}
 {{ $accs  = $accs | resources.Minify | resources.Fingerprint site.Params.digest }}
+<link rel="preload" href={{ $accs.RelPermalink }} as="style">
 <link rel=stylesheet href={{ $accs.RelPermalink }} integrity={{ $accs.Data.Integrity }}  />
 
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css >
 
 {{ $pccs := resources.Get "css/print.css" }}
 {{ $pccs  = $pccs | resources.Minify | resources.Fingerprint site.Params.digest }}
+<link rel="preload" href={{ $pccs.RelPermalink }} as="style">
 <link  rel=stylesheet href={{ $pccs.RelPermalink }} integrity={{ $pccs.Data.Integrity }} media=print />
 
