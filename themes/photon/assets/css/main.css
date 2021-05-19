@@ -26,7 +26,11 @@
   --tr-even-background: #e8f8f8;
 }
 
-
+@media (prefers-reduced-motion) {
+html {
+  scroll-behavior: smooth;
+  }
+}
 
 /* special styles */
 body {
