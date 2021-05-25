@@ -1,0 +1,64 @@
+<form id="custom-search" name="custom-search" method="post" action="" onsubmit="customSearchResults(); return false;">
+    <p>
+    <input id="custom-search-field" type="text" name="search" value="" title="Search String" placeholder="SearchString">
+    <!-- <input type="submit" value="Suchen"> -->
+    </p>
+
+    <p><em>Search Section:</em><br>
+        <input type="checkbox" name="section[]" value="site" checked="checked"> all<br>
+        <input type="checkbox" name="section[]" value="post"> Beiträge<br>
+		<input type="checkbox" name="section[]" value="photo"> Fotos<br>
+<!--        <input type="checkbox" name="section[]" value="other-section"> Other Section -->
+    </p> 
+    <p>
+        <input type="radio" name="option" value="AND" checked="checked"> UND-Suche<br>
+        <input type="radio" name="option" value="OR"> ODER-Suche
+    </p>
+</form>
+
+<div id="custom-search-results"></div>
+
+<script>
+// CUSTOM AREA
+let params = {
+    json_src       : '/search.json', // for multiple sources: comma separated list of JSONarrays
+    minlength      : 3,
+    defaultsearch  : 'AND',
+    sort_date      : 'DESC',
+    autocomplete   : 1, // 0: form needs a submit button
+    section_search : 1, // 1: needs checkboxes with name="section[]"
+    badwords       : 'and,there,the,this,that,you', //ignore this words
+    json_wait      : '<p><em>lade...</em></p>',
+    json_ready     : '<p><em>Bitte einen Suchbegriff eingeben</em></p>',
+    extern_icon    : ' (external link)', // marker for external links (optional)
+    err_badstring  : '<p>zu kurz!</p>',
+    err_noresult   : '<p>Leider keine Ergebnisse. Bitte neu versuchen.</p>',
+    err_norequest  : '<p style="text-align: center; color:red;">Die Volltextsuche ist aktuell nicht verfügbar.</p>',
+    err_filefailed : '<p style="text-align: center;color: red;">Der Such-katalog konnte nicht gefunden werden.</p>',
+    res_one_item   : '<p><em>[CNT] ERGEBNIS</em></p><hr/>',
+    res_more_items : '<p><em>[CNT] ERGEBNISSE</em></p><hr/>',
+    res_out_top    : '<div class=liste>',
+    res_out_bottom : '</div>',
+    res_item_tpl   : '<div class="f3 dib pt3 pl4 w-100"><a class="pt2 f4 b" href="[URL]">[TITLE]</a><br><span class=f5>[DATE]: [SUMMARY]<br><em>[SECTION][TAGS]</em></span></div>',
+    add_searchlink : ' '
+};
+
+// Translation of section name (optional)
+let section_trans = {
+    "post" : "Beiträge", "photo": "Fotos"
+    // "other-section" : "Other Section"
+};
+
+let searchfield_weight = {
+    "title"   : 5,
+    "tags"    : 5,
+    "summary" : 2,
+    "content" : 1
+};
+// CUSTOM AREA END
+</script>
+
+
+{{ $s := resources.Get "js/search.js" }}
+{{ $s = $s | resources.Minify | resources.Fingerprint site.Params.digest }} 
+<script src={{ $s.RelPermalink }} integrity={{ $s.Data.Integrity }} crossorigin=anonymous ></script>

@@ -1,0 +1,14 @@
+[ {{- $i := 0 -}}
+{{- range where .Site.RegularPages "Section" "ne" "" -}}
+   {{- if not .Params.noSearch -}}
+      {{- if gt $i 0 }},{{ end -}}
+      {"date":"{{ .Date.Unix }}",
+	  "url":"{{ .Permalink }}",
+	  "title":{{ .Title | jsonify  }},
+	  "summary":{{ with .Description}}{{ . | plainify | jsonify }}{{ else }}{{ .Summary | plainify | jsonify }}{{ end }},
+	  "content":{{ .Content | plainify | chomp | replaceRE "&.*;" " " | replaceRE "\\s+" " " | jsonify }},
+	  "tags":[ {{- range $p, $v := sort .Params.tags  -}}{{ if $p }},{{ end }}{{ $v | jsonify }}{{ end -}} ],
+	  "section": {{ .Section | jsonify -}} }
+      {{- $i = add $i 1 -}}
+   {{- end -}}
+{{- end -}} ]

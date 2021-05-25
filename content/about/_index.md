@@ -2,6 +2,7 @@
 description = "ist kein Impressum"
 title       = "about"
 layout      = "single"
+noSearch    = true
 +++
 ## über mich
 
