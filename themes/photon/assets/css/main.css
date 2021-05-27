@@ -51,6 +51,10 @@ body {
   grid-template-areas: "aa nn" "hh hh" "mm mm" "ft ft";
 }
 
+element:empty {
+  display: none;
+}
+
 h1 {
   font-family: var(--fonts);
   white-space: pre-wrap;
