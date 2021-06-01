@@ -127,8 +127,9 @@ expiryDate                 = [ "expiryDate"]
   [mediaTypes."application/manifest+json"]
     suffixes              = ["webmanifest"]
 
-  [mediaTypes."application/jsn"]
-    suffixes               = ["jsn"]
+# search
+  [mediaTypes."application/json-catalog"]
+    suffixes               = ["catalog"]
 	
 [outputFormats.HTML]
     baseName               = "index"
@@ -179,8 +180,8 @@ expiryDate                 = [ "expiryDate"]
     Rel                   = "manifest"
 
 [outputFormats.SEARCH]
-    MediaType              = "application/jsn"
-    BaseName               = "search"
+    MediaType              = "application/json-catalog"
+    BaseName               = "search/search"
     IsHTML                 = false
     IsPlainText            = true
     noUgly                 = false
