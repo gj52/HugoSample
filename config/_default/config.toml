@@ -114,78 +114,6 @@ expiryDate                 = [ "expiryDate"]
 
 ###############################################################
 
-[mediaTypes]
-  [mediaTypes."application/atom+xml"]
-    suffixes               = ["xml"]
-
-  [mediaTypes."application/rss+xml"]
-    suffixes               = ["xml"]
-
-  [mediaTypes."application/json"]
-    suffixes               = ["json"]
-
-  [mediaTypes."application/manifest+json"]
-    suffixes              = ["webmanifest"]
-
-# search
-  [mediaTypes."application/json-catalog"]
-    suffixes               = ["catalog"]
-	
-[outputFormats.HTML]
-    baseName               = "index"
-    NoUgly                 = true
-    IsHTML                 = true
-    permalinkable          = true
-
-[outputFormats.ATOM]
-    MediaType              = "application/atom+xml"
-    BaseName               = "feeds/feed.atom"
-    IsHTML                 = false
-    IsPlainText            = true
-    noUgly                 = true
-    Rel                    = "alternate"
-
-[outputFormats.FEED]       ##### ==> no collision with buildin RSS!
-    MediaType              = "application/rss+xml"
-    BaseName               = "feeds/feed.rss"
-    IsHTML                 = false
-    IsPlainText            = true
-    noUgly                 = true
-    Rel                    = "alternate"
-
-[outputFormats.JSON]
-    MediaType              = "application/json"
-    BaseName               = "feeds/feed"
-    IsHTML                = false
-    IsPlainText           = true
-    noUgly                = false
-    Rel                   = "alternate"
-
-[outputFormats.SITEMAP]
-    MediaType             = "application/xml"
-    BaseName              = "sitemap"
-    IsHTML                = false
-    IsPlainText           = true
-    noUgly                = true
-    Rel                   = "sitemap"
-
-
-[outputFormats.MANIFEST]
-    MediaType             = "application/manifest+json"
-    BaseName              = "manifest"
-    suffix                = "webmanifest"
-    IsHTML                = false
-    IsPlainText           = true
-    noUgly                = false
-    Rel                   = "manifest"
-
-[outputFormats.SEARCH]
-    MediaType              = "application/json-catalog"
-    BaseName               = "search/search"
-    IsHTML                 = false
-    IsPlainText            = true
-    noUgly                 = false
-    Rel                    = "alternate"
 
 [outputs]
     home                   = [ "HTML", "ATOM", "JSON", "FEED", "MANIFEST", "SITEMAP", "SEARCH"]
@@ -194,17 +122,9 @@ expiryDate                 = [ "expiryDate"]
     taxonomy              = [ "HTML" ]
     taxonomyTerm          = [ "HTML" ]
 
-
 ###############################################################
 
-[imaging]
-    resampleFilter     = "Lanczos"
-    quality            = 85
-    bgColor            = "#ffffff"
 
-[imaging.exif]
-    includeFields = ".*"
-    
 [Author]
     name               = "Mr. Nobody"
     email              = "me@example.com"
@@ -221,20 +141,6 @@ expiryDate                 = [ "expiryDate"]
     Publisher              = "lastname, firstname"
 
 
-    published           = "2016-08-21T00:00:00Z"
-    dateFormatLong      = "2006-01-02 15:04"
-    dateFormatShort     = "2006-01-02"
-    dateFormatYear      = "2006"
-    dateFormatFeed      = "2006-01-02T15:04:05Z"
-	dateFormatISO8601      = "2006-01-02T15:04:05-07:00" 
-    dateFormatRFC822Z      = "02 Jan 2006 15:04:05 UT"
-
-    invisibleSections   = ["menu","serie","about", "links","search"]
-    sitemapMax          = 49999
-
-    feedSize               = 25 # rssLimit 
-    digest                 = "sha384"
-    
 [Params.sidebar]
     avatar          = "images/head.jpg"
     bio             = "**Mr. Nobody**"
@@ -242,70 +148,3 @@ expiryDate                 = [ "expiryDate"]
 [Params.Sitemap]
     changeFreq = "weekly"
     priority   = 0.5
-
-[Params.Pagination]
-    PagesPerList           = 10
-    PagesPerListHome       = 12
-    Paginate               = 10
-    firstIndicator         = "<i class=\"fas fa-angle-double-left\"></i>"
-    previousIndicator      = "<i class=\"fas fa-angle-left\"></i>"
-    nextIndicator          = "<i class=\"fas fa-angle-right\"></i>"
-    lastIndicator          = "<i class=\"fas fa-angle-double-right\"></i>"
-    showBeginEnd           = false
-    spaceIndicator         = "<b> ... </b>"
-    pagesBetweenActive     = 5
-
-################# Image handling ###########
-# shortcode   figure.html
-# render hook render-image.html
-
-[Params.Images]
-    maxSize                = 1480
-    setSizes              = [ 480, 800, 1200 ]
-	sizes                 = "sizes=(max-width: 30em) 90vw, (max-width: 60em) 80vw, 1480px"
-
-###############################################################
-
-
-[menu]
-[[menu.main]]
-    identifier          = "home"
-    name                = "Home"
-    url                 = "/"
-    weight              = 10
-
-[[menu.main]]
-    identifier          = "post"
-    name                = "Posts"
-    url                 = "/post/"
-    weight              = 20
-
-[[menu.main]]
-    identifier          = "photo"
-    name                = "Photos"
-    url                 = "/photo/"
-    weight              = 30
-
-[[menu.main]]
-    identifier          = "serie"
-    name                = "Series"
-    url                 = "/series/"
-    weight              = 40
-
-[[menu.main]]
-    identifier          = "link"
-    name                = "Links"
-    url                 = "/links/"
-    weight                 = 100
-
-[[menu.main]]
-    identifier          = "index"
-    name                = "Index"
-    url                 = "/tags/"
-    weight              = 110
-
-[[menu.main]]
-    identifier             = "search"
-    name                   = "Search"
-    url                    = "/search/"
-    weight                 = 110
