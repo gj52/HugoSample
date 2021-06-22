@@ -1,29 +1,11 @@
 ﻿@charset "utf-8";
 
-/* load tachyons before! */
-
-:root { /* alphabetical */
-  --anchor-color: LightBlue;
-  --background-color: GhostWhite;
-  --background-menu: Snow;
-  --box-background-color: #fffdd5;
-  --box-border: Gray;
-  --box-shadow-color: #757575;
-  --caption-color: DarkSlateBlue;
+:root { 
   --fonts: Baskerville, Georgia, Athelas, System Serif;
   --gap: 1rem;
-  --h1-shadow-color: DimGray;
   --hamburger: 45px;
-  --link-color: DarkBlue;
-  --link-hover: #1e81b0;
   --menu-width: 180px;
-  --progress-bar: Green;
-  --progress-background: Snow;
-  --shadow-opacity: rgba(0,0,0,0.5);
-  --text-color: Black;
-  --th-background: #d0f0f0;
-  --tr-odd-background: White;
-  --tr-even-background: #e8f8f8;
+  color-scheme: light dark;
 }
 
 @media (prefers-reduced-motion) {
@@ -59,9 +41,25 @@ h1 {
   font-family: var(--fonts);
   white-space: pre-wrap;
 }
+/*
+h2 > a,
+h3 > a,
+h4 > a 
+{
+    display: none
+}
+
+h2:hover > a,
+h3:hover > a,
+h4:hover > a
+{
+    display: inline-block
+}
+*/
 
 nav {
   padding-right: calc( var(--gap) / 2);
+  z-index: 0;
 }
 
 /* change border colour to suit your needs */
@@ -205,7 +203,7 @@ img {
 
 #menuToggle {
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
   /* The hamburger button hidden inside an input element */
   #menuToggle input {
@@ -216,7 +214,7 @@ img {
     position: relative;
     text-align: right;
     top: 8px;
-    z-index: 2; /* and place it over the hamburger */
+    z-index: 20; /* and place it over the hamburger */
   }
 
     /* 
@@ -227,7 +225,7 @@ img {
     }
 
   #menuToggle label {
-    z-index: 1;
+    z-index: 30;
     color: var(--link-color);
     position: relative;
     left: var(--hamburger);
@@ -255,10 +253,11 @@ img {
   opacity: 100;
   right: 0px;
   top: var(--hamburger);
-  z-index: 2;
+  z-index: 10;
   border-style: solid;
   border-color: var(--box-border);
   border-width: 1px;
+  background: var(--background-menu);
   box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
 }
 
@@ -334,17 +333,15 @@ table {
   overflow-x: auto;
 }
 
-  table th {
-    border: solid 1px;
-    background-color: var(--th-background);
-    padding: 0.5em 0.5em 0.25em 0.5em;
-    white-space: nowrap;
-  }
+thead {
+  background-color: var(--th-background);
+}
 
-  table td {
-    border: solid 1px;
-    padding: 0.5em 0.5em;
-  }
+th, td {
+  border: solid 1px;
+  padding: 0.5em 0.5em 0.25em 0.5em;
+  white-space: nowrap;
+}
 
 tbody tr:nth-child(even) {
   background-color: var(--tr-even-background);
@@ -354,20 +351,6 @@ tbody tr:nth-child(odd) {
   background-color: var(--tr-odd-background);
 }
 
-.thead {
-  border-collapse: collapse;
-  border-spacing: 0;
-  padding: 0.2em;
-}
-
-  .thead td {
-    border: 0px;
-    padding: 0 0.2em;
-  }
-
-  .thead tbody tr:nth-child(odd) {
-    background-color: transparent;
-  }
 
 
 .w500 {
@@ -385,12 +368,13 @@ header {
   height: auto;
   border-bottom-style: solid; 
   border-bottom-width: 1px;
-  border-color: rgba( 0, 0, 0, .4 );
+  border-color: var(--box-border);
 }
 
 
 footer {
   grid-area: ft;
+  border-color: var(--box-border);
 }
 
 article {
@@ -436,7 +420,7 @@ article {
 @media screen and (min-width: 30em) and (max-width: 60em) {
 
   body {
-    background-image: url("/img/wave-ms.jpg");
+    background-image: var(--bgms);
 
 	/* https://css-tricks.com/you-want-minmax10px-1fr-not-1fr/ */
     grid-template-columns: auto repeat(2, minmax(10px, 1fr)); 
@@ -449,7 +433,7 @@ article {
 @media screen and (min-width: 60em) {
 
   body {
-    background-image: url("/img/wave-ls.jpg");
+    background-image: var(--bgls);
     grid-template-columns: auto repeat(3, minmax(10px, 1fr));
     grid-template-areas: "aa hh hh hh" "nn mm mm mm" "ft ft ft ft";
     padding-left: 3rem;

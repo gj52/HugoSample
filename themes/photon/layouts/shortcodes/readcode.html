@@ -1,4 +1,4 @@
-<div class="pre db w-100 pv2 pl4 bg-white ba overflow-auto"><code>{{ if gt (len .Params) 0 -}}
+<div class="pre db w-100 pv2 pl4 ba overflow-auto"><code>{{ if gt (len .Params) 0 -}}
 {{ readFile (.Get 0) }}
 {{else}}
 {{ readFile .Page.File.Path }}

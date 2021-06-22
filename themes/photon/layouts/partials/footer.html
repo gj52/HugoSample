@@ -1,4 +1,4 @@
-<footer class="mv3 pt3 tc bt b--black-20"><span class=nowrap><a rel=author class=ph2 title=about href=/about/><i class="fas fa-copyright fa-fw ph2" title=copyright ></i>{{ site.Params.CopyrightYear}} {{ site.Params.Copyright }}</a></span>
+<footer class="mv3 pt3 tc bt"><span class=nowrap><a rel=author class=ph2 title=about href=/about/><i class="fas fa-copyright fa-fw ph2" title=copyright ></i>{{ site.Params.CopyrightYear}} {{ site.Params.Copyright }}</a></span>
 {{ if .IsHome -}}
 	<span class=nowrap title="site build"><i class="fas fa-clock fa-fw ph2" title=generated ></i>{{ now.Format site.Params.dateFormatLong }}</span>
 	<span class=nowrap title="site updated"><i class="fas fa-pen-fancy fa-fw ph2" title=updated ></i><time datetime="{{ site.LastChange.Format site.Params.dateFormatLong }}">{{site.LastChange.Format	site.Params.dateFormatLong}}</time></span>

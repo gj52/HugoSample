@@ -1,0 +1,24 @@
+﻿@charset "utf-8";
+
+:root { /* alphabetical */
+  --anchor-color: LightBlue;
+  --background-color: Black;
+  --background-menu: dark-grey;
+  --bgms: url("/img/darkwave-ms.jpg");
+  --bgls: url("/img/darkwave-ls.jpg");  
+  --box-background-color: #404040;
+  --box-border: Gray;
+  --box-shadow-color: #757575;
+  --caption-color: DarkSlateBlue;
+  --h1-shadow-color: DimGray;
+  --link-color: yellow;
+  --link-hover: pink;
+  --progress-bar: Green;
+  --progress-background: Snow;
+  --shadow-opacity: rgba(0,0,0,0.5);
+  --text-color: white;
+  --th-background: dark-grey;
+  --tr-odd-background: black;
+  --tr-even-background: #404040;
+}
+

@@ -101,7 +101,7 @@ disableKinds               = ["RSS", "sitemap"]
     noUgly                 = false
     notAlternative         = true
     Rel                    = "alternate"
-	
+
 [imaging]
     resampleFilter         = "Lanczos"
     quality                = 85
@@ -109,7 +109,7 @@ disableKinds               = ["RSS", "sitemap"]
 
 [imaging.exif]
     includeFields = ".*"
-	
+
 [Params]
     published              = "2016-08-21T00:00:00Z"
     dateFormatLong         = "2006-01-02 15:04"
@@ -128,34 +128,28 @@ disableKinds               = ["RSS", "sitemap"]
 [menu]
 [[menu.main]]
     identifier             = "home"
-    name                   = "Startseite"
+    name                   = "Home"
     url                    = "/"
     weight                 = 10
 
 [[menu.main]]
     identifier             = "post"
-    name                   = "Beiträge"
+    name                   = "Posts"
     url                    = "/post/"
     weight                 = 20
 
 [[menu.main]]
     identifier             = "photo"
-    name                   = "Fotos"
+    name                   = "Photos"
     url                    = "/photo/"
     weight                 = 30
 
 [[menu.main]]
     identifier             = "serie"
-    name                   = "Serien"
+    name                   = "Series"
     url                    = "/series/"
     weight                 = 40
 
-[[menu.main]]
-    identifier             = "books"
-    name                   = "Bücher"
-    url                    = "/book/"
-    weight                 = 50
-    
 [[menu.main]]
     identifier             = "link"
     name                   = "Links"
@@ -170,6 +164,7 @@ disableKinds               = ["RSS", "sitemap"]
 
 [[menu.main]]
     identifier             = "search"
-    name                   = "Suchen"
+    name                   = "Search"
     url                    = "/search/"
     weight                 = 110
+
