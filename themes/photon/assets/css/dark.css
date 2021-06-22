@@ -3,10 +3,10 @@
 :root { /* alphabetical */
   --anchor-color: LightBlue;
   --background-color: Black;
-  --background-menu: dark-grey;
+  --background-menu: #202020;
   --bgms: url("/img/darkwave-ms.jpg");
   --bgls: url("/img/darkwave-ls.jpg");  
-  --box-background-color: #404040;
+  --box-background-color: #303030;
   --box-border: Gray;
   --box-shadow-color: #757575;
   --caption-color: DarkSlateBlue;

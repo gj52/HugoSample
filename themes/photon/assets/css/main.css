@@ -250,17 +250,20 @@ img {
   padding: 10px;
   margin: 8px 0 0 0;
   list-style-type: none;
-  opacity: 100;
+  opacity: 1;
   right: 0px;
   top: var(--hamburger);
   z-index: 10;
   border-style: solid;
   border-color: var(--box-border);
   border-width: 1px;
-  background: var(--background-menu);
+  background-color: var(--background-menu);
   box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
 }
 
+#menu li a {
+	background-color: var(--background-menu);
+}
 /* Gallery */
 
 .gallery {
