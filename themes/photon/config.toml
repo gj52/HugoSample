@@ -125,44 +125,44 @@ disableKinds               = ["RSS", "sitemap"]
     digest                 = "sha384" # sha256, sha384, sha512
 	
 
-[menu]
-[[menu.main]]
+[menus]
+[[menus.main]]
     identifier             = "home"
     name                   = "Home"
     url                    = "/"
     weight                 = 10
 
-[[menu.main]]
+[[menus.main]]
     identifier             = "post"
     name                   = "Posts"
     url                    = "/post/"
     weight                 = 20
 
-[[menu.main]]
+[[menus.main]]
     identifier             = "photo"
     name                   = "Photos"
     url                    = "/photo/"
     weight                 = 30
 
-[[menu.main]]
+[[menus.main]]
     identifier             = "serie"
     name                   = "Series"
     url                    = "/series/"
     weight                 = 40
 
-[[menu.main]]
+[[menus.main]]
     identifier             = "link"
     name                   = "Links"
     url                    = "/links/"
     weight                 = 100
 
-[[menu.main]]
+[[menus.main]]
     identifier             = "index"
     name                   = "Index"
     url                    = "/tags/"
     weight                 = 110
 
-[[menu.main]]
+[[menus.main]]
     identifier             = "search"
     name                   = "Search"
     url                    = "/search/"
