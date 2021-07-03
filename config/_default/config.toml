@@ -72,24 +72,31 @@ expiryDate                 = [ "expiryDate"]
 ###############################################################
 
 [markup]
+  defaultMarkdownHandler = "goldmark"
+  
+### https://github.com/yuin/goldmark/#built-in-extensions
+
   [markup.goldmark]
     [markup.goldmark.extensions]
-      definitionList = true
+	  autolinks      = false
+      definitionList = false
       footnote       = true
       linkify        = true
       strikethrough  = true
       table          = true
-      taskList       = true
+      taskList       = false
       typographer    = true
     [markup.goldmark.parser]
 #      autoHeadingID     = false
 #      autoHeadingIDType = "github"
+       withAttribute     = true
       [markup.goldmark.parser.attribute]
         block = true
         title = true
     [markup.goldmark.renderer]
       unsafe = true
       xhtml  = true
+      hardWraps = false
 
 ###############################################################
 

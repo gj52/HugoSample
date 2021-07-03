@@ -3,14 +3,14 @@
 {{ with $original -}}
 	{{$orig := .}}
 	{{ $.Scratch.Set "image" ($orig.Fit "480x480 #ffffff q75") }}{{ $img := $.Scratch.Get "image" }}{{ $.Scratch.Set "prev"  ($orig.Fit "48x36") }}{{ $preview := $.Scratch.Get "prev" }}
-<div class=flex-l>
-	<div class="pa2 mt2 w50">
-		<a data-fancybox=gallery href="{{$orig.RelPermalink | relURL}}" >
-		<figure><img loading=lazy class=foto loading=lazy src="{{ $img.RelPermalink | relURL  }}" 
-			width={{ $img.Width }} height={{ $img.Height }} alt="{{.Name}}" 
-			style="background: url(data:image/jpeg;base64,{{ $preview.Content | base64Encode  }}); background-size: 100% 100%;" /></figure></a>
-	</div>
-<div class="tl pa2 pl4-l pt4-l measure">{{ $.Inner | markdownify }}</div>
+<div class="flex-l mt2">
+	<a data-fancybox=gallery href="{{$orig.RelPermalink | relURL}}" >
+	<figure class="ma0 ma2-l"><img loading=lazy class=foto loading=lazy 
+		src="{{ $img.RelPermalink | relURL  }}" 
+		width={{ $img.Width }} height={{ $img.Height }} alt="{{.Name}}" 
+		style="background: url(data:image/jpeg;base64,{{ $preview.Content | base64Encode  }});
+		background-size: 100% 100%;" /></figure></a>
+	<p class="tc tl-ns ml4-l measure">{{ $.Inner | markdownify }}</p>
 </div>
 {{- end}}
 </div>

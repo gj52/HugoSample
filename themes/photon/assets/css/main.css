@@ -2,6 +2,7 @@
 
 :root { 
   --fonts: Baskerville, Georgia, Athelas, System Serif;
+  --fontmono: Consolas, Courier New, monospace;
   --gap: 1rem;
   --hamburger: 45px;
   --menu-width: 180px;
@@ -112,6 +113,7 @@ pre {
   scrollbar-width: thin;
   scrollbar-color: auto;
   tab-size: 4;             /* Set tab size to 4 characters wide */
+  font: var(--fontmono);
 }
 
 /* Add scroll margin to all elements which can be targeted */
