@@ -1,23 +1,24 @@
 ﻿@charset "utf-8";
 
 :root { /* alphabetical */
-  --anchor-color: LightBlue;
-  --background-color: Black;
-  --background-menu: #202020;
+  --anchor-color:         rgb(173,216,230);
+  --background-color:     rgb(0,0,0);
+  --background-menu:      rgb(32,32,32);
+  --box-background-color: rgb(48,48,48);
+  --box-border:           rgb(190,190,190);
+  --box-shadow-color:     rgb(117,117,117);
+  --caption-color: 	      rgb(72,61,139);
+  --link-color:           rgb(255,255,0);
+  --link-hover:           rgb(255,192,203);
+  --progress-bar:         rgb(0,255,0);
+  --progress-background:  rgb(255,250,250);
+  --shadow-opacity:       rgba(0,0,0,0.5);
+  --text-color:           rgb(255,255,255);
+  --th-background:        rgb(0,0,0);
+  --tr-odd-background: 	  rgb(64,64,64);
+  --tr-even-background:   rgb(0,0,0);
+
   --bgms: url("/img/darkwave-ms.jpg");
-  --bgls: url("/img/darkwave-ls.jpg");  
-  --box-background-color: #303030;
-  --box-border: Gray;
-  --box-shadow-color: #757575;
-  --caption-color: DarkSlateBlue;
-  --link-color: yellow;
-  --link-hover: pink;
-  --progress-bar: Green;
-  --progress-background: Snow;
-  --shadow-opacity: rgba(0,0,0,0.5);
-  --text-color: white;
-  --th-background: black;
-  --tr-odd-background: #404040;
-  --tr-even-background: black;
+  --bgls: url("/img/darkwave-ls.jpg"); 
 }
 

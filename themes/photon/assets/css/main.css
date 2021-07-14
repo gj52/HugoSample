@@ -34,6 +34,12 @@ body {
   grid-template-areas: "aa nn" "hh hh" "mm mm" "ft ft";
 }
 
+::marker {
+  content: "★ ";
+  color: var(--text-color);
+}
+
+
 element:empty {
   display: none;
 }
@@ -94,20 +100,6 @@ a {
     color: var(--link-color);
   }
 
-ul {
-  display: block;
-  list-style: "★ ";
-}
-
-ol {
-  display: block;
-  list-style: "★ ";
-}
-
-li {
-  line-height: 1.25;
-}
-
 pre {
   overflow-x:auto;
   scrollbar-width: thin;
@@ -167,7 +159,7 @@ progress {
 }
 
 /*   METER BAR */
-
+/*
 meter::-webkit-meter-bar {
     background: none;
     background-color: var(--progress-background);
@@ -190,7 +182,7 @@ meter {
     background: var(--progress-background);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
-
+*/
 textarea {
   resize: vertical;
 }
@@ -255,11 +247,10 @@ img {
   opacity: 1;
   right: 0px;
   top: var(--hamburger);
-  z-index: 10;
+  z-index: 100;
   border-style: solid;
   border-color: var(--box-border);
   border-width: 1px;
-  background-color: var(--background-menu);
   box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
 }
 
@@ -278,10 +269,13 @@ img {
 
 .foto {
   box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
+  max-width: 100%;
+  border-radius: 5px;
 }
 
   .foto:hover {
     box-shadow: 2px 2px 4px 2px var(--link-hover);
+	transition: all .2s linear;
   }
 
 /* missed in jquery.fancybox.css */
@@ -317,9 +311,10 @@ img {
   will-change: auto;
   transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, border-color 0.1s ease-in-out;
   white-space: nowrap;
+  z-index: 0;
 }
 
-  .tagbutton:hover {
+  .tagbutton:hover, .tagbutton:focus-within {
     background-color: var(--box-background-color);
     border-width: 1px;
     box-shadow: 2px 2px 2px var(--box-shadow-color);
@@ -330,9 +325,14 @@ img {
     box-shadow: 2px 2px 2px var(--box-shadow-color);
   }
 
+.tagbutton * {
+	z-index: 0;
+}
+
 /* table styles */
 
 table {
+  table-layout: fixed;
   border-collapse: collapse;
   display: block;
   overflow-x: auto;
@@ -340,6 +340,7 @@ table {
 
 thead {
   background-color: var(--th-background);
+  text-decoration: underline;
 }
 
 th, td {

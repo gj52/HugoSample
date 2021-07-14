@@ -1,22 +1,23 @@
 ﻿@charset "utf-8";
 
 :root { /* alphabetical */
-  --anchor-color: LightBlue;
-  --background-color: GhostWhite;
-  --background-menu: Snow;
+  --anchor-color:         rgb(173,216,230);
+  --background-color:     rgba(248,248,255,1);
+  --background-menu:      rgb(255,250,250);
+  --box-background-color: rgb(255,253,213);
+  --box-border:           rgb(190,190,190);
+  --box-shadow-color:     rgb(117,117,117);
+  --caption-color:        rgb(72,61,139);
+  --link-color:           rgb(0,0,139);
+  --link-hover:           rgb(30,129,176);
+  --progress-bar:         rgb(0,255,0);
+  --progress-background:  rgb(255,250,250);
+  --shadow-opacity:       rgba(0,0,0,0.5);
+  --text-color:           rgb(0,0,0);
+  --th-background:        rgb(208,240,240);
+  --tr-odd-background:    rgb(255,255,255);
+  --tr-even-background:   rgb(232,248,248);
+
   --bgms: url("/img/wave-ms.jpg");
   --bgls: url("/img/wave-ls.jpg");
-  --box-background-color: #fffdd5;
-  --box-border: Gray;
-  --box-shadow-color: #757575;
-  --caption-color: DarkSlateBlue;
-  --link-color: DarkBlue;
-  --link-hover: #1e81b0;
-  --progress-bar: Green;
-  --progress-background: Snow;
-  --shadow-opacity: rgba(0,0,0,0.5);
-  --text-color: Black;
-  --th-background: #d0f0f0;
-  --tr-odd-background: White;
-  --tr-even-background: #e8f8f8;
 }

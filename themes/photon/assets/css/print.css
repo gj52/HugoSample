@@ -52,8 +52,8 @@
     }
 
 .anchor {
-	display: none !important; 
-}	
+    display: none !important; 
+}   
 
   p, ul, pre, blockquote, foot {
     display: block;
@@ -89,6 +89,11 @@
 
   li {
     line-height: 1.25;
+  }
+
+
+table {
+    page-break-inside: avoid;
   }
 
 
