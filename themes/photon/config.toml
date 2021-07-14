@@ -168,3 +168,34 @@ disableKinds               = ["RSS", "sitemap"]
     url                    = "/search/"
     weight                 = 110
 
+[[menus.main]]
+    identifier             = "divider1"
+    weight                 = 120
+	
+[[menus.main]]
+    identifier             = "feeds"
+    name                   = "Feeds"
+    url                    = "/feeds/"
+    weight                 = 130
+	
+[[menus.main]]
+    identifier             = "rss"
+	parent                 = "feeds"
+    name                   = "RSS"
+    url                    = "/feeds/feed.rss.xml"
+    weight                 = 131
+
+[[menus.main]]
+    identifier             = "atom"
+	parent                 = "feeds"
+    name                   = "ATOM"
+    url                    = "/feeds/feed.atom.xml"
+    weight                 = 132
+	
+[[menus.main]]
+    identifier             = "JSON"
+	parent                 = "feeds"
+    name                   = "JSON"
+    url                    = "/feeds/feed.json"
+    weight                 = 133
+
