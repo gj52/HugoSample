@@ -2,17 +2,19 @@
 <div class="dn db-ns tr">
     {{ range site.Menus.main -}}
         {{ if or (lt .Weight 900) site.IsServer }}
-            <div class=pb2><a class=b href={{ .URL }}>{{ .Name | markdownify }}</a></div>
-            {{ if .HasChildren }}
-                <div class="f5">
+        {{ if .HasChildren }}
+            <div class=pb1><a class=b href={{ .URL }}>{{ .Name }}</a>
+                <div class="f5 pb1">
                     {{ range .Children }}
-                        <div><a href="{{ .URL }}">{{ .Name }}</div>
+                        <div><a class=i href={{ .URL }}>{{ .Name }}</a></div>
                     {{ end }}
                 </div>
-            {{end}}
+            </div>
+        {{else}}
+            <div class=pb1><a class=b href={{ .URL }}>{{ .Name }}</a></div>
+        {{end}}
         {{end}}
     {{- end}}
-
 </div>
 <!-- thanks to https://css-tricks.com/three-css-alternatives-to-javascript-navigation/ -->
 <div id="menuToggle" class="db dn-ns tr">
@@ -21,7 +23,7 @@
     <ul id="menu">
     {{ range site.Menus.main }}
       {{ if or (lt .Weight 900) site.IsServer }}
-        <li class=pb1><a class=b href={{ .URL }}>{{ .Name | markdownify }}</a></li>
+        <li class=pb1><a class=b href={{ .URL }}>{{ .Name }}</a></li>
       {{ end }}
     {{ end }}
     </ul>
