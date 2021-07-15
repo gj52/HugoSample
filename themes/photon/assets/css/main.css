@@ -253,9 +253,13 @@ img {
   border-width: 1px;
   box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
 }
+#menu li::marker {
+  content: none;
+}
+
 
 #menu li a {
-	background-color: var(--background-menu);
+    background-color: var(--background-menu);
 }
 /* Gallery */
 
@@ -275,7 +279,7 @@ img {
 
   .foto:hover {
     box-shadow: 2px 2px 4px 2px var(--link-hover);
-	transition: all .2s linear;
+    transition: all .2s linear;
   }
 
 /* missed in jquery.fancybox.css */
@@ -326,7 +330,7 @@ img {
   }
 
 .tagbutton * {
-	z-index: 0;
+    z-index: 0;
 }
 
 /* table styles */
@@ -428,7 +432,7 @@ article {
   body {
     background-image: var(--bgms);
 
-	/* https://css-tricks.com/you-want-minmax10px-1fr-not-1fr/ */
+    /* https://css-tricks.com/you-want-minmax10px-1fr-not-1fr/ */
     grid-template-columns: auto repeat(2, minmax(10px, 1fr)); 
     grid-template-areas: "aa hh hh" "nn mm mm" "ft ft ft";
     padding-left: 2rem;
