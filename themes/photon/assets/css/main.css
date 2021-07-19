@@ -231,11 +231,11 @@ img {
       color: var(--link-hover);
     }
 
-  #menuToggle input:not(:checked) ~ ul {
+  #menuToggle input:not(:checked) ~ div {
     display: none;
   }
 
-  #menuToggle input:checked ~ ul {
+  #menuToggle input:checked ~ div {
     background: var(--background-menu);
   }
 
@@ -253,12 +253,8 @@ img {
   border-width: 1px;
   box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
 }
-#menu li::marker {
-  content: none;
-}
 
-
-#menu li a {
+#menu div a {
     background-color: var(--background-menu);
 }
 /* Gallery */

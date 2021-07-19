@@ -3,7 +3,7 @@
     "url":"{{ .Permalink }}",
     "title":{{ .Title | jsonify  }},
     "summary":{{ with .Description}}{{ . | plainify | jsonify }}{{ else }}{{ .Summary | plainify | jsonify }}{{ end }},
-    "content":{{ .Content | plainify | chomp | replaceRE "&.*;" " " | replaceRE "[^A-Za-z0-9äöüßÄÖÜ]" " " | replaceRE "\\s+" " " | jsonify }},
+    "content":{{ .Content | plainify | replaceRE "&.*;" " " | replaceRE "[^A-Za-z0-9äöüßÄÖÜ]" " " | replaceRE "[[:blank:]][[:ascii:]]{1,2}[[:blank:]]" " " | replaceRE "\\s+" " " | chomp | jsonify }},
     "tags":[ {{- range $p, $v := sort .Params.tags  -}}{{ if lt $v "1"}}{{ if $p }}, {{end}}{{ $v | jsonify }}{{ end }}{{- end -}} ],
     "section": {{ .Section | jsonify }}
   }{{- $i = add $i 1 -}}{{- end -}}

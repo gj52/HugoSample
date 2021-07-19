@@ -20,12 +20,12 @@
 <div id="menuToggle" class="db dn-ns tr">
     <label for=toggle><i class="tc f2 fas fa-bars fa-fw"></i></label>
     <input id=toggle type=checkbox>
-    <ul id="menu">
+    <div id="menu">
     {{ range site.Menus.main }}
       {{ if or (lt .Weight 900) site.IsServer }}
-        <li class=pb1><a class=b href={{ .URL }}>{{ .Name }}</a></li>
+        <div class=pb1><a class=b href={{ .URL }}>{{ .Name }}</a></div>
       {{ end }}
     {{ end }}
-    </ul>
+    </div>
 </div>
 </nav>
