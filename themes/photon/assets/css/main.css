@@ -67,6 +67,7 @@ h4:hover > a
 nav {
   padding-right: calc( var(--gap) / 2);
   z-index: 0;
+  content-visibility: auto;
 }
 
 /* change border colour to suit your needs */
@@ -187,6 +188,10 @@ textarea {
   resize: vertical;
 }
 
+figure {
+    margin: 0;
+}
+
 img {
   page-break-inside: avoid;
   max-width: 100%;
@@ -252,6 +257,7 @@ img {
   border-color: var(--box-border);
   border-width: 1px;
   box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
+  content-visibility: auto;
 }
 
 #menu div a {
@@ -381,6 +387,7 @@ header {
 footer {
   grid-area: ft;
   border-color: var(--box-border);
+  content-visibility: auto;
 }
 
 article {
