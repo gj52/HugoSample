@@ -100,8 +100,18 @@ expiryDate                 = [ "expiryDate"]
 
 ###############################################################
 
+# https://github.com/tdewolff/minify#html
 [minify] 
-    minifyOutput = false
+# HTML
+    minifyOutput             = false
+    KeepComments             = false
+    KeepConditionalComments  = false
+    KeepWhitespace           = false
+    KeepDefaultAttrVals      = false
+    KeepEndTags              = true
+    KeepQuotes               = false   # HTML5!    
+# JSON
+    KeepNumbers              = true
 
 ###############################################################
 
@@ -116,8 +126,8 @@ expiryDate                 = [ "expiryDate"]
     series                 = "/:section/:slug"
     tags                   = "/:section/:slug"
     about                  = "/:section/:slug"
-    intern                 = "/:section/:year/:month/:day/:title"
-    test                   = "/:section/:title"
+    search                 = "/:section/:slug"
+
 
 ###############################################################
 
