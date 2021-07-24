@@ -2,13 +2,18 @@
 title       = "Feeds"
 layout      = "single"
 nosearch    = true
+url         = "/feeds"
 +++
-## all feeds
+## Feeds
 
-[RSS](/feeds/feed.rss.xml) 
+<div class="dn db-ns">
+Die Feeds finden Sie im Menü.<br/> You find the feeds in the menu.
+</div>
+<div class="db dn-ns">Es gibt folgende feeds.<br/>There are the following feeds.
 
 [ATOM](/feeds/feed.atom.xml)
 
-[JSON](/feeds/feed.json)
+[RSS](/feeds/feed.rss.xml) 
 
-All feeds validated and working with [Inoreader](https://www.inoreader.com/)
+[JSON](/feeds/feed.json)
+</div>

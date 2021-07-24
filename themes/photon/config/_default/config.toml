@@ -2,6 +2,17 @@
 
 disableKinds               = ["RSS", "sitemap"]
 
+[permalinks]
+    post                   = "/:section/:year/:month/:day/:title"
+    photo                  = "/:section/:year/:month/:day/:title"
+    book                   = "/:sections/:title"
+    series                 = "/:section/:slug"
+    tags                   = "/:section/:slug"
+    about                  = "/:section/:slug"
+    search                 = "/:section/:slug"
+    intern                 = "/:section/:year/:month/:day/:title"
+    test                   = "/:section/:title"
+
 [Params.Pagination]
     PagesPerList           = 10
     PagesPerListHome       = 12
@@ -129,19 +140,19 @@ disableKinds               = ["RSS", "sitemap"]
 [[menus.main]]
     identifier             = "home"
     name                   = "Home"
-    url                    = "/"
+    pageRef                = "home"
     weight                 = 10
 
 [[menus.main]]
     identifier             = "post"
     name                   = "Posts"
-    url                    = "/post/"
+    pageRef                = "post"
     weight                 = 20
 
 [[menus.main]]
     identifier             = "photo"
     name                   = "Photos"
-    url                    = "/photo/"
+    pageRef                = "photo"
     weight                 = 30
 
 [[menus.main]]
@@ -177,18 +188,18 @@ disableKinds               = ["RSS", "sitemap"]
 [[menus.main]]
 	parent                 = "feeds"
     name                   = "ATOM"
-    url                    = "/feeds/feed.atom.xml"
+    pageRef                = "/feeds/atom"
     weight                 = 1301
 
 [[menus.main]]
 	parent                 = "feeds"
     name                   = "RSS"
-    url                    = "/feeds/feed.rss.xml"
+    pageRef                = "/feeds/rss"
     weight                 = 1302
 
 [[menus.main]]
 	parent                 = "feeds"
     name                   = "JSON"
-    url                    = "/feeds/feed.json"
+    pageRef                = "/feeds/json"
     weight                 = 1303
 

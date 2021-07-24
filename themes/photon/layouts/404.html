@@ -11,7 +11,12 @@
     <li><i class="fas fa-trash"></i>&nbsp;&nbsp;der Inhalt wurde gel&ouml;scht</li>
 	<li><i class="fas fa-globe-europe"></i>&nbsp;&nbsp;der Inhalt ist auf Ihrem Planeten nicht verfügbar&nbsp;<i class="fas fa-smile-wink"></i></li>
     </ul>
-	<a href="{{ .Site.BaseURL }}" ><img src="/img/404.png" alt="404" /></a>{{ $HomeMenu := index (where .Site.Menus.main "Identifier" "home" ) 0 }}
-    <p>Einfach nochmal auf der <a href="{{ $HomeMenu.URL }}">{{ $HomeMenu.Name }}&nbsp;&nbsp;<i class="fas fa-home"></i></a>&nbsp;&nbsp;beginnen.</p>
+    {{ $HomeMenu := index (where .Site.Menus.main "Identifier" "home" ) 0 }}
+    {{ $SearchMenu := index (where .Site.Menus.main "Identifier" "search" ) 0 }}
+    {{ $IndexMenu := index (where .Site.Menus.main "Identifier" "tags" ) 0 }}
+	<a href="{{ .Site.BaseURL }}" ><img src="/img/404.png" alt="404" /></a>
+    <p>Einfach nochmal auf der&nbsp;&nbsp;<a href="{{ $HomeMenu.URL }}" title="{{ $HomeMenu.Name }}"><i class="fas fa-home"></i>&nbsp;{{ $HomeMenu.Name }}</a>&nbsp; beginnen.
+    <br/><a href="{{ $SearchMenu.URL}}"  title="{{ $SearchMenu.Name }}" ><i class="fas fa-search"></i>&nbsp;{{ $SearchMenu.Name }}</a>&nbsp; geht natürlich auch!
+    <br/>Ein Blick in den&nbsp;&nbsp;<a href="{{ $IndexMenu.URL }}"  title="{{ $IndexMenu.Name }}"><i class="fas fa-tag fa-fw"></i>&nbsp;{{ $IndexMenu.Name }} </a>&nbsp; hilft auch.</p>
 </article>
 {{ end }}

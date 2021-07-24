@@ -120,15 +120,6 @@ expiryDate                 = [ "expiryDate"]
     serie                  = "series"
 #   categorie NOT used!
 
-[permalinks]
-    post                   = "/:section/:year/:month/:day/:title"
-    photo                  = "/:section/:year/:month/:day/:title"
-    series                 = "/:section/:slug"
-    tags                   = "/:section/:slug"
-    about                  = "/:section/:slug"
-    search                 = "/:section/:slug"
-
-
 ###############################################################
 
 
