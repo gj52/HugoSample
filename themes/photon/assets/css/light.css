@@ -8,6 +8,7 @@
   --box-border:           rgb(190,190,190);
   --box-shadow-color:     rgb(117,117,117);
   --caption-color:        rgb(72,61,139);
+  --image-filter:         none;
   --link-color:           rgb(0,0,139);
   --link-hover:           rgb(30,129,176);
   --progress-bar:         rgb(0,255,0);

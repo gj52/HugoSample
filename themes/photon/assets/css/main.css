@@ -198,6 +198,10 @@ img {
   height: auto;
 }
 
+img:not([src*=".svg"]) {
+  filter: var(--image-filter);
+}
+
 /* Menu */
 
 #menuToggle {
