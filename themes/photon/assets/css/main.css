@@ -9,11 +9,7 @@
   color-scheme: light dark;
 }
 
-@media (prefers-reduced-motion) {
-html {
-  scroll-behavior: smooth;
-  }
-}
+
 
 /* special styles */
 body {
@@ -67,7 +63,6 @@ h4:hover > a
 nav {
   padding-right: calc( var(--gap) / 2);
   z-index: 0;
-  content-visibility: auto;
 }
 
 /* change border colour to suit your needs */
@@ -196,6 +191,8 @@ img {
   page-break-inside: avoid;
   max-width: 100%;
   height: auto;
+  border-style:none;
+  outline:0
 }
 
 img:not([src*=".svg"]) {
@@ -265,6 +262,7 @@ img:not([src*=".svg"]) {
 }
 
 #menu div a {
+  z-index: 110;
     background-color: var(--background-menu);
 }
 /* Gallery */
@@ -399,6 +397,46 @@ article {
   width: 100%;
 }
 
+.openseadragon {
+  border: 1px solid black;
+  background-color: black;
+  color: #333; /* text color for messages */
+  height: 600px;
+  margin: 0;
+  padding: 0;
+  width: 800px;
+}
+
+  .openseadragon.front-page {
+    height: 580px;
+  }
+
+.quote{
+    box-sizing: border-box;
+    display: block;
+    margin:2em;
+    width: 80%;
+    word-break: break-word;
+    font-style: italic;
+}
+
+.quote::before {
+  font-style: normal;
+  font-weight: bold;
+  color: var(caption-color);
+}
+
+:lang(de) > .quote::before
+{
+  content: "Zitat: ";
+}
+
+:lang(en) > .quote::before
+{
+  content: "Quote: ";
+}
+*/
+
 @supports (display:grid) {
 
   aside {
@@ -418,20 +456,11 @@ article {
   }
 }
 
-.openseadragon {
-  border: 1px solid black;
-  background-color: black;
-  color: #333; /* text color for messages */
-  height: 600px;
-  margin: 0;
-  padding: 0;
-  width: 800px;
-}
-
-  .openseadragon.front-page {
-    height: 580px;
+@media (prefers-reduced-motion) {
+html {
+  scroll-behavior: smooth;
   }
-
+}
 
 /* -m */
 @media screen and (min-width: 30em) and (max-width: 60em) {
