@@ -16,6 +16,7 @@ title                       = "G's Playground"
 titleCaseStyle              = "Chicago"
 theme                       = "photon"
 
+disableKinds               = ["RSS", "sitemap"]
 ###############################################################
 
 LanguageCode                   = "de-de"

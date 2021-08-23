@@ -1,6 +1,6 @@
 # theme configuration
 
-disableKinds               = ["RSS", "sitemap"]
+#disableKinds               = ["RSS", "sitemap"]
 
 [permalinks]
     post                   = "/:section/:year/:month/:day/:title"
