@@ -9,8 +9,6 @@
   color-scheme: light dark;
 }
 
-
-
 /* special styles */
 body {
   background-color: var(--background-color);
@@ -273,7 +271,14 @@ img:not([src*=".svg"]) {
   margin: calc(-1 * var(--gap)/ 2) 0 0 calc(-1 * var(--gap) / 2);
   width: calc(100% + var(--gap)); 
   gap: calc(var(--gap) / 2);
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+  height: 100vh;
  }
+
+.fotocontainer {
+  scroll-snap-align: start;
+}
 
 .foto {
   box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
@@ -395,6 +400,7 @@ footer {
 article {
   grid-area: mm;
   width: 100%;
+  scroll-behavior: smooth;
 }
 
 .openseadragon {
@@ -453,12 +459,6 @@ article {
 
   nav {
     columns: 4;
-  }
-}
-
-@media (prefers-reduced-motion) {
-html {
-  scroll-behavior: smooth;
   }
 }
 

@@ -9,14 +9,14 @@ ignoreFiles                 = [ "\\.cmd$", "\\.log$", "\\.bat$", "\\.tmp$" , "\\
 timeout                     = 300000
 
 #baseUrl                    = "http://localhost:1313"
-disableKinds                = ["RSS", "sitemap"]
 refLinksNotFoundURL        = "/404.html"
 
 title                       = "G's Playground"
 titleCaseStyle              = "Chicago"
 theme                       = "photon"
 
-disableKinds               = ["RSS", "sitemap"]
+disableKinds                = ["RSS", "sitemap"]
+
 ###############################################################
 
 LanguageCode                   = "de-de"
@@ -24,6 +24,7 @@ DefaultContentLanguage         = "de"
 DefaultContentLanguageInSubdir = true
 defaultExtension           = "html"
 defaultLayout              = "post"
+#timeZone                  = "Europa/Berlin"  # indirect from DefaultContentLanguage
 
 ###############################################################
 
