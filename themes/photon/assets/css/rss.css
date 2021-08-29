@@ -9,6 +9,10 @@ channel {
   font-family: georgia, athelas, system serif;
   font-display: fallback;
   margin-left: 36px;
+
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 
 .channel > atom, link, generator, language, dc, creator, category, copyright {
@@ -41,6 +45,8 @@ channel > item {
   border-top: 1px solid;
   color: #202020;
   margin-left: 0;
+
+  scroll-snap-align: start;
 }
 
   channel > item > author, link, guid {
@@ -58,7 +64,6 @@ channel > item {
     color: #606060;
     font-size: 1em;
   }
-
 
   channel > item > description {
     margin-top: 1em;

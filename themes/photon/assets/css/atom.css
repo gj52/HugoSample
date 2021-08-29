@@ -13,6 +13,10 @@ feed {
   font-display: fallback;
   font-family: georgia, athelas, system serif;
   margin-left: 36px;
+
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 
   feed > icon, logo, published, generator, updated {
@@ -24,6 +28,7 @@ feed {
     color: #202020;
     margin-left: 0;
     padding-top: 1em;
+    scroll-snap-align: start;
   }
 
   feed > title {

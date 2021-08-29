@@ -9,6 +9,12 @@
   color-scheme: light dark;
 }
 
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
 /* special styles */
 body {
   background-color: var(--background-color);
@@ -42,21 +48,12 @@ h1 {
   font-family: var(--fonts);
   white-space: pre-wrap;
 }
-/*
-h2 > a,
-h3 > a,
-h4 > a 
+
+h2, h3
 {
-    display: none
+      scroll-snap-align: start;
 }
 
-h2:hover > a,
-h3:hover > a,
-h4:hover > a
-{
-    display: inline-block
-}
-*/
 
 nav {
   padding-right: calc( var(--gap) / 2);
@@ -268,14 +265,13 @@ img:not([src*=".svg"]) {
 .gallery {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   margin: calc(-1 * var(--gap)/ 2) 0 0 calc(-1 * var(--gap) / 2);
   width: calc(100% + var(--gap)); 
   gap: calc(var(--gap) / 2);
-  scroll-snap-type: y proximity;
-  overflow-y: scroll;
-  height: 100vh;
  }
 
+ 
 .fotocontainer {
   scroll-snap-align: start;
 }
@@ -283,7 +279,9 @@ img:not([src*=".svg"]) {
 .foto {
   box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
   max-width: 100%;
+  max-height: 100%;
   border-radius: 5px;
+  vertical-align: bottom;
 }
 
   .foto:hover {
@@ -308,7 +306,8 @@ img:not([src*=".svg"]) {
   height: 0;
   padding-bottom: 56.25%; /* 16:9 */
   position: relative;
-  background-size:cover
+  background-size:cover;
+  scroll-snap-align: start;
 }
 
 /* Index */
@@ -400,7 +399,6 @@ footer {
 article {
   grid-area: mm;
   width: 100%;
-  scroll-behavior: smooth;
 }
 
 .openseadragon {

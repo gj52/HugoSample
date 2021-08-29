@@ -8,7 +8,7 @@
     <div class=gallery>
     {{range .Resources.Match "gallery/*" -}}{{$alt := .Name}}{{ $image := .Fit "480x320 jpg #ffffff q75" }}{{ $preview := .Fit "33x22 jpg #ffffff q50" }} {{ $title := ""}}
     {{ $mx := .Fit (print $ms "x" $ms ) }} 
-        <a data-fancybox="gallery" href={{$mx.RelPermalink}} class=fotocontainer >
+        <a data-fancybox=gallery href={{$mx.RelPermalink}} class=fotocontainer >
             <figure class=ma3>
                 <img loading=lazy class=foto src={{ $image.RelPermalink }}  alt="{{ $alt }}" title="{{$title}}"
                 max-width={{ $image.Width }} max-height={{ $image.Height }} data-width={{$mx.Width}} data-height={{$mx.Height}}
