@@ -1,4 +1,4 @@
 <h{{ .Level }} id={{ .Anchor | safeHTML }} >{{ .Text | safeHTML }} 
 {{- if and (ge .Level 2) (le .Level 4) }}
-<a href={{ .Page.RelPermalink }}#{{ .Anchor | safeURL }} ><i class="anchor fas fa-link"></i></a>
+<a href={{ .Page.RelPermalink }}#{{ .Anchor | safeURL }} title="H{{ .Level }}" ><i class="anchor fas fa-link"></i></a>
 {{- end -}}</h{{ .Level }}>

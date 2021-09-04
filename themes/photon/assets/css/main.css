@@ -10,9 +10,11 @@
 }
 
 html {
-  overflow-y: scroll;
+  overflow-y: scroll; 
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
+  /* scroll-snap-type: y mandatory; */
+  /* scroll-snap-type: y proximity;   */
+  height: 100vh; 
 }
 
 /* special styles */
@@ -32,6 +34,7 @@ body {
   grid-auto-columns: 1fr;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas: "aa nn" "hh hh" "mm mm" "ft ft";
+  /* scroll-snap-align: start; */
 }
 
 ::marker {
@@ -48,12 +51,12 @@ h1 {
   font-family: var(--fonts);
   white-space: pre-wrap;
 }
-
-h2, h3
+/*
+h1, h2, h3
 {
       scroll-snap-align: start;
 }
-
+*/
 
 nav {
   padding-right: calc( var(--gap) / 2);
@@ -68,6 +71,7 @@ hr {
     margin: 0;
     padding:0;
     border-top: 1px solid rgba( 0,0,0,.4 );
+    /* scroll-snap-align: start; */
 }
 
 .anchor {
@@ -97,6 +101,7 @@ pre {
   scrollbar-color: auto;
   tab-size: 4;             /* Set tab size to 4 characters wide */
   font: var(--fontmono);
+  /* scroll-snap-align: start; */
 }
 
 /* Add scroll margin to all elements which can be targeted */
@@ -271,10 +276,11 @@ img:not([src*=".svg"]) {
   gap: calc(var(--gap) / 2);
  }
 
- 
+/* 
 .fotocontainer {
   scroll-snap-align: start;
 }
+*/
 
 .foto {
   box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
@@ -307,7 +313,7 @@ img:not([src*=".svg"]) {
   padding-bottom: 56.25%; /* 16:9 */
   position: relative;
   background-size:cover;
-  scroll-snap-align: start;
+  /* scroll-snap-align: start; */
 }
 
 /* Index */
@@ -394,11 +400,13 @@ footer {
   grid-area: ft;
   border-color: var(--box-border);
   content-visibility: auto;
+  /* scroll-snap-align: start; */
 }
 
 article {
   grid-area: mm;
   width: 100%;
+  /* scroll-snap-align: start; */
 }
 
 .openseadragon {
