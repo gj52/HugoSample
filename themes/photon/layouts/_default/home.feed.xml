@@ -7,7 +7,7 @@
     xml:base="{{site.BaseURL }}" > 
   <channel>
     <title>{{ site.Title }} RSS</title>
-    <link>{{ absURL .Permalink }}</link>
+    <link>{{ .Permalink  | relURL}}</link>
     {{ with  site.Home.OutputFormats.Get "FEED"}}<atom:link href="{{.RelPermalink}}" rel="self"      type="{{ safeHTML .MediaType.Type }}" />{{end}}
     {{ with  site.Home.OutputFormats.Get "ATOM"}}<atom:link href="{{.RelPermalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
     {{ with  site.Home.OutputFormats.Get "JSON"}}<atom:link href="{{.RelPermalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
@@ -22,7 +22,7 @@
     {{ range first $feedsize (where site.RegularPages.ByDate.Reverse "Section" "not in" site.Params.invisibleSections)}}
     <item>
       <title>{{htmlEscape .Title }}</title>
-      <link>{{ .Permalink }}</link>{{ $date := .PublishDate.UTC }}
+      <link>{{ .Permalink  | relURL }}</link>{{ $date := .PublishDate.UTC }}
       <pubDate>{{ $date.Format site.Params.dateFormatRFC822Z | safeHTML }}</pubDate>
       <category>{{htmlEscape .Section}}</category>
       {{ range (.GetTerms "tags") }}
@@ -30,9 +30,9 @@
       <guid isPermaLink="false">{{ md5 .Permalink }}</guid>
       <description>{{plainify .Summary | htmlEscape }}</description>
       {{ range first 1 (.Resources.ByType "image") }}{{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480") }}{{ $image := $.Scratch.Get "image" }}
-      <enclosure url="{{ $image.Permalink }}" length="{{len $image.Content}}" type="{{$image.MediaType}}" />
-      <media:content   url="{{ $image.Permalink }}" width="{{$image.Width}}" height="{{$image.Height}}" medium="{{$image.MediaType.MainType}}" type="{{$image.MediaType}}" >    
-        <media:thumbnail url="{{ $image.Permalink }}" width="{{$image.Width}}" height="{{$image.Height}}"  />       
+      <enclosure url="{{ $image.Permalink  | relURL}}" length="{{len $image.Content}}" type="{{$image.MediaType}}" />
+      <media:content   url="{{ $image.Permalink  | relURL}}" width="{{$image.Width}}" height="{{$image.Height}}" medium="{{$image.MediaType.MainType}}" type="{{$image.MediaType}}" >    
+        <media:thumbnail url="{{ $image.Permalink  | relURL }}" width="{{$image.Width}}" height="{{$image.Height}}"  />       
       </media:content>
       {{ end }}
     </item>
