@@ -257,7 +257,7 @@ img:not([src*=".svg"]) {
   border-style: solid;
   border-color: var(--box-border);
   border-width: 1px;
-  box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
+  box-shadow: 2px 2px 4px 2px var(--box-shadow);
   content-visibility: auto;
 }
 
@@ -283,7 +283,7 @@ img:not([src*=".svg"]) {
 */
 
 .foto {
-  box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
+  box-shadow: 2px 2px 4px 2px var(--box-shadow);
   max-width: 100%;
   max-height: 100%;
   border-radius: 5px;
