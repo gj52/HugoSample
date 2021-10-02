@@ -13,7 +13,7 @@
   --link-hover:           rgb(30,129,176);
   --progress-bar:         rgb(0,255,0);
   --progress-background:  rgb(255,250,250);
-  --box-shadow:           rgba(0,0,0,0.5);
+  --shadow-opacity:       rgba(0,0,0,0.5);
   --text-color:           rgb(0,0,0);
   --th-background:        rgb(208,240,240);
   --tr-odd-background:    rgb(255,255,255);
