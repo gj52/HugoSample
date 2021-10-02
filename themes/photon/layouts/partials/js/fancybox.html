@@ -1,1 +1,1 @@
-{{ $fb := resources.Get "js/fancybox.umd.js" }}{{ $secureFB := $fb | resources.Minify | resources.Fingerprint site.Params.digest }}<script src={{ $secureFB.RelPermalink }} integrity={{ $secureFB.Data.Integrity }} ></script>
+{{ $fb := resources.Get "js/jquery.fancybox.3.5.7.js" }}{{ $secureFB := $fb | resources.Minify | resources.Fingerprint site.Params.digest }}<script src={{ $secureFB.RelPermalink }} integrity={{ $secureFB.Data.Integrity }} ></script>

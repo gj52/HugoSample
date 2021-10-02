@@ -8,61 +8,26 @@
     <div class=gallery>
     {{range .Resources.Match "gallery/*" -}}{{$alt := .Name}}{{ $image := .Fit "480x320 jpg #ffffff q75" }}{{ $preview := .Fit "33x22 jpg #ffffff q50" }} {{ $title := "preview"}}
     {{ $mx := .Fit (print $ms "x" $ms ) }} 
-        <a data-fancybox="gallery" data-src={{$mx.RelPermalink}} 
-           data-type=image data-height={{ $mx.Height }} data-width={{ $mx.Width}}>
+        <a data-fancybox=gallery href={{$mx.RelPermalink}} class=fotocontainer >
+            <figure class=ma3>
                 <img loading=lazy class=foto src={{ $image.RelPermalink }}  alt="{{ $alt }}" title="{{$title}}"
-                width={{ $image.Width }} height={{ $image.Height }}
+                max-width={{ $image.Width }} max-height={{ $image.Height }} data-width={{$mx.Width}} data-height={{$mx.Height}}
                 style="background: url(data:image/jpeg;base64,{{ $preview.Content | base64Encode  }}); background-size:100% 100%;" />
+            </figure>
         </a>
     {{- end }}
     </div>
 	
-<script>
- Fancybox.bind("[data-fancybox='gallery']", {
-
-   Toolbar: {
-    display: [
-      { id: "prev", position: "center" },
-      { id: "counter", position: "center" },
-      { id: "next", position: "center" },
-      "slideshow",
-      "fullscreen",
-      "thumbs",
-      "close",
-    ],
-  },
-
-  animated: true,
-  dragToClose: false,
-
-  showClass: false,
-  hideClass: false,
-
-  closeButton: "top",
-
-  Image: {
-    zoom: false,
-    fit: "cover",
-    click: false,
-    wheel: "slide"
-  },
-
-  Thumbs: {
-    autostart: false,
-  },
-
-  l10n: {
-    CLOSE: "Schließen",
-    NEXT: "Nächstes",
-    PREV: "Vorheriges",
-    TOGGLE_FULLSCREEN: "ganzer Bildschirm",
-    TOGGLE_SLIDESHOW: "Blättern",
-    TOGGLE_THUMBS: "Miniansichten",
-    MODAL: "Vollbild mit ESC Taste verlsassen",
-  },
-
-});
-</script>
+<script id="rendered-js">
+$('[data-fancybox="gallery"]').fancybox({
+ // see http://fancyapps.com/fancybox/3/docs/#options
+  lang: "de",
+  loop: true,
+  buttons: [ "zoom", "fullScreen", "thumbs", "close" ],
+  protect: true });
+</script>	
 {{ partial "prevnext" .}}   
 </article>
 {{ end }}
+
+
