@@ -306,6 +306,13 @@ img:not([src*=".svg"]) {
     top:        0;
 }
 
+.fancybox__container {
+  --fancybox-bg: rgba(0,0, 0, 1);
+}
+    
+*/
+
+
 /* tube shortcode */
 
 .videoWrapper {
@@ -313,7 +320,13 @@ img:not([src*=".svg"]) {
   padding-bottom: 56.25%; /* 16:9 */
   position: relative;
   background-size:cover;
+  box-shadow: 2px 2px 4px 2px var(--box-shadow);
   /* scroll-snap-align: start; */
+}
+
+.videoWrapper:hover {
+  box-shadow: 2px 2px 4px 2px var(--link-hover);
+  transition: all .2s linear;
 }
 
 /* Index */

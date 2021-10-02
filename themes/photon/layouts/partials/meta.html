@@ -10,10 +10,8 @@
     <title>{{ site.Title  | markdownify }}</title>
 
     <link rel=dns-prefetch href=//www.jsdelivr.com />   
-    <link rel=dns-prefetch href=//cdn.materialdesignicons.com />
     <link rel=dns-prefetch href=//gohugo.io />
     <link rel=preconnect   href=https://www.jsdelivr.com />   
-    <link rel=preconnect   href=https://cdn.materialdesignicons.com />
 
     {{ $kw := where site.Taxonomies.tags.ByCount ".Name" "gt" "9" }} <!-- no years / numbers -->
     <meta name=keywords content="{{ range $i, $ := first 25 $kw }}{{ if $i }},{{ end }}{{ .Name }}{{end}}" />
