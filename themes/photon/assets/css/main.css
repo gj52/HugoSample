@@ -1,4 +1,4 @@
-﻿@charset "utf-8";
+@charset "utf-8";
 
 :root { 
   --fonts: Baskerville, Georgia, Athelas, System Serif;
@@ -257,13 +257,13 @@ img:not([src*=".svg"]) {
   border-style: solid;
   border-color: var(--box-border);
   border-width: 1px;
-  box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
+  box-shadow: 2px 2px 4px 2px var(--box-shadow);
   content-visibility: auto;
 }
 
 #menu div a {
   z-index: 110;
-    background-color: var(--background-menu);
+  background-color: var(--background-menu);
 }
 /* Gallery */
 
@@ -271,19 +271,13 @@ img:not([src*=".svg"]) {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  margin: calc(-1 * var(--gap)/ 2) 0 0 calc(-1 * var(--gap) / 2);
+  align-self: auto;
   width: calc(100% + var(--gap)); 
-  gap: calc(var(--gap) / 2);
+  gap: calc(var(--gap) * 2);
  }
 
-/* 
-.fotocontainer {
-  scroll-snap-align: start;
-}
-*/
-
 .foto {
-  box-shadow: 2px 2px 4px 2px var(--shadow-opacity);
+  box-shadow: 2px 2px 4px 2px var(--box-shadow);
   max-width: 100%;
   max-height: 100%;
   border-radius: 5px;
@@ -295,7 +289,31 @@ img:not([src*=".svg"]) {
     transition: all .2s linear;
   }
 
-/* missed in jquery.fancybox.css */
+/* 
+    missed in fancybox.css, taken from
+    https://fancyapps.com/playground/vo
+    */
+
+a[data-fancybox] img {
+  cursor: zoom-in;
+}
+
+.fancybox__container {
+  --fancybox-bg: rgba(0,0, 0, 1);
+  height: 100%;
+}
+
+.fancybox__container .fancybox__content {
+  /* Create white border around the image */
+  box-sizing: content-box;
+  padding: 1rem;
+  background: #fff;
+
+  border-radius: 6px;
+  color: #374151;
+  box-shadow: 0 8px 23px rgb(0 0 0 / 50%);
+}
+
 
 .fullpage{
     width:      100%;
@@ -304,14 +322,9 @@ img:not([src*=".svg"]) {
     z-index:    999999;
     left:       0;
     top:        0;
+    background-color: var(--background-color);
+    background-image: none;
 }
-
-.fancybox__container {
-  --fancybox-bg: rgba(0,0, 0, 1);
-}
-    
-*/
-
 
 /* tube shortcode */
 
