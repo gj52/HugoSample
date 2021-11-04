@@ -1,7 +1,7 @@
 {{ $jqr := resources.Get "js/jquery.qrcode.js" }}
 {{ $jqr = $jqr | resources.Minify | resources.Fingerprint site.Params.digest }} 
-<script src={{ $jqr.RelPermalink }} integrity={{ $jqr.Data.Integrity }} crossorigin=anonymous ></script>
+<script defer src={{ $jqr.RelPermalink }} integrity={{ $jqr.Data.Integrity }} crossorigin=anonymous ></script>
 
 {{ $qr := resources.Get "js/qrcode.js" }}
 {{ $qr = $qr | resources.Minify | resources.Fingerprint site.Params.digest }} 
-<script src={{ $qr.RelPermalink }} integrity={{ $qr.Data.Integrity }} crossorigin=anonymous ></script>
+<script defer src={{ $qr.RelPermalink }} integrity={{ $qr.Data.Integrity }} crossorigin=anonymous ></script>

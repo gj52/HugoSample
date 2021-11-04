@@ -1,5 +1,4 @@
 ﻿@charset "utf-8";
-
 * {
   display: block;
 }
@@ -9,13 +8,12 @@ channel {
   font-family: georgia, athelas, system serif;
   font-display: fallback;
   margin-left: 36px;
-
   overflow-y: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;
 }
 
-.channel > atom, link, generator, language, dc, creator, category, copyright {
+.channel>atom, link, generator, language, dc, creator, category, copyright {
   display: none;
 }
 
@@ -23,54 +21,53 @@ managingEditor, webmaster {
   display: none;
 }
 
-channel > title {
+channel>title {
   padding-top: 1em;
   font-size: 2em;
   font-weight: bold;
   border-bottom: 2px solid;
 }
 
-channel > description {
+channel>description {
   padding-top: 1em;
   font-size: 1em;
 }
 
-channel > rights {
+channel>rights {
   font-size: 1em;
   margin-bottom: 1em;
 }
 
-channel > item {
+channel>item {
   padding-top: 1em;
   border-top: 1px solid;
   color: #202020;
   margin-left: 0;
-
   scroll-snap-align: start;
 }
 
-  channel > item > author, link, guid {
-    display: none;
-  }
+channel>item>author, link, guid {
+  display: none;
+}
 
-  channel > item > title {
-    margin-bottom: 0.2em;
-    font-size: 1.25em;
-    font-weight: bold;
-    text-decoration: underline;
-  }
+channel>item>title {
+  margin-bottom: 0.2em;
+  font-size: 1.25em;
+  font-weight: bold;
+  text-decoration: underline;
+}
 
-  channel > item > pubDate {
-    color: #606060;
-    font-size: 1em;
-  }
+channel>item>pubDate {
+  color: #606060;
+  font-size: 1em;
+}
 
-  channel > item > description {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    font-size: 1em;
-  }
+channel>item>description {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 1em;
+}
 
-  channel > item > enclosure {
-	display: block;
-  }
+channel>item>enclosure {
+  display: block;
+}

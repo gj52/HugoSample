@@ -13,54 +13,54 @@ let debug = new URLSearchParams(window.location.search).get("debug");
 
 let merge_data = [];
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   document.getElementById("custom-search").querySelectorAll("input").forEach(item => {
     item.disabled = 'disabled';
   });
   if (!merge_data.length) {
-  	document.getElementById("custom-search-results").innerHTML = params['json_wait'];
+    document.getElementById("custom-search-results").innerHTML = params['json_wait'];
 
     if (params['json_src'] != '') {
       var json_src_str = params['json_src'].replace("/\s/g", "");
       var json_sources = json_src_str.split(",");
 
       var src_count = 0;
-	  for (var i = 0; i < json_sources.length; i++) {
+      for (var i = 0; i < json_sources.length; i++) {
         var xmlhttp = new XMLHttpRequest();
         var url = json_sources[i];
-        xmlhttp.onreadystatechange = function() {
+        xmlhttp.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
             var data = JSON.parse(this.responseText);
-			for (var i = 0; i < data.length; i++) {
+            for (var i = 0; i < data.length; i++) {
               merge_data.push(data[i]);
             }
             src_count++;
 
-		    if (src_count == json_sources.length) {
-	          document.getElementById("custom-search").querySelectorAll("input").forEach(item => {
+            if (src_count == json_sources.length) {
+              document.getElementById("custom-search").querySelectorAll("input").forEach(item => {
                 item.disabled = '';
               });
 
-		      document.getElementById("custom-search-field").focus();
-		      document.getElementById("custom-search-results").innerHTML = params['json_ready'];
+              document.getElementById("custom-search-field").focus();
+              document.getElementById("custom-search-results").innerHTML = params['json_ready'];
 
               if ((query != '') && (query != null)) {
                 customSearchResults();
               }
-	        }
-          } 
-		  if (this.status == 404) {
+            }
+          }
+          if (this.status == 404) {
             document.getElementById("custom-search-results").innerHTML = params['err_filefailed'];
-	      }
+          }
         };
         xmlhttp.open("GET", url, true);
         xmlhttp.send();
-	  }
+      }
     }
   }
-}, false); 
+}, false);
 
-document.getElementById("custom-search-field").addEventListener('keyup', function(e) {
+document.getElementById("custom-search-field").addEventListener('keyup', function (e) {
   if (params['autocomplete'] == 1) {
     document.getElementById("custom-search-results").innerHTML = '';
     if (this.value == '') {
@@ -75,7 +75,7 @@ document.getElementById("custom-search-field").addEventListener('keyup', functio
   } else {
     if (this.value == '') {
       document.getElementById("custom-search-results").innerHTML = params['err_nostring'];
-	}
+    }
   }
 });
 
@@ -152,7 +152,7 @@ function customSearchResults() {
     sOption = optionField.value;
   } else {
     sOption = params['defaultsearch'];
-  } 
+  }
 
   var badwords = [];
   if (params['badwords'] != '') {
@@ -188,23 +188,23 @@ function customSearchResults() {
 
   var results = [];
   for (var i = 0; i < data.length; i++) {
-    var title   = data[i].title;
+    var title = data[i].title;
     var summary = data[i].summary;
     var content = data[i].content;
-    var tags    = data[i].tags;
+    var tags = data[i].tags;
     var section = data[i].section;
 
     if (section_filter.length >= 1) {
-      if (!section_filter.includes(section))  {
+      if (!section_filter.includes(section)) {
         continue;
       }
     }
 
     var searchtext = '';
-    if (title != '')   searchtext += title;
-    if (summary != '') searchtext += ' '+summary;
-    if (content != '') searchtext += ' '+content;
-    if (tags != '')    searchtext += ' '+tags;
+    if (title != '') searchtext += title;
+    if (summary != '') searchtext += ' ' + summary;
+    if (content != '') searchtext += ' ' + content;
+    if (tags != '') searchtext += ' ' + tags;
 
     var matched = 0;
     var matches = 0;
@@ -227,16 +227,16 @@ function customSearchResults() {
           if (key == 'title') searchstr = title;
           if ((key == 'tags') && (tags != '')) searchstr = tags.join(",");
           if (key == 'summary') searchstr = summary;
-          if (key == 'content') searchstr = content; 
-           
+          if (key == 'content') searchstr = content;
+
           if (searchword.test(searchstr) === true) {
             matches_calc = matches_calc + val;
             count = searchstr.match(searchword).length;
             if (key == 'title') title_matches = title_matches + count;
             if ((key == 'tags') && (tags != '')) tags_matches = tags_matches + count;
             if (key == 'summary') summary_matches = summary_matches + count;
-            if (key == 'content') content_matches = content_matches + count; 
-          }           
+            if (key == 'content') content_matches = content_matches + count;
+          }
         }
         matched++;
       }
@@ -258,24 +258,24 @@ function customSearchResults() {
         results.push(data[i]);
       }
     }
-  } 
+  }
 
   // results
   if (results.length >= 1) {
-    results.sort(function(a, b) {
+    results.sort(function (a, b) {
       if (params['sort_date'] == 'DESC') {
         return b.matches_calc - a.matches_calc || b.date - a.date;
       } else {
         return b.matches_calc - a.matches_calc || a.date - b.date;
       }
-    }); 
+    });
 
     var results_header = '';
     if (results.length > 1) {
       results_header = params['res_more_items'];
     } else {
       results_header = params['res_one_item'];
-    } 
+    }
     results_header = results_header.replace("[CNT]", results.length);
     if ((add_searchlink) && (add_searchlink != '')) {
       results_header += add_searchlink;
@@ -286,41 +286,41 @@ function customSearchResults() {
 
     var results_content = '';
     for (var i = 0; i < results.length; i++) {
-      var title   = results[i].title;
+      var title = results[i].title;
       var summary = results[i].summary;
-      var date    = results[i].date;
-      var url     = results[i].url;
-      var tags    = results[i].tags;
+      var date = results[i].date;
+      var url = results[i].url;
+      var tags = results[i].tags;
       var section = results[i].section;
-      var extern  = results[i].extern;
+      var extern = results[i].extern;
 
       // only for debug mode
       var infos = '';
       if ((debug != '') && (debug != null)) {
-        var matches         = results[i].matches;
-        var matches_calc    = results[i].matches_calc;
-        var title_matches   = results[i].title_matches;
-        var tags_matches    = results[i].tags_matches;
+        var matches = results[i].matches;
+        var matches_calc = results[i].matches_calc;
+        var title_matches = results[i].title_matches;
+        var tags_matches = results[i].tags_matches;
         var summary_matches = results[i].summary_matches;
         var content_matches = results[i].content_matches;
 
-        var plus_title   = title_matches >=1   ? '+ '+searchfield_weight['title']   : '+ 0';
-        var plus_tags    = tags_matches >=1    ? '+ '+searchfield_weight['tags']    : '+ 0';
-        var plus_summary = summary_matches >=1 ? '+ '+searchfield_weight['summary'] : '+ 0';
-        var plus_content = content_matches >=1 ? '+ '+searchfield_weight['content'] : '+ 0';
+        var plus_title = title_matches >= 1 ? '+ ' + searchfield_weight['title'] : '+ 0';
+        var plus_tags = tags_matches >= 1 ? '+ ' + searchfield_weight['tags'] : '+ 0';
+        var plus_summary = summary_matches >= 1 ? '+ ' + searchfield_weight['summary'] : '+ 0';
+        var plus_content = content_matches >= 1 ? '+ ' + searchfield_weight['content'] : '+ 0';
 
         infos += '<table style="font-size: 12px; color: #666666;">';
-        infos += '<tr><td style="width: 100px;"><b>Gesamt:</b></td><td style="text-align: right;">'+matches+'</td></tr>';
-        infos += '<tr><td>Title ('+title_matches+'):</td><td style="text-align: right;">'+plus_title+'</td></tr>';
-        infos += '<tr><td>Tags ('+tags_matches+'):</td><td style="text-align: right;">'+plus_tags+'</td></tr>';
-        infos += '<tr><td>Summary ('+summary_matches+'):</td><td style="text-align: right;">'+plus_summary+'</td></tr>';
-        infos += '<tr><td>Content ('+content_matches+'):</td><td style="text-align: right;">'+plus_content+'</td></tr>';
-        infos += '<tr><td><b>Gesamt neu:</b></td><td style="text-align: right;">'+matches_calc+'</td></tr>';
+        infos += '<tr><td style="width: 100px;"><b>Gesamt:</b></td><td style="text-align: right;">' + matches + '</td></tr>';
+        infos += '<tr><td>Title (' + title_matches + '):</td><td style="text-align: right;">' + plus_title + '</td></tr>';
+        infos += '<tr><td>Tags (' + tags_matches + '):</td><td style="text-align: right;">' + plus_tags + '</td></tr>';
+        infos += '<tr><td>Summary (' + summary_matches + '):</td><td style="text-align: right;">' + plus_summary + '</td></tr>';
+        infos += '<tr><td>Content (' + content_matches + '):</td><td style="text-align: right;">' + plus_content + '</td></tr>';
+        infos += '<tr><td><b>Gesamt neu:</b></td><td style="text-align: right;">' + matches_calc + '</td></tr>';
         infos += '</table><br>';
       }
 
       if ((extern == 1) && (params['extern_icon'])) {
-        title += ' '+params['extern_icon'];
+        title += ' ' + params['extern_icon'];
         url = url + '" target="_blank"';
       }
 
@@ -330,7 +330,7 @@ function customSearchResults() {
         }
       }
 
-      var newdate = new Date(date*1000);
+      var newdate = new Date(date * 1000);
       var datestr = newdate.toLocaleDateString();
 
       var templ = params['res_item_tpl'];
@@ -340,42 +340,42 @@ function customSearchResults() {
         templ = templ.replace(/\[URL\]/g, url);
 
         if (templ.includes("[DATE]")) {
-          if (date != '') { 
+          if (date != '') {
             templ = templ.replace("[DATE]", datestr);
           } else {
             templ = templ.replace("[DATE]", '');
           }
         }
         if (templ.includes("[SUMMARY]")) {
-          if (summary != '') { 
+          if (summary != '') {
             templ = templ.replace("[SUMMARY]", summary);
           } else {
             templ = templ.replace("[SUMMARY]", '');
           }
         }
         if (templ.includes("[TAGS]")) {
-          if (tags != '') { 
-            tags  = tags.join(",");
-            tags  = tags.replace(/,/g, ", ");
+          if (tags != '') {
+            tags = tags.join(",");
+            tags = tags.replace(/,/g, ", ");
             templ = templ.replace("[TAGS]", tags);
           } else {
             templ = templ.replace("[TAGS]", '');
           }
         }
         if (templ.includes("[SECTION]")) {
-          if (section != '') { 
-            templ = templ.replace("[SECTION]", '['+section+'] ');
+          if (section != '') {
+            templ = templ.replace("[SECTION]", '[' + section + '] ');
           } else {
             templ = templ.replace("[SECTION]", '');
           }
         }
         results_content += templ;
         if (infos != '') {
-          results_content += '<li>'+infos+'</li>';
+          results_content += '<li>' + infos + '</li>';
         }
       }
-    } 
-    sOutput.innerHTML = results_header+tag_top+results_content+tag_bottom;
+    }
+    sOutput.innerHTML = results_header + tag_top + results_content + tag_bottom;
   } else {
     var noresult = '';
     if ((add_searchlink) && (add_searchlink != '')) {
@@ -385,4 +385,3 @@ function customSearchResults() {
     sOutput.innerHTML = noresult;
   }
 }
-

@@ -9,10 +9,15 @@
 {{ if .IsHome -}}
     <title>{{ site.Title  | markdownify }}</title>
 
-    <link rel=dns-prefetch href=//www.jsdelivr.com />   
-    <link rel=dns-prefetch href=//gohugo.io />
-    <link rel=preconnect   href=https://www.jsdelivr.com />   
+    <!-- MathJax -->
+    <link rel=dns-prefetch href=//cdn.jsdelivr.net />    
+<--    <link rel=preconnect   href=https://cdn.jsdelivr.net  />    -->
 
+
+    {{ partialCached "asidepreload" . }}
+
+    <link rel=dns-prefetch href=//gohugo.io />
+    
     {{ $kw := where site.Taxonomies.tags.ByCount ".Name" "gt" "9" }} <!-- no years / numbers -->
     <meta name=keywords content="{{ range $i, $ := first 25 $kw }}{{ if $i }},{{ end }}{{ .Name }}{{end}}" />
 
@@ -33,7 +38,9 @@
 <!-- {{ partialCached "battery" . }} -->
 {{ partialCached "favicon" . }}
 {{ partialCached "css/css" . }}
-{{ partialCached "js/jquery" . }}
+{{ if eq .Params.Layout "panorama" }}
+    {{ partialCached "js/jquery" . }}
+{{ end }}
 {{ if eq .Params.Layout "gallery" }}
     {{ partialCached "css/fancybox" . }}
     {{ partialCached "js/fancybox"  . }}

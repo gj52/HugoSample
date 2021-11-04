@@ -1,6 +1,5 @@
 @charset "utf-8";
-
-:root { 
+:root {
   --fonts: Baskerville, Georgia, Athelas, System Serif;
   --fontmono: Consolas, Courier New, monospace;
   --gap: 0.5rem;
@@ -10,14 +9,15 @@
 }
 
 html {
-  overflow-y: scroll; 
+  overflow-y: scroll;
   scroll-behavior: smooth;
   /* scroll-snap-type: y mandatory; */
   /* scroll-snap-type: y proximity;   */
-  height: 100vh; 
+  height: 100vh;
 }
 
 /* special styles */
+
 body {
   background-color: var(--background-color);
   background-image: none;
@@ -42,7 +42,6 @@ body {
   color: var(--text-color);
 }
 
-
 element:empty {
   display: none;
 }
@@ -51,12 +50,6 @@ h1 {
   font-family: var(--fonts);
   white-space: pre-wrap;
 }
-/*
-h1, h2, h3
-{
-      scroll-snap-align: start;
-}
-*/
 
 nav {
   padding-right: var(--gap);
@@ -64,14 +57,15 @@ nav {
 }
 
 /* change border colour to suit your needs */
+
 hr {
-    display:block;
-    height: 1px;
-    border:0;  
-    margin: 0;
-    padding:0;
-    border-top: 1px solid rgba( 0,0,0,.4 );
-    /* scroll-snap-align: start; */
+  display: block;
+  height: 1px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba( 0, 0, 0, .4);
+  /* scroll-snap-align: start; */
 }
 
 .anchor {
@@ -86,20 +80,21 @@ a {
   text-decoration: none;
 }
 
-  a:hover {
-    color: var(--link-hover); 
-    text-decoration: underline;
-  }
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
 
-  a:focus {
-    color: var(--link-color);
-  }
+a:focus {
+  color: var(--link-color);
+}
 
 pre {
-  overflow-x:auto;
+  overflow-x: auto;
   scrollbar-width: thin;
   scrollbar-color: auto;
-  tab-size: 4;             /* Set tab size to 4 characters wide */
+  tab-size: 4;
+  /* Set tab size to 4 characters wide */
   font: var(--fontmono);
   /* scroll-snap-align: start; */
 }
@@ -113,48 +108,49 @@ pre {
 /*   SCROLL BAR */
 
 ::-webkit-scrollbar {
-    height: 6px;
-    width: 6px;
-    background: rgba(0, 0, 0, 0.05);
+  height: 6px;
+  width: 6px;
+  background: rgba(0, 0, 0, 0.05);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 ::-webkit-scrollbar-corner {
-    background: gray;
+  background: gray;
 }
 
 /*   PROGRESS BAR */
 
 progress::-moz-progress-bar {
-    background: var(--progress-bar);
-    box-shadow: 0 3px 5px rgba(255, 255, 255, 0.7) inset;
+  background: var(--progress-bar);
+  box-shadow: 0 3px 5px rgba(255, 255, 255, 0.7) inset;
 }
 
 progress::-webkit-progress-bar {
-    background: var(--progress-background);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  background: var(--progress-background);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
 
 progress::-webkit-progress-value {
-    background: var(--progress-bar);
-    box-shadow: 0 3px 5px rgba(255, 255, 255, 0.7) inset;
+  background: var(--progress-bar);
+  box-shadow: 0 3px 5px rgba(255, 255, 255, 0.7) inset;
 }
 
 progress {
-    border: none;
-    box-sizing: border-box;
-    display: inline-block ! important;
-    height: 1em;
-    width: 10em;
-    vertical-align: -0.2em;
-    background: var(--progress-background);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  border: none;
+  box-sizing: border-box;
+  display: inline-block ! important;
+  height: 1em;
+  width: 10em;
+  vertical-align: -0.2em;
+  background: var(--progress-background);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
 
 /*   METER BAR */
+
 /*
 meter::-webkit-meter-bar {
     background: none;
@@ -179,20 +175,21 @@ meter {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
 */
+
 textarea {
   resize: vertical;
 }
 
 figure {
-    margin: 0;
+  margin: 0;
 }
 
 img {
   page-break-inside: avoid;
   max-width: 100%;
   height: auto;
-  border-style:none;
-  outline:0
+  border-style: none;
+  outline: 0
 }
 
 img:not([src*=".svg"]) {
@@ -205,45 +202,50 @@ img:not([src*=".svg"]) {
   position: relative;
   z-index: 10;
 }
-  /* The hamburger button hidden inside an input element */
-  #menuToggle input {
-    width: var(--hamburger);
-    height: var(--hamburger);
-    cursor: pointer;
-    opacity: 0; /* hide this */
-    position: relative;
-    text-align: right;
-    top: 8px;
-    z-index: 20; /* and place it over the hamburger */
-  }
 
-    /* 
+/* The hamburger button hidden inside an input element */
+
+#menuToggle input {
+  width: var(--hamburger);
+  height: var(--hamburger);
+  cursor: pointer;
+  opacity: 0;
+  /* hide this */
+  position: relative;
+  text-align: right;
+  top: 8px;
+  z-index: 20;
+  /* and place it over the hamburger */
+}
+
+/* 
  * Change the color of the hamburger when toggled
  */
-    #menuToggle input:checked + label {
-      background: var(--background-menu);
-    }
 
-  #menuToggle label {
-    z-index: 30;
-    color: var(--link-color);
-    position: relative;
-    left: var(--hamburger);
-    width: var(--hamburger);
-    height: var(--hamburger);
-  }
+#menuToggle input:checked+label {
+  background: var(--background-menu);
+}
 
-    #menuToggle label:hover {
-      color: var(--link-hover);
-    }
+#menuToggle label {
+  z-index: 30;
+  color: var(--link-color);
+  position: relative;
+  left: var(--hamburger);
+  width: var(--hamburger);
+  height: var(--hamburger);
+}
 
-  #menuToggle input:not(:checked) ~ div {
-    display: none;
-  }
+#menuToggle label:hover {
+  color: var(--link-hover);
+}
 
-  #menuToggle input:checked ~ div {
-    background: var(--background-menu);
-  }
+#menuToggle input:not(:checked)~div {
+  display: none;
+}
+
+#menuToggle input:checked~div {
+  background: var(--background-menu);
+}
 
 #menu {
   position: absolute;
@@ -265,16 +267,17 @@ img:not([src*=".svg"]) {
   z-index: 110;
   background-color: var(--background-menu);
 }
+
 /* Gallery */
 
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  align-content: flex-start;
-  align-self: auto;
-  width: calc(100% + var(--gap)); 
+  grid-auto-flow: row dense; 
+  width: calc(100% + var(--gap));
   gap: calc(var(--gap) * 2);
- }
+  margin-top: calc(var(--gap) * 2);
+}
 
 .foto {
   box-shadow: 2px 2px 4px 2px var(--box-shadow);
@@ -284,10 +287,10 @@ img:not([src*=".svg"]) {
   vertical-align: bottom;
 }
 
-  .foto:hover {
-    box-shadow: 2px 2px 4px 2px var(--link-hover);
-    transition: all .2s linear;
-  }
+.foto:hover {
+  box-shadow: 2px 2px 4px 2px var(--link-hover);
+  transition: all .2s linear;
+}
 
 /* 
     missed in fancybox.css, taken from
@@ -299,7 +302,7 @@ a[data-fancybox] img {
 }
 
 .fancybox__container {
-  --fancybox-bg: rgba(0,0, 0, 1);
+  --fancybox-bg: rgba(0, 0, 0, 1);
   height: 100%;
 }
 
@@ -308,31 +311,30 @@ a[data-fancybox] img {
   box-sizing: content-box;
   padding: 1rem;
   background: #fff;
-
   border-radius: 6px;
   color: #374151;
   box-shadow: 0 8px 23px rgb(0 0 0 / 50%);
 }
 
-
-.fullpage{
-    width:      100%;
-    border:     none;
-    position:   fixed;
-    z-index:    999999;
-    left:       0;
-    top:        0;
-    background-color: var(--background-color);
-    background-image: none;
+.fullpage {
+  width: 100%;
+  border: none;
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  background-color: var(--background-color);
+  background-image: none;
 }
 
 /* tube shortcode */
 
 .videoWrapper {
   height: 0;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
+  /* 16:9 */
   position: relative;
-  background-size:cover;
+  background-size: cover;
   box-shadow: 2px 2px 4px 2px var(--box-shadow);
   /* scroll-snap-align: start; */
 }
@@ -358,19 +360,19 @@ a[data-fancybox] img {
   z-index: 0;
 }
 
-  .tagbutton:hover, .tagbutton:focus-within {
-    background-color: var(--box-background-color);
-    border-width: 1px;
-    box-shadow: 2px 2px 2px var(--box-shadow-color);
-  }
+.tagbutton:hover, .tagbutton:focus-within {
+  background-color: var(--box-background-color);
+  border-width: 1px;
+  box-shadow: 2px 2px 2px var(--box-shadow-color);
+}
 
-  .tagbutton:active {
-    background-color: var(--box-background-color);
-    box-shadow: 2px 2px 2px var(--box-shadow-color);
-  }
+.tagbutton:active {
+  background-color: var(--box-background-color);
+  box-shadow: 2px 2px 2px var(--box-shadow-color);
+}
 
 .tagbutton * {
-    z-index: 0;
+  z-index: 0;
 }
 
 /* table styles */
@@ -401,8 +403,6 @@ tbody tr:nth-child(odd) {
   background-color: var(--tr-odd-background);
 }
 
-
-
 .w500 {
   min-width: 500px;
 }
@@ -416,11 +416,10 @@ tbody tr:nth-child(odd) {
 header {
   grid-area: hh;
   height: auto;
-  border-bottom-style: solid; 
+  border-bottom-style: solid;
   border-bottom-width: 1px;
   border-color: var(--box-border);
 }
-
 
 footer {
   grid-area: ft;
@@ -438,24 +437,25 @@ article {
 .openseadragon {
   border: 1px solid black;
   background-color: black;
-  color: #333; /* text color for messages */
+  color: #333;
+  /* text color for messages */
   height: 600px;
   margin: 0;
   padding: 0;
   width: 800px;
 }
 
-  .openseadragon.front-page {
-    height: 580px;
-  }
+.openseadragon.front-page {
+  height: 580px;
+}
 
-.quote{
-    box-sizing: border-box;
-    display: block;
-    margin:2em;
-    width: 80%;
-    word-break: break-word;
-    font-style: italic;
+.quote {
+  box-sizing: border-box;
+  display: block;
+  margin: 2em;
+  width: 80%;
+  word-break: break-word;
+  font-style: italic;
 }
 
 .quote::before {
@@ -464,86 +464,75 @@ article {
   color: var(caption-color);
 }
 
-:lang(de) > .quote::before
-{
+:lang(de)>.quote::before {
   content: "Zitat: ";
 }
 
-:lang(en) > .quote::before
-{
+:lang(en)>.quote::before {
   content: "Quote: ";
 }
 
 @supports (display:grid) {
-
   aside {
     grid-area: aa;
     place-items: center;
   }
-
   nav {
     grid-area: nn;
   }
 }
 
 @supports not (display:grid) {
-
   nav {
     columns: 4;
   }
 }
 
 /* -m */
-@media screen and (min-width: 30em) and (max-width: 60em) {
 
+@media screen and (min-width: 30em) and (max-width: 60em) {
   body {
     background-image: var(--bgms);
-
     /* https://css-tricks.com/you-want-minmax10px-1fr-not-1fr/ */
-    grid-template-columns: auto repeat(2, minmax(10px, 1fr)); 
+    grid-template-columns: auto repeat(2, minmax(10px, 1fr));
     grid-template-areas: "aa hh hh" "nn mm mm" "ft ft ft";
     padding-left: 2rem;
   }
 }
 
 /* -l */
-@media screen and (min-width: 60em) {
 
+@media screen and (min-width: 60em) {
   body {
     background-image: var(--bgls);
     grid-template-columns: auto repeat(3, minmax(10px, 1fr));
     grid-template-areas: "aa hh hh hh" "nn mm mm mm" "ft ft ft ft";
     padding-left: 3rem;
   }
-
   .liste {
     column-count: 3;
   }
 }
 
 @media screen and (min-width: 50em) {
-
   .liste {
     column-count: 2;
   }
 }
 
 @media screen and (min-width: 75em) {
-
   .liste {
     column-count: 3;
   }
 }
 
 @media screen and (min-width: 100em) {
-
   .liste {
     column-count: 5;
   }
 }
 
 @media screen and (min-width: 125em) {
-
   .liste {
     column-count: 6;
   }

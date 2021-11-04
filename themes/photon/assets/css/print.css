@@ -1,7 +1,5 @@
 ﻿@charset "utf-8";
-
 @media print {
-
   body {
     background-color: transparent;
     color: #000;
@@ -18,93 +16,72 @@
     grid-template-rows: 148px auto;
     grid-template-areas: "hh qr" "mm mm" "ft ft";
   }
-
-
   h1 {
     text-shadow: none;
   }
-
   h2, h3 {
     page-break-after: avoid;
     orphans: 4;
     widows: 4;
   }
-
   aside, nav, footer {
     display: none !important;
   }
-
   a {
     text-decoration-line: none;
   }
-
-    /*
+  /*
 #    a:not(local-link) ::after {
 */
-
-    a[href^=http]::after {
-      color: #888;
-      content: " < " attr(href) " >";
-      background-color: inherit;
-      font-size: 80%;
-      font-style: italic;
-      font-weight: normal;
-    }
-
-.anchor {
-    display: none !important; 
-}   
-
+  a[href^=http]::after {
+    color: #888;
+    content: " < " attr(href) " >";
+    background-color: inherit;
+    font-size: 80%;
+    font-style: italic;
+    font-weight: normal;
+  }
+  .anchor {
+    display: none !important;
+  }
   p, ul, pre, blockquote, foot {
     display: block;
     widows: 3;
   }
-
   .no-break {
     display: block;
     page-break-inside: avoid !important;
   }
-
   figure {
     display: inline;
     margin: 0;
     padding: 0;
   }
-
   figcaption {
     font-weight: bold;
     line-height: 1.15;
     margin: .25rem;
   }
-
   ul {
     display: block;
     list-style: disc;
   }
-
   ol {
     display: block;
     list-style: disc;
   }
-
   li {
     line-height: 1.25;
   }
-
-
-table {
+  table {
     page-break-inside: avoid;
   }
-
-
-.qrcode > img {
-  image-rendering: pixelated;
-}
-
+  .qrcode>img {
+    image-rendering: pixelated;
+  }
   .no-print, .no-print * {
     display: none !important;
   }
-
   .print, .print * {
     display: inline !important;
   }

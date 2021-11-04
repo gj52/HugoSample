@@ -1,5 +1,4 @@
 ﻿@charset "utf-8";
-
 * {
   display: block;
 }
@@ -13,68 +12,64 @@ feed {
   font-display: fallback;
   font-family: georgia, athelas, system serif;
   margin-left: 36px;
-
   overflow-y: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;
 }
 
-  feed > icon, logo, published, generator, updated {
-    display: none;
-  }
+feed>icon, logo, published, generator, updated {
+  display: none;
+}
 
-  feed > entry {
-    border-top: 1px solid;
-    color: #202020;
-    margin-left: 0;
-    padding-top: 1em;
-    scroll-snap-align: start;
-  }
+feed>entry {
+  border-top: 1px solid;
+  color: #202020;
+  margin-left: 0;
+  padding-top: 1em;
+  scroll-snap-align: start;
+}
 
-  feed > title {
-    border-bottom: 2px solid;
-    font-size: 2em;
-    font-weight: bold;
-    padding-top: 1em;
-  }
+feed>title {
+  border-bottom: 2px solid;
+  font-size: 2em;
+  font-weight: bold;
+  padding-top: 1em;
+}
 
-  feed > rights {
-    font-size: 1em;
-    margin-bottom: 1em;
-  }
+feed>rights {
+  font-size: 1em;
+  margin-bottom: 1em;
+}
 
-  feed > subtitle {
-    font-size: 1em;
-    padding-top: 1em;
-  }
-  
-    feed > entry > category, link, id, content {
-      display: none;
-    }
+feed>subtitle {
+  font-size: 1em;
+  padding-top: 1em;
+}
 
+feed>entry>category, link, id, content {
+  display: none;
+}
 
+feed>entry>title {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+  text-decoration: underline;
+}
 
-    feed > entry > title {
-      font-size: 1.25em;
-      font-weight: bold;
-      margin-bottom: 0.2em;
-      text-decoration: underline;
-    }
+feed>entry>updated {
+  color: #606060;
+  display: block;
+  font-size: 1em;
+}
 
-    feed > entry > updated {
-      color: #606060;
-      display: block;
-      font-size: 1em;
-    }
+feed>entry>summary {
+  display: block;
+  font-size: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
 
-    feed > entry > summary {
- 	  display: block;
-      font-size: 1em;
-      margin-top: 1em;
-      margin-bottom: 1em;
-    }
-
-    feed > entry > summary * {
- 	  display: run-in;
-    }
-
+feed>entry>summary * {
+  display: run-in;
+}
