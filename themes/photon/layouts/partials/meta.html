@@ -38,10 +38,9 @@
 <!-- {{ partialCached "battery" . }} -->
 {{ partialCached "favicon" . }}
 {{ partialCached "css/css" . }}
-{{ if eq .Params.Layout "panorama" }}
-    {{ partialCached "js/jquery" . }}
-{{ end }}
+
 {{ if eq .Params.Layout "gallery" }}
+    {{ partialCached "js/jquery" . }}
     {{ partialCached "css/fancybox" . }}
     {{ partialCached "js/fancybox"  . }}
 {{ end }}
