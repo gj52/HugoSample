@@ -31,6 +31,7 @@ body {
   gap: var(--gap);
   columns: 2;
   display: grid;
+  min-height: 100%;
   grid-auto-columns: 1fr;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas: "aa nn" "hh hh" "mm mm" "ft ft";
@@ -425,7 +426,9 @@ footer {
   grid-area: ft;
   border-color: var(--box-border);
   content-visibility: auto;
-  /* scroll-snap-align: start; */
+  height: 3rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
 }
 
 article {
