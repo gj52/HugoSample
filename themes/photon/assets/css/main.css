@@ -426,7 +426,7 @@ footer {
   grid-area: ft;
   border-color: var(--box-border);
   content-visibility: auto;
-  height: 3rem;
+  height: 4rem;
   padding-top: .5rem;
   padding-bottom: .5rem;
 }
@@ -501,6 +501,10 @@ article {
     grid-template-areas: "aa hh hh" "nn mm mm" "ft ft ft";
     padding-left: 2rem;
   }
+
+  footer {
+    height: 3rem;
+  }
 }
 
 /* -l */
@@ -515,6 +519,10 @@ article {
   .liste {
     column-count: 3;
   }
+  footer {
+    height: 2rem;
+  }
+
 }
 
 @media screen and (min-width: 50em) {
