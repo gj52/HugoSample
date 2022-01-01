@@ -1,0 +1,5 @@
+{{ $fill := resources.Get "https://polyfill.io/v3/polyfill.js?features=es6"  | minify }}
+{{ with $fill }} <script defer src={{ .RelPermalink }} ></script> {{ end}}
+{{ $jax := resources.Get "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" | minify}} 
+{{ with $jax }} <script id="MathJax-script" defer src={{.RelPermalink }}></script>{{ end }}
+

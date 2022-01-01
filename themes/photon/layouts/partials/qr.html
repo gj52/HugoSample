@@ -1,9 +1,6 @@
 <div class="pa1 print no-break qrcode" id="qr" ></div>
 <script>
-var typeNumber = -1;
-var errorCorrectionLevel = 'M';
-var qr = qrcode(typeNumber, errorCorrectionLevel);
-qr.addData("{{safeHTML .Permalink}}");
-qr.make();
-document.getElementById('qr').innerHTML = qr.createImgTag();
+jQuery(function(){
+	jQuery('#qr').qrcode({width: 128,height: 128,text: {{safeHTML .Permalink}} });
+})
 </script>

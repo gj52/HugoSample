@@ -12,4 +12,5 @@
 {{ $tmp := default "14" (.Get 2) }}{{ $scale := int $tmp }}
 {{ $lat := float ($scratch.Get "latitude") }}{{ $lon := float ($scratch.Get "longitude")}}
 <a class="dib ph1"  target=_blank rel=noopener title="Karte anzeigen" 
-href="https://www.openstreetmap.org/?mlat={{$lat}}&mlon={{$lon}}#map={{$scale}}/{{$lat}}/{{$lon}}"><i class="far fa-map"></i></a>
+href="https://maps.google.de/maps?ll={{$lat}},{{$lon}}&z={{$scale}}&t=h&q={{$lat}},{{$lon}}"><i class="far fa-map"></i></a>
+

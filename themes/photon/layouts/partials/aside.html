@@ -1,5 +1,5 @@
-{{ $avw := 120 }}{{ $image := resources.Get site.Params.sidebar.avatar }}{{ $image = $image.Resize (print $avw "x" $avw " q50")  }}
-<aside class="mt3 no-print" >
+{{ $avw := 80 }}{{ $image := resources.Get site.Params.sidebar.avatar }}{{ $image = $image.Resize (print $avw "x" $avw " q50")  }}
+<aside class="mt3 no-print tc" >
 <a class=dim href={{ site.Home.RelPermalink }} title=Startseite>
   <img class=br-100 src={{ $image.RelPermalink }} width={{$avw}} height={{$avw}} alt=Avatar />
 </a>

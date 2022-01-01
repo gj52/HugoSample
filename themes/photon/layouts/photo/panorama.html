@@ -11,7 +11,7 @@
 		<div id=osd class="w-100 h-100" ></div>
 	</div>
 	{{ partialCached  "js/osd"  . }}
-	<script>
+	<script importance=low>
 	    OpenSeadragon({
 	      id: "osd",
 		  prefixUrl: "/img/osd/",

@@ -9,10 +9,9 @@
 }
 
 html {
-  overflow-y: scroll;
+  overscroll-behavior-y: contain;
+  overflow-y: auto;
   scroll-behavior: smooth;
-  /* scroll-snap-type: y mandatory; */
-  /* scroll-snap-type: y proximity;   */
   height: 100vh;
 }
 
@@ -35,7 +34,6 @@ body {
   grid-auto-columns: 1fr;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas: "aa nn" "hh hh" "mm mm" "ft ft";
-  /* scroll-snap-align: start; */
 }
 
 ::marker {
@@ -49,12 +47,19 @@ element:empty {
 
 h1 {
   font-family: var(--fonts);
-  white-space: pre-wrap;
+  margin-right: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 nav {
   padding-right: var(--gap);
   z-index: 0;
+  align-self: start;
+  position: sticky;
+  margin-top: .5rem;
+}
 }
 
 /* change border colour to suit your needs */
@@ -97,7 +102,6 @@ pre {
   tab-size: 4;
   /* Set tab size to 4 characters wide */
   font: var(--fontmono);
-  /* scroll-snap-align: start; */
 }
 
 /* Add scroll margin to all elements which can be targeted */
@@ -110,12 +114,12 @@ pre {
 
 ::-webkit-scrollbar {
   height: 6px;
-  width: 6px;
+  width: 10px;
   background: rgba(0, 0, 0, 0.05);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 ::-webkit-scrollbar-corner {
@@ -187,7 +191,6 @@ figure {
 
 img {
   page-break-inside: avoid;
-  max-width: 100%;
   height: auto;
   border-style: none;
   outline: 0
@@ -286,6 +289,7 @@ img:not([src*=".svg"]) {
   max-height: 100%;
   border-radius: 5px;
   vertical-align: bottom;
+  object-fit: cover;
 }
 
 .foto:hover {
@@ -359,6 +363,7 @@ a[data-fancybox] img {
   transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, border-color 0.1s ease-in-out;
   white-space: nowrap;
   z-index: 0;
+  min-width: 50px;
 }
 
 .tagbutton:hover, .tagbutton:focus-within {
@@ -546,5 +551,16 @@ article {
 @media screen and (min-width: 125em) {
   .liste {
     column-count: 6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
