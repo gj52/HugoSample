@@ -34,6 +34,9 @@ body {
   grid-auto-columns: 1fr;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas: "aa nn" "hh hh" "mm mm" "ft ft";
+
+  text-decoration-thickness: 0.04em; 
+  text-underline-offset: 0.03em; 
 }
 
 ::marker {

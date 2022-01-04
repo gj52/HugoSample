@@ -34,7 +34,9 @@
 </div>
 
 <script importance=low>
- Fancybox.bind("[data-fancybox='gallery']", {
+$('[data-fancybox="gallery"]').fancybox({
+
+  lang: "de",
 
    Toolbar: {
     display: [
@@ -47,7 +49,7 @@
       "close",
     ],
   },
-
+  
   animated: true,
   dragToClose: false,
 
@@ -64,16 +66,6 @@
 
   Thumbs: {
     autoStart: false,
-  },
-
-  l10n: {
-    CLOSE: "Schließen",
-    NEXT: "Nächstes",
-    PREV: "Vorheriges",
-    TOGGLE_FULLSCREEN: "ganzer Bildschirm",
-    TOGGLE_SLIDESHOW: "Blättern",
-    TOGGLE_THUMBS: "Miniansichten",
-    MODAL: "Vollbild mit ESC Taste verlsassen",
   },
 
 });

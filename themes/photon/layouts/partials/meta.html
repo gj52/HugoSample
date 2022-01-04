@@ -11,8 +11,6 @@
 
     <!-- MathJax -->
     <link rel=dns-prefetch href=//cdn.jsdelivr.net />    
-<!--    <link rel=preconnect   href=https://cdn.jsdelivr.net  />    -->
-
 
     {{ partialCached "asidepreload" . }}
 
@@ -39,12 +37,13 @@
 {{ partialCached "favicon" . }}
 {{ partialCached "css/css" . }}
 
+{{ partial "js/qr"   . }}
+
 {{ if eq .Params.Layout "gallery" }}
-    {{ partialCached "js/jquery" . }}
     {{ partialCached "css/fancybox" . }}
     {{ partialCached "js/fancybox"  . }}
 {{ end }}
-{{ partial "js/qr"   . }}
+
 {{ if .HasShortcode "tex" }}
     {{ partialCached "js/mathjax" .}}
 {{end}}

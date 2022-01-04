@@ -1,4 +1,4 @@
-{{ $jq := resources.Get "js/jquery-3.5.1.js" }}
+{{ $jq := resources.Get "js/jquery-3.6.0.slim.js" }}
 {{ $jq = $jq | resources.Minify | resources.Fingerprint site.Params.digest }} 
 <script src={{ $jq.RelPermalink }} integrity={{ $jq.Data.Integrity }} crossorigin=anonymous ></script>
 
