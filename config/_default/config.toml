@@ -53,6 +53,7 @@ enableRobotsTXT            = true
 ignorecache                = false
 forceSyncStatic            = false
 #pluralizelisttitles       = false
+publishResources           = false
 relativeURLs               = false
 removePathAccents          = true
 summaryLength              = 10

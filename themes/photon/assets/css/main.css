@@ -84,6 +84,12 @@ hr {
   font-size: small !important;
 }
 
+/*
+p {
+  max-width: 69ch;
+}
+*/
+
 a {
   color: var(--link-color);
   text-decoration: none;

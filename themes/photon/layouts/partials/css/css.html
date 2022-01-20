@@ -1,15 +1,18 @@
 {{ $tccs := resources.Get "css/tachyons.css" }}
-{{ $tccs  = $tccs | resources.Minify | resources.Fingerprint site.Params.digest }}
 {{ $mccsl := resources.Get "css/light.css" }}
-{{ $mccsl  = $mccsl | resources.Minify | resources.Fingerprint site.Params.digest }} 
 {{ $mccsd := resources.Get "css/dark.css" }}
-{{ $mccsd  = $mccsd | resources.Minify | resources.Fingerprint site.Params.digest }} 
 {{ $mccs := resources.Get "css/main.css" }}
-{{ $mccs  = $mccs | resources.Minify | resources.Fingerprint site.Params.digest }} 
 {{ $accs := resources.Get "css/awesome.css" }}
-{{ $accs  = $accs | resources.Minify | resources.Fingerprint site.Params.digest }}
 {{ $pccs := resources.Get "css/print.css" }}
-{{ $pccs  = $pccs | resources.Minify | resources.Fingerprint site.Params.digest }}
+
+{{if hugo.IsProduction }}
+    {{ $tccs  = $tccs  | minify | resources.Fingerprint site.Params.digest }}
+    {{ $mccsl = $mccsl | minify | resources.Fingerprint site.Params.digest }} 
+    {{ $mccsd = $mccsd | minify | resources.Fingerprint site.Params.digest }}
+    {{ $mccs  = $mccs  | minify | resources.Fingerprint site.Params.digest }}
+    {{ $accs  = $accs  | minify | resources.Fingerprint site.Params.digest }}
+    {{ $pccs  = $pccs  | minify | resources.Fingerprint site.Params.digest }}
+{{end}}
 
 <link rel=preload href={{ $tccs.RelPermalink  }} as=style integrity={{ $tccs.Data.Integrity  }}>
 <link rel=preload href={{ $mccsl.RelPermalink }} as=style integrity={{ $mccsl.Data.Integrity }}>

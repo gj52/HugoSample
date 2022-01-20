@@ -1,3 +1,5 @@
 {{ $jq := resources.Get "js/jquery-3.6.0.slim.js" }}
+{{if hugo.IsProduction }}
 {{ $jq = $jq | resources.Minify | resources.Fingerprint site.Params.digest }}
+{{end}}
 <script defer src={{ $jq.RelPermalink }} integrity={{ $jq.Data.Integrity }} ></script>

@@ -1,3 +1,5 @@
 {{ $fb := resources.Get "js/jquery.fancybox.js" }}
-{{ $fb = $fb | resources.Minify | resources.Fingerprint site.Params.digest }}
+{{if hugo.IsProduction }}
+    {{ $fb = $fb | minify | resources.Fingerprint site.Params.digest }}
+{{end}}
 <script defer src={{ $fb.RelPermalink }} integrity={{ $fb.Data.Integrity }} ></script>
