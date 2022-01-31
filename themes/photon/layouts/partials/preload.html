@@ -1,27 +1,53 @@
-<!-- basis stylesheet -->
-{{ $tccs := resources.Get "css/tachyons.css" }}
-{{ $tccs  = $tccs | minify | resources.Fingerprint site.Params.digest }}
-<link rel=preload as=style type=text/css href={{ $tccs.RelPermalink }} integrity={{ $tccs.Data.Integrity }}  />
+{{ $tachions  := resources.Get "css/tachyons.css" }}
+{{ $colors    := resources.Get "css/colors.css" }} 
+{{ $maincss   := resources.Get "css/main.css" }}
+{{ $fonta     := resources.Get "css/awesome.css" }}
+{{ $print     := resources.Get "css/print.css" }}
+{{ $fancy     := resources.Get "css/jquery.fancybox.css" }}
 
-<!-- theme stylesheet -->
-{{ $mccs := resources.Get "css/main.css" }}
-{{ $mccs  = $mccs | minify | resources.Fingerprint site.Params.digest }}
-<link rel=preload as=style type=text/css href={{ $mccs.RelPermalink }} integrity={{ $mccs.Data.Integrity }}  />
+{{ $jq    := resources.Get "js/jquery-3.6.0.slim.js" }}
+{{ $fb    := resources.Get "js/jquery.fancybox.js"  }}
+{{ $osd   := resources.Get "js/openseadragon.js" }}
 
-<!-- fancybox CSS for gallery -->
-{{ $fccs := resources.Get "css/jquery.fancybox.css" }}
-{{ $fccs  = $fccs | minify | resources.Fingerprint site.Params.digest }}
-<link rel=prefetch as=style href={{ $fccs.RelPermalink }} integrity={{ $fccs.Data.Integrity }} />
+{{if hugo.IsProduction }}
+    {{ $tachions  = $tachions | minify | resources.Fingerprint site.Params.digest }}
+    {{ $colors    = $colors   | minify | resources.Fingerprint site.Params.digest }} 
+    {{ $maincss   = $maincss  | minify | resources.Fingerprint site.Params.digest }}
+    {{ $fonta     = $fonta    | minify | resources.Fingerprint site.Params.digest }}
+    {{ $print     = $print    | minify | resources.Fingerprint site.Params.digest }}
+    {{ $jq    = $jq    | minify | resources.Fingerprint site.Params.digest }} 
+    {{ $fb    = $fb    | minify | resources.Fingerprint site.Params.digest }}
+    {{ $osd   = $osd   | minify | resources.Fingerprint site.Params.digest }}
+{{end}}
 
-<!-- fancybox script for gallery -->
-{{ $fb := resources.Get "js/jquery.fancybox.3.5.7.js" | minify }}
-{{ $fb = $fb | resources.Fingerprint site.Params.digest }}
-<link rel=modulepreload as=script href={{ $fb.RelPermalink }} integrity={{ $fb.Data.Integrity }} />
+<script async src={{ $jq.RelPermalink }} integrity={{ $jq.Data.Integrity }} crossorigin=anonymous ></script>
 
-<!-- panarama scripts -->
-{{ $osd := resources.Get "js/openseadragon.js" }}
-{{ $osd = $osd | minify | resources.Fingerprint site.Params.digest }}
-<link rel=modulepreload as=script href={{ $osd.RelPermalink }} integrity={{ $osd.Data.Integrity }} />
+<link rel=preload href=/img/wave-ms.jpg as=image type=image/jpeg 
+    media="screen and (min-width: 30em) and (max-width: 60em) and (prefers-color-scheme: light)" >
+<link rel=preload href=/img/wave-ls.jpg as=image type=image/jpeg 
+    media="screen and (min-width: 60em) and (prefers-color-scheme: light)">
+<link rel=preload href=/img/darkwave-ms.jpg as=image type=image/jpeg 
+    media="screen and (min-width: 30em) and (max-width: 60em) and (prefers-color-scheme: dark)" >
+<link rel=preload href=/img/darkwave-ls.jpg as=image type=image/jpeg 
+    media="screen and (min-width: 60em) and (prefers-color-scheme: dark)">
 
-<!-- LaTex scripts -->
-<link rel=modulepreload as=script href=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js />
+<link rel=preload onload="this.rel = 'stylesheet'" href={{ $tachions.RelPermalink  }} as=style integrity={{ $tachions.Data.Integrity }} >
+<link rel=preload onload="this.rel = 'stylesheet'" href={{ $colors.RelPermalink    }} as=style integrity={{ $colors.Data.Integrity   }} >
+<link rel=preload onload="this.rel = 'stylesheet'" href={{ $maincss.RelPermalink   }} as=style integrity={{ $maincss.Data.Integrity  }} >
+<link rel=preload onload="this.rel = 'stylesheet'" href={{ $fonta.RelPermalink     }} as=style integrity={{ $fonta.Data.Integrity  }} >
+<link rel=preload onload="this.rel = 'stylesheet'" href={{ $print.RelPermalink     }} as=style integrity={{ $print.Data.Integrity  }} media=print>
+
+<link rel=preload href=/webfonts/fa-regular-400.woff2 as=font type=font/woff2 >
+<link rel=preload href=/webfonts/fa-solid-900.woff2   as=font type=font/woff2 >
+
+{{ if eq .Params.Layout "gallery" }}
+    <link rel=prefetch onload="this.rel = 'stylesheet'" as=style href={{ $fancy.RelPermalink }} integrity={{ $fancy.Data.Integrity }} />
+    <link rel=preload as=script href={{ $fb.RelPermalink }} integrity={{ $fb.Data.Integrity }} />
+{{end}}
+{{ if eq .Params.Layout "panorama" }}
+    <link rel=preload as=script href={{ $osd.RelPermalink }} integrity={{ $osd.Data.Integrity }} />
+{{end}}
+{{ if .HasShortcode "tex" }}
+    <link rel=preload as=script href=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js />
+{{end}}
+

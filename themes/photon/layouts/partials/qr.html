@@ -1,4 +1,18 @@
 <div class="pa1 print no-break qrcode" id="qr" ></div>
+{{ $jq := resources.Get "js/jquery-3.6.0.slim.js" }}
+{{ $jqr := resources.Get "js/jquery.qrcode.js" }}
+{{ $qr  := resources.Get "js/qrcode.js" }}
+
+{{if hugo.IsProduction }}
+    {{ $jq = $jq   | minify | fingerprint site.Params.digest }}
+	{{ $jqr = $jqr | minify | fingerprint site.Params.digest }} 
+    {{ $qr = $qr   | minify | fingerprint site.Params.digest }} 
+{{end}}
+
+<script src={{ $jq.RelPermalink  }} integrity={{ $jq.Data.Integrity  }} ></script> 
+<script src={{ $jqr.RelPermalink }} integrity={{ $jqr.Data.Integrity }}  ></script>
+<script src={{ $qr.RelPermalink  }} integrity={{ $qr.Data.Integrity  }}  ></script>
+
 <script>
 jQuery(function(){
 	jQuery('#qr').qrcode({width: 128,height: 128,text: {{safeHTML .Permalink}} });

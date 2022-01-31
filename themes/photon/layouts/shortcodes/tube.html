@@ -1,8 +1,15 @@
 {{- $id    := .Get 0 -}}
 {{- $title := .Get 1 | default "YouTube Video" -}}
 <div class="no-print  mw7-ns">
- <div class="mv2 videoWrapper" style="background-image:url(https://img.youtube.com/vi/{{$id}}/mqdefault.jpg)" >
- <iframe loading=lazy class="bn w-100 h-100 absolute" 
+ <div class="mv2 videoWrapper" 
+{{- $bg := resources.GetRemote "https://img.youtube.com/vi/{{$id}}/mqdefault.jpg" -}}
+ {{ with $bg }}
+	style="background:url(data:image/jpeg;base64,{{ .Content | base64Encode}}); background-size: cover;background-repeat: no-repeat; aspect-ratio='{{ .Width }}/{{ .Height }}'"
+	{{ warnf $id }}
+ {{else}}
+	style="background:url(https://img.youtube.com/vi/{{$id}}/mqdefault.jpg); background-size: cover;background-repeat: no-repeat"
+ {{ end}} >
+  <iframe loading=lazy defer class="bn w-100 h-100 absolute" 
  name={{$id}} title="{{ $title }}" 
  src="https://www.youtube.com/embed/{{$id}}" 
  referrerpolicy=no-referrer  frameborder="0"

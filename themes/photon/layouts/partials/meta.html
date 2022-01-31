@@ -8,6 +8,8 @@
 {{ if site.IsServer }}<meta http-equiv="cache-control" content="no-cache">{{end}}
 {{ if .IsHome -}}
     <title>{{ site.Title  | markdownify }}</title>
+    
+<|--    {{ partial "preload" . }}  -->
 
     <!-- MathJax -->
     <link rel=dns-prefetch href=//cdn.jsdelivr.net />    
@@ -36,15 +38,20 @@
 <!-- {{ partialCached "battery" . }} -->
 {{ partialCached "favicon" . }}
 {{ partialCached "css/css" . }}
-
-{{ partial "js/qr"   . }}
+{{ partialCached "js/jquery" . }}
 
 {{ if eq .Params.Layout "gallery" }}
     {{ partialCached "css/fancybox" . }}
     {{ partialCached "js/fancybox"  . }}
 {{ end }}
 
+{{ if eq .Params.Layout "panorama" }}
+    {{ partialCached "js/osd"  . }}
+{{ end }}
+
 {{ if .HasShortcode "tex" }}
-    {{ partialCached "js/mathjax" .}}
+    {{ partialCached "js/mathjax" . }}
 {{end}}
+
+{{ partialCached "js/qr" . }}
 </head>

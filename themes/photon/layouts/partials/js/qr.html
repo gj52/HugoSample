@@ -1,11 +1,10 @@
-{{ $jq := resources.Get "js/jquery-3.6.0.slim.js" }}
-{{ $jq = $jq | resources.Minify | resources.Fingerprint site.Params.digest }} 
-<script src={{ $jq.RelPermalink }} integrity={{ $jq.Data.Integrity }} crossorigin=anonymous ></script>
-
 {{ $jqr := resources.Get "js/jquery.qrcode.js" }}
-{{ $jqr = $jqr | resources.Minify | resources.Fingerprint site.Params.digest }} 
-<script src={{ $jqr.RelPermalink }} integrity={{ $jqr.Data.Integrity }} crossorigin=anonymous ></script>
+{{ $qr  := resources.Get "js/qrcode.js" }}
 
-{{ $qr := resources.Get "js/qrcode.js" }}
-{{ $qr = $qr | resources.Minify | resources.Fingerprint site.Params.digest }} 
-<script src={{ $qr.RelPermalink }} integrity={{ $qr.Data.Integrity }} crossorigin=anonymous ></script>
+{{if hugo.IsProduction }}
+    {{ $jqr = $jqr | minify | fingerprint site.Params.digest }} 
+    {{ $qr = $qr   | minify | fingerprint site.Params.digest }} 
+{{end}}
+
+<script rel=preload src={{ $jqr.RelPermalink }} integrity={{ $jqr.Data.Integrity }}  ></script>
+<script rel=preload src={{ $qr.RelPermalink }} integrity={{ $qr.Data.Integrity }}  ></script>

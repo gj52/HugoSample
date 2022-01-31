@@ -84,6 +84,12 @@ hr {
   font-size: small !important;
 }
 
+/*
+p {
+  max-width: 69ch;
+}
+*/
+
 a {
   color: var(--link-color);
   text-decoration: none;
@@ -105,6 +111,11 @@ pre {
   tab-size: 4;
   /* Set tab size to 4 characters wide */
   font: var(--fontmono);
+}
+
+.highlight {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 /* Add scroll margin to all elements which can be targeted */
@@ -213,6 +224,7 @@ img:not([src*=".svg"]) {
 /* The hamburger button hidden inside an input element */
 
 #menuToggle input {
+  background-color: var(--background-menu);
   width: var(--hamburger);
   height: var(--hamburger);
   cursor: pointer;
