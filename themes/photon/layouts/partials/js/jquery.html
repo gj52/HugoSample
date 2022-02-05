@@ -2,4 +2,4 @@
 {{if hugo.IsProduction }}
     {{ $jq = $jq | resources.Minify | fingerprint site.Params.digest }}
 {{end}}
-<script rel=preload src={{ $jq.RelPermalink }} integrity={{ $jq.Data.Integrity }} ></script>
+<script rel=preload src={{ $jq.RelPermalink }} integrity={{ $jq.Data.Integrity }} crossorigin=anonymous ></script>

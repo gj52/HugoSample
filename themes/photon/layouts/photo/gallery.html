@@ -32,7 +32,14 @@
   </a>
 {{- end }}
 </div>
+{{ partial "prevnext" .}}   
+</article>
 
+{{ $fb := resources.Get "js/jquery.fancybox.js" }}
+{{if hugo.IsProduction }}
+    {{ $fb = $fb | minify | fingerprint site.Params.digest }}
+{{end}}
+<script src={{ $fb.RelPermalink }} integrity={{ $fb.Data.Integrity }} crossorigin=anonymous ></script>
 <script importance=low>
 $('[data-fancybox="gallery"]').fancybox({
 
@@ -70,6 +77,5 @@ $('[data-fancybox="gallery"]').fancybox({
 
 });
 </script>
-{{ partial "prevnext" .}}   
-</article>
+
 {{ end }}

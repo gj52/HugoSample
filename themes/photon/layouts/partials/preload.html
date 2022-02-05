@@ -10,44 +10,44 @@
 {{ $osd   := resources.Get "js/openseadragon.js" }}
 
 {{if hugo.IsProduction }}
-    {{ $tachions  = $tachions | minify | resources.Fingerprint site.Params.digest }}
-    {{ $colors    = $colors   | minify | resources.Fingerprint site.Params.digest }} 
-    {{ $maincss   = $maincss  | minify | resources.Fingerprint site.Params.digest }}
-    {{ $fonta     = $fonta    | minify | resources.Fingerprint site.Params.digest }}
-    {{ $print     = $print    | minify | resources.Fingerprint site.Params.digest }}
-    {{ $jq    = $jq    | minify | resources.Fingerprint site.Params.digest }} 
-    {{ $fb    = $fb    | minify | resources.Fingerprint site.Params.digest }}
-    {{ $osd   = $osd   | minify | resources.Fingerprint site.Params.digest }}
+    {{ $tachions  = $tachions | minify | fingerprint site.Params.digest }}
+    {{ $colors    = $colors   | minify | fingerprint site.Params.digest }} 
+    {{ $maincss   = $maincss  | minify | fingerprint site.Params.digest }}
+    {{ $fonta     = $fonta    | minify | fingerprint site.Params.digest }}
+    {{ $print     = $print    | minify | fingerprint site.Params.digest }}
+    {{ $jq    = $jq    | minify | fingerprint site.Params.digest }} 
+    {{ $fb    = $fb    | minify | fingerprint site.Params.digest }}
+    {{ $osd   = $osd   | minify | fingerprint site.Params.digest }}
 {{end}}
 
-<script async src={{ $jq.RelPermalink }} integrity={{ $jq.Data.Integrity }} crossorigin=anonymous ></script>
+<script async src={{ $jq.RelPermalink }} crossorigin=anonymous integrity={{ $jq.Data.Integrity }} ></script>
 
-<link rel=preload href=/img/wave-ms.jpg as=image type=image/jpeg 
+<link rel=preload href=/img/wave-ms.jpg as=image type=image/jpeg crossorigin=anonymous
     media="screen and (min-width: 30em) and (max-width: 60em) and (prefers-color-scheme: light)" >
-<link rel=preload href=/img/wave-ls.jpg as=image type=image/jpeg 
+<link rel=preload href=/img/wave-ls.jpg as=image type=image/jpeg crossorigin=anonymous
     media="screen and (min-width: 60em) and (prefers-color-scheme: light)">
-<link rel=preload href=/img/darkwave-ms.jpg as=image type=image/jpeg 
+<link rel=preload href=/img/darkwave-ms.jpg as=image type=image/jpeg crossorigin=anonymous
     media="screen and (min-width: 30em) and (max-width: 60em) and (prefers-color-scheme: dark)" >
-<link rel=preload href=/img/darkwave-ls.jpg as=image type=image/jpeg 
+<link rel=preload href=/img/darkwave-ls.jpg as=image type=image/jpeg crossorigin=anonymous
     media="screen and (min-width: 60em) and (prefers-color-scheme: dark)">
 
-<link rel=preload onload="this.rel = 'stylesheet'" href={{ $tachions.RelPermalink  }} as=style integrity={{ $tachions.Data.Integrity }} >
-<link rel=preload onload="this.rel = 'stylesheet'" href={{ $colors.RelPermalink    }} as=style integrity={{ $colors.Data.Integrity   }} >
-<link rel=preload onload="this.rel = 'stylesheet'" href={{ $maincss.RelPermalink   }} as=style integrity={{ $maincss.Data.Integrity  }} >
-<link rel=preload onload="this.rel = 'stylesheet'" href={{ $fonta.RelPermalink     }} as=style integrity={{ $fonta.Data.Integrity  }} >
-<link rel=preload onload="this.rel = 'stylesheet'" href={{ $print.RelPermalink     }} as=style integrity={{ $print.Data.Integrity  }} media=print>
+<link rel=preload  onload="this.rel = 'stylesheet'" href={{ $tachions.RelPermalink  }} as=style crossorigin=anonymous integrity={{ $tachions.Data.Integrity }} >
+<link rel=preload  onload="this.rel = 'stylesheet'" href={{ $colors.RelPermalink    }} as=style crossorigin=anonymous integrity={{ $colors.Data.Integrity   }} >
+<link rel=preload  onload="this.rel = 'stylesheet'" href={{ $maincss.RelPermalink   }} as=style crossorigin=anonymous integrity={{ $maincss.Data.Integrity  }} >
+<link rel=preload  onload="this.rel = 'stylesheet'" href={{ $fonta.RelPermalink     }} as=style crossorigin=anonymous integrity={{ $fonta.Data.Integrity    }} >
+<link rel=preload  onload="this.rel = 'stylesheet'" href={{ $print.RelPermalink     }} as=style crossorigin=anonymous media=print integrity={{ $print.Data.Integrity    }} >
 
-<link rel=preload href=/webfonts/fa-regular-400.woff2 as=font type=font/woff2 >
-<link rel=preload href=/webfonts/fa-solid-900.woff2   as=font type=font/woff2 >
+<link rel=preload href=/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous >
+<link rel=preload href=/webfonts/fa-solid-900.woff2   as=font type=font/woff2 crossorigin=anonymous >
 
 {{ if eq .Params.Layout "gallery" }}
-    <link rel=prefetch onload="this.rel = 'stylesheet'" as=style href={{ $fancy.RelPermalink }} integrity={{ $fancy.Data.Integrity }} />
-    <link rel=preload as=script href={{ $fb.RelPermalink }} integrity={{ $fb.Data.Integrity }} />
+    <link rel=prefetch onload="this.rel = 'stylesheet'" as=style href={{ $fancy.RelPermalink }} crossorigin=anonymous integrity={{ $fancy.Data.Integrity }} />
+    <link rel=preload as=script href={{ $fb.RelPermalink }}  crossorigin=anonymous integrity={{ $fb.Data.Integrity }} />
 {{end}}
 {{ if eq .Params.Layout "panorama" }}
-    <link rel=preload as=script href={{ $osd.RelPermalink }} integrity={{ $osd.Data.Integrity }} />
+    <link rel=preload as=script href={{ $osd.RelPermalink }}  crossorigin=anonymous integrity={{ $osd.Data.Integrity }} />
 {{end}}
 {{ if .HasShortcode "tex" }}
-    <link rel=preload as=script href=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js />
+    <link rel=preload as=script href=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js crossorigin=anonymous />
 {{end}}
 

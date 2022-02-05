@@ -10,7 +10,12 @@
 	<div class="ba bg-black vh-50 overflow-hidden">
 		<div id=osd class="w-100 h-100" ></div>
 	</div>
-	{{ partialCached  "js/osd"  . }}
+
+{{ $osd := resources.Get "js/openseadragon.js" }}
+{{if hugo.IsProduction }}
+{{ $osd = $osd | minify | fingerprint site.Params.digest }}
+{{end}}
+<script src={{ $osd.RelPermalink }} integrity={{ $osd.Data.Integrity }} ></script>
 	<script importance=low>
 	    OpenSeadragon({
 	      id: "osd",

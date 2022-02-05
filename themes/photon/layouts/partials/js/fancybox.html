@@ -2,4 +2,4 @@
 {{if hugo.IsProduction }}
     {{ $fb = $fb | minify | fingerprint site.Params.digest }}
 {{end}}
-<script rel=preload src={{ $fb.RelPermalink }} integrity={{ $fb.Data.Integrity }} ></script>
+<script rel=preload src={{ $fb.RelPermalink }} integrity={{ $fb.Data.Integrity }} crossorigin=anonymous ></script>

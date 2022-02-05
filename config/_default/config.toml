@@ -168,8 +168,9 @@ expiryDate                 = [ "expiryDate"]
 
 
 [Params.sidebar]
-    avatar          = "images/head.jpg"
-    bio             = "**Mr. Nobody**"
+    avatar                 = "images/head.jpg"
+    bio                    = "**Mr. Nobody**"
+    avatarSize             = 50
 
 [Params.Sitemap]
     changeFreq = "weekly"

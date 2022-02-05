@@ -9,7 +9,7 @@
 {{ if .IsHome -}}
     <title>{{ site.Title  | markdownify }}</title>
     
-<|--    {{ partial "preload" . }}  -->
+  {{ partial "preload" . }} 
 
     <!-- MathJax -->
     <link rel=dns-prefetch href=//cdn.jsdelivr.net />    
@@ -36,9 +36,9 @@
 {{ partial "doublinecore" . }}
 
 <!-- {{ partialCached "battery" . }} -->
-{{ partialCached "favicon" . }}
 {{ partialCached "css/css" . }}
 {{ partialCached "js/jquery" . }}
+
 
 {{ if eq .Params.Layout "gallery" }}
     {{ partialCached "css/fancybox" . }}
@@ -54,4 +54,6 @@
 {{end}}
 
 {{ partialCached "js/qr" . }}
+
+{{ partialCached "favicon" . }}
 </head>

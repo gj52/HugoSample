@@ -50,12 +50,13 @@
   }
   .no-break {
     display: block;
-    page-break-inside: avoid !important;
+    page-break-inside: avoid;
   }
-  figure {
+  img, figure {
     display: inline;
     margin: 0;
     padding: 0;
+    page-break-inside: avoid;
   }
   figcaption {
     font-weight: bold;
