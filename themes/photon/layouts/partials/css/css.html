@@ -1,38 +1,29 @@
-{{ $tachions  := resources.Get "css/tachyons.css" }}
-{{ $colors    := resources.Get "css/colors.css" }} 
-{{ $maincss   := resources.Get "css/main.css" }}
-{{ $fonta  := resources.Get "css/awesome.css" }}
-{{ $print     := resources.Get "css/print.css" }}
+{{ $tccs := resources.Get "css/tachyons.css" }}
+{{ $mccsl := resources.Get "css/light.css" }}
+{{ $mccsd := resources.Get "css/dark.css" }}
+{{ $mccs := resources.Get "css/main.css" }}
+{{ $accs := resources.Get "css/awesome.css" }}
+{{ $pccs := resources.Get "css/print.css" }}
 
 {{if hugo.IsProduction }}
-    {{ $tachions  = $tachions | minify | resources.Fingerprint site.Params.digest }}
-    {{ $colors    = $colors   | minify | resources.Fingerprint site.Params.digest }} 
-    {{ $maincss   = $maincss  | minify | resources.Fingerprint site.Params.digest }}
-    {{ $fonta     = $fonta    | minify | resources.Fingerprint site.Params.digest }}
-    {{ $print     = $print    | minify | resources.Fingerprint site.Params.digest }}
+    {{ $tccs  = $tccs  | minify | resources.Fingerprint site.Params.digest }}
+    {{ $mccsl = $mccsl | minify | resources.Fingerprint site.Params.digest }} 
+    {{ $mccsd = $mccsd | minify | resources.Fingerprint site.Params.digest }}
+    {{ $mccs  = $mccs  | minify | resources.Fingerprint site.Params.digest }}
+    {{ $accs  = $accs  | minify | resources.Fingerprint site.Params.digest }}
+    {{ $pccs  = $pccs  | minify | resources.Fingerprint site.Params.digest }}
 {{end}}
 
-<!--
-<link rel=preload  href={{ $tachions.RelPermalink  }} as=style integrity={{ $tachions.Data.Integrity }} >
-<link rel=preload  href={{ $colors.RelPermalink    }} as=style integrity={{ $colors.Data.Integrity   }} >
-<link rel=preload  href={{ $maincss.RelPermalink   }} as=style integrity={{ $maincss.Data.Integrity  }} >
-<link rel=preload  href={{ $fonta.RelPermalink     }} as=style integrity={{ $fonta.Data.Integrity  }} >
-<link rel=preload  href={{ $print.RelPermalink     }} as=style integrity={{ $print.Data.Integrity  }} media=print>
+<link rel=preload href={{ $tccs.RelPermalink  }} as=style integrity={{ $tccs.Data.Integrity  }}>
+<link rel=preload href={{ $mccsl.RelPermalink }} as=style integrity={{ $mccsl.Data.Integrity }}>
+<link rel=preload href={{ $mccsd.RelPermalink }} as=style integrity={{ $mccsd.Data.Integrity }}>
+<link rel=preload href={{ $mccs.RelPermalink  }} as=style integrity={{ $mccs.Data.Integrity  }}>
+<link rel=preload href={{ $accs.RelPermalink  }} as=style integrity={{ $accs.Data.Integrity  }}>
+<link rel=preload href={{ $pccs.RelPermalink  }} as=style integrity={{ $pccs.Data.Integrity  }}>
 
-<link rel=preload href=/webfonts/fa-regular-400.woff2 as=font type=font/woff2 >
-<link rel=preload href=/webfonts/fa-solid-900.woff2   as=font type=font/woff2 >
-
-<link rel=preload href=/img/wave-ms.jpg as=image type=image/jpeg 
-    media="screen and (min-width: 30em) and (max-width: 60em) and (prefers-color-scheme: light)" >
-<link rel=preload href=/img/wave-ls.jpg as=image type=image/jpeg 
-    media="screen and (min-width: 60em) and (prefers-color-scheme: light)">
-<link rel=preload href=/img/darkwave-ms.jpg as=image type=image/jpeg 
-    media="screen and (min-width: 30em) and (max-width: 60em) and (prefers-color-scheme: dark)" >
-<link rel=preload href=/img/darkwave-ls.jpg as=image type=image/jpeg 
-    media="screen and (min-width: 60em) and (prefers-color-scheme: dark)">
--->
-<link defer rel=stylesheet href={{ $tachions.RelPermalink  }} integrity={{ $tachions.Data.Integrity }}  />
-<link defer rel=stylesheet href={{ $colors.RelPermalink    }} integrity={{ $colors.Data.Integrity }} />
-<link defer rel=stylesheet href={{ $maincss.RelPermalink   }} integrity={{ $maincss.Data.Integrity }}  />
-<link defer rel=stylesheet href={{ $fonta.RelPermalink     }} integrity={{ $fonta.Data.Integrity }}  />
-<link defer rel=stylesheet href={{ $print.RelPermalink     }} integrity={{ $print.Data.Integrity }} media=print />
+<link async rel=stylesheet href={{ $tccs.RelPermalink  }} integrity={{ $tccs.Data.Integrity }} />
+<link rel=stylesheet href={{ $mccsl.RelPermalink }} integrity={{ $mccsl.Data.Integrity }} media="(prefers-color-scheme: light)"/>
+<link rel=stylesheet href={{ $mccsd.RelPermalink }} integrity={{ $mccsd.Data.Integrity }} media="(prefers-color-scheme: dark)"/>
+<link async rel=stylesheet href={{ $mccs.RelPermalink  }} integrity={{ $mccs.Data.Integrity }} />
+<link async rel=stylesheet href={{ $accs.RelPermalink  }} integrity={{ $accs.Data.Integrity }} />
+<link async rel=stylesheet href={{ $pccs.RelPermalink  }} integrity={{ $pccs.Data.Integrity }} media=print />

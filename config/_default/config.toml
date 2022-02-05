@@ -54,8 +54,6 @@ ignorecache                = false
 forceSyncStatic            = false
 #pluralizelisttitles       = false
 publishResources           = false
-#pygmentsCodefences         = true
-#pygmentsStyle              = "pygments"
 relativeURLs               = false
 removePathAccents          = true
 summaryLength              = 10
@@ -103,19 +101,6 @@ expiryDate                 = [ "expiryDate"]
       xhtml  = true
       hardWraps = false
 
-    [markup.highlight]
-      anchorLineNos = false
-      codeFences    = true
-      guessSyntax   = true
-      hl_Lines      = ''
-      lineAnchors   = ''
-      lineNoStart   = 1
-      lineNos       = false
-      lineNumbersInTable = true
-      noClasses     = false
-      style         = 'emacs'
-      tabWidth      = 4
-      
 ###############################################################
 
 # https://github.com/tdewolff/minify#html
@@ -168,9 +153,8 @@ expiryDate                 = [ "expiryDate"]
 
 
 [Params.sidebar]
-    avatar                 = "images/head.jpg"
-    bio                    = "**Mr. Nobody**"
-    avatarSize             = 50
+    avatar          = "images/head.jpg"
+    bio             = "**Mr. Nobody**"
 
 [Params.Sitemap]
     changeFreq = "weekly"

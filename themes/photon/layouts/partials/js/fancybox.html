@@ -1,5 +1,5 @@
 {{ $fb := resources.Get "js/jquery.fancybox.js" }}
 {{if hugo.IsProduction }}
-    {{ $fb = $fb | minify | fingerprint site.Params.digest }}
+    {{ $fb = $fb | minify | resources.Fingerprint site.Params.digest }}
 {{end}}
-<script rel=preload src={{ $fb.RelPermalink }} integrity={{ $fb.Data.Integrity }} crossorigin=anonymous ></script>
+<script defer src={{ $fb.RelPermalink }} integrity={{ $fb.Data.Integrity }} ></script>
