@@ -3,3 +3,5 @@
    {{ if strings.HasPrefix .Destination "http" -}} target=_blank rel="noopener noreferrer" {{- end }}>
    {{ .PlainText | safeHTML }}
 </a>
+{{ $url := urls.Parse .Destination }}
+{{ if strings.HasPrefix .Destination "http" -}} <link rel=dns-prefetch href={{ $url.Host  }} /> {{- end }}
