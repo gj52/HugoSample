@@ -1,7 +1,4 @@
-{{ if strings.HasPrefix .Destination "mailto" -}}<i class="fas fa-envelope"></i> {{end}}
-<a href={{ .Destination | safeURL }} 
-   {{ if strings.HasPrefix .Destination "http" -}} target=_blank rel="noopener noreferrer" {{- end }}>
-   {{ .PlainText | safeHTML }}
-</a>
-{{ $url := urls.Parse .Destination }}
-{{ if strings.HasPrefix .Destination "http" -}} <link rel=dns-prefetch href={{ $url.Host  }} /> {{- end }}
+{{ if strings.HasPrefix .Destination "http" -}}{{ $url := urls.Parse .Destination }}<link rel=dns-prefetch href=//{{ $url.Host  }} /> {{- end }}
+<a href={{ .Destination | safeURL }}
+	{{ if strings.HasPrefix .Destination "http" -}} target="_blank" rel="noopener noreferrer" {{- end }}
+>{{ .PlainText | safeHTML }}</a>
