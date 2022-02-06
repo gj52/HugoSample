@@ -1,5 +1,7 @@
 # This is a condensed Hugo sample.
 
+**Always using the latest HOGO version! - if something breaks ..**
+
 ## What to find here? 
 Should work with the latest Hugo version (*give me some days*).
 

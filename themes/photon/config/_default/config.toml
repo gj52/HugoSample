@@ -142,6 +142,7 @@
     name                   = "Home"
     pageRef                = "home"
     weight                 = 10
+    url                    = "/"
 
 [[menus.main]]
     identifier             = "post"
