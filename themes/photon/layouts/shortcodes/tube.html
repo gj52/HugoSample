@@ -1,13 +1,17 @@
 {{- $id    := .Get 0 -}}
 {{- $title := .Get 1 | default "YouTube Video" -}}
+{{ $path := $.Page.File.Path }}
 <div class="no-print  mw7-ns">
  <div class="mv2 videoWrapper" 
-{{- $bg := resources.GetRemote "https://img.youtube.com/vi/{{$id}}/mqdefault.jpg" -}}
+ {{ $src :=  printf "https://img.youtube.com/vi/%s/mqdefault.jpg" $id }}
+{{- $bg := resources.GetRemote $src -}}
  {{ with $bg }}
-	style="background:url(data:image/jpeg;base64,{{ .Content | base64Encode}}); background-size: cover;background-repeat: no-repeat; aspect-ratio='{{ .Width }}/{{ .Height }}'"
-	{{ warnf $id }}
+    {{ $h := div .Height 2}}{{ $w := div .Width 2}}
+	{{ $bgs := $bg.Fit (printf "%dx%d" $h $w)}}
+	style="background:url(data:image/jpeg;base64,{{ $bgs.Content | base64Encode}}); background-size: cover;background-repeat: no-repeat; aspect-ratio='{{ .Width }}/{{ .Height }}'"
  {{else}}
 	style="background:url(https://img.youtube.com/vi/{{$id}}/mqdefault.jpg); background-size: cover;background-repeat: no-repeat"
+	{{ warnf "Failed to load Youtube preview %s %q" $id $path  }}
  {{ end}} >
   <iframe loading=lazy defer class="bn w-100 h-100 absolute" 
  name={{$id}} title="{{ $title }}" 
