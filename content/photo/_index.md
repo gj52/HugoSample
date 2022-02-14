@@ -1,4 +1,4 @@
 +++
-title       = "Fotos"
-description = "Hier finden Sie alle meine Fotos"
+title       = "Photos"
+description = "all photos"
 +++

@@ -1,5 +1,5 @@
 +++
-title       = "Beiträge"
-description = "Hier finden Sie alle meine Beiträge"
+title       = "Posts"
+description = "all posts"
 +++
 

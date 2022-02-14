@@ -4,78 +4,88 @@
     {{ partial "single-head" . }}
 </header>
 <article>
-    {{ with .Content}}{{ . }}{{end}} {{ $ms := site.Params.Images.maxSize | default 1480}}
-    <div class=gallery>
+  {{ with .Content}}{{ . }}{{end}} {{ $ms := site.Params.Images.maxSize | default 1480}}
+
+  <div class=gallery>
     {{range .Resources.Match "gallery/*" -}}{{$alt := .Name}}{{$image := .}}{{ $preview := .Fit "480x320 jpg #ffffff q75" }}{{ $background := .Fit "33x22 jpg #ffffff q50" }} {{ $title := "preview"}}
 
-{{ $iw := $image.Width }}{{ $ih := $image.Height }}
-{{ if or (ge $iw $ms) (ge $ih $ms) }}{{ $image = $image.Fit (print $ms "x" $ms ) }}{{end}}
+    {{ $iw := $image.Width }}{{ $ih := $image.Height }}
+    {{ if or (ge $iw $ms) (ge $ih $ms) }}{{ $image = $image.Fit (print $ms "x" $ms ) }}{{end}}
 
-{{ $srcset := slice }}{{ range site.Params.Images.setSizes -}}
+    {{ $srcset := slice }}{{ range site.Params.Images.setSizes -}}
     {{ if lt (mul . 1.2) $iw }}{{ $size := print  . "x" .}}
     {{ $thumb := $image.Fit $size }}
     {{ $srcset = $srcset | append (printf ("%s %dw") $thumb.RelPermalink $thumb.Width ) }}
     {{ end }}
-{{- end }}
+    {{- end }}
 
-  <a data-fancybox="gallery" data-src={{$image.RelPermalink}} 
-    {{ if gt (len $srcset) 0 }}
-      data-sizes="(max-width: 480px) 90vw, (max-width: 960px) 80vw, {{ $image.Width }}px" 
-      {{ $sl := delimit $srcset ", "}}data-srcset="{{$sl}}" 
-    {{ end }}
-    data-type=image data-height={{ $image.Height }} data-width={{ $image.Width}}>
+    <a data-fancybox="gallery" data-src={{$image.RelPermalink}}
+       {{ if gt (len $srcset) 0 }}
+       data-sizes="(max-width: 480px) 90vw, (max-width: 960px) 80vw, {{ $image.Width }}px"
+       {{ $sl := delimit $srcset ", "}} data-srcset="{{$sl}}"
+       {{ end }}
+       data-type=image data-height={{ $image.Height }} data-width={{ $image.Width}}>
 
-    <img loading=lazy class=foto src={{ $preview.RelPermalink }}  alt="{{ $alt }}" title="{{$title}}"
-      width={{ $preview.Width }} height={{ $preview.Height }}
-      style="background: url(data:image/jpeg;base64,{{ $background.Content | base64Encode  }}); 
+      <img loading=lazy class=foto src={{ $preview.RelPermalink }} alt="{{ $alt }}" title="{{$title}}"
+           width={{ $preview.Width }} height={{ $preview.Height }}
+           style="background: url(data:image/jpeg;base64,{{ $background.Content | base64Encode  }});
       background-size:100% 100%;" />
-  </a>
-{{- end }}
-</div>
-{{ partial "prevnext" .}}   
+    </a>
+    {{- end }}
+
+  </div>
+
+  {{ $fb := resources.Get "js/fancybox.umd.js" }}
+  {{if hugo.IsProduction }}
+  {{ $fb = $fb | minify | fingerprint site.Params.digest }}
+  {{end}}
+  <script src={{ $fb.RelPermalink }} crossorigin=anonymous integrity={{ $fb.Data.Integrity }} ></script>
+
+  <script>
+    Fancybox.bind('[data-fancybox="gallery"]', {
+
+      Toolbar: true,
+      Zoom: false,
+
+      Thumbs: {
+        autoStart: false,
+      },
+
+      Image: {
+        zoom: false,
+        click: false,
+        fit: "contain",
+        wheel: "slide",
+      },
+
+      infinite: false,
+      animated: true,
+      showClass: false,
+      hideClass: false,
+
+      dragToClose: true,
+
+      l10n: {
+        CLOSE: "Schließen",
+        NEXT: "Nächstes",
+        PREV: "Vorheriges",
+        MODAL: "Vorschau mit ESC schließen!",
+        ERROR: "Something Went Wrong, Please Try Again Later",
+        IMAGE_ERROR: "Bild nicht gefunden",
+        ELEMENT_NOT_FOUND: "HTML Element nicht gefunden",
+        AJAX_NOT_FOUND: "Error Loading AJAX : Not Found",
+        AJAX_FORBIDDEN: "Error Loading AJAX : Forbidden",
+        IFRAME_ERROR: "Error Loading Page",
+        TOGGLE_ZOOM: "Zoom umschalten",
+        TOGGLE_THUMBS: "Bildleiste an / aus",
+        TOGGLE_SLIDESHOW: "Slideshow an / aus",
+        TOGGLE_FULLSCREEN: "Vollbild an / aus",
+        DOWNLOAD: "Download"
+      }
+    });
+  </script>
+
+  {{ partial "prevnext" .}}
 </article>
-
-{{ $fb := resources.Get "js/jquery.fancybox.js" }}
-{{if hugo.IsProduction }}
-    {{ $fb = $fb | minify | fingerprint site.Params.digest }}
-{{end}}
-<script src={{ $fb.RelPermalink }} integrity={{ $fb.Data.Integrity }} crossorigin=anonymous ></script>
-<script importance=low>
-$('[data-fancybox="gallery"]').fancybox({
-
-  lang: "de",
-
-   Toolbar: {
-    display: [
-      { id: "prev", position: "center" },
-      { id: "counter", position: "center" },
-      { id: "next", position: "center" },
-      "slideshow",
-      "fullscreen",
-      "thumbs",
-      "close",
-    ],
-  },
-  
-  animated: true,
-  dragToClose: false,
-
-  showClass: false,
-  hideClass: false,
-
-  closeButton: "top",
-
-  Image: {
-    zoom: false,
-    click: false,
-    wheel: "slide"
-  },
-
-  Thumbs: {
-    autoStart: false,
-  },
-
-});
-</script>
 
 {{ end }}

@@ -1,7 +1,7 @@
 +++
 categories  = ["Tags"]
 title       = "Index"
-description = "Index - alle vergebenen Schlagworte"
+description = "Index - all used tags"
 +++
 
 

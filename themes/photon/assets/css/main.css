@@ -322,14 +322,13 @@ a[data-fancybox] img {
 }
 
 .fancybox__container {
-  --fancybox-bg: rgba(0, 0, 0, 1);
-  height: 100%;
+  --fancybox-bg: rgba(0, 0, 0, .9);
 }
 
 .fancybox__container .fancybox__content {
   /* Create white border around the image */
   box-sizing: content-box;
-  padding: 1rem;
+  padding: 0;
   background: #fff;
   border-radius: 6px;
   color: #374151;

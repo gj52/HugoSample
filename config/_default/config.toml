@@ -101,21 +101,19 @@ expiryDate                 = [ "expiryDate"]
       xhtml  = true
       hardWraps = false
 
-###############################################################
-
-# https://github.com/tdewolff/minify#html
-[minify] 
-# HTML
-    minifyOutput             = false
-    KeepComments             = false
-    KeepConditionalComments  = false
-    KeepWhitespace           = false
-    KeepDefaultAttrVals      = false
-    KeepEndTags              = true
-    KeepQuotes               = false   # HTML5!    
-# JSON
-    KeepNumbers              = true
-
+    [markup.highlight]
+      anchorLineNos = false
+      codeFences    = true
+      guessSyntax   = true
+      hl_Lines      = ''
+      lineAnchors   = ''
+      lineNoStart   = 1
+      lineNos       = false
+      lineNumbersInTable = true
+      noClasses     = false
+      style         = 'emacs'
+      tabWidth      = 4
+      
 ###############################################################
 
 [taxonomies]
@@ -153,7 +151,8 @@ expiryDate                 = [ "expiryDate"]
 
 
 [Params.sidebar]
-    avatar          = "images/head.jpg"
+    avatar          = "img/head.jpg"
+    avatarSize      = 80
     bio             = "**Mr. Nobody**"
 
 [Params.Sitemap]

@@ -1,23 +1,17 @@
 +++
-description = "ist kein Impressum"
+description = "about me"
 title       = "about"
 layout      = "single"
 noSearch    = true
 +++
-## über mich
+## about me
 
-Ich habe viele Jahre als Informatiker gearbeitet und habe mir als Rentner eine kleine Spielwiese geschaffen, um die grauen Zellen noch etwas in Bewegung zu halten.<!--more-->
+fill in what is abbout you
 
-## diese Seite
+<!--more-->
 
-Diese Web-Seite ist für mich eine technische Spielwiese. Hier probiere ich **Hugo** aus. Als CSS verwende ich **Tachyons**.  
+## this site
 
-Als leidenschaftlicher Fotograf nutze ich diese Seite zur Präsentation einiger Fotos.  Dazu habe benutze ich **Fancybox** als Gallerie, **OpenSeaMap** für die Panoramen.
-
-Verweise auf meine Quellen stehen unter [Links]({{< ref "/link/_index.md" >}}).
-
-
-
-
+This is my condensed playground - samples for Hugo users.
 
 

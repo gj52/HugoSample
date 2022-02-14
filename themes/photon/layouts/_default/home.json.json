@@ -3,14 +3,14 @@
   {{ $t := ( print site.Title " JSON" ) }}"title"        : {{ $t | jsonify }},
   "home_page_url": {{ site.BaseURL  | absURL | jsonify }},
   {{ with .OutputFormats.Get "JSON" }}"feed_url"     : {{.Permalink | absURL | jsonify }},{{ end }} 
-  {{with site.Params.description}}"description" : {{site.Params.description | jsonify}},{{end}}
+  {{with site.Params.description}}"description"  : {{site.Params.description | jsonify}},{{end}}
   {{ $icon := resources.Get "img/favicon.svg" }}
   "icon"         : "{{$icon.Permalink}}",
   "favicon"      : "{{$icon.Permalink}}",
   {{ with site.Author.name         }}"authors"      : [
     {
-      "name"       : {{ . | jsonify }},
-      "avatar"     : {{ site.Params.sidebar.avatar | absURL | jsonify }}
+      "name"     : {{ . | jsonify }},
+      "avatar"   : {{ site.Params.sidebar.avatar | absURL | jsonify }}
     }
   ],  {{ end }}
   {{ with site.LanguageCode }}"language" : "{{ . }}",{{ end }}{{ $feedsize := site.Params.feedSize | default 25 }}

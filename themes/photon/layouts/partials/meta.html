@@ -42,7 +42,9 @@
 
 {{ if eq .Params.Layout "gallery" }}
     {{ partialCached "css/fancybox" . }}
-    {{ partialCached "js/fancybox"  . }}
+<!--
+{{ partialCached "js/fancybox"  . }}
+-->
 {{ end }}
 
 {{ if eq .Params.Layout "panorama" }}

@@ -1,5 +1,5 @@
-{{ $fccs := resources.Get "css/jquery.fancybox.css" }}
-{{if hugo.IsProduction }}   
-    {{ $fccs  = $fccs | minify | fingerprint site.Params.digest }}
-{{end}} 
-<link rel="preload" href={{ $fccs.RelPermalink }} as="style" integrity={{ $fccs.Data.Integrity }} media="screen, print" crossorigin=anonymous>
+{{ $fb  := resources.Get "css/fancybox.css" }}
+{{if hugo.IsProduction }}
+{{ $fb  = $fb | minify | fingerprint site.Params.digest }}
+{{end}}
+<link rel=stylesheet href={{ $fb.RelPermalink  }} crossorigin=anonymous integrity={{ $fb.Data.Integrity }} />

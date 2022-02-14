@@ -1,6 +1,6 @@
 +++
 title       = "Links"
-description = "Das ist die Sammelstelle für interessante Links."
+description = "my links"
 datafile    = "/assets/links/links.json"
 layout      = "single"
 +++

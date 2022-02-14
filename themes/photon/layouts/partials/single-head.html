@@ -1,7 +1,6 @@
 {{ range site.Menus.main }}
 	{{ $.Scratch.Set .Identifier .Name }}
 {{ end}}
-{{ $.Scratch.Set "Intern" "Internes"}}
 
 {{if not .IsHome -}}
 <div class="b no-print w-100">

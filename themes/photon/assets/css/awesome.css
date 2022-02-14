@@ -1,7 +1,7 @@
 /*!
- * Font Awesome Free 6.0.0-beta3 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
- * Copyright 2021 Fonticons, Inc.
+ * Copyright 2022 Fonticons, Inc.
  */
 .fa {
   font-family: var(--fa-style-family, "Font Awesome 6 Free");
@@ -135,6 +135,20 @@
   -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
           animation-timing-function: var(--fa-animation-timing, ease-in-out); }
 
+.fa-bounce {
+  -webkit-animation-name: fa-bounce;
+          animation-name: fa-bounce;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1)); }
+
 .fa-fade {
   -webkit-animation-name: fa-fade;
           animation-name: fa-fade;
@@ -177,6 +191,20 @@
   -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
           animation-timing-function: var(--fa-animation-timing, ease-in-out); }
 
+.fa-shake {
+  -webkit-animation-name: fa-shake;
+          animation-name: fa-shake;
+  -webkit-animation-delay: var(--fa-animation-delay, 0);
+          animation-delay: var(--fa-animation-delay, 0);
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+          animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+          animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, linear);
+          animation-timing-function: var(--fa-animation-timing, linear); }
+
 .fa-spin {
   -webkit-animation-name: fa-spin;
           animation-name: fa-spin;
@@ -209,10 +237,12 @@
 
 @media (prefers-reduced-motion: reduce) {
   .fa-beat,
+  .fa-bounce,
   .fa-fade,
   .fa-beat-fade,
   .fa-flip,
   .fa-pulse,
+  .fa-shake,
   .fa-spin,
   .fa-spin-pulse {
     -webkit-animation-delay: -1ms;
@@ -221,10 +251,8 @@
             animation-duration: 1ms;
     -webkit-animation-iteration-count: 1;
             animation-iteration-count: 1;
-    -webkit-transition-delay: 0s;
-            transition-delay: 0s;
-    -webkit-transition-duration: 0s;
-            transition-duration: 0s; } }
+    transition-delay: 0s;
+    transition-duration: 0s; } }
 
 @-webkit-keyframes fa-beat {
   0%, 90% {
@@ -241,6 +269,52 @@
   45% {
     -webkit-transform: scale(var(--fa-beat-scale, 1.25));
             transform: scale(var(--fa-beat-scale, 1.25)); } }
+
+@-webkit-keyframes fa-bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0); }
+  10% {
+    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0); }
+  30% {
+    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em)); }
+  50% {
+    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0); }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em)); }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0); }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0); } }
+
+@keyframes fa-bounce {
+  0% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0); }
+  10% {
+    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0); }
+  30% {
+    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em)); }
+  50% {
+    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0); }
+  57% {
+    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em)); }
+  64% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0); }
+  100% {
+    -webkit-transform: scale(1, 1) translateY(0);
+            transform: scale(1, 1) translateY(0); } }
 
 @-webkit-keyframes fa-fade {
   50% {
@@ -279,6 +353,64 @@
   50% {
     -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
             transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg)); } }
+
+@-webkit-keyframes fa-shake {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg); }
+  4% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg); }
+  8%, 24% {
+    -webkit-transform: rotate(-18deg);
+            transform: rotate(-18deg); }
+  12%, 28% {
+    -webkit-transform: rotate(18deg);
+            transform: rotate(18deg); }
+  16% {
+    -webkit-transform: rotate(-22deg);
+            transform: rotate(-22deg); }
+  20% {
+    -webkit-transform: rotate(22deg);
+            transform: rotate(22deg); }
+  32% {
+    -webkit-transform: rotate(-12deg);
+            transform: rotate(-12deg); }
+  36% {
+    -webkit-transform: rotate(12deg);
+            transform: rotate(12deg); }
+  40%, 100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); } }
+
+@keyframes fa-shake {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg); }
+  4% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg); }
+  8%, 24% {
+    -webkit-transform: rotate(-18deg);
+            transform: rotate(-18deg); }
+  12%, 28% {
+    -webkit-transform: rotate(18deg);
+            transform: rotate(18deg); }
+  16% {
+    -webkit-transform: rotate(-22deg);
+            transform: rotate(-22deg); }
+  20% {
+    -webkit-transform: rotate(22deg);
+            transform: rotate(22deg); }
+  32% {
+    -webkit-transform: rotate(-12deg);
+            transform: rotate(-12deg); }
+  36% {
+    -webkit-transform: rotate(12deg);
+            transform: rotate(12deg); }
+  40%, 100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); } }
 
 @-webkit-keyframes fa-spin {
   0% {
@@ -778,15 +910,6 @@ readers do not read off random characters that represent icons */
 .fa-band-aid::before {
   content: "\f462"; }
 
-.fa-bank::before {
-  content: "\f19c"; }
-
-.fa-institution::before {
-  content: "\f19c"; }
-
-.fa-university::before {
-  content: "\f19c"; }
-
 .fa-barcode::before {
   content: "\f02a"; }
 
@@ -816,6 +939,9 @@ readers do not read off random characters that represent icons */
 
 .fa-baseball-ball::before {
   content: "\f433"; }
+
+.fa-baseball-bat-ball::before {
+  content: "\f432"; }
 
 .fa-basket-shopping::before {
   content: "\f291"; }
@@ -927,6 +1053,9 @@ readers do not read off random characters that represent icons */
 
 .fa-zap::before {
   content: "\f0e7"; }
+
+.fa-bolt-lightning::before {
+  content: "\e0b7"; }
 
 .fa-bomb::before {
   content: "\f1e2"; }
@@ -1060,8 +1189,26 @@ readers do not read off random characters that represent icons */
 .fa-bug::before {
   content: "\f188"; }
 
+.fa-bug-slash::before {
+  content: "\e490"; }
+
 .fa-building::before {
   content: "\f1ad"; }
+
+.fa-building-columns::before {
+  content: "\f19c"; }
+
+.fa-bank::before {
+  content: "\f19c"; }
+
+.fa-institution::before {
+  content: "\f19c"; }
+
+.fa-museum::before {
+  content: "\f19c"; }
+
+.fa-university::before {
+  content: "\f19c"; }
 
 .fa-bullhorn::before {
   content: "\f0a1"; }
@@ -1762,11 +1909,20 @@ readers do not read off random characters that represent icons */
 .fa-dharmachakra::before {
   content: "\f655"; }
 
+.fa-diagram-next::before {
+  content: "\e476"; }
+
+.fa-diagram-predecessor::before {
+  content: "\e477"; }
+
 .fa-diagram-project::before {
   content: "\f542"; }
 
 .fa-project-diagram::before {
   content: "\f542"; }
+
+.fa-diagram-successor::before {
+  content: "\e47a"; }
 
 .fa-diamond::before {
   content: "\f219"; }
@@ -2495,10 +2651,16 @@ readers do not read off random characters that represent icons */
   content: "\f52f"; }
 
 .fa-gauge::before {
-  content: "\f625"; }
+  content: "\f624"; }
 
 .fa-dashboard::before {
-  content: "\f625"; }
+  content: "\f624"; }
+
+.fa-gauge-med::before {
+  content: "\f624"; }
+
+.fa-tachometer-alt-average::before {
+  content: "\f624"; }
 
 .fa-gauge-high::before {
   content: "\f625"; }
@@ -2510,7 +2672,13 @@ readers do not read off random characters that represent icons */
   content: "\f625"; }
 
 .fa-gauge-simple::before {
-  content: "\f62a"; }
+  content: "\f629"; }
+
+.fa-gauge-simple-med::before {
+  content: "\f629"; }
+
+.fa-tachometer-average::before {
+  content: "\f629"; }
 
 .fa-gauge-simple-high::before {
   content: "\f62a"; }
@@ -2925,6 +3093,9 @@ readers do not read off random characters that represent icons */
 
 .fa-house-chimney-user::before {
   content: "\e065"; }
+
+.fa-house-chimney-window::before {
+  content: "\e00d"; }
 
 .fa-house-crack::before {
   content: "\e3b1"; }
@@ -3388,6 +3559,15 @@ readers do not read off random characters that represent icons */
 .fa-mitten::before {
   content: "\f7b5"; }
 
+.fa-mobile::before {
+  content: "\f3ce"; }
+
+.fa-mobile-android::before {
+  content: "\f3ce"; }
+
+.fa-mobile-phone::before {
+  content: "\f3ce"; }
+
 .fa-mobile-button::before {
   content: "\f10b"; }
 
@@ -3511,11 +3691,14 @@ readers do not read off random characters that represent icons */
 .fa-pager::before {
   content: "\f815"; }
 
-.fa-paint-brush::before {
-  content: "\f1fc"; }
-
 .fa-paint-roller::before {
   content: "\f5aa"; }
+
+.fa-paintbrush::before {
+  content: "\f1fc"; }
+
+.fa-paint-brush::before {
+  content: "\f1fc"; }
 
 .fa-palette::before {
   content: "\f53f"; }
@@ -4576,6 +4759,12 @@ readers do not read off random characters that represent icons */
 .fa-table-tennis::before {
   content: "\f45d"; }
 
+.fa-tablet::before {
+  content: "\f3fb"; }
+
+.fa-tablet-android::before {
+  content: "\f3fb"; }
+
 .fa-tablet-button::before {
   content: "\f10a"; }
 
@@ -5110,6 +5299,12 @@ readers do not read off random characters that represent icons */
 .fa-virus::before {
   content: "\e074"; }
 
+.fa-virus-covid::before {
+  content: "\e4a8"; }
+
+.fa-virus-covid-slash::before {
+  content: "\e4a9"; }
+
 .fa-virus-slash::before {
   content: "\e075"; }
 
@@ -5169,6 +5364,9 @@ readers do not read off random characters that represent icons */
 
 .fa-magic-wand-sparkles::before {
   content: "\e2ca"; }
+
+.fa-wand-sparkles::before {
+  content: "\f72b"; }
 
 .fa-warehouse::before {
   content: "\f494"; }
@@ -5348,9 +5546,6 @@ readers do not read off random characters that represent icons */
 
 .fa-accusoft:before {
   content: "\f369"; }
-
-.fa-acquisitions-incorporated:before {
-  content: "\f6af"; }
 
 .fa-adn:before {
   content: "\f170"; }
@@ -5940,6 +6135,9 @@ readers do not read off random characters that represent icons */
 .fa-hackerrank:before {
   content: "\f5f7"; }
 
+.fa-hashnode:before {
+  content: "\e499"; }
+
 .fa-hips:before {
   content: "\f452"; }
 
@@ -6201,6 +6399,9 @@ readers do not read off random characters that represent icons */
 .fa-osi:before {
   content: "\f41a"; }
 
+.fa-padlet:before {
+  content: "\e4a0"; }
+
 .fa-page4:before {
   content: "\f3d7"; }
 
@@ -6215,9 +6416,6 @@ readers do not read off random characters that represent icons */
 
 .fa-paypal:before {
   content: "\f1ed"; }
-
-.fa-penny-arcade:before {
-  content: "\f704"; }
 
 .fa-perbyte:before {
   content: "\e083"; }
