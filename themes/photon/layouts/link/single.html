@@ -11,7 +11,7 @@
 			{{ if not .draft }}
 				<div class="dib pt3 pl2 w-100">
 					{{ $url := urls.Parse .url }} <link rel=dns-prefetch href=//{{ $url.Host }} />
-					<div class=f4><i class="fas fa-external-link-alt fa-fw"></i> <a class="b link hover-dark-pink" href={{ .url }} target=_blank rel="noopener noreferrer">{{ .title }}</a></div>
+					<div class=f4><a class="b link hover-dark-pink" href={{ .url }} target=_blank rel="noopener noreferrer"><i class="fas fa-external-link-alt fa-fw f5"></i> {{ .title }}</a></div>
 					<div class="pt2 f5">{{ .description }}</div>
 				</div>
 			{{end}}
