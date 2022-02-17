@@ -1,3 +1,4 @@
+<div class="pt2 pl4">
 <form id="custom-search" name="custom-search" method="post" action="" onsubmit="customSearchResults(); return false;">
     <p>
     <input id="custom-search-field" type="text" name="search" value="" title="Search String" placeholder="SearchString">
@@ -21,7 +22,7 @@
 <script>
 // CUSTOM AREA
 let params = {
-    json_src       : '/search/search.catalog', // for multiple sources: comma separated list of JSONarrays
+    json_src       : '/search/search.json', // for multiple sources: comma separated list of JSONarrays
     minlength      : 3,
     defaultsearch  : 'AND',
     sort_date      : 'DESC',
@@ -62,3 +63,4 @@ let searchfield_weight = {
 {{ $s := resources.Get "js/search.js" }}
 {{ $s = $s | minify | fingerprint site.Params.digest }} 
 <script src={{ $s.RelPermalink }} integrity={{ $s.Data.Integrity }} ></script>
+</div>

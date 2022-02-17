@@ -1,8 +1,5 @@
 +++
 categories  = ["Series"]
 title       = "Series"
-description = "all series"
+description = "all my series"
 +++
-
-
-

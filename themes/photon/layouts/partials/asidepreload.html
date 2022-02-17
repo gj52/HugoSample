@@ -1,2 +1,2 @@
-{{ $avw := site.Params.sidebar.avatarSize }}{{ $image := resources.Get site.Params.sidebar.avatar }}{{ $image = $image.Resize (print $avw "x" $avw " jpg q50")  }}
- <link rel="preload" as="image" href={{ $image.RelPermalink }}  type=image/jpeg crossorigin=anonymous />
+{{ $avw := site.Params.sidebar.avatarSize }}{{ $image := resources.Get site.Params.sidebar.avatar }}{{ $image = $image.Resize (print $avw "x" $avw " " site.Params.sidebar.avatarQuality)  }}
+<link rel=preload href={{ $image.RelPermalink }} as=image type=image/jpeg crossorigin />

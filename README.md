@@ -1,6 +1,8 @@
 # This is a condensed Hugo sample.
 
-**Always using the latest HOGO version! - if something breaks ..**
+**Always using the latest HOGO version!**
+
+**After recent commits please wait some days - work in progress!**
 
 ## What to find here? 
 Should work with the latest Hugo version (*give me some days*).

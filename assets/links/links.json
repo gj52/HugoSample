@@ -18,12 +18,12 @@
     {
       "title": "Fancybox",
       "description": "Lichtkasten-Bibliothek für Fotos und andere Medien",
-      "url": "http://fancyapps.com/fancybox/3/"
+      "url": "https://fancyapps.com/docs/ui/fancybox/"
     },
     {
       "title": "Font-Awesome",
       "description": "Das weltweit populärste und am einfachsten zu benutzende Icon-Set",
-      "url": "https://fontawesome.com/icons?d=gallery&m=free"
+      "url": "https://fontawesome.com/v6/icons/"
     },
     {
       "title": "Hugo",
@@ -38,12 +38,12 @@
     {
       "title": "JSON ECMA",
       "description": "Standard ECMA-404 - The JSON Data Interchange Syntax",
-      "url": "https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf"
+      "url": "https://www.ecma-international.org/publications-and-standards/standards/ecma-404/"
     },
     {
       "title": "JSON Feed ORG",
       "description": "We developed JSON Feed, a format similar to RSS and Atom but in JSON",
-      "url": "https://jsonfeed.org/"
+      "url": "https://www.jsonfeed.org/"
     },
     {
       "title": "Let's Encrypt",
@@ -100,22 +100,22 @@
     {
         "title": "Atom Syndication Format",
         "description": "The Atom Syndication Format.",
-        "url": "https://tools.ietf.org/html/rfc4287"
+      "url": "https://datatracker.ietf.org/doc/html/rfc4287/"
     },
     {
-        "title": "HTML5 Reference",
-        "description": "The Syntax, Vocabulary and APIs of HTML5",
-        "url": "https://dev.w3.org/html5/html-author/"
+      "title": "HTML Living Standard",
+      "description": "The current HTML standard. It obsoletes all other previously-published HTML specifications.",
+      "url": "https://html.spec.whatwg.org/multipage/"
     },
     {
         "title": "GitHub Flavored Markdown Spec",
         "description": "Markdown is a plain text format for writing structured documents",
-        "url": "https://github.github.com/gfm/"
+      "url": "https://github.com/docschina/GFM-docs/"
     },
     {
         "title": "Markdown Tables Generator",
         "description": "Tables Generator for LaTeX, HTML, Text, Markdown und MediaWiki",
-        "url": "https://www.tablesgenerator.com/markdown_tables"
+      "url": "https://www.tablesgenerator.com/markdown_tables/"
     },
     {
         "title": "Web App Manifest",
@@ -128,9 +128,9 @@
         "url": "https://content-security-policy.com/"
     },
     {
-        "title": "WebHint Scanner",
-        "description": "webhint to improve your website",
-        "url": "https://webhint.io/scanner/"
+      "title": "Page Speed Tools",
+      "description": "Analyze and optimize your website with PageSpeed tools",
+      "url": "https://developers.google.com/speed/"
     },
     {
         "title": "JSON-LD",

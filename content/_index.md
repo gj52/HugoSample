@@ -1,6 +1,6 @@
 +++
 menu    = "home"
-title   = "Willkommen auf meiner Spielwiese"
+title   = "Welcome on my playground"
 tags    = []
 +++
 

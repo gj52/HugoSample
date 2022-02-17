@@ -48,8 +48,8 @@
     suffixes               = ["json"]
 
 # search
-  [mediaTypes."application/json-catalog"]
-    suffixes               = ["catalog"]
+  [mediaTypes."application/catalog+json"]
+    suffixes               = ["json"]
 
   [mediaTypes."application/manifest+json"]
     suffixes               = ["webmanifest"]
@@ -105,7 +105,7 @@
     Rel                    = "manifest"
 
 [outputFormats.SEARCH]
-    MediaType              = "application/json-catalog"
+    MediaType              = "application/catalog+json"
     BaseName               = "search/search"
     IsHTML                 = false
     IsPlainText            = true
