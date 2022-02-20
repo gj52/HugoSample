@@ -1,9 +1,10 @@
 {{ range site.Menus.main }}
 	{{ $.Scratch.Set .Identifier .Name }}
 {{ end}}
+{{ $.Scratch.Set "Intern" "Internes"}}
 
 {{if not .IsHome -}}
-<div class="b no-print w-100">
+<div class="b no-print w-100 pb1">
 	<a href={{ site.Home.RelPermalink}} ><i class="fas fa-home fa-fw" title=Home ></i></a>
 	<span class=nowrap>{{ with site.GetPage .Section }}<a class=ph1 href={{ .RelPermalink }} >{{ .Name }}</a>{{ end}}</span> 
 	{{if isset .Params "tags" -}}

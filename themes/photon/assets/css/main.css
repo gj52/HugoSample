@@ -13,6 +13,10 @@ html {
   overflow-y: auto;
   scroll-behavior: smooth;
   height: 100vh;
+
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 /* special styles */
@@ -73,7 +77,7 @@ hr {
   border: 0;
   margin: 0;
   padding: 0;
-  border-top: 1px solid rgba( 0, 0, 0, .4);
+  border-top: 1px solid var(--hr-color);
   /* scroll-snap-align: start; */
 }
 
@@ -102,6 +106,13 @@ a:hover {
 
 a:focus {
   color: var(--link-color);
+}
+
+/* external links */
+.aext a::after {
+  font: var(--fa-font-solid);
+  font-size: .75rem;
+  content: " \f08e";
 }
 
 pre {
@@ -438,16 +449,20 @@ header {
   height: auto;
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-color: var(--box-border);
+  border-color: var(--hr-color);
 }
 
 footer {
   grid-area: ft;
-  border-color: var(--box-border);
+  border-color: var(--hr-color);
   content-visibility: auto;
   height: 4rem;
   padding-top: .5rem;
   padding-bottom: .5rem;
+}
+
+.liste {
+  column-rule: 1px solid var(--hr-color);
 }
 
 article {
@@ -494,6 +509,7 @@ article {
   content: "Quote: ";
 }
 
+
 @supports (display:grid) {
   aside {
     grid-area: aa;
@@ -538,6 +554,7 @@ article {
   .liste {
     column-count: 3;
   }
+
   footer {
     height: 2rem;
   }
@@ -578,3 +595,5 @@ article {
     scroll-behavior: auto !important;
   }
 }
+
+

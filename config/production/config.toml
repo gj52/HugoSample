@@ -1,21 +1,21 @@
 [minify]
     minifyOutput = true
 
-#    [minify.tdewolff]
-#        [minify.tdewolff.html]
-#            keepConditionalComments = false
-#            keepDefaultAttrVals     = false
-#            keepDocumentTags        = true
-#            keepEndTags             = true
-#			keepQuotes              = false
-#            KeepWhitespace          = true
-#
-#        [minify.tdewolff.json]
-#            KeepNumbers             = true
-#
-#        [minify.tdewolff.js]
-#            KeepVarNames            = false
-#
-#        [minify.tdewolff.xml]
-#            KeepWhitespace          = false
+    [minify.tdewolff]
+        [minify.tdewolff.html]
+            keepConditionalComments = false
+            keepDefaultAttrVals     = false
+            keepDocumentTags        = true
+            keepEndTags             = true
+			keepQuotes              = false
+            KeepWhitespace          = false
+
+        [minify.tdewolff.json]
+            KeepNumbers             = true
+
+        [minify.tdewolff.js]
+            KeepVarNames            = false
+
+        [minify.tdewolff.xml]
+            KeepWhitespace          = false
 

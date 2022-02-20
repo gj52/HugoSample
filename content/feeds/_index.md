@@ -3,7 +3,7 @@ title       = "Feeds"
 layout      = "single"
 nosearch    = true
 url         = "/feeds"
-description = "alle vorhandenen Feeds"
+description = "all Feeds"
 +++
 ## Feeds
 

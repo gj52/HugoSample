@@ -1,3 +1,3 @@
-<span {{ with (.Get "class") }} class={{.}} {{end}}>
+<div {{ with (.Get "class") }} class="{{.}}" {{end}}>
 {{ .Inner | .Page.RenderString }}
-</span>
+</div>
