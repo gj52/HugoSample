@@ -2,31 +2,54 @@
 
 #disableKinds               = ["RSS", "sitemap"]
 
-[permalinks]
-    post                   = "/:section/:year/:month/:day/:title"
-    photo                  = "/:section/:year/:month/:day/:title"
-    book                   = "/:sections/:title"
-    series                 = "/:section/:slug"
-    tags                   = "/:section/:slug"
-    about                  = "/:section/:slug"
-    search                 = "/:section/:slug"
-    intern                 = "/:section/:year/:month/:day/:title"
-    test                   = "/:section/:title"
+###############################################################
 
-[Params.Pagination]
-    PagesPerList           = 10
-    PagesPerListHome       = 12
-    Paginate               = 10
-    firstIndicator         = "<i class=\"fas fa-angle-double-left\"></i>"
-    previousIndicator      = "<i class=\"fas fa-angle-left\"></i>"
-    nextIndicator          = "<i class=\"fas fa-angle-right\"></i>"
-    lastIndicator          = "<i class=\"fas fa-angle-double-right\"></i>"
-    showBeginEnd           = false
-    spaceIndicator         = "<b> ... </b>"
-    pagesBetweenActive     = 5
-	
-	
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  
+### https://github.com/yuin/goldmark/#built-in-extensions
+
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      autolinks      = false
+      definitionList = false
+      footnote       = true
+      linkify        = true
+      strikethrough  = true
+      table          = true
+      taskList       = false
+      typographer    = true
+      
+    [markup.goldmark.parser]
+#      autoHeadingID     = false
+#      autoHeadingIDType = "github"
+       withAttribute     = true
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
+        
+    [markup.goldmark.renderer]
+      unsafe = true
+      xhtml  = true
+      hardWraps = false
+
+    [markup.highlight]
+      anchorLineNos = false
+      codeFences    = true
+      guessSyntax   = true
+      hl_Lines      = ''
+      lineAnchors   = ''
+      lineNoStart   = 1
+      lineNos       = false
+      lineNumbersInTable = true
+      noClasses     = false
+      style         = 'emacs'
+      tabWidth      = 4
+
+    
 ################# Image handling ###########
+
 # shortcode   figure.html
 # render hook render-image.html
 
@@ -135,6 +158,17 @@
 
     digest                 = "sha384" # sha256, sha384, sha512
 	
+[Params.Pagination]
+    PagesPerList           = 10
+    PagesPerListHome       = 12
+    Paginate               = 10
+    firstIndicator         = "<i class=\"fas fa-angle-double-left\"></i>"
+    previousIndicator      = "<i class=\"fas fa-angle-left\"></i>"
+    nextIndicator          = "<i class=\"fas fa-angle-right\"></i>"
+    lastIndicator          = "<i class=\"fas fa-angle-double-right\"></i>"
+    showBeginEnd           = false
+    spaceIndicator         = "<b> ... </b>"
+    pagesBetweenActive     = 5
 
 [menus]
 [[menus.main]]

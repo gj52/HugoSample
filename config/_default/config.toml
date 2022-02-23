@@ -54,6 +54,8 @@ ignorecache                = false
 forceSyncStatic            = false
 #pluralizelisttitles       = false
 publishResources           = false
+#pygmentsCodefences         = true
+#pygmentsStyle              = "pygments"
 relativeURLs               = false
 removePathAccents          = true
 summaryLength              = 10
@@ -71,55 +73,38 @@ expiryDate                 = [ "expiryDate"]
 
 [_build]
   publishResources = false
+  _merge           = "deep"
 
 ###############################################################
 
-[markup]
-  defaultMarkdownHandler = "goldmark"
-  
-### https://github.com/yuin/goldmark/#built-in-extensions
+[caches]
+  [caches.assets]
+    dir = ':resourceDir/_gen'
+    maxAge = -1
+  [caches.getcsv]
+    dir = ':cacheDir/:project'
+    maxAge = -1
+  [caches.getjson]
+    dir = ':cacheDir/:project'
+    maxAge = -1
+  [caches.getresource]
+    dir = ':cacheDir/:project'
+    maxAge = -1
+  [caches.images]
+    dir = ':resourceDir/_gen'
+    maxAge = -1
+  [caches.modules]
+    dir = ':cacheDir/modules'
+    maxAge = -1
 
-  [markup.goldmark]
-    [markup.goldmark.extensions]
-	  autolinks      = false
-      definitionList = false
-      footnote       = true
-      linkify        = true
-      strikethrough  = true
-      table          = true
-      taskList       = false
-      typographer    = true
-    [markup.goldmark.parser]
-#      autoHeadingID     = false
-#      autoHeadingIDType = "github"
-       withAttribute     = true
-      [markup.goldmark.parser.attribute]
-        block = true
-        title = true
-    [markup.goldmark.renderer]
-      unsafe = true
-      xhtml  = true
-      hardWraps = false
 
-    [markup.highlight]
-      anchorLineNos = false
-      codeFences    = true
-      guessSyntax   = true
-      hl_Lines      = ''
-      lineAnchors   = ''
-      lineNoStart   = 1
-      lineNos       = false
-      lineNumbersInTable = true
-      noClasses     = false
-      style         = 'emacs'
-      tabWidth      = 4
       
 ###############################################################
 
 [taxonomies]
     tag                    = "tags"
     serie                  = "series"
-#   categorie NOT used!
+#   category NOT used!
 
 ###############################################################
 
@@ -131,6 +116,19 @@ expiryDate                 = [ "expiryDate"]
     taxonomy              = [ "HTML" ]
     taxonomyTerm          = [ "HTML" ]
 
+###############################################################
+
+[permalinks]
+    post                   = "/:section/:year/:month/:day/:title"
+    photo                  = "/:section/:year/:month/:day/:title"
+    book                   = "/:sections/:title"
+    series                 = "/:section/:slug"
+    tags                   = "/:section/:slug"
+    about                  = "/:section/:slug"
+    search                 = "/:section/:slug"
+    intern                 = "/:section/:year/:month/:day/:title"
+    test                   = "/:section/:title"
+      
 ###############################################################
 
 
