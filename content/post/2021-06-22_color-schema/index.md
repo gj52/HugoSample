@@ -18,7 +18,7 @@ Die besten Anregungen habe ich bei [web.dev][hd] gefunden.
 
 in **main.css** wird das Schema aktiviert
 
-```css
+```css {class="mw8"}
 :root {
 	color-scheme: light dark;
 }
@@ -79,9 +79,9 @@ hier eine kleine Auswahl
 Im **header** der HTML-Seiten werden die neuen Dateien eingefügt, hier vereinfacht:
 
 ```HTML
-	<link rel=stylesheet href=/dark.css  media="(prefers-color-scheme: dark)">
-	<link rel=stylesheet href=/light.css media="(prefers-color-scheme: light)">
-	<link rel=stylesheet href=/main.css>
+<link rel=stylesheet href=/dark.css  media="(prefers-color-scheme: dark)">
+<link rel=stylesheet href=/light.css media="(prefers-color-scheme: light)">
+<link rel=stylesheet href=/main.css>
 ```
 ### weitere Anpassungen
 

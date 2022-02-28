@@ -1,8 +1,10 @@
 {{ $tachions  := resources.Get "css/tachyons.css" }}
-{{ $colors    := resources.Get "css/colors.css" }}
-{{ $maincss   := resources.Get "css/main.css" }}
-{{ $fonta     := resources.Get "css/awesome.css" }}
-{{ $print     := resources.Get "css/print.css" }}
+{{ $light     := resources.Get "css/light.css"    }}
+{{ $dark      := resources.Get "css/dark.css"     }}
+{{ $maincss   := resources.Get "css/main.css"     }}
+{{ $hl        := resources.Get "css/highlight.css"}}
+{{ $fonta     := resources.Get "css/awesome.css"  }}
+{{ $print     := resources.Get "css/print.css"    }}
 {{ $fancy     := resources.Get "css/fancybox.css" }}
 
 {{ $jq    := resources.Get "js/jquery-3.6.0.slim.js" }}
@@ -11,8 +13,8 @@
 
 {{if hugo.IsProduction }}
 {{ $tachions  = $tachions | minify | fingerprint site.Params.digest }}
-{{ $colors    = $colors   | minify | fingerprint site.Params.digest }}
 {{ $maincss   = $maincss  | minify | fingerprint site.Params.digest }}
+{{ $hl        = $hl       | minify | fingerprint site.Params.digest }}
 {{ $fonta     = $fonta    | minify | fingerprint site.Params.digest }}
 {{ $print     = $print    | minify | fingerprint site.Params.digest }}
 {{ $fancy     = $fancy    | minify | fingerprint site.Params.digest }}
@@ -21,31 +23,33 @@
 {{ $osd   = $osd   | minify | fingerprint site.Params.digest }}
 {{end}}
 
-<link rel=preload href=/webfonts/fa-regular-400.woff2     as=font type=font/woff2 crossorigin >
-<link rel=preload href=/webfonts/fa-solid-900.woff2       as=font type=font/woff2 crossorigin >
-<link rel=preload href=/webfonts/fa-brands-400.woff2      as=font type=font/woff2 crossorigin >
-<link rel=preload href=/webfonts/fa-v4compatibility.woff2 as=font type=font/woff2 crossorigin >
+<link rel=preload href=/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin>
+<link rel=preload href=/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin>
+<link rel=preload href=/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin>
+<link rel=preload href=/webfonts/fa-v4compatibility.woff2 as=font type=font/woff2 crossorigin>
 
-<link rel=preload href=/img/wave-ms.jpg     as=image type=image/jpeg crossorigin media="screen and (min-width: 30em) and (max-width: 60em) and (prefers-color-scheme: light)" >
-<link rel=preload href=/img/wave-ls.jpg     as=image type=image/jpeg crossorigin media="screen and (min-width: 60em) and (prefers-color-scheme: light)" >
-<link rel=preload href=/img/darkwave-ms.jpg as=image type=image/jpeg crossorigin media="screen and (min-width: 30em) and (max-width: 60em) and (prefers-color-scheme: dark)" >
-<link rel=preload href=/img/darkwave-ls.jpg as=image type=image/jpeg crossorigin media="screen and (min-width: 60em) and (prefers-color-scheme: dark)" >
+<link rel=preload href=/img/wave-ms.jpg as=image type=image/jpeg crossorigin media="screen and (min-width: 30em) and (max-width: 60em) and (prefers-color-scheme: light)">
+<link rel=preload href=/img/wave-ls.jpg as=image type=image/jpeg crossorigin media="screen and (min-width: 60em) and (prefers-color-scheme: light)">
+<link rel=preload href=/img/darkwave-ms.jpg as=image type=image/jpeg crossorigin media="screen and (min-width: 30em) and (max-width: 60em) and (prefers-color-scheme: dark)">
+<link rel=preload href=/img/darkwave-ls.jpg as=image type=image/jpeg crossorigin media="screen and (min-width: 60em) and (prefers-color-scheme: dark)">
 
-<script async     src={{ $jq.RelPermalink }}                                           integrity={{ $jq.Data.Integrity }}       ></script>
+<script async src={{ $jq.RelPermalink }} integrity={{ $jq.Data.Integrity }}></script>
 
-<link rel=preload  href={{ $tachions.RelPermalink  }} as=style crossorigin             integrity={{ $tachions.Data.Integrity }} >
-<link rel=preload  href={{ $colors.RelPermalink    }} as=style crossorigin             integrity={{ $colors.Data.Integrity   }} >
-<link rel=preload  href={{ $maincss.RelPermalink   }} as=style crossorigin             integrity={{ $maincss.Data.Integrity  }} >
-<link rel=preload  href={{ $fonta.RelPermalink     }} as=style crossorigin             integrity={{ $fonta.Data.Integrity    }} >
-<link rel=preload  href={{ $print.RelPermalink     }} as=style crossorigin media=print integrity={{ $print.Data.Integrity    }} >
+<link rel=preload href={{ $tachions.RelPermalink  }} as=style crossorigin integrity={{ $tachions.Data.Integrity }}>
+<link rel=preload href={{ $light.RelPermalink     }} as=style crossorigin media="(prefers-color-scheme:light)" integrity={{ $light.Data.Integrity    }}>
+<link rel=preload href={{ $dark.RelPermalink      }} as=style crossorigin media="(prefers-color-scheme:dark)" integrity={{ $dark.Data.Integrity     }}>
+<link rel=preload href={{ $maincss.RelPermalink   }} as=style crossorigin integrity={{ $maincss.Data.Integrity  }}>
+<link rel=preload href={{ $hl.RelPermalink        }} as=style crossorigin integrity={{ $hl.Data.Integrity  }} />
+<link rel=preload href={{ $fonta.RelPermalink     }} as=style crossorigin integrity={{ $fonta.Data.Integrity    }}>
+<link rel=preload href={{ $print.RelPermalink     }} as=style crossorigin media=print integrity={{ $print.Data.Integrity    }}>
 
 {{ if eq .Params.Layout "gallery" }}
-<link rel=preload  as=style  href={{ $fancy.RelPermalink }} crossorigin integrity={{ $fancy.Data.Integrity }} >
-<link rel=preload  as=script href={{ $fb.RelPermalink    }} crossorigin integrity={{ $fb.Data.Integrity }}    >
+<link rel=preload as=style href={{ $fancy.RelPermalink }} crossorigin integrity={{ $fancy.Data.Integrity }}>
+<link rel=preload as=script href={{ $fb.RelPermalink    }} crossorigin integrity={{ $fb.Data.Integrity }}>
 {{end}}
 
 {{ if eq .Params.Layout "panorama" }}
-<link rel=preload as=script href={{ $osd.RelPermalink    }} crossorigin integrity={{ $osd.Data.Integrity }} >
+<link rel=preload as=script href={{ $osd.RelPermalink    }} crossorigin integrity={{ $osd.Data.Integrity }}>
 {{end}}
 
 {{ if .HasShortcode "tex" }}

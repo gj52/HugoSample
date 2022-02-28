@@ -1,8 +1,8 @@
 # This is a condensed Hugo sample.
 
-**Always using the latest HOGO version!**
+**Always using the latest HOGO version! Must have Version 0.93 for CodeBlock rendering!!**
 
-**After recent commits please wait some days - work in progress!**
+**After multiple commits please wait some days - work in progress!**
 
 ## What to find here? 
 Should work with the latest Hugo version (*give me some days*).

@@ -29,24 +29,6 @@
         block = true
         title = true
         
-    [markup.goldmark.renderer]
-      unsafe = true
-      xhtml  = true
-      hardWraps = false
-
-    [markup.highlight]
-      anchorLineNos = false
-      codeFences    = true
-      guessSyntax   = true
-      hl_Lines      = ''
-      lineAnchors   = ''
-      lineNoStart   = 1
-      lineNos       = false
-      lineNumbersInTable = true
-      noClasses     = false
-      style         = 'emacs'
-      tabWidth      = 4
-
     
 ################# Image handling ###########
 

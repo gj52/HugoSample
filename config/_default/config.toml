@@ -54,8 +54,8 @@ ignorecache                = false
 forceSyncStatic            = false
 #pluralizelisttitles       = false
 publishResources           = false
-#pygmentsCodefences         = true
-#pygmentsStyle              = "pygments"
+pygmentsUseClasses         = true
+pygmentsCodefences         = true
 relativeURLs               = false
 removePathAccents          = true
 summaryLength              = 10
@@ -98,7 +98,29 @@ expiryDate                 = [ "expiryDate"]
     maxAge = -1
 
 
-      
+###############################################################
+
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+       
+    [markup.goldmark.renderer]
+      unsafe = true
+      xhtml  = true
+      hardWraps = false
+
+    [markup.highlight]
+      anchorLineNos = false
+      codeFences    = true
+      guessSyntax   = false
+      hl_Lines      = ""
+      lineAnchors   = ""
+      lineNoStart   = 1
+      lineNos       = false
+      lineNumbersInTable = true
+      noClasses     = false
+      tabWidth      = 4
+
 ###############################################################
 
 [taxonomies]
