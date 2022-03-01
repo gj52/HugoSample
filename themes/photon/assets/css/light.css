@@ -16,16 +16,14 @@
     --link-hover: rgb(30, 129, 176);
     --progress-bar: rgb(0, 255, 0);
     --progress-background: rgb(255, 250, 250);
-    --scrollbar-color-thumb: lightgray;
-    --scrollbar-color-track: white;
+    --scrollbar-color-thumb: rgb(180, 180, 180);
+    --scrollbar-color-track: rgb(230, 230, 230);
     --text-color: rgb(0, 0, 0);
     --th-background: rgb(208, 240, 240);
     --tr-odd-background: rgb(255, 255, 255);
     --tr-even-background: rgb(232, 248, 248);
     --bgms: url("/img/wave-ms.jpg");
     --bgls: url("/img/wave-ls.jpg");
-
-
     --chroma-comment: rgb(0,128,0);
     --chroma-keyword: rgb(143,8,196);
     --chroma-types: rgb(43,145,175);

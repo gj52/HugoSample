@@ -12,11 +12,8 @@
 html {
   overscroll-behavior-y: contain;
   overflow-y: auto;
-  scroll-behavior: smooth;
   height: 100vh;
-  scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
+  scroll-behavior: smooth;
   text-size-adjust: none;
 }
 
@@ -79,7 +76,6 @@ hr {
   margin: 0;
   padding: 0;
   border-top: 1px solid var(--hr-color);
-  /* scroll-snap-align: start; */
 }
 
 .anchor {
@@ -113,15 +109,15 @@ a {
 .aext a::after {
   font: var(--fa-font-solid);
   font-size: .75rem;
-  content: " \f08e";
+  content: "\f08e ";
+  vertical-align: 0.15em;
+  margin-left: 0.4em;
 }
 
 pre {
   overflow-x: auto;
-  scrollbar-width: thin;
-  tab-size: 4;
-  /* Set tab size to 4 characters wide */
   font: var(--fontmono);
+  padding-bottom: 0.5em;
 }
 
 .highlight {
@@ -137,18 +133,19 @@ pre {
 
 /*   SCROLL BAR */
 
-::-webkit-scrollbar {
-  height: 6px;
-  width: 10px;
-  background: rgba(0, 0, 0, 0.05);
+scrollbar, ::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.25);
+scrollbar-track, ::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-color-track);
 }
 
-::-webkit-scrollbar-corner {
-  background: gray;
+
+scrollbar-thumb, ::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color-thumb);
+  border-radius: 4px;
 }
 
 /*   PROGRESS BAR */
@@ -594,6 +591,12 @@ article {
     column-count: 6;
   }
 }
+
+/* styles to target touch devices - https://mskkai.hashnode.dev/css-solution-for-styling-touch-and-non-touch-devices */
+@media (hover: none), (pointer: coarse) {
+
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   *,

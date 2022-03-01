@@ -15,7 +15,7 @@ Der Edge Browser auf den abgekündigten Windows Phones ist nicht mehr dabei.
 
 Mit der @supports-Direktive kann im CSS ein Fallsback umgesetzt werden.
 
-<pre><code>
+````CSS
 @supports (display:grid) {
   nav {
     grid-area: nn;
@@ -27,7 +27,7 @@ Mit der @supports-Direktive kann im CSS ein Fallsback umgesetzt werden.
     columns: 4;
   }
 }
-</code></pre>
+````
 
 Der Navigationsbereich **nav** wird im Grid-Bereich **nn** eingebettet. 
 Ohne Grid bleibt die Navigation in der Reihenfolge der HTML-Elemente, 

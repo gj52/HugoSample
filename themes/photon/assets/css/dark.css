@@ -16,15 +16,14 @@
     --link-hover: rgb(255, 192, 203);
     --progress-bar: rgb(0, 255, 0);
     --progress-background: rgb(250, 245, 245);
-    --scrollbar-color-thumb: gray;
-    --scrollbar-color-track: black;
+    --scrollbar-color-thumb: rgb(100 100 100);
+    --scrollbar-color-track: rgb(50 50 50);
     --text-color: rgb(250, 250, 250);
     --th-background: rgb(0, 0, 0);
     --tr-odd-background: rgb(64, 64, 64);
     --tr-even-background: rgb(0, 0, 0);
     --bgms: url("/img/darkwave-ms.jpg");
     --bgls: url("/img/darkwave-ls.jpg");
-
     --chroma-comment: rgb(0 189 0);
     --chroma-keyword: rgb(177 72 218);
     --chroma-types: rgb(43,145,175);

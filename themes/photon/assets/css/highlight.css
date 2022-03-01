@@ -97,7 +97,9 @@
   }
   /* NameNamespace */ .chroma .nn {
   }
-  /* NameOther */ .chroma .nx {
+  /* NameOther */
+  .chroma .nx {
+    color: var(--chroma-element-name);
   }
   /* NameProperty */ .chroma .py {
   }
