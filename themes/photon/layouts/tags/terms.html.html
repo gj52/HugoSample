@@ -8,7 +8,7 @@
 	<div class="dib f5 pt2 lh-copy">
 		{{range .Site.Taxonomies.tags -}} 
 			<div class="fl ph2 pv1 ma1 b tagbutton" role=button>
-				<a href={{ .Page.RelPermalink }}>{{.Page.Title}}</a>&nbsp;<sup class=b>{{.Count}}</sup>
+				<a href={{ .Page.RelPermalink }} rel=nofollow >{{.Page.Title}}</a>&nbsp;<sup class=b>{{.Count}}</sup>
 			</div>
 		{{- end}}
 	</div>
