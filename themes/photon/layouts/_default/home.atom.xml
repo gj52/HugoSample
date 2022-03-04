@@ -2,7 +2,8 @@
 {{ partial "xml/atom" .}}
 <feed xmlns="http://www.w3.org/2005/Atom"  
       xmlns:media="http://search.yahoo.com/mrss/"
-      {{ with site.LanguageCode }}xml:lang="{{ . }}"{{ end }} xml:base="{{site.BaseURL }}">
+      xml:lang="{{ site.LanguageCode }}" 
+      xml:base="{{site.BaseURL }}" >
     <title>{{ htmlEscape site.Title }} ATOM</title>
     {{with site.Params.description}}<subtitle>{{htmlEscape site.Params.description }}</subtitle>{{end}}
     {{ with  site.Home.OutputFormats.Get "ATOM"}}<link href="{{.RelPermalink}}" rel="self"      type="{{ safeHTML .MediaType.Type }}" />{{end}}

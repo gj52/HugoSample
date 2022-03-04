@@ -1,6 +1,0 @@
-<div class="pre db w-100 mv3 ba pl4 overflow-auto"><code>{{ if gt (len .Params) 0 -}}
-{{ $lang := .Get 1 | default "text" }}
-{{ highlight (readFile (.Get 0)) $lang  }}
-{{else}}
-{{ highlight (readFile .Page.File.Path) "markdown"  }}
-{{- end -}}</code></div>

@@ -1,0 +1,11 @@
+<div class="overflow-auto">
+  {{ $file := .Page.File.Path }}
+  {{ $lang := path.Ext .Page.File.Path }}
+  {{ if gt (len .Params) 0 -}}
+  {{ $lang = .Get 1 | default "text"}}
+  {{ $file = .Get 0 }}
+  {{- end -}}
+  {{ if site.IsServer }}<span class="i f6 mid-gray bg-light-yellow">&raquo; DEBUG: code language =  {{$lang}} &laquo;</span>{{end}}
+  {{ $file = readFile $file }}
+  {{ highlight $file $lang  }}
+</div>

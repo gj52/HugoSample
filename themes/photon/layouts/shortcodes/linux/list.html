@@ -9,7 +9,7 @@
 	{{ if (and (ne (substr .Name 0 1) "_") (not .IsDir)) }}
 		{{ $f := resources.Get (printf "/etc/%s/%s" $path .Name)}}{{ $e := findRE "\\w+$" .Name }}
 		{{ if (or ( eq $ext "-") (in $e $ext) )}}
-			<li class="dib w-100"><span class="fl tr w-10 pr2">{{ .ModTime.Format $.Site.Params.dateFormatShort }}</span><span class="fl tr w-20 pr2">{{ .Size }}&nbsp;&nbsp;</span><span class="fl w-auto"><a href="{{$f.Permalink }}" type="text/plain" download>{{ .Name }}</a></span></li>
+			<li class="dib w-100"><span class="fl tr w-10 pr2">{{ .ModTime.Format $.Site.Params.dateFormatShort }}</span><span class="fl tr w-20 pr2">{{ .Size }}&nbsp;&nbsp;</span><span class="fl w-auto"><a href="{{$f.Permalink }}" type="text/plain" rel=nofollow download>{{ .Name }}</a></span></li>
 		{{end}}
 	{{end}}
 {{ end }}

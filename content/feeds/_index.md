@@ -7,7 +7,6 @@ description = "all Feeds"
 +++
 ## Feeds
 
-Es gibt folgende Feeds.\
 There are the following feeds.
 
 [ATOM](/feeds/feed.atom.xml)\

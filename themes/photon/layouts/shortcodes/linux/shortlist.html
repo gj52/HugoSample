@@ -8,7 +8,7 @@
 	{{ if (and (ne (substr .Name 0 1) "_") (not .IsDir)) }}{{ $f := resources.Get (printf "/etc/%s/%s" $path .Name)}}
 		{{ $e := findRE "\\w+$" .Name }}
 		{{ if (or ( eq $ext "-") (in $e $ext) )}}
-			<a class="w-auto pr2" href={{$f.Permalink }} type=text/plain download>{{ .Name }}</a>
+			<a class="w-auto pr2" href={{$f.Permalink }} type=text/plain rel=nofollow download>{{ .Name }}</a>
 		{{end}}
 	{{end}}
 {{- end }}

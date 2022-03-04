@@ -5,11 +5,10 @@
 
 {{if hugo.IsProduction }}
     {{ $jq = $jq   | minify | fingerprint site.Params.digest }}
-	{{ $jqr = $jqr | minify | fingerprint site.Params.digest }} 
+	  {{ $jqr = $jqr | minify | fingerprint site.Params.digest }} 
     {{ $qr = $qr   | minify | fingerprint site.Params.digest }} 
 {{end}}
 
-<!-- <script src={{ $jq.RelPermalink  }} crossorigin=anonymous integrity={{ $jq.Data.Integrity  }} ></script>  -->
 <script src={{ $jqr.RelPermalink }} crossorigin=anonymous integrity={{ $jqr.Data.Integrity }} ></script>
 <script src={{ $qr.RelPermalink  }} crossorigin=anonymous integrity={{ $qr.Data.Integrity  }} ></script>
 

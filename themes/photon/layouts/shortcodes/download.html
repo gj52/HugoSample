@@ -1,5 +1,3 @@
-<!-- download title   asset-path         mime-type -->
-<!-- download "File"  "files/manual.pdf" "application/pdf" -->
 {{ $file := resources.Get (.Get 1) }}
 {{ $type := (.Get 2) | default "application/octet-stream" }}
 <a download href={{$file.Permalink}} type={{$type}} >{{.Get 0}}</a>

@@ -1,6 +1,6 @@
 +++
 title       = "Series"
-description = "all series"
+description = "al series"
 [[cascade]]
 noSearch    = true
 +++

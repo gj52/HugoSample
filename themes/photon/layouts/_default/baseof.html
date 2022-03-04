@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html {{ with .Params.language }}lang="{{ . }}"{{ else }}{{ with site.Language.Lang }}lang="{{ . }}"{{ end }}{{ end }} >
+<html lang={{ site.LanguageCode }} >
 {{ $section := .Section | default "home" }}
 {{ partial "meta" . }}
 <body>

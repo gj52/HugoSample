@@ -1,61 +1,69 @@
 <head>
-<meta charset=utf-8 />
-<meta name=viewport content="width=device-width, initial-scale=1" />
-<meta name=robots   content="noindex,nofollow" />
-<meta name=referrer content=no-referrer />
-<base href={{ site.BaseURL }} />
+  <meta charset=utf-8 />
+  <meta name=viewport content="width=device-width, initial-scale=1" />
+  {{ if eq .Kind "taxonomy" }}<meta name=robots content="noindex,nofollow" />{{end}}
+  <meta name=referrer content=no-referrer />
+  <base href={{ site.BaseURL }} />
 
-{{ if site.IsServer }}<meta http-equiv="cache-control" content="no-cache">{{end}}
-{{ if .IsHome -}}
-    <title>{{ site.Title  | markdownify }}</title>
-    
-  {{ partial "preload" . }} 
+  {{ if site.IsServer }}
+  <meta http-equiv="cache-control" content="no-cache">
+  {{end}}
+  {{ if .IsHome -}}
+  <title>{{ site.Title  | markdownify }}</title>
 
-    <!-- MathJax -->
-    <link rel=dns-prefetch href=//cdn.jsdelivr.net />    
+  {{ partial "preload"            . }}
+  {{ partialCached "asidepreload" . }}
 
-    {{ partialCached "asidepreload" . }}
+  <link rel=dns-prefetch href=//gohugo.io />
 
-    <link rel=dns-prefetch href=//gohugo.io />
-    
-    {{ $kw := where site.Taxonomies.tags.ByCount ".Name" "gt" "9" }} <!-- no years / numbers -->
-    <meta name=keywords content="{{ range $i, $ := first 25 $kw }}{{ if $i }},{{ end }}{{ .Name }}{{end}}" />
+  {{ $kw := where site.Taxonomies.tags.ByCount ".Name" "gt" "9" }} <!-- no years / numbers -->
+  <meta name=keywords content="{{ range $i, $ := first 25 $kw }}{{ if $i }},{{ end }}{{ .Name }}{{end}}" />
 
-    {{ partial "feeds"   . }} <!-- with sitemap and manifest -->
-    <meta name="application-name" content="{{ site.Title  | markdownify }}">
-    
-{{- else -}}
-    <title>{{ site.Title  | markdownify }} &ndash; {{ .Title  | markdownify }}</title>
-    <meta name=keywords content="{{ range $i, $e := .Params.tags }}{{ if $i }},{{ end }}{{ . }}{{ end }}" />
-{{- end }}
+  {{ partial "feeds"   . }} <!-- with sitemap and manifest -->
 
-{{ with .Description }}<meta name=description content="{{ . | safeHTML }}" />{{end}}
-<meta name=date content="{{site.LastChange.Format site.Params.dateFormatFeed }}" />
-{{ with site.Author.name }}<meta name=author content="{{ . }}" />{{ end }}
-{{ hugo.Generator }}
-{{ partial "doublinecore" . }}
+  <meta name="application-name" content="{{ site.Title  | markdownify }}">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-<!-- {{ partialCached "battery" . }} -->
-{{ partialCached "css/css" . }}
-{{ partialCached "js/jquery" . }}
+  {{- else -}}
+  <title>{{ site.Title  | markdownify }} &ndash; {{ .Title  | markdownify }}</title>
+  <meta name=keywords content="{{ range $i, $e := .Params.tags }}{{ if $i }},{{ end }}{{ . }}{{ end }}" />
+  {{- end }}
+
+  {{ with .Description }}
+  <meta name=description content="{{ . | safeHTML }}" />
+  {{end}}
+  <meta name=date content="{{site.LastChange.Format site.Params.dateFormatFeed }}" />
+  {{ with site.Author.name }}
+  <meta name=author content="{{ . }}" />
+
+  {{ end }}
+  {{ hugo.Generator }}
+  {{ partial "doublinecore" . }}
 
 
-{{ if eq .Params.Layout "gallery" }}
-    {{ partialCached "css/fancybox" . }}
-<!--
-{{ partialCached "js/fancybox"  . }}
--->
-{{ end }}
 
-{{ if eq .Params.Layout "panorama" }}
-    {{ partialCached "js/osd"  . }}
-{{ end }}
+  <!-- {{ partialCached "battery" . }} -->
+  {{ partialCached "css/css" . }}
+  {{ partialCached "js/jquery" . }}
 
-{{ if .HasShortcode "tex" }}
-    {{ partialCached "js/mathjax" . }}
-{{end}}
+  {{ if eq .Params.Layout "gallery" }}
+  {{ partialCached "css/fancybox" . }}
+  <!--
+  {{ partialCached "js/fancybox"  . }}
+  -->
+  {{ end }}
 
-{{ partialCached "js/qr" . }}
+  {{ if eq .Params.Layout "panorama" }}
+  {{ partialCached "js/osd"  . }}
+  {{ end }}
 
-{{ partialCached "favicon" . }}
+  {{ if .HasShortcode "tex" }}
+  <link rel=dns-prefetch href=//cdn.jsdelivr.net />   <!-- MathJax -->
+  {{ partialCached "js/mathjax" . }}
+  {{end}}
+
+  {{ partialCached "js/qr" . }}
+
+  {{ partialCached "favicon" . }}
 </head>

@@ -1,6 +1,6 @@
 {{ define "main" }}
 <header>
-	<h1><span>{{site.Title  | markdownify }}</span><i class="ph3 fas fa-dragon fa-fw"></i>{{ .Title }}</h1>
+	<h1><span>{{site.Title  | markdownify }}</span><i class="ph3 fas fa-dragon fa-fw"></i>Index für &laquo;{{ .Title }}&raquo;</h1>
 	{{ with .Title }}
 		<div class="f5 b pb1">alle Beiträge zu<span class="pl2 ttu">&quot;{{ . }}&quot;</span></div>
 	{{end}}
