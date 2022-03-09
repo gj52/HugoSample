@@ -13,7 +13,7 @@ channel {
   scroll-snap-type: y proximity;
 }
 
-.channel>atom, link, generator, language, dc, creator, category, copyright {
+.channel>atom, image, link, generator, language, dc, creator, category, copyright {
   display: none;
 }
 

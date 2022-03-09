@@ -4,9 +4,9 @@
   "home_page_url": {{ site.BaseURL  | absURL | jsonify }},
   {{ with .OutputFormats.Get "JSON" }}"feed_url"     : {{.Permalink | absURL | jsonify }},{{ end }} 
   {{with site.Params.description}}"description"  : {{site.Params.description | jsonify}},{{end}}
-  {{ $icon := resources.Get "img/favicon.svg" }}
-  "icon"         : "{{$icon.Permalink}}",
-  "favicon"      : "{{$icon.Permalink}}",
+  {{ $icon := resources.Get "img/zz512.png" }}{{$icon = $icon.Resize "96x96" }}
+  "icon"         : {{$icon.Permalink | jsonify }},
+  "favicon"      : {{$icon.Permalink | jsonify }},
   {{ with site.Author.name         }}"authors"      : [
     {
       "name"     : {{ . | jsonify }},

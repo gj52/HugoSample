@@ -17,7 +17,7 @@ feed {
   scroll-snap-type: y proximity;
 }
 
-feed>icon, logo, published, generator, updated {
+feed>icon, logo, image, published, generator, updated {
   display: none;
 }
 

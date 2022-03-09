@@ -1,20 +1,33 @@
-{{ print "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\" ?>"  | safeHTML }}
-{{ partial "xml/rss" .}}
+<?xml version="1.0" encoding="utf-8" standalone="no" ?> {{ $css := resources.Get "css/rss.css"}}{{ if hugo.IsProduction }}{{ $css = $css | minify | resources.Fingerprint site.Params.digest }}{{end}}
+<?xml-stylesheet type="text/css" href="{{ $css.Permalink  }}" ?>
 <rss version="2.0" 
+    xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/" 
+    xmlns:dc="http://purl.org/dc/elements/1.1/" 
     xmlns:atom="http://www.w3.org/2005/Atom" 
-    xmlns:media="http://search.yahoo.com/mrss/"
+    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" 
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/" 
+    xmlns:media="http://search.yahoo.com/mrss/"     
     xml:lang="{{ site.LanguageCode }}"
     xml:base="{{site.BaseURL }}" > 
+  
   <channel>
-    <title>{{ site.Title }} RSS</title>
-    <link>{{ .Permalink  | relURL}}</link>
-    {{ with  site.Home.OutputFormats.Get "FEED"}}<atom:link href="{{.RelPermalink}}" rel="self"      type="{{ safeHTML .MediaType.Type }}" />{{end}}
-    {{ with  site.Home.OutputFormats.Get "ATOM"}}<atom:link href="{{.RelPermalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
-    {{ with  site.Home.OutputFormats.Get "JSON"}}<atom:link href="{{.RelPermalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
-
-
+    <title>{{htmlEscape site.Title }} RSS</title>
+    <link>{{ site.BaseURL }}</link>
+    {{ $logo := resources.Get "img/zz512.png" }}{{$logo = $logo.Resize "96x96" }}
+    <image>
+      <url>{{ $logo.Permalink }}</url>
+      <title>{{ htmlEscape site.Title }} RSS</title>
+      <link>{{ site.BaseURL }}</link>
+      <width>{{ $logo.Width }}</width>
+      <height>{{ $logo.Height }}</height>
+    </image>
+    {{ with  site.Home.OutputFormats.Get "FEED"}}<atom:link href="{{.Permalink}}" rel="self"      type="{{ safeHTML .MediaType.Type }}" />{{end}}
+    {{ with  site.Home.OutputFormats.Get "ATOM"}}<atom:link href="{{.Permalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
+    {{ with  site.Home.OutputFormats.Get "JSON"}}<atom:link href="{{.Permalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
     {{with site.Params.description}}<description>{{plainify site.Params.description }}</description>{{end}}
     <generator>>Hugo {{hugo.Version}}</generator>
+    {{ with site.Author.name }}<dc:creator>{{ htmlEscape . }}</dc:creator>{{end}}
     {{ with site.LanguageCode }}<language>{{.}}</language>{{end}}
     {{ with site.Params.Copyright }}<copyright>@ {{ site.Params.CopyrightYear }} {{htmlEscape .}}</copyright>{{end}}
     <lastBuildDate>{{site.LastChange.UTC.Format  site.Params.dateFormatRFC822Z | safeHTML }}</lastBuildDate>
@@ -22,7 +35,7 @@
     {{ range first $feedsize (where site.RegularPages.ByDate.Reverse "Section" "not in" site.Params.invisibleSections)}}
     <item>
       <title>{{htmlEscape .Title }}</title>
-      <link>{{ .Permalink  | relURL }}</link>{{ $date := .PublishDate.UTC }}
+      <link>{{ .Permalink }}</link>{{ $date := .PublishDate.UTC }}
       <pubDate>{{ $date.Format site.Params.dateFormatRFC822Z | safeHTML }}</pubDate>
       <category>{{htmlEscape .Section}}</category>
       {{ range (.GetTerms "tags") }}
@@ -30,9 +43,9 @@
       <guid isPermaLink="false">{{ md5 .Permalink }}</guid>
       <description>{{plainify .Summary | htmlEscape }}</description>
       {{ range first 1 (.Resources.ByType "image") }}{{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480") }}{{ $image := $.Scratch.Get "image" }}
-      <enclosure url="{{ $image.Permalink  | relURL}}" length="{{len $image.Content}}" type="{{$image.MediaType}}" />
-      <media:content   url="{{ $image.Permalink  | relURL}}" width="{{$image.Width}}" height="{{$image.Height}}" medium="{{$image.MediaType.MainType}}" type="{{$image.MediaType}}" >    
-        <media:thumbnail url="{{ $image.Permalink  | relURL }}" width="{{$image.Width}}" height="{{$image.Height}}"  />       
+      <enclosure url="{{ $image.Permalink }}" length="{{len $image.Content}}" type="{{$image.MediaType}}" />
+      <media:content   url="{{ $image.Permalink }}" width="{{$image.Width}}" height="{{$image.Height}}" medium="{{$image.MediaType.MainType}}" type="{{$image.MediaType}}" >    
+        <media:thumbnail url="{{ $image.Permalink }}" width="{{$image.Width}}" height="{{$image.Height}}"  />       
       </media:content>
       {{ end }}
     </item>

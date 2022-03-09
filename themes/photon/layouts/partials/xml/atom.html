@@ -1,2 +1,0 @@
-{{ $css := resources.Get "css/atom.css"}}{{ if hugo.IsProduction }}{{ $css = $css | minify | resources.Fingerprint site.Params.digest }}{{end}}
-{{ safeHTML "<?xml-stylesheet" }} type="text/css" href="{{ $css.Permalink  }}" ?>
