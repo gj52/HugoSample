@@ -1,18 +1,19 @@
 {{ define "main" }}
 <header>
-	<h1><span>{{site.Title  | markdownify }}</span><i class="ph3 fas fa-dragon fa-fw"></i>Index für &laquo;{{ .Title }}&raquo;</h1>
+	{{ $paginator := .Paginate .Data.Pages 40}}
+	<h1><span>{{site.Title  | markdownify }}</span><i class="ph3 fas fa-dragon fa-fw"></i>Index für &laquo;{{ .Title }}&raquo;  #{{ $paginator.PageNumber }}</h1>
 	{{ with .Title }}
-		<div class="f5 b pb1">alle Beiträge zu<span class="pl2 ttu">&quot;{{ . }}&quot;</span></div>
+	<div class="f5 b pb1">all articles for<span class="pl2 ttu">&quot;{{ . }}&quot;  #{{ $paginator.PageNumber }}</span></div>
 	{{end}}
 </header>
 <article>
 	<h2 class=dn>{{ .Title }}</h2>
 	<div class=liste>
-		{{ $paginator := .Paginate .Data.Pages 40}} 
+		
 		{{ range $paginator.Pages -}}
 			{{ .Render "summary" }}
 		{{- end }}
 	</div>
-	{{ partial "pagination" . }}
+	{{ partial "pagination.html" . }}
 </article>
 {{ end }}
