@@ -1,6 +1,6 @@
 {{ $class := .Attributes.class | default ""    }}
 {{ $lang  := .Attributes.lang  | default .Type }}
-{{ if site.IsServer }}<span class="i f6 mid-gray bg-light-yellow">&raquo; DEBUG: code language =  {{$lang}} &laquo;</span>{{end}}
+<!-- {{ if site.IsServer }}<span class="i f6 mid-gray bg-light-yellow">&raquo; DEBUG: code language =  {{$lang}} &laquo;</span>{{end}} -->
 {{ if transform.CanHighlight $lang }}
 <div class="{{ $class }}">{{ highlight .Inner $lang }}</div>
 {{else}}

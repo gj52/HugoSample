@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang={{ site.LanguageCode }} >
 {{ $section := .Section | default "home" }}
-{{ partial "meta" . }}
+{{ partial "meta.html" . }}
 <body>
-{{ partialCached "aside" . $section }}
-{{ partialCached "navigation" . $section}}
+{{ partialCached "aside.html" . $section }}
+{{ partialCached "navigation.html" . $section}}
 {{ block "main" . }}{{ end }}
-{{ partial "qr" . }}
-{{ partial "footer" . }}
+{{ partial "qr.html" . }}
+{{ partial "footer.html" . }}
 </body>
 </html>

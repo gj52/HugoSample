@@ -1,7 +1,7 @@
 {{ define "main" }}
 <header>
 	<h1><span class="dn di-l">{{ site.Title | markdownify }}</span><i class="ph3 fas fa-dragon fa-fw"></i>{{ .Page.Title | markdownify}}</h1>
-	{{ partial "single-head" . }}
+	{{ partial "single-head.html" . }}
 </header>
 <article>
 	{{ .Content }}
@@ -23,6 +23,6 @@
 		  tileSources: "/panorama/{{.Params.directory}}/dzc_output.xml"
 		});
 	</script>
-{{ partial "prevnext" .}}
+{{ partial "prevnext.html" .}}
 </article>
 {{ end }}

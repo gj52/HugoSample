@@ -11,15 +11,15 @@
   {{ if .IsHome -}}
   <title>{{ site.Title  | markdownify }}</title>
 
-  {{ partial "preload"            . }}
-  {{ partialCached "asidepreload" . }}
+  {{ partial "preload.html"            . }}
+  {{ partialCached "asidepreload.html" . }}
 
   <link rel=dns-prefetch href=//gohugo.io />
 
   {{ $kw := where site.Taxonomies.tags.ByCount ".Name" "gt" "9" }} <!-- no years / numbers -->
   <meta name=keywords content="{{ range $i, $ := first 25 $kw }}{{ if $i }},{{ end }}{{ .Name }}{{end}}" />
 
-  {{ partial "feeds"   . }} <!-- with sitemap and manifest -->
+  {{ partial "feeds.html"   . }} <!-- with sitemap and manifest -->
 
   <meta name="application-name" content="{{ site.Title  | markdownify }}">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -39,31 +39,28 @@
 
   {{ end }}
   {{ hugo.Generator }}
-  {{ partial "doublinecore" . }}
+  {{ partial "doublinecore.html" . }}
 
 
 
-  <!-- {{ partialCached "battery" . }} -->
-  {{ partialCached "css/css" . }}
-  {{ partialCached "js/jquery" . }}
+  <!-- /* {{ partialCached "battery.html" . }} */ -->
+  {{ partialCached "css/css.html" . }}
+  {{ partialCached "js/jquery.html" . }}
 
   {{ if eq .Params.Layout "gallery" }}
-  {{ partialCached "css/fancybox" . }}
-  <!--
-  {{ partialCached "js/fancybox"  . }}
-  -->
+  {{ partialCached "css/fancybox.html" . }}
   {{ end }}
 
   {{ if eq .Params.Layout "panorama" }}
-  {{ partialCached "js/osd"  . }}
+  {{ partialCached "js/osd.html"  . }}
   {{ end }}
 
   {{ if .HasShortcode "tex" }}
   <link rel=dns-prefetch href=//cdn.jsdelivr.net />   <!-- MathJax -->
-  {{ partialCached "js/mathjax" . }}
+  {{ partialCached "js/mathjax.html" . }}
   {{end}}
 
-  {{ partialCached "js/qr" . }}
+  {{ partialCached "js/qr.html" . }}
 
-  {{ partialCached "favicon" . }}
+  {{ partialCached "favicon.html" . }}
 </head>

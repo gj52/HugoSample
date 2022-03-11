@@ -4,7 +4,7 @@
 <div class="fl w-10 pt1 tr"><i class="far fa-calendar-alt fa-fw" title=created ></i></div>
 <div class="fl w-90 pa1"><time datetime="{{ .Format site.Params.dateFormatFeed }}">{{ .Format site.Params.dateFormatShort }}</time></div>
 {{- end}}
-<div class="fl w-10 pt1 tr">{{ partialCached "symbol" . .Type .Layout }}</div>
+<div class="fl w-10 pt1 tr">{{ partialCached "symbol.html" . .Type .Layout }}</div>
 <div class="fl w-90 pa1">{{ .Description | markdownify }}</div>
 </div>
 {{- end}}

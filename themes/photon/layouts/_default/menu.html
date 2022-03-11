@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html {{ with site.Language.Lang }}lang={{ . }} {{ end }} >
 <head>
-{{ partial "meta" . }}
+{{ partial "meta.html" . }}
 </head>
 <body id="top" class="vh-100" >
 <header>
 <h1 class="tc f3"><i class="fas fa-dragon fa-fw"></i>&nbsp;{{ site.Params.Title | markdownify }}</h1>
 </header>
-{{ partial "aside" . }}
+{{ partial "aside.html" . }}
 <article id=sidebar class="f3 w-100 pv2 bt bb bw2 b--blue">
 	<div class="flex flex-column items-center w-100">
 		{{ range site.Menus.main}}
