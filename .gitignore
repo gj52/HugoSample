@@ -2,3 +2,5 @@
 /public
 *.exe
 *.log
+themes/photon/layouts/partials/book-head.html
+themes/photon/layouts/partials/define.html

@@ -1,7 +1,7 @@
 <!-- Dubline Core - see https://www.dublincore.org/specifications/dublin-core/usageguide/elements/ -->
-<meta name=DC.Title content="{{ site.Title  | markdownify }} - {{ .Page.Title  | markdownify}}"/>
+<meta name=DC.Title content="{{ .RenderString site.Title }} - {{ .Page.Title  | markdownify}}"/>
 <meta name=DC.Subject content="{{ range $index, $director := .Page.Params.tags }}{{ if $index }},{{ end }}{{ . }}{{ end }}"/>
-{{ with  .Description }}<meta name=DC.Description content="{{ . | markdownify }}"/>{{ end}}
+{{ with  .Description }}<meta name=DC.Description content="{{ $.RenderString . }}"/>{{ end}}
 <meta name=DC.Identifier content="{{ .Permalink }}" /> 
 {{ with .Date }}<meta name=DC.Date content="{{ .UTC.Format site.Params.dateFormatShort }}" /> {{end}}
 {{ with site.Params.Creator }}<meta name=DC.Creator content="{{ . }}"/>{{ end}}

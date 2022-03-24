@@ -1,7 +1,7 @@
 {{ define "main" }}
 <header>
 	{{ $pages := site.GetPage .Section }}	{{ $paginator := .Paginate $pages.Pages 20}}
-	<h1><span>{{ site.Title | markdownify }}</span><i class="ph3 fas fa-dragon fa-fw"></i>{{ .Page.Title }} {{ $paginator.PageNumber }}</h1>
+	<h1><span>{{ .RenderString site.Title }}</span><i class="ph3 fas fa-dragon fa-fw"></i>{{ .Page.Title }} {{ $paginator.PageNumber }}</h1>
 	{{if isset .Params "description" }}<div class="f5 b w-90-ns pb1">{{ .Description }} {{ $paginator.PageNumber }}</div>{{end}}
 </header>	
 	<h2 class=dn>{{ .Page.Title }}</h2>

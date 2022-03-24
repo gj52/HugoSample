@@ -1,6 +1,6 @@
 {{ define "main" }}
 <header>
-	<h1><span>{{ site.Title  | markdownify }}</span><i class="ph3 fas fa-dragon fa-fw"></i>{{ .Page.Title }}</h1>
+	<h1><span>{{ .RenderString site.Title }}</span><i class="ph3 fas fa-dragon fa-fw"></i>{{ .Page.Title }}</h1>
 	{{if isset .Params "description" }}<div class="f5 b w-90-ns pb1">{{ .Description }}</div>{{end}}
 </header>
 <article>

@@ -1,6 +1,6 @@
 {{ define "main" }}
 <header>
-<h1><span class="dn di-l w-90-ns">{{ site.Title  | markdownify }}</span><i class="ph3 fas fa-dragon fa-fw"></i>{{ .Page.Title }}</h1>
+<h1><span class="dn di-l w-90-ns">{{ .RenderString site.Title }}</span><i class="ph3 fas fa-dragon fa-fw"></i>{{ .Page.Title }}</h1>
 {{ with .Title }}<div class="f5 b pb1">alle Beiträge zu<span class="pl2 ttu">&quot;{{ . }}&quot;</span></div>{{end}}
 </header>	
 <article class=pv2>

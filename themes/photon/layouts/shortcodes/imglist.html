@@ -1,8 +1,8 @@
-<div class="flex flex-column">
+<div class="flex flex-column">  {{ $p := .Page }}
 {{ $images := .Page.Resources.ByType "image" }}{{ $mask := printf "**/%s.*" (.Get 0)}}{{ $original := $images.GetMatch $mask }}
 {{ with $original -}}
 	{{$orig := .}}
-	{{ $.Scratch.Set "image" ($orig.Fit "480x480 #ffffff q75") }}{{ $img := $.Scratch.Get "image" }}{{ $.Scratch.Set "prev"  ($orig.Fit "48x36") }}{{ $preview := $.Scratch.Get "prev" }}
+	{{ $p.Scratch.Set "image" ($orig.Fit "480x480 #ffffff q75") }}{{ $img := $p.Scratch.Get "image" }}{{ $p.Scratch.Set "prev"  ($orig.Fit "48x36") }}{{ $preview := $p.Scratch.Get "prev" }}
 <div class="flex-l mt2">
 	<a data-fancybox=gallery href="{{$orig.RelPermalink | relURL}}" >
 	<figure class="ma0 ma2-l"><img loading=lazy class=foto loading=lazy 
@@ -10,8 +10,7 @@
 		width={{ $img.Width }} height={{ $img.Height }} alt="{{.Name}}" 
 		style="background: url(data:image/jpeg;base64,{{ $preview.Content | base64Encode  }});
 		background-size: 100% 100%;" /></figure></a>
-	<p class="tc tl-ns ml4-l measure">{{ $.Inner | markdownify }}</p>
+	<p class="tc tl-ns ml4-l measure">{{ $p.RenderString $.Inner }}</p>
 </div>
 {{- end}}
 </div>
-

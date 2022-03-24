@@ -9,7 +9,7 @@
   <meta http-equiv="cache-control" content="no-cache">
   {{end}}
   {{ if .IsHome -}}
-  <title>{{ site.Title  | markdownify }}</title>
+  <title>{{ .RenderString site.Title }}</title>
 
   {{ partial "preload.html"            . }}
   {{ partialCached "asidepreload.html" . }}
@@ -21,12 +21,12 @@
 
   {{ partial "feeds.html"   . }} <!-- with sitemap and manifest -->
 
-  <meta name="application-name" content="{{ site.Title  | markdownify }}">
+  <meta name="application-name" content="{{ .RenderString site.Title }}">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   {{- else -}}
-  <title>{{ site.Title  | markdownify }} &ndash; {{ .Title  | markdownify }}</title>
+  <title>{{ .RenderString site.Title }} &ndash; {{ .RenderString .Title }}</title>
   <meta name=keywords content="{{ range $i, $e := .Params.tags }}{{ if $i }},{{ end }}{{ . }}{{ end }}" />
   {{- end }}
 

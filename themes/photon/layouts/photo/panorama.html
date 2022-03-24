@@ -1,6 +1,6 @@
 {{ define "main" }}
 <header>
-	<h1><span class="dn di-l">{{ site.Title | markdownify }}</span><i class="ph3 fas fa-dragon fa-fw"></i>{{ .Page.Title | markdownify}}</h1>
+	<h1><span class="dn di-l">{{ .RenderString site.Title }}</span><i class="ph3 fas fa-dragon fa-fw"></i>{{ .RenderString .Page.Title }}</h1>
 	{{ partial "single-head.html" . }}
 </header>
 <article>
