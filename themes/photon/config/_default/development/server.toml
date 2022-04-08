@@ -1,0 +1,6 @@
+[[headers]]
+for = '/**'
+[headers.values]
+  X-Content-Type-Options = 'nosniff'
+  Referrer-Policy =  "no-referrer"
+  Content-Security-Policy =  ["default-src  'self' ", "style-src    'self' ", "script-src   'self' cdn.jsdelivr.net", "manifest-src 'self'"   , "frame-src www.youtube.com"]
