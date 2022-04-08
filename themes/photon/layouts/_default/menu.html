@@ -9,7 +9,7 @@
 </header>
 {{ partial "aside.html" . }}
 <article id=sidebar class="f3 w-100 pv2 bt bb bw2 b--blue">
-	<div class="flex flex-column items-center w-100">
+	<div class="flex-column cf items-center w-100">
 		{{ range site.Menus.main}}
 		<div id={{.Identifier}} class=pv1><a href={{ .URL }}>{{ .Name }}</a></div>
 		{{end}}
