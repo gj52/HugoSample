@@ -65,8 +65,6 @@ nav {
   margin-top: .5rem;
 }
 
-}
-
 /* change border colour to suit your needs */
 
 hr {
@@ -503,7 +501,7 @@ article {
   .quote::before {
     font-style: normal;
     font-weight: bold;
-    color: var(caption-color);
+    color: var(--caption-color);
   }
 
 :lang(de) > .quote::before {
