@@ -5,26 +5,12 @@
 
 {{if not .IsHome -}}
 <div class="b no-print w-100 pb1">
-	<a href={{ site.Home.RelPermalink}} ><i class="fas fa-home fa-fw" title=Home ></i></a>
-	<span class=nowrap>{{ with site.GetPage .Section }}<a class=ph1 href={{ .RelPermalink }} >{{ .Name }}</a>{{ end}}</span> 
+	<a href={{ site.Home.RelPermalink}}>{{ $house := resources.Get "svg/house.svg"  }}{{ $house.Content | safeHTML}}</a><span class=nowrap>{{ with site.GetPage .Section }}<a class=ph1 href={{ .RelPermalink }} >{{ .Name }}</a>{{ end}}</span> 
 	{{if isset .Params "tags" -}}
-		<span class=nowrap>
-		<a href=/tags/ ><i class="fas fa-tag fa-fw" title=Tags></i></a>
-		{{ range sort (.GetTerms "tags") "LinkTitle" -}}
-			<a class=ph1 href={{ .RelPermalink }} >{{ .LinkTitle }}</a>
-		{{- end}}
-		</span>
+		<span class="nowrap pl2"><a href=/tags/>{{ $tag := resources.Get "svg/tag.svg"  }}{{ $tag.Content | safeHTML}}</a>{{ range sort (.GetTerms "tags") "LinkTitle" -}}<a class=ph1 href={{ .RelPermalink }} >{{ .LinkTitle }}</a>{{- end}}</span>
 	{{- end}}
-	  
 	{{if isset .Params "series" -}}
-	    {{ $serLen := len .Params.series }}
-		{{if gt $serLen 0 }}
-			<span class=nowrap><a href=/series/ ><i class="fas fa-book fa-fw" title=Serien></i></a>
-				{{ range sort (.GetTerms "series") "LinkTitle" }}
-					<a class=ph1 href={{ .RelPermalink }} >{{ .LinkTitle }}</a>
-				{{- end}}
-			</span>
-		{{end}}
+			<span class="nowrap pl2"><a href=/series/>{{ $book := resources.Get "svg/book.svg"  }}{{ $book.Content | safeHTML}}</a>{{ range sort (.GetTerms "series") "LinkTitle" }}<a class=ph1 href={{ .RelPermalink }} >{{ .LinkTitle }}</a>{{- end}}</span>
 	{{- end}}
 </div>
 {{- end}}

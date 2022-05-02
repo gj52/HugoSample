@@ -1,7 +1,8 @@
 {{ define "main" }}
 <header>
-<h1><span>{{ .RenderString site.Title }}</span><i class="ph3 fas fa-dragon fa-fw"></i>{{ .Page.Title }}</h1>
-<div class="b pb1">{{ .Description }}</div>
+	{{ $dragon := resources.Get "svg/dragon.svg"  }}
+	<h1>{{ .RenderString site.Title }} {{ $dragon.Content | safeHTML }} {{ .Page.Title }}</h1>
+	<div class="b pb1">{{ .Description }}</div>
 </header>
 <article>
 	<h2 class=dn>{{ .Page.Title }}</h2>
@@ -9,13 +10,14 @@
 		{{ $file := .Params.datafile}}{{ $data := getJSON $file }}
 		{{ range sort $data.items "title"}}
 			{{ if not .draft }}
-		<div class="dib pt3 pl2 w-100">
-			{{ $url := urls.Parse .url }} <link rel=dns-prefetch href=//{{ $url.Host }} />
-			<div class=f4><i class="fas fa-external-link-alt fa-fw f5"></i> <a class="b link hover-dark-pink" href={{ .url }} target=_blank rel="noopener noreferrer"> {{ .title }}</a></div>
-			<div class="pt2 f5">{{ .description }}</div>
-		</div>
+				<div class="dib pt3 pl2 w-100">
+					{{ $url := urls.Parse .url }} <link rel=dns-prefetch href=//{{ $url.Host }} />
+					<div class=f4><a class="b link hover-dark-pink" href={{ .url }} target=_blank rel="noopener noreferrer"><svg class="icon"><use xlink:href="#link" /></svg>&nbsp;&nbsp;{{ .title }}</a></div>
+					<div class="pt2 f5">{{ .description }}</div>
+				</div>
 			{{end}}
 		{{ end }} <!-- range -->
 	</div> <!-- flex column -->
+	{{ .Store.SetInMap "sprites" "link" "svg/external.svg" }}
 </article>
 {{ end }}

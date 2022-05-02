@@ -1,0 +1,15 @@
+{{ $id := ""}}{{$file := ""}}
+{{-     if eq .Type   "post"     }}{{ $id =  "#post"     }}{{ $file = "svg/article.svg"    }}
+{{ else if eq .Layout "panorama" }}{{ $id =  "#panorama" }}{{ $file = "svg/panorama.svg"   }}
+{{ else if eq .Layout "gallery"  }}{{ $id =  "#gallery"  }}{{ $file = "svg/images.svg"     }}
+{{ else if eq .Type   "photo"    }}{{ $id =  "#photo"    }}{{ $file = "svg/image.svg"      }}
+{{ else if eq .Type   "serie"    }}{{ $id =  "#serie"    }}{{ $file = "svg/book.svg"       }}
+{{ else if eq .Type   "book"     }}{{ $id =  "#book"     }}{{ $file = "svg/book.svg"       }}
+{{ else if eq .Type   "test"     }}{{ $id =  "#test"     }}{{ $file = "svg/microscope.svg" }}
+{{ else if eq .Type   "intern"   }}{{ $id =  "#intern"   }}{{ $file = "svg/lock.svg"       }}
+{{ else if eq .Type   "links"    }}{{ $id =  "#links"    }}{{ $file = "svg/link.svg"       }}
+{{ else if eq .Type   "tags"     }}{{ $id =  "#tags"     }}{{ $file = "svg/tag.svg"        }}
+{{ else                          }}{{ $id =  "#note"     }}{{ $file = "svg/note.svg"       }}{{end -}}
+{{ .Store.SetInMap "sprites" $id $file }}
+<svg class="icon"><use xlink:href={{ safeHTML $id}} /></svg>
+

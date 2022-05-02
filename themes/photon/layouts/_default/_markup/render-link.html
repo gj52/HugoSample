@@ -1,3 +1,6 @@
-{{ $ext := false }}{{ if strings.HasPrefix .Destination "http" -}}{{ $ext = true }}<span class="aext">{{- end}}
-<a href={{ .Destination | safeURL }} {{ if $ext -}} target="_blank" rel="noopener noreferrer" {{- end }}> {{ .PlainText | safeHTML }}</a>
-{{ if $ext -}}{{ $url := urls.Parse .Destination }}</span><link rel=dns-prefetch href=//{{ $url.Host }} /> {{- end }}
+{{ $ext := false }}{{ if strings.HasPrefix .Destination "http" -}}{{ $ext = true }}{{- end}}
+<a href={{ .Destination | safeURL }} {{ if $ext -}} target="_blank" rel="noopener noreferrer" {{- end }}>
+  {{ .PlainText | safeHTML }}
+  {{ if $ext -}}{{ $link := resources.Get "svg/external.svg"  }} {{ $link.Content | safeHTML}}{{- end}}
+</a>
+{{ if $ext -}}{{ $url := urls.Parse .Destination }}<link rel=dns-prefetch href=//{{ $url.Host }} /> {{- end }}

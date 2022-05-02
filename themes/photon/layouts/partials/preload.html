@@ -3,7 +3,6 @@
 {{ $dark      := resources.Get "css/dark.css"     }}
 {{ $maincss   := resources.Get "css/main.css"     }}
 {{ $hl        := resources.Get "css/highlight.css"}}
-{{ $fonta     := resources.Get "css/awesome.css"  }}
 {{ $print     := resources.Get "css/print.css"    }}
 {{ $fancy     := resources.Get "css/fancybox.css" }}
 
@@ -15,18 +14,12 @@
 {{ $tachions  = $tachions | minify | fingerprint site.Params.digest }}
 {{ $maincss   = $maincss  | minify | fingerprint site.Params.digest }}
 {{ $hl        = $hl       | minify | fingerprint site.Params.digest }}
-{{ $fonta     = $fonta    | minify | fingerprint site.Params.digest }}
 {{ $print     = $print    | minify | fingerprint site.Params.digest }}
 {{ $fancy     = $fancy    | minify | fingerprint site.Params.digest }}
 
 {{ $jq    = $jq    | minify | fingerprint site.Params.digest }}
 {{ $osd   = $osd   | minify | fingerprint site.Params.digest }}
 {{end}}
-
-<link rel=preload href=/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin>
-<link rel=preload href=/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin>
-<link rel=preload href=/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin>
-<link rel=preload href=/webfonts/fa-v4compatibility.woff2 as=font type=font/woff2 crossorigin>
 
 <link rel=preload href=/img/wave-ms.jpg as=image type=image/jpeg crossorigin media="screen and (min-width: 30em) and (max-width: 60em) and (prefers-color-scheme: light)">
 <link rel=preload href=/img/wave-ls.jpg as=image type=image/jpeg crossorigin media="screen and (min-width: 60em) and (prefers-color-scheme: light)">
@@ -40,7 +33,6 @@
 <link rel=preload href={{ $dark.RelPermalink      }} as=style crossorigin media="(prefers-color-scheme:dark)" integrity={{ $dark.Data.Integrity     }}>
 <link rel=preload href={{ $maincss.RelPermalink   }} as=style crossorigin integrity={{ $maincss.Data.Integrity  }}>
 <link rel=preload href={{ $hl.RelPermalink        }} as=style crossorigin integrity={{ $hl.Data.Integrity  }} />
-<link rel=preload href={{ $fonta.RelPermalink     }} as=style crossorigin integrity={{ $fonta.Data.Integrity    }}>
 <link rel=preload href={{ $print.RelPermalink     }} as=style crossorigin media=print integrity={{ $print.Data.Integrity    }}>
 
 {{ if eq .Params.Layout "gallery" }}
@@ -55,4 +47,3 @@
 {{ if .HasShortcode "tex" }}
 <link rel=preload as=script href=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js />
 {{end}}
-

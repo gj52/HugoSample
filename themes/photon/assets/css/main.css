@@ -103,16 +103,25 @@ a {
     color: var(--link-color);
   }
 
-/* external links */
-.aext a::after {
-  font: var(--fa-font-solid);
-  font-size: .75rem;
-  content: "\f08e ";
-  vertical-align: 0.15em;
-  margin-left: 0.4em;
+.icon {
+  width: 1.2em;
+  height: 1em;
+  vertical-align: -.125em;
 }
 
-pre {
+.iconred {
+  width: 1em;
+  height: 1em;
+  vertical-align: -.125em;
+  fill: red;
+}
+
+.iconh1 {
+  width: 2em;
+  height: 1em;
+}
+
+  pre {
   overflow-x: auto;
   font: var(--fontmono);
   padding-bottom: 0.5em;
@@ -339,6 +348,12 @@ a[data-fancybox] img {
     color: #374151;
     box-shadow: 0 8px 23px rgb(0 0 0 / 50%);
   }
+
+.mermaid {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
 
 .fullpage {
   width: 100%;
@@ -568,11 +583,17 @@ article {
   .liste {
     column-count: 2;
   }
+  .mermaid {
+    width: 45em;
+  }
 }
 
 @media screen and (min-width: 75em) {
   .liste {
     column-count: 3;
+  }
+  .mermaid {
+    width: 70em;
   }
 }
 
@@ -580,6 +601,10 @@ article {
   .liste {
     column-count: 5;
   }
+  .mermaid {
+    width: 90em;
+  }
+
 }
 
 }
@@ -588,6 +613,10 @@ article {
   .liste {
     column-count: 6;
   }
+  .mermaid {
+    width: 100em;
+  }
+
 }
 
 /* styles to target touch devices - https://mskkai.hashnode.dev/css-solution-for-styling-touch-and-non-touch-devices */

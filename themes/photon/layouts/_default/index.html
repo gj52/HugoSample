@@ -1,34 +1,56 @@
 {{ define "main" }}
 {{ $half := div .Site.Params.pagination.PagesPerListHome 2}} <!-- small screens --> 
 <header class=bw0>
-	<h1>{{ .RenderString .Site.Params.Title }}&nbsp; <i class="fas fa-dragon fa-fw"></i></h1>
-	<div class="f5 b w-90-ns">{{.Title}}</div>
+  {{ $dragon := resources.Get "svg/dragon.svg"  }}
+  <h1>{{ .RenderString site.Title }} {{ $dragon.Content | safeHTML }}</h1>
+  <div class="f5 b w-90-ns">{{.Title}}</div>
 </header>
 <article class=pb3>
-	<div class="fl-l w-50-l ph1-l">
-		{{ $posts := site.GetPage "/post" }}
-		<h2 class="f4 b tc bg-blue pv1"><a class="white hover-moon-gray bg-blue" href={{$posts.RelPermalink}}>Beiträge</a></h2>
-		<div class="flex cf">
-			<div class="di-l w-50-l">
-			{{ range $index, $element := first site.Params.pagination.PagesPerListHome $posts.Pages -}}
-			{{ if (eq $index $half)}}</div><div class="dn di-l w-50-l">{{end}} <!-- skip column -->
-			<div>{{.Render "summary"}}</div>
-			{{- end }}
-			</div>
-		</div>
-	</div>
+  {{ $data := newScratch }}
+  <div class="fl-l w-50-l ph1-l">
+    {{ $posts := site.GetPage "/post" }}
+    <h2 class="f4 b tc bg-blue pv1"><a class="white hover-moon-gray bg-blue" href={{$posts.RelPermalink}}>Beiträge</a></h2>
+    <div class="flex cf">
+        <div class="di-l w-50-l">
+          {{ range $index, $element := first site.Params.pagination.PagesPerListHome $posts.Pages -}}
+            {{ if (eq $index $half)}}
+              </div><div class="dn di-l w-50-l">
+            {{end}} <!-- skip column -->
+            <div>{{ partial "summary.html" . }}</div>
 
-	<div class="fl-l w-50-l ph1-l">
-		{{ $photos := site.GetPage "/photo" }}
-		<h2 class="f4 b tc bg-blue pv1"><a class="white  hover-moon-gray" href={{$photos.RelPermalink}}>Fotos</a></h2>
-		<div class="flex cf">
-			<div class=w-50-l>
-			{{ range $index, $element := first site.Params.pagination.PagesPerListHome $photos.Pages -}}
-			{{ if (eq $index $half)}}</div><div class="dn di-l w-50-l">{{end}}<!-- skip column -->
-			<div>{{.Render "summary"}}</div>
-			{{- end }}
-			</div>
-		</div>
-	</div>
+            {{ $sp := .Store.Get "sprites" }}
+            {{ range $key, $val := $sp }}
+              {{ $data.SetInMap "sprites" $key  $val }}
+            {{end}}
+
+         {{- end }}
+       </div>
+    </div>
+  </div>
+
+  <div class="fl-l w-50-l ph1-l">
+    {{ $photos := site.GetPage "/photo" }}
+    <h2 class="f4 b tc bg-blue pv1"><a class="white  hover-moon-gray" href={{$photos.RelPermalink}}>Fotos</a></h2>
+    <div class="flex cf">
+      <div class=w-50-l>
+        {{ range $index, $element := first site.Params.pagination.PagesPerListHome $photos.Pages -}}
+        {{ if (eq $index $half)}}
+          </div><div class="dn di-l w-50-l">
+        {{end}}<!-- skip column -->
+        <div>{{ partial "summary.html" . }}</div>
+
+        {{ $sp := .Store.Get "sprites" }}
+        {{ range $key, $val := $sp }}
+          {{ $data.SetInMap "sprites" $key  $val }}
+        {{end}}
+
+        {{- end }}
+        </div>
+      </div>
+    </div>
+
+  {{ range $key, $val := ($data.Get "sprites") }}
+    {{ $.Store.SetInMap "sprites" $key  $val }}
+  {{end}}
 </article>
 {{ end }}

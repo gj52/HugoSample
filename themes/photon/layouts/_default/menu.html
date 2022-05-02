@@ -4,9 +4,10 @@
 {{ partial "meta.html" . }}
 </head>
 <body id="top" class="vh-100" >
-<header>
-<h1 class="tc f3"><i class="fas fa-dragon fa-fw"></i>&nbsp;{{ .RenderString site.Params.Title }}</h1>
-</header>
+	<header>
+		{{ $dragon := resources.Get "svg/dragon.svg"  }}
+		<h1>{{ .RenderString site.Title }} {{ $dragon.Content | safeHTML }} {{ .Page.Title }}</h1>
+	</header>
 {{ partial "aside.html" . }}
 <article id=sidebar class="f3 w-100 pv2 bt bb bw2 b--blue">
 	<div class="flex-column cf items-center w-100">

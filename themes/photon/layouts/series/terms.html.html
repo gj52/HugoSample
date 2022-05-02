@@ -1,14 +1,16 @@
 {{ define "main" }}
 <header>
-	<h1><span>{{ .RenderString site.Title }}</span><i class="ph3 fas fa-dragon fa-fw"></i>{{ .Page.Title }}</h1>
+	{{ $dragon := resources.Get "svg/dragon.svg"  }}
+	<h1>{{ .RenderString site.Title }} {{ $dragon.Content | safeHTML }} {{ .Page.Title }}</h1>
 	<div class="f5 b w-90-ns pb1">{{ .Description }}</div>
 </header>
 <article class=pv3>
 	<h2 class=dn>{{ .Page.Title }}</h2>
-	<div class=liste >
-	{{range site.Taxonomies.series -}}
-		<div class="pb3 f4 db"><a class="b link hover-dark-pink" href={{ .Page.RelPermalink }} rel=nofollow title="Serie: {{.Page.Title}}"><i class="fas fa-book fa-fw"></i>&nbsp;{{ $.RenderString .Page.Title }}</a>&nbsp;<sup class=b>{{.Count}}</sup></div>
-	{{- end}}
+	<div class=liste>
+		{{range site.Taxonomies.series -}}
+		{{ $book := resources.Get "svg/book.svg" }}
+		<div class="pb3 f4 db"><a class="b link hover-dark-pink" href={{ .Page.RelPermalink }} rel=nofollow title="Serie: {{.Page.Title}}">{{ $book.Content |safeHTML }}&nbsp;{{ $.RenderString .Page.Title }}</a>&nbsp;<sup class=b>{{.Count}}</sup></div>
+		{{- end}}
 	</div>
 </article>
 {{end}}

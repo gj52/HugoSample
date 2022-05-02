@@ -3,10 +3,10 @@
 {{ $section := .Section | default "home" }}
 {{ partial "meta.html" . }}
 <body>
-{{ partialCached "aside.html" . $section }}
-{{ partialCached "navigation.html" . $section}}
-{{ block "main" . }}{{ end }}
-{{ partial "qr.html" . }}
-{{ partial "footer.html" . }}
+  {{ partialCached "aside.html" . $section }}
+  {{ partialCached "navigation.html" . $section}}
+  {{ block "main" . }}{{ end }}
+  {{ partial "qr.html" . }}
+  {{ partial "footer.html" . }}
 </body>
 </html>

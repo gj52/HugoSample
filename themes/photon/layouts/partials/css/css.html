@@ -3,7 +3,6 @@
 {{ $dark      := resources.Get "css/dark.css"     }}
 {{ $maincss   := resources.Get "css/main.css"     }}
 {{ $hl        := resources.Get "css/highlight.css"}}
-{{ $fonta     := resources.Get "css/awesome.css"  }}
 {{ $print     := resources.Get "css/print.css"    }}
 
 {{if hugo.IsProduction }}
@@ -12,17 +11,12 @@
 {{ $dark      = $dark     | minify | fingerprint site.Params.digest }}
 {{ $maincss   = $maincss  | minify | fingerprint site.Params.digest }}
 {{ $hl        = $hl       | minify | fingerprint site.Params.digest }}
-{{ $fonta     = $fonta    | minify | fingerprint site.Params.digest }}
 {{ $print     = $print    | minify | fingerprint site.Params.digest }}
 {{end}}
-
-{{ $path := printf "/fa/%s"  $fonta.RelPermalink }}
-{{ $fonta := $fonta.Content | resources.FromString $path }}
 
 <link rel=stylesheet href={{ $tachions.RelPermalink  }} crossorigin=anonymous integrity={{ $tachions.Data.Integrity }} />
 <link rel=stylesheet href={{ $light.RelPermalink     }} crossorigin=anonymous media="(prefers-color-scheme:light)" integrity={{ $light.Data.Integrity    }} />
 <link rel=stylesheet href={{ $dark.RelPermalink      }} crossorigin=anonymous media="(prefers-color-scheme:dark)" integrity={{ $dark.Data.Integrity     }} />
 <link rel=stylesheet href={{ $maincss.RelPermalink   }} crossorigin=anonymous integrity={{ $maincss.Data.Integrity  }} />
 <link rel=stylesheet href={{ $hl.RelPermalink        }} crossorigin=anonymous integrity={{ $hl.Data.Integrity       }} />
-<link rel=stylesheet href={{ $fonta.RelPermalink     }} crossorigin=anonymous integrity={{ $fonta.Data.Integrity    }} />
 <link rel=stylesheet href={{ $print.RelPermalink     }} crossorigin=anonymous media=print integrity={{ $print.Data.Integrity    }} />

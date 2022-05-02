@@ -1,6 +1,8 @@
 {{ define "main" }}
-<header><h1><span class="dn di-l">{{ .RenderString site.Title }}</span><i class="ph3 fas fa-dragon fa-fw"></i>{{ .Page.Title }}</h1><br/>
-{{ partial "single-head.html" . }}
+<header>
+  {{ $dragon := resources.Get "svg/dragon.svg"  }}
+  <h1>{{ .RenderString site.Title }} {{ $dragon.Content | safeHTML }} {{ .Page.Title }}</h1>
+  {{ partial "single-head.html" . }}
 </header>
 <article><h2 class=dn>{{ .Page.Title }}</h2>{{ .Content }}</article>
 {{ end }}

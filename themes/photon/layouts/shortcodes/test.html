@@ -1,3 +1,0 @@
-<figure class="image-caption">{{ $imageResource := .Page.Resources.GetMatch (printf "uploads/%s*" (.Get "src")) }}
-{{ with $imageResource }}{{ $mobile := .Fill "458x254 Center" }}<img data-sizes="auto" class="lazyload"  src="{{ $mobile.RelPermalink }}" />{{end}}        
-</figure>
