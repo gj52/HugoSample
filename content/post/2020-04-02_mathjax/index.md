@@ -37,10 +37,11 @@ Hier ein kleiner Versuch mit den Maxwell-Gleichungen - sieht doch gut aus
 
 Wobei auch $\mu _{0}\varepsilon _{0}={\frac {1}{c^{2}}}$ gesetzt wird.
 
-eine Matrix
+Etwas komplexer
 
-$ \begin{vmatrix}a & b \\\\ c & d \end{vmatrix}$ 
-
+````latex { class="w-30" }
+\begin{align}{}_{n}A_{m}&=\int^{\beta}_\alpha (x-\alpha)^n(\beta-x)^mdx\\&=\frac{n}{m+1}\int^{\beta}_\alpha (x-\alpha)^{n-1}(\beta-x)^{m+1}dx\\&=\frac{n}{m+1}{}_{n-1}A_{m+1} \end{align}
+````
 
 ---
 

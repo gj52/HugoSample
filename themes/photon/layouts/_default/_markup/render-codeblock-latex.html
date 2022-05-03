@@ -1,1 +1,4 @@
-$${{.Inner}}$$
+{{ $class := .Attributes.class | default ""    }} <!-- sample: ````latex { class="w-30" } -->
+<div class="latex {{ $class }}">
+  $${{.Inner}}$$
+</div>
