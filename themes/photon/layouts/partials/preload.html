@@ -12,12 +12,15 @@
 
 {{if hugo.IsProduction }}
 {{ $tachions  = $tachions | minify | fingerprint site.Params.digest }}
+{{ $light     = $light    | minify | fingerprint site.Params.digest }}
+{{ $dark      = $dark     | minify | fingerprint site.Params.digest }}
 {{ $maincss   = $maincss  | minify | fingerprint site.Params.digest }}
 {{ $hl        = $hl       | minify | fingerprint site.Params.digest }}
 {{ $print     = $print    | minify | fingerprint site.Params.digest }}
 {{ $fancy     = $fancy    | minify | fingerprint site.Params.digest }}
 
 {{ $jq    = $jq    | minify | fingerprint site.Params.digest }}
+{{ $fb    = $fb    | minify | fingerprint site.Params.digest }}
 {{ $osd   = $osd   | minify | fingerprint site.Params.digest }}
 {{end}}
 
