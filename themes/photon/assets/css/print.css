@@ -23,7 +23,7 @@
 
   h1 {
     text-shadow: none;
-    page-break-after: avoid;
+    width: calc(100% - 160px);
   }
 
   h2, h3 {
@@ -95,8 +95,16 @@
     orphans: 6;
   }
 
+  .qrcode {
+    position: absolute;
+    top: 0;
+    right: 16px;
+    z-index: 99;
+  }
+
   .qrcode > img {
     image-rendering: pixelated;
+    width: 128px;
   }
 
   .no-print, .no-print * {

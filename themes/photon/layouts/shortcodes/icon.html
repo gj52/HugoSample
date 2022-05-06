@@ -1,0 +1,4 @@
+{{ $id := .Get 0 }}
+{{ $xid := printf "#%s" $id}}{{ $file := printf "svg/%s.svg" $id }}
+<svg class="icon"><use xlink:href={{ safeHTML $xid}} /></svg>
+{{ $.Page.Store.SetInMap "sprites" $id $file }}

@@ -6,7 +6,6 @@
   <div class="f5 b w-90-ns">{{.Title}}</div>
 </header>
 <article class=pb3>
-  {{ $data := newScratch }}
   <div class="fl-l w-50-l ph1-l">
     {{ $posts := site.GetPage "/post" }}
     <h2 class="f4 b tc bg-blue pv1"><a class="white hover-moon-gray bg-blue" href={{$posts.RelPermalink}}>Beiträge</a></h2>
@@ -19,13 +18,12 @@
             <div>{{ partial "summary.html" . }}</div>
 
             {{ $sp := .Store.Get "sprites" }}
-            {{ range $key, $val := $sp }}
-              {{ $data.SetInMap "sprites" $key  $val }}
-            {{end}}
-
-         {{- end }}
-       </div>
-    </div>
+              {{ range $key, $val := $sp }}
+                {{ $.Store.SetInMap "sprites" $key  $val }}
+              {{end}}
+          {{- end }}
+        </div>
+     </div>
   </div>
 
   <div class="fl-l w-50-l ph1-l">
@@ -34,23 +32,19 @@
     <div class="flex cf">
       <div class=w-50-l>
         {{ range $index, $element := first site.Params.pagination.PagesPerListHome $photos.Pages -}}
-        {{ if (eq $index $half)}}
-          </div><div class="dn di-l w-50-l">
-        {{end}}<!-- skip column -->
-        <div>{{ partial "summary.html" . }}</div>
+          {{ if (eq $index $half)}}
+            </div><div class="dn di-l w-50-l">
+          {{end}}<!-- skip column -->
+          <div>{{ partial "summary.html" . }}</div>
 
-        {{ $sp := .Store.Get "sprites" }}
-        {{ range $key, $val := $sp }}
-          {{ $data.SetInMap "sprites" $key  $val }}
-        {{end}}
+         {{ $sp := .Store.Get "sprites" }}
+         {{ range $key, $val := $sp }}
+           {{ $.Store.SetInMap "sprites" $key  $val }}
+         {{end}}
+       {{- end }}
+     </div>
+  </div>
+</div>
 
-        {{- end }}
-        </div>
-      </div>
-    </div>
-
-  {{ range $key, $val := ($data.Get "sprites") }}
-    {{ $.Store.SetInMap "sprites" $key  $val }}
-  {{end}}
 </article>
 {{ end }}
