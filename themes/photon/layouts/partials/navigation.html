@@ -1,31 +1,33 @@
 <nav class="f4 pt3">
-<div class="dn db-ns tr">
+  <div class="dn db-ns tr">
     {{ range site.Menus.main -}}
-        {{ if or (lt .Weight 900) site.IsServer }}
-        {{ if .HasChildren }}
-            <div class=pb1><a class=b href={{ .URL }}>{{ .Name }}</a>
-                <div class="f5 pb1">
-                    {{ range .Children }}
-                        <div><a class=i href={{ .URL }}  target=_blank >{{ .Name }}</a></div>
-                    {{ end }}
-                </div>
-            </div>
-        {{else}}
-            <div class=pb1><a class=b href={{ .URL }}>{{ .Name }}</a></div>
-        {{end}}
-        {{end}}
+    {{ if or (lt .Weight 900) site.IsServer }}
+    {{ if .HasChildren }}
+    <div class=pb1>
+      <a class=b href={{ .URL }}>{{ .Name }}</a>
+      <div class="f5 pb1">
+        {{ range .Children }}
+        <div><a class=i href={{ .URL }} target=_blank>{{ .Name }}</a></div>
+        {{ end }}
+      </div>
+    </div>
+    {{else}}
+    <div class=pb1><a class=b href={{ .URL }}>{{ .Name }}</a></div>
+    {{end}}
+    {{end}}
     {{- end}}
-</div>
-<!-- thanks to https://css-tricks.com/three-css-alternatives-to-javascript-navigation/ -->
-<div id="menuToggle" class="db dn-ns tr">
-    <label for=toggle><i class="tc f2 fas fa-bars fa-fw"></i></label>
+  </div>
+  <!-- thanks to https://css-tricks.com/three-css-alternatives-to-javascript-navigation/ -->
+  {{ $bars := resources.Get "svg/bars.svg"  }}
+  <div id="menuToggle" class="db dn-ns tr">
+    <label for=toggle>{{ $bars.Content | safeHTML}}</label>
     <input id=toggle type=checkbox>
     <div id="menu">
-    {{ range site.Menus.main }}
+      {{ range site.Menus.main }}
       {{ if or (lt .Weight 900) site.IsServer }}
-        <div class=pb1><a class=b href={{ .URL }}>{{ .Name }}</a></div>
+      <div class=pb1><a class=b href={{ .URL }}>{{ .Name }}</a></div>
       {{ end }}
-    {{ end }}
+      {{ end }}
     </div>
-</div>
+  </div>
 </nav>

@@ -6,5 +6,5 @@
     {{ $qr = $qr   | minify | fingerprint site.Params.digest }} 
 {{end}}
 
-<script rel=preload src={{ $jqr.RelPermalink }} crossorigin=anonymous integrity={{ $jqr.Data.Integrity }} ></script>
-<script rel=preload src={{ $qr.RelPermalink  }} crossorigin=anonymous integrity={{ $qr.Data.Integrity }}  ></script>
+<script defer src={{ $jqr.RelPermalink }} crossorigin=anonymous integrity={{ $jqr.Data.Integrity }} ></script>
+<script defer src={{ $qr.RelPermalink  }} crossorigin=anonymous integrity={{ $qr.Data.Integrity }}  ></script>

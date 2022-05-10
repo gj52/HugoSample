@@ -83,12 +83,6 @@ hr {
   font-size: small !important;
 }
 
-/*
-p {
-  max-width: 69ch;
-}
-*/
-
 a {
   color: var(--link-color);
   text-decoration: none;
@@ -104,21 +98,27 @@ a {
   }
 
 .icon {
-  width: 1.2em;
+  width: 1em;
   height: 1em;
-  vertical-align: -.125em;
+
 }
 
 .iconred {
-  width: 1em;
-  height: 1em;
-  vertical-align: -.125em;
   fill: red;
+}
+
+.iconblue {
+  fill: var(--anchor-color);
 }
 
 .iconh1 {
   width: 2em;
   height: 1em;
+}
+
+.iconbar {
+  width: 2em;
+  height: 2em;
 }
 
   pre {

@@ -2,28 +2,28 @@
 	{{ if .Draft }}{{ .Store.SetInMap "sprites" "draft" "svg/draft.svg" }}<svg class="icon"><use xlink:href="#draft" /></svg>{{end}}
 	<a class="pt2 f4 b" href="{{ .RelPermalink }}">{{ .RenderString .Title }}</a>
 	{{if not .IsHome -}}
-	<div class="no-print pt1">
-		{{ $id := ""}}{{$file := ""}}
-		{{-     if eq .Type   "post"     }}{{ $id =  "post"     }}{{ $file = "svg/article.svg"    }}
-		{{ else if eq .Layout "panorama" }}{{ $id =  "panorama" }}{{ $file = "svg/panorama.svg"   }}
-		{{ else if eq .Layout "gallery"  }}{{ $id =  "gallery"  }}{{ $file = "svg/images.svg"     }}
-		{{ else if eq .Type   "photo"    }}{{ $id =  "photo"    }}{{ $file = "svg/image.svg"      }}
-		{{ else if eq .Type   "serie"    }}{{ $id =  "serie"    }}{{ $file = "svg/book.svg"       }}
-		{{ else if eq .Type   "book"     }}{{ $id =  "book"     }}{{ $file = "svg/book.svg"       }}
-		{{ else if eq .Type   "test"     }}{{ $id =  "test"     }}{{ $file = "svg/microscope.svg" }}
-		{{ else if eq .Type   "intern"   }}{{ $id =  "intern"   }}{{ $file = "svg/lock.svg"       }}
-		{{ else if eq .Type   "links"    }}{{ $id =  "links"    }}{{ $file = "svg/link.svg"       }}
-		{{ else if eq .Type   "tags"     }}{{ $id =  "tags"     }}{{ $file = "svg/tag.svg"        }}
-		{{ else                          }}{{ $id =  "note"     }}{{ $file = "svg/note.svg"       }}
-		{{end -}}
-		{{ $xid := printf "#%s" $id}}
-		{{ with .Date -}}
-		<div class="fl w-10 pt1 tr"><svg class="icon"><use xlink:href="#calendar" /></svg></div>
-		<div class="fl w-90 pa1"><time datetime="{{ .Format site.Params.dateFormatFeed }}">{{ .Format site.Params.dateFormatShort }}</time></div>
-		{{- end}}
-		<div class="fl w-10 pt1 tr"><svg class="icon"><use xlink:href={{ safeHTML $xid}} /></svg></div>
-		<div class="fl w-90 pa1">{{ .RenderString .Description }}</div>
-	</div>
+<div class="no-print pt1">
+	{{ $id := ""}}{{$file := ""}}
+	{{-     if eq .Type   "post"     }}{{ $id =  "post"     }}{{ $file = "svg/article.svg"    }}
+	{{ else if eq .Layout "panorama" }}{{ $id =  "panorama" }}{{ $file = "svg/panorama.svg"   }}
+	{{ else if eq .Layout "gallery"  }}{{ $id =  "gallery"  }}{{ $file = "svg/images.svg"     }}
+	{{ else if eq .Type   "photo"    }}{{ $id =  "photo"    }}{{ $file = "svg/image.svg"      }}
+	{{ else if eq .Type   "serie"    }}{{ $id =  "serie"    }}{{ $file = "svg/book.svg"       }}
+	{{ else if eq .Type   "book"     }}{{ $id =  "book"     }}{{ $file = "svg/book.svg"       }}
+	{{ else if eq .Type   "test"     }}{{ $id =  "test"     }}{{ $file = "svg/microscope.svg" }}
+	{{ else if eq .Type   "intern"   }}{{ $id =  "intern"   }}{{ $file = "svg/intern.svg"     }}
+	{{ else if eq .Type   "links"    }}{{ $id =  "links"    }}{{ $file = "svg/link.svg"       }}
+	{{ else if eq .Type   "tags"     }}{{ $id =  "tags"     }}{{ $file = "svg/tag.svg"        }}
+	{{ else                          }}{{ $id =  "note"     }}{{ $file = "svg/note.svg"       }}
+	{{end -}}
+	{{ $xid := printf "#%s" $id}}
+	{{ with .Date -}}
+	<div class="fl w-10 tr pr2 pt1"><svg class="icon"><use xlink:href="#calendar" /></svg></div>
+	<div class="fl w-90 pa1"><time datetime="{{ .Format site.Params.dateFormatFeed }}">{{ .Format site.Params.dateFormatShort }}</time></div>
+	{{- end}}
+	<div class="fl w-10 tr pr2 pt1"><svg class="icon"><use xlink:href={{ safeHTML $xid}} /></svg></div>
+	<div class="fl w-90 pa1">{{ .RenderString .Description }}</div>
+</div>
 	{{ .Store.SetInMap "sprites" $id $file }}
 	{{ .Store.SetInMap "sprites" "calendar" "svg/calendar.svg" }}
 	{{- end}} <!-- not .IsHome -->
