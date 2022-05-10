@@ -1,15 +1,16 @@
 {{ $scratch := newScratch }}
 {{ with .Get 0 }}
-	{{ $scratch.Set "latitude" .}}
+{{ $scratch.Set "latitude" .}}
 {{ else }}
-	{{ errorf "missing value for 1st param 'name': %s" .Position }}
+{{ errorf "missing value for 1st param 'name': %s" .Position }}
 {{ end }}
 {{ with .Get 1 }}
-	{{ $scratch.Set "longitude" .}}
+{{ $scratch.Set "longitude" .}}
 {{ else }}
-	{{ errorf "missing value for 2nd param 'name': %s" .Position }}
+{{ errorf "missing value for 2nd param 'name': %s" .Position }}
 {{ end }}
 {{ $tmp := default "14" (.Get 2) }}{{ $scale := int $tmp }}
 {{ $lat := float ($scratch.Get "latitude") }}{{ $lon := float ($scratch.Get "longitude")}}
-<a class="dib ph1"  target=_blank rel=noopener title="Karte anzeigen" 
-href="https://www.openstreetmap.org/?mlat={{$lat}}&mlon={{$lon}}#map={{$scale}}/{{$lat}}/{{$lon}}"><i class="far fa-map"></i></a>
+{{ $map := resources.Get "svg/map.svg"  }}
+<a class="dib ph1" target=_blank rel=noopener title="Karte anzeigen"
+	 href="https://www.openstreetmap.org/?mlat={{$lat}}&mlon={{$lon}}#map={{$scale}}/{{$lat}}/{{$lon}}">{{ $map.Content | safeHTML}}</a>

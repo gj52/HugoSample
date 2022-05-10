@@ -82,8 +82,12 @@ hr {
   color: var(--anchor-color);
   font-size: small !important;
 }
+  .anchor svg {
+    fill: var(--anchor-color);
+    width: 1.4em;
+  }
 
-a {
+  a {
   color: var(--link-color);
   text-decoration: none;
 }
@@ -97,6 +101,15 @@ a {
     color: var(--link-color);
   }
 
+
+  a svg {
+    fill: var(--link-color);
+  }
+
+.lnone {
+  list-style: none; /* Remove list bullets */
+}
+
 .icon {
   width: 1em;
   height: 1em;
@@ -107,8 +120,8 @@ a {
   fill: red;
 }
 
-.iconblue {
-  fill: var(--anchor-color);
+.icongray {
+  fill: lightgray;
 }
 
 .iconh1 {

@@ -1,9 +1,8 @@
 <!-- left & right hand for prev & next article in this sesction -->
 <div class="pt4 no-print tc">
-{{with .NextInSection -}}
-	<a rel=prev title="{{.Title}}" href={{.RelPermalink}}>{{ $prev := resources.Get "svg/hand-left.svg"  }}{{ $prev.Content | safeHTML}}</a>{{else}}<i class="far fa-hand-rock light-gray"></i>
-{{- end}}<span class=ph1>|</span>
-{{with .PrevInSection -}}
-<a rel=next title="{{.Title}}" href={{.RelPermalink}}>{{ $next := resources.Get "svg/hand-right.svg"  }}{{ $next.Content | safeHTML}}</a>{{else}}<i class="far fa-hand-rock light-gray"></i>
-{{- end}}
+	{{ $prev := resources.Get "svg/hand-left.svg"  }}{{ $next := resources.Get "svg/hand-right.svg"  }}
+	{{with .NextInSection }}
+	<a rel=prev title="{{.Title}}" href={{.RelPermalink}}>{{ $prev.Content | safeHTML}}</a>{{else}}<span class="icongray">{{ $prev.Content | safeHTML}}</span>{{end}}<span class=ph1>|</span>
+	{{with .PrevInSection }}
+	<a rel=next title="{{.Title}}" href={{.RelPermalink}}>{{ $next.Content | safeHTML}}</a>{{else}}<span class="icongray">{{ $next.Content | safeHTML}}</span>{{end}}
 </div>

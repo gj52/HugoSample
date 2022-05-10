@@ -1,22 +1,25 @@
 {{ define "main" }}
+{{ $tex := resources.Get "svg/triangleex.svg"  }}
 <titel>
-    <h1><i class="fas fa-exclamation-triangle"></i></i>&nbsp;&nbsp;Sackgasse!</h1>
+  <h1>{{ $tex.Content | safeHTML}}&nbsp;&nbsp;Sackgasse!</h1>
 </titel>
 <article>
-    <h2><i class="fas fa-bug"></i></i>&nbsp;&nbsp;Woran hat's gelegen?</h2>
-	<br/>
-    <ul style="list-style-type:none;">
-    <li><i class="fas fa-keyboard"></i>&nbsp;&nbsp;eine falsche Adresse (URL) wurd eingegeben</li>
-    <li><i class="fas fa-unlink"></i>&nbsp;&nbsp;ein Link auf den Seiten ist nicht korrekt</li>
-    <li><i class="fas fa-trash"></i>&nbsp;&nbsp;der Inhalt wurde gel&ouml;scht</li>
-	<li><i class="fas fa-globe-europe"></i>&nbsp;&nbsp;der Inhalt ist auf Ihrem Planeten nicht verfügbar&nbsp;<i class="fas fa-smile-wink"></i></li>
-    </ul>
-    {{ $HomeMenu := index (where .Site.Menus.main "Identifier" "home" ) 0 }}
-    {{ $SearchMenu := index (where .Site.Menus.main "Identifier" "search" ) 0 }}
-    {{ $IndexMenu := index (where .Site.Menus.main "Identifier" "tags" ) 0 }}
-	<a href="{{ .Site.BaseURL }}" ><img src="/img/404.png" alt="404" /></a>
-    <p>Einfach nochmal auf der&nbsp;&nbsp;<a href="{{ $HomeMenu.URL }}" title="{{ $HomeMenu.Name }}"><i class="fas fa-home"></i>&nbsp;{{ $HomeMenu.Name }}</a>&nbsp; beginnen.
-    <br/><a href="{{ $SearchMenu.URL}}"  title="{{ $SearchMenu.Name }}" ><i class="fas fa-search"></i>&nbsp;{{ $SearchMenu.Name }}</a>&nbsp; geht natürlich auch!
-    <br/>Ein Blick in den&nbsp;&nbsp;<a href="{{ $IndexMenu.URL }}"  title="{{ $IndexMenu.Name }}"><i class="fas fa-tag fa-fw"></i>&nbsp;{{ $IndexMenu.Name }} </a>&nbsp; hilft auch.</p>
+  <h2>{{ $bug := resources.Get "svg/bug.svg"  }}{{ $bug.Content | safeHTML}}&nbsp;Woran hat's gelegen?</h2>
+  <br />
+  <ul class=lnone>
+    <li>{{ $kbd := resources.Get "svg/keyboard.svg"  }}{{ $kbd.Content | safeHTML}}&nbsp;&nbsp;eine falsche Adresse (URL) wurd eingegeben</li>
+    <li>{{ $unl := resources.Get "svg/unlink.svg"    }}{{ $unl.Content | safeHTML}}&nbsp;&nbsp;ein Link auf den Seiten ist nicht korrekt</li>
+    <li>{{ $can := resources.Get "svg/trashcan.svg"  }}{{ $can.Content | safeHTML}}&nbsp;&nbsp;der Inhalt wurde gelöscht</li>
+    <li>{{ $geu := resources.Get "svg/europe.svg"    }}{{ $geu.Content | safeHTML}}&nbsp;&nbsp;der Inhalt ist auf Ihrem Planeten nicht verfügbar</li>
+  </ul>
+  {{ $HomeMenu := index (where .Site.Menus.main "Identifier" "home" ) 0 }}
+  {{ $SearchMenu := index (where .Site.Menus.main "Identifier" "search" ) 0 }}
+  {{ $IndexMenu := index (where .Site.Menus.main "Identifier" "tags" ) 0 }}
+  <a href="{{ .Site.BaseURL }}"><img src="/img/404.png" alt="404" /></a>
+  <p>
+    Einfach nochmal auf der&nbsp;&nbsp;<a href="{{ $HomeMenu.URL }}" title="{{ $HomeMenu.Name }}">{{ $house := resources.Get "svg/house.svg"  }}{{ $house.Content | safeHTML}}&nbsp;{{ $HomeMenu.Name }}</a>&nbsp; beginnen.
+    <br /><a href="{{ $SearchMenu.URL}}" title="{{ $SearchMenu.Name }}">{{ $glas := resources.Get "svg/glass.svg"  }}{{ $glas.Content | safeHTML}}&nbsp;{{ $SearchMenu.Name }}</a> geht natürlich auch!
+    <br />Ein Blick in den&nbsp;&nbsp;<a href="{{ $IndexMenu.URL }}" title="{{ $IndexMenu.Name }}">{{ $tag := resources.Get "svg/tag.svg"  }}{{ $tag.Content | safeHTML}}&nbsp;{{ $IndexMenu.Name }} </a>&nbsp; hilft auch.
+  </p>
 </article>
 {{ end }}
