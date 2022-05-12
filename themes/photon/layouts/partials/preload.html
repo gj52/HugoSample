@@ -24,10 +24,12 @@
 {{ $osd   = $osd   | minify | fingerprint site.Params.digest }}
 {{end}}
 
+<!--
 <link rel=preload href=/img/wave-ms.jpg as=image type=image/jpeg crossorigin media="screen and (min-width: 30em) and (max-width: 60em) and (prefers-color-scheme: light)">
 <link rel=preload href=/img/wave-ls.jpg as=image type=image/jpeg crossorigin media="screen and (min-width: 60em) and (prefers-color-scheme: light)">
 <link rel=preload href=/img/darkwave-ms.jpg as=image type=image/jpeg crossorigin media="screen and (min-width: 30em) and (max-width: 60em) and (prefers-color-scheme: dark)">
 <link rel=preload href=/img/darkwave-ls.jpg as=image type=image/jpeg crossorigin media="screen and (min-width: 60em) and (prefers-color-scheme: dark)">
+-->
 
 <script async src={{ $jq.RelPermalink }} integrity={{ $jq.Data.Integrity }}></script>
 

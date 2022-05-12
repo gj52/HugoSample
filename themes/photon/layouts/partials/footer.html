@@ -1,18 +1,18 @@
 <footer class="tc bt">
 	{{ $copy := resources.Get "svg/copyright.svg"  }}
-	<span class=nowrap><a rel=author class=ph2 title=about href={{ relref . "/about" }} /> {{ $copy.Content | safeHTML}} {{ site.Params.CopyrightYear}} {{ site.Params.Copyright }}</a></span>
+	<span class=nowrap><a rel=author class=ph2 title=about href={{ relref . "/about" }} /> {{ $copy.Content | safeHTML}}&nbsp;&nbsp;{{ site.Params.CopyrightYear}} {{ site.Params.Copyright }}</a></span>
 	{{ $pen := resources.Get "svg/pen-fancy.svg"  }}
 	{{ if .IsHome -}}
 	{{ $gear := resources.Get "svg/gear.svg"  }}
 	{{ $tool := resources.Get "svg/toolbox.svg"  }}
-	<span class="nowrap ph2" title="site build">{{ $gear.Content | safeHTML}} {{ now.Format site.Params.dateFormatLong }} </span>
-	<span class="nowrap ph2" title="site updated">{{ $pen.Content | safeHTML}} <time datetime="{{ site.LastChange.Format site.Params.dateFormatLong }}">{{site.LastChange.Format	site.Params.dateFormatLong}}</time></span>
-	<span class="nowrap ph2"><a rel='noopener noreferrer' href=https://gohugo.io title="Hugo Home Page" target=_blank>{{ $tool.Content | safeHTML}} Hugo {{ hugo.Version }}</a></span>
+<span class="nowrap ph2" title="site build">{{ $gear.Content | safeHTML}}&nbsp;&nbsp;{{ now.Format site.Params.dateFormatLong }} </span>
+<span class="nowrap ph2" title="site updated">{{ $pen.Content | safeHTML}}&nbsp;&nbsp;<time datetime="{{ site.LastChange.Format site.Params.dateFormatLong }}">{{site.LastChange.Format	site.Params.dateFormatLong}}</time></span>
+	<span class="nowrap ph2"><a rel='noopener noreferrer' href=https://gohugo.io title="Hugo Home Page" target=_blank>{{ $tool.Content | safeHTML}}&nbsp;&nbsp;Hugo {{ hugo.Version }}</a></span>
 	{{- else -}}
 	{{ if .IsPage -}}
 	{{ $added := resources.Get "svg/square-plus.svg"  }}
-	<span class="nowrap ph2" title="page created">{{ $added.Content | safeHTML}} <time datetime="{{ .Date.UTC.Format site.Params.dateFormatLong }}"> {{ .Date.Format site.Params.dateFormatShort }}</time></span>
-	<span class="nowrap ph2" title="page updated">{{ $pen.Content | safeHTML}} <time datetime="{{ .Lastmod.Format	 site.Params.dateFormatLong}}"> {{.Lastmod.Format  site.Params.dateFormatShort}}</time></span>
+<span class="nowrap ph2" title="page created">{{ $added.Content | safeHTML}}&nbsp;&nbsp;<time datetime="{{ .Date.UTC.Format site.Params.dateFormatLong }}"> {{ .Date.Format site.Params.dateFormatShort }}</time></span>
+<span class="nowrap ph2" title="page updated">{{ $pen.Content | safeHTML}}&nbsp;&nbsp;<time datetime="{{ .Lastmod.Format	 site.Params.dateFormatLong}}"> {{.Lastmod.Format  site.Params.dateFormatShort}}</time></span>
 	{{- end }}
 	{{- end }}
 

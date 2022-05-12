@@ -45,6 +45,20 @@ body {
   color: var(--text-color);
 }
 
+/* 404 page */
+
+.lnone {
+  line-height: 2;
+}
+
+.lnone li::marker {
+  content: " ";
+}
+
+  .lnone svg {
+    fill: red;
+  }
+
 element:empty {
   display: none;
 }
@@ -106,14 +120,11 @@ hr {
     fill: var(--link-color);
   }
 
-.lnone {
-  list-style: none; /* Remove list bullets */
-}
+
 
 .icon {
   width: 1em;
   height: 1em;
-
 }
 
 .iconred {

@@ -24,6 +24,8 @@
   h1 {
     text-shadow: none;
     width: calc(100% - 160px);
+    white-space: break-spaces;
+    overflow: unset;
   }
 
   h2, h3 {
