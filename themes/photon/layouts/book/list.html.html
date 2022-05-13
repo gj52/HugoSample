@@ -1,0 +1,24 @@
+{{ define "main" }}
+<header>
+	{{ $dragon := resources.Get "svg/dragon.svg"  }}
+	<h1>{{ .RenderString site.Title }} {{ $dragon.Content | safeHTML }} {{ .Page.Title }}</h1>
+	{{if isset .Params "description" }}<div class="f5 b w-90-ns pb1">{{ .Description }}</div>{{end}}
+</header>	
+<article>
+	<div class="pl3 pt2 f4">
+		{{ if ne .CurrentSection .FirstSection}}
+		<h3><svg class="icon"><use xlink:href="#book" /></svg>&nbsp;{{ .Title }}</h3>
+		{{end}}
+		{{with .Content }}{{ . }}<hr />{{end}}
+		{{ range .Pages.ByWeight -}}
+		<div class="pt2 b pl2 w-100">
+			{{ if eq  .Page.Kind "section"}}<svg class="icon"><use xlink:href="#book" /></svg>{{end}}
+			{{ if eq  .Page.Kind "page"   }}<svg class="icon"><use xlink:href="#puzzle" /></svg>{{end}}
+			&nbsp;<a href="{{ .RelPermalink }}">{{ .Params.Chapter }}&nbsp;{{ .RenderString .Title }}</a>
+		</div>
+		{{- end }}
+	</div>
+	{{ .Store.SetInMap "sprites" "book"   "svg/book.svg" }}
+	{{ .Store.SetInMap "sprites" "puzzle" "svg/puzzle.svg" }}
+</article>
+{{ end }}

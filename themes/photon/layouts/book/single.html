@@ -1,0 +1,14 @@
+{{ define "main" }}
+<header>
+  {{ $dragon := resources.Get "svg/dragon.svg"  }}
+  {{ $book := resources.Get "svg/book.svg" }}
+  <h1>{{ .RenderString site.Title }} {{ $dragon.Content | safeHTML }} {{ .Page.Title }}</h1>
+  {{ partial "book-head.html" . }}
+</header>
+<article>
+  <div class="mw7 ml-auto-l mr-auto-l">
+    {{ .Content }}
+  </div>
+  {{ partial "prevnext.html" . }}
+</article>
+{{ end }}
