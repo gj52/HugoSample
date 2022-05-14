@@ -1,6 +1,6 @@
 +++
 categories  = ["Post"]
-tags        = ["2020", "Java", "MathJax", "TeX", "Video"]
+tags        = ["2020", "Java", "MathJax", "TeX"]
 description = "MathJax zur schönen Darstellung von Formeln"
 title       = "MathJax"
 date        = "2020-04-02T13:07:14+02:00"
@@ -43,10 +43,6 @@ Etwas komplexer
 \begin{align}{}_{n}A_{m}&=\int^{\beta}_\alpha (x-\alpha)^n(\beta-x)^mdx\\&=\frac{n}{m+1}\int^{\beta}_\alpha (x-\alpha)^{n-1}(\beta-x)^{m+1}dx\\&=\frac{n}{m+1}{}_{n-1}A_{m+1} \end{align}
 ````
 
----
-
-Eine gute Einführung gibt es von **Prof. Dr. Edmund Weitz** der **Hochschule für Angewandte Wissenschaften Hamburg**
-{{< tube 7ovgNXRiJ6g "Prof. Dr. Edmund Weitz"  >}}
 
 [Fancybox]:  https://github.com/fancyapps/fancybox "fancyBox"
 [OpenSeaDragon]: https://openseadragon.github.io/ "OpenSeaDragon"
