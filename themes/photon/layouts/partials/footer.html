@@ -15,18 +15,5 @@
 <span class="nowrap ph2" title="page updated">{{ $pen.Content | safeHTML}}&nbsp;&nbsp;<time datetime="{{ .Lastmod.Format	 site.Params.dateFormatLong}}"> {{.Lastmod.Format  site.Params.dateFormatShort}}</time></span>
 	{{- end }}
 	{{- end }}
-
-	{{ $sprites := .Store.Get "sprites" }}
-	{{ if $sprites }}
-		<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
-			{{ range $key, $val := $sprites }} {{ $id := printf "id=%s" $key}}
-				{{ with $ext := resources.Get $val  }}
-					{{ $svg := replace $ext.Content "svg" "symbol" }}
-					{{ $svg = replace $svg "class=\"icon\"" $id }}
-					{{ $svg | safeHTML}}
-				{{end}}
-			{{end}}
-		</svg>
-	{{end}}
 </footer>
 

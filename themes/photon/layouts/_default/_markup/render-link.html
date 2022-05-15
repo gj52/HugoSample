@@ -1,6 +1,15 @@
-{{ $ext := false }}{{ if strings.HasPrefix .Destination "http" -}}{{ $ext = true }}{{- end}}
-<a href={{ .Destination | safeURL }} {{ if $ext -}} target="_blank" rel="noopener noreferrer" {{- end }}>
-  {{ .PlainText | safeHTML }}
-  {{ if $ext -}}{{ $link := resources.Get "svg/external.svg"  }} {{ $link.Content | safeHTML}}{{- end}}
+<!-- https://im.youronly.one/techmagus/codebits/how-to-customize-markdown-links-hugo-2022135/ -->
+{{- $url := (urls.Parse .Destination) -}}
+{{- $internal := site.GetPage .Destination -}}
+{{- $fragment := $url.Fragment -}}
+{{- with $fragment -}}{{ $fragment = printf "#%s" $fragment }}{{- end -}}
+{{- $destination := printf "%s%s" (or $internal.RelPermalink .Destination) $fragment -}}
+<a href="{{ $destination | safeURL }}"
+   {{ with or .Title $internal.LinkTitle .Text }} title="{{ . }}" {{ end }}
+   {{ if not $internal }} rel="noopener external" {{ end }}>
+  {{ or .Text .Title $internal.LinkTitle | safeHTML }}
+  {{- if  not $internal -}}&nbsp;<svg class="icon"><use xlink:href="#external" /></svg>{{- end -}}
 </a>
-{{ if $ext -}}{{ $url := urls.Parse .Destination }}<link rel=dns-prefetch href=//{{ $url.Host }} /> {{- end }}
+{{ if  not $internal }}
+<link rel=dns-prefetch href=//{{ $url.Host }} /> {{end}}
+{{ .Page.Store.SetInMap "sprites" "external" "svg/external.svg" }}
