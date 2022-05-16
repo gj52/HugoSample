@@ -1,1 +1,2 @@
-<pre class="mermaid">{{ safeHTML .Inner }}</pre>
+{{ $class := .Attributes.class | default "" }}
+<pre class="mermaid {{ $class }}">{{ safeHTML .Inner }}</pre>

@@ -8,12 +8,12 @@
 	<article>
 		<div class=liste>
 			{{ range $paginator.Pages -}}
-			{{ partial "summary.html" . }}
+				{{ partial "summary.html" . }}
 
-			{{ $sp := .Store.Get "sprites" }}
-			{{ range $key, $val := $sp }}
-				{{ $.Store.SetInMap "sprites" $key  $val }}
-			{{end}}
+				{{ $sp := .Store.Get "sprites" }}
+				{{ range $key, $val := $sp }}
+					{{ $.Store.SetInMap "sprites" $key  $val }}
+				{{end}}
 
 			{{end}}
 		</div>

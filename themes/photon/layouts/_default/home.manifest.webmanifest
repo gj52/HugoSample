@@ -14,10 +14,9 @@
       "url": {{ .URL | jsonify }}
     },{{ end}}{{ end}}
   ],
-  "icons": [{{ $t := slice 144 192 256 512}}{{ range $t -}}
+  "icons": 
   {
-    "src": "/img/yy{{.}}.png",
-	"type": "image/png",
-    "sizes": "{{.}}x{{.}}" 
-  }{{ if ne . 512 }},{{end }}{{- end}}]
+    "src": "favicon.png",
+    "sizes": "512x512" 
+  }
 }

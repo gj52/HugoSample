@@ -4,12 +4,10 @@
 {{- $fragment := $url.Fragment -}}
 {{- with $fragment -}}{{ $fragment = printf "#%s" $fragment }}{{- end -}}
 {{- $destination := printf "%s%s" (or $internal.RelPermalink .Destination) $fragment -}}
+{{- if  not $internal -}}
+<link rel=dns-prefetch href=//{{ $url.Host }} /> {{ .Page.Store.SetInMap "sprites" "external" "svg/external.svg" }} {{- end -}}
 <a href="{{ $destination | safeURL }}"
    {{ with or .Title $internal.LinkTitle .Text }} title="{{ . }}" {{ end }}
    {{ if not $internal }} rel="noopener external" {{ end }}>
-  {{ or .Text .Title $internal.LinkTitle | safeHTML }}
-  {{- if  not $internal -}}&nbsp;<svg class="icon"><use xlink:href="#external" /></svg>{{- end -}}
+  {{ or .Text .Title $internal.LinkTitle | safeHTML }}{{- if  not $internal -}}&nbsp;<svg class="icon"><use xlink:href="#external" /></svg>{{- end -}}
 </a>
-{{ if  not $internal }}
-<link rel=dns-prefetch href=//{{ $url.Host }} /> {{end}}
-{{ .Page.Store.SetInMap "sprites" "external" "svg/external.svg" }}
