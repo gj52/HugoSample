@@ -1,4 +1,4 @@
 +++
-title       = "Bücher"
-description = "Meine kleine Büchersammlung"
+title       = "Books"
+description = "my little bokk collection"
 +++
