@@ -1,11 +1,10 @@
 +++
-tags        = ["{{ now.Format "2006"}}", "Panorama"]
+tags        = ["{{ now.Format "2006"}}"]
 description = "{{ replace .TranslationBaseName "-" " " | title }}"
 title       = "{{ replace .TranslationBaseName "-" " " | title }}"
 date        = "{{ .Date }}"
 draft       = false
-layout      = "panorama"
+layout      = "gallery"
 series      = []
-directory   = "NULL"
 +++
-## H2
+## from archetype photod

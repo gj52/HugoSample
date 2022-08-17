@@ -7,7 +7,8 @@ date        = "{{ (.Date |time).Format "2006-01-02T15:04:05Z07:00" }}"
 draft       = false
 series      = []
 +++
-## H2
+## from archetype postd
+
 **Insert Lead paragraph here.**
 
 <!--more-->

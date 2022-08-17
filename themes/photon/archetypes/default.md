@@ -5,6 +5,7 @@ title       = "{{ replace .TranslationBaseName "-" " " | title }}"
 date        = "{{ .Date }}"
 draft       = false
 +++
+## from archetype default.md
 
 **Insert Lead paragraph here.**
 
