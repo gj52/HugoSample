@@ -108,6 +108,7 @@ expiryDate                 = [ "expiryDate"]
       unsafe = true
       xhtml  = true
       hardWraps = false
+      WithAttribute  = true
 
     [markup.highlight]
       anchorLineNos = false
