@@ -1,0 +1,6 @@
+{{ $author := .Attributes.author }}
+{{ $cite   := .Attributes.cite   }}
+<figure>
+  <blockquote {{ with $cite }} cite="{{.| safeHTML }}" {{end}}>{{ .Inner | .Page.RenderString }}
+  {{- with $author}}<figcaption>{{with $cite }}<a href={{$cite}}>{{end}}<i>{{.| $.Page.RenderString }}</i>{{with $cite }}</a>{{end}}</figcaption>{{ end -}}</blockquote>
+</figure>
