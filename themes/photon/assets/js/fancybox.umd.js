@@ -1,4 +1,4 @@
-// @fancyapps/ui/Fancybox v4.0.25
+// @fancyapps/ui/Fancybox v4.0.31
 ! function(t, e) {
   "object" == typeof exports && "undefined" != typeof module ? e(exports) : "function" == typeof define && define.amd ? define(["exports"], e) : e((t = "undefined" != typeof globalThis ? globalThis : t || self).window = t.window || {})
 }(this, (function(t) {
@@ -133,11 +133,7 @@
     }, p.apply(this, arguments)
   }
 
-  function g(t) {
-    throw new TypeError('"' + t + '" is read-only')
-  }
-
-  function m(t, e) {
+  function g(t, e) {
     return function(t) {
       if (Array.isArray(t)) return t
     }(t) || function(t, e) {
@@ -158,39 +154,39 @@
         }
       }
       return a
-    }(t, e) || b(t, e) || function() {
+    }(t, e) || y(t, e) || function() {
       throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
     }()
   }
 
-  function y(t) {
+  function m(t) {
     return function(t) {
-      if (Array.isArray(t)) return x(t)
+      if (Array.isArray(t)) return b(t)
     }(t) || function(t) {
       if ("undefined" != typeof Symbol && null != t[Symbol.iterator] || null != t["@@iterator"]) return Array.from(t)
-    }(t) || b(t) || function() {
+    }(t) || y(t) || function() {
       throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
     }()
   }
 
-  function b(t, e) {
+  function y(t, e) {
     if (t) {
-      if ("string" == typeof t) return x(t, e);
+      if ("string" == typeof t) return b(t, e);
       var i = Object.prototype.toString.call(t).slice(8, -1);
-      return "Object" === i && t.constructor && (i = t.constructor.name), "Map" === i || "Set" === i ? Array.from(t) : "Arguments" === i || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(i) ? x(t, e) : void 0
+      return "Object" === i && t.constructor && (i = t.constructor.name), "Map" === i || "Set" === i ? Array.from(t) : "Arguments" === i || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(i) ? b(t, e) : void 0
     }
   }
 
-  function x(t, e) {
+  function b(t, e) {
     (null == e || e > t.length) && (e = t.length);
     for (var i = 0, n = new Array(e); i < e; i++) n[i] = t[i];
     return n
   }
 
-  function w(t, e) {
+  function x(t, e) {
     var i = "undefined" != typeof Symbol && t[Symbol.iterator] || t["@@iterator"];
     if (!i) {
-      if (Array.isArray(t) || (i = b(t)) || e && t && "number" == typeof t.length) {
+      if (Array.isArray(t) || (i = y(t)) || e && t && "number" == typeof t.length) {
         i && (t = i);
         var n = 0,
           o = function() {};
@@ -234,10 +230,10 @@
       }
     }
   }
-  var k = function(t) {
+  var w = function(t) {
       return "object" === n(t) && null !== t && t.constructor === Object && "[object Object]" === Object.prototype.toString.call(t)
     },
-    S = function t() {
+    k = function t() {
       for (var e = !1, i = arguments.length, o = new Array(i), a = 0; a < i; a++) o[a] = arguments[a];
       "boolean" == typeof o[0] && (e = o.shift());
       var s = o[0];
@@ -247,7 +243,7 @@
         for (var d in h)
           if (h.hasOwnProperty(d)) {
             var u = h[d];
-            if (e && (Array.isArray(u) || k(u))) {
+            if (e && (Array.isArray(u) || w(u))) {
               var f = Array.isArray(u) ? [] : {};
               s[d] = t(!0, s.hasOwnProperty(d) ? s[d] : f, u)
             } else s[d] = u
@@ -255,11 +251,11 @@
       }
       return s
     },
-    C = function(t) {
+    S = function(t) {
       var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 1e4;
       return t = parseFloat(t) || 0, Math.round((t + Number.EPSILON) * e) / e
     },
-    $ = function t(e) {
+    C = function t(e) {
       return !!(e && "object" === n(e) && e instanceof Element && e !== document.body) && (!e.__Panzoom && (function(t) {
         var e = getComputedStyle(t)["overflow-y"],
           i = getComputedStyle(t)["overflow-x"],
@@ -268,7 +264,7 @@
         return n || o
       }(e) ? e : t(e.parentNode)))
     },
-    E = "undefined" != typeof window && window.ResizeObserver || function() {
+    $ = "undefined" != typeof window && window.ResizeObserver || function() {
       function t(e) {
         o(this, t), this.observables = [], this.boundCheck = this.check.bind(this), this.boundCheck(), this.callback = e
       }
@@ -314,22 +310,22 @@
         }
       }]), t
     }(),
-    P = s((function t(e) {
+    E = s((function t(e) {
       o(this, t), this.id = self.Touch && e instanceof Touch ? e.identifier : -1, this.pageX = e.pageX, this.pageY = e.pageY, this.clientX = e.clientX, this.clientY = e.clientY
     })),
-    T = function(t, e) {
+    P = function(t, e) {
       return e ? Math.sqrt(Math.pow(e.clientX - t.clientX, 2) + Math.pow(e.clientY - t.clientY, 2)) : 0
     },
-    L = function(t, e) {
+    T = function(t, e) {
       return e ? {
         clientX: (t.clientX + e.clientX) / 2,
         clientY: (t.clientY + e.clientY) / 2
       } : t
     },
-    _ = function(t) {
+    L = function(t) {
       return "changedTouches" in t
     },
-    A = function() {
+    _ = function() {
       function t(e) {
         var i = this,
           n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
@@ -342,28 +338,24 @@
           c = n.end,
           h = void 0 === c ? function() {} : c;
         o(this, t), this._element = e, this.startPointers = [], this.currentPointers = [], this._pointerStart = function(t) {
-          if (1 & t.buttons) {
-            var e = new P(t);
+          if (!(t.buttons > 0 && 0 !== t.button)) {
+            var e = new E(t);
             i.currentPointers.some((function(t) {
               return t.id === e.id
-            })) || i._triggerPointerStart(e, t) && (window.addEventListener("mousemove", i._move, {
-              passive: !1
-            }), window.addEventListener("mouseup", i._pointerEnd, {
-              passive: !1
-            }))
+            })) || i._triggerPointerStart(e, t) && (window.addEventListener("mousemove", i._move), window.addEventListener("mouseup", i._pointerEnd))
           }
         }, this._touchStart = function(t) {
           for (var e = 0, n = Array.from(t.changedTouches || []); e < n.length; e++) {
             var o = n[e];
-            i._triggerPointerStart(new P(o), t)
+            i._triggerPointerStart(new E(o), t)
           }
         }, this._move = function(t) {
           var e, n = i.currentPointers.slice(),
-            o = _(t) ? Array.from(t.changedTouches).map((function(t) {
-              return new P(t)
-            })) : [new P(t)],
+            o = L(t) ? Array.from(t.changedTouches).map((function(t) {
+              return new E(t)
+            })) : [new E(t)],
             a = [],
-            s = w(o);
+            s = x(o);
           try {
             var r = function() {
               var t = e.value,
@@ -381,17 +373,20 @@
           }
           i._moveCallback(n, i.currentPointers.slice(), t)
         }, this._triggerPointerEnd = function(t, e) {
-          if (!_(e) && 1 & e.buttons) return !1;
           var n = i.currentPointers.findIndex((function(e) {
             return e.id === t.id
           }));
           return !(n < 0) && (i.currentPointers.splice(n, 1), i.startPointers.splice(n, 1), i._endCallback(t, e), !0)
         }, this._pointerEnd = function(t) {
-          i._triggerPointerEnd(new P(t), t) && (window.removeEventListener("mousemove", i._move), window.removeEventListener("mouseup", i._pointerEnd))
+          t.buttons > 0 && 0 !== t.button || i._triggerPointerEnd(new E(t), t) && (window.removeEventListener("mousemove", i._move, {
+            passive: !1
+          }), window.removeEventListener("mouseup", i._pointerEnd, {
+            passive: !1
+          }))
         }, this._touchEnd = function(t) {
           for (var e = 0, n = Array.from(t.changedTouches || []); e < n.length; e++) {
             var o = n[e];
-            i._triggerPointerEnd(new P(o), t)
+            i._triggerPointerEnd(new E(o), t)
           }
         }, this._startCallback = s, this._moveCallback = l, this._endCallback = h, this._element.addEventListener("mousedown", this._pointerStart, {
           passive: !1
@@ -410,11 +405,7 @@
             passive: !1
           }), this._element.removeEventListener("touchmove", this._move, {
             passive: !1
-          }), this._element.removeEventListener("touchend", this._touchEnd), this._element.removeEventListener("touchcancel", this._touchEnd), window.removeEventListener("mousemove", this._move, {
-            passive: !1
-          }), window.removeEventListener("mouseup", this._pointerEnd, {
-            passive: !1
-          })
+          }), this._element.removeEventListener("touchend", this._touchEnd), this._element.removeEventListener("touchcancel", this._touchEnd), window.removeEventListener("mousemove", this._move), window.removeEventListener("mouseup", this._pointerEnd)
         }
       }, {
         key: "_triggerPointerStart",
@@ -423,26 +414,26 @@
         }
       }]), t
     }(),
-    O = function(t, e) {
+    A = function(t, e) {
       return t.split(".").reduce((function(t, e) {
         return t && t[e]
       }), e)
     },
-    z = function() {
+    O = function() {
       function t() {
         var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-        o(this, t), this.options = S(!0, {}, e), this.plugins = [], this.events = {};
+        o(this, t), this.options = k(!0, {}, e), this.plugins = [], this.events = {};
         for (var i = 0, n = ["on", "once"]; i < n.length; i++)
           for (var a = n[i], s = 0, r = Object.entries(this.options[a] || {}); s < r.length; s++) {
             var l = r[s];
-            this[a].apply(this, y(l))
+            this[a].apply(this, m(l))
           }
       }
       return s(t, [{
         key: "option",
         value: function(t, e) {
           t = String(t);
-          var i = O(t, this.options);
+          var i = A(t, this.options);
           if ("function" == typeof i) {
             for (var n, o = arguments.length, a = new Array(o > 2 ? o - 2 : 0), s = 2; s < o; s++) a[s - 2] = arguments[s];
             i = (n = i).call.apply(n, [this, this].concat(a))
@@ -467,10 +458,10 @@
         key: "on",
         value: function(t, e) {
           var i = this;
-          if (k(t)) {
+          if (w(t)) {
             for (var n = 0, o = Object.entries(t); n < o.length; n++) {
               var a = o[n];
-              this.on.apply(this, y(a))
+              this.on.apply(this, m(a))
             }
             return this
           }
@@ -482,10 +473,10 @@
         key: "once",
         value: function(t, e) {
           var i = this;
-          if (k(t)) {
+          if (w(t)) {
             for (var n = 0, o = Object.entries(t); n < o.length; n++) {
               var a = o[n];
-              this.once.apply(this, y(a))
+              this.once.apply(this, m(a))
             }
             return this
           }
@@ -502,7 +493,7 @@
         key: "off",
         value: function(t, e) {
           var i = this;
-          if (!k(t)) return t.split(" ").forEach((function(t) {
+          if (!w(t)) return t.split(" ").forEach((function(t) {
             var n = i.events[t];
             if (!n || !n.length) return i;
             for (var o = -1, a = 0, s = n.length; a < s; a++) {
@@ -515,14 +506,14 @@
           })), this;
           for (var n = 0, o = Object.entries(t); n < o.length; n++) {
             var a = o[n];
-            this.off.apply(this, y(a))
+            this.off.apply(this, m(a))
           }
         }
       }, {
         key: "trigger",
         value: function(t) {
           for (var e = arguments.length, i = new Array(e > 1 ? e - 1 : 0), n = 1; n < e; n++) i[n - 1] = arguments[n];
-          var o, a = w(y(this.events[t] || []).slice());
+          var o, a = x(m(this.events[t] || []).slice());
           try {
             for (a.s(); !(o = a.n()).done;) {
               var s = o.value;
@@ -533,7 +524,7 @@
           } finally {
             a.f()
           }
-          var r, l = w(y(this.events["*"] || []).slice());
+          var r, l = x(m(this.events["*"] || []).slice());
           try {
             for (l.s(); !(r = l.n()).done;) {
               var c = r.value;
@@ -550,13 +541,13 @@
         key: "attachPlugins",
         value: function(t) {
           for (var e = {}, i = 0, n = Object.entries(t || {}); i < n.length; i++) {
-            var o = m(n[i], 2),
+            var o = g(n[i], 2),
               a = o[0],
               s = o[1];
-            !1 === this.options[a] || this.plugins[a] || (this.options[a] = S({}, s.defaults || {}, this.options[a]), e[a] = new s(this))
+            !1 === this.options[a] || this.plugins[a] || (this.options[a] = k({}, s.defaults || {}, this.options[a]), e[a] = new s(this))
           }
           for (var r = 0, l = Object.entries(e); r < l.length; r++) {
-            var c = m(l[r], 2);
+            var c = g(l[r], 2);
             c[0], c[1].attach(this)
           }
           return this.plugins = Object.assign({}, this.plugins, e), this
@@ -572,7 +563,7 @@
         }
       }]), t
     }(),
-    M = {
+    z = {
       touch: !0,
       zoom: !0,
       pinchToZoom: !0,
@@ -595,13 +586,13 @@
       draggingClass: "is-dragging",
       ratio: 1
     },
-    I = function(t) {
+    M = function(t) {
       l(n, t);
       var e = f(n);
 
       function n(t) {
         var i, a = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
-        o(this, n), (i = e.call(this, S(!0, {}, M, a))).state = "init", i.$container = t;
+        o(this, n), (i = e.call(this, k(!0, {}, z, a))).state = "init", i.$container = t;
         for (var s = 0, r = ["onLoad", "onWheel", "onClick"]; s < r.length; s++) {
           var l = r[s];
           i[l] = i[l].bind(d(i))
@@ -619,7 +610,7 @@
           if (!e) throw new Error("Panzoom: Content not found");
           this.$content = e;
           var i, n = this.option("viewport") || t.querySelector(".panzoom__viewport");
-          n || !1 === this.option("wrapInner") || ((n = document.createElement("div")).classList.add("panzoom__viewport"), (i = n).append.apply(i, y(t.childNodes)), t.appendChild(n));
+          n || !1 === this.option("wrapInner") || ((n = document.createElement("div")).classList.add("panzoom__viewport"), (i = n).append.apply(i, m(t.childNodes)), t.appendChild(n));
           this.$viewport = n || e.parentNode
         }
       }, {
@@ -656,13 +647,12 @@
       }, {
         key: "onClick",
         value: function(t) {
-          if (!t.defaultPrevented)
-            if (this.option("textSelection") && window.getSelection().toString().length) t.stopPropagation();
-            else {
+          if (!(t.defaultPrevented || document.activeElement && document.activeElement.closest("[contenteditable]")))
+            if (!this.option("textSelection") || !window.getSelection().toString().length || t.target && t.target.hasAttribute("data-fancybox-close")) {
               var e = this.$content.getClientRects()[0];
               if ("ready" !== this.state && (this.dragPosition.midPoint || Math.abs(e.top - this.dragStart.rect.top) > 1 || Math.abs(e.left - this.dragStart.rect.left) > 1)) return t.preventDefault(), void t.stopPropagation();
               !1 !== this.trigger("click", t) && this.option("zoom") && "toggleZoom" === this.option("click") && (t.preventDefault(), t.stopPropagation(), this.zoomWithClick(t))
-            }
+            } else t.stopPropagation()
         }
       }, {
         key: "onWheel",
@@ -706,7 +696,7 @@
           }), this.$container.addEventListener("click", this.onClick, {
             passive: !1
           }), this.initObserver();
-          var e = new A(this.$container, {
+          var e = new _(this.$container, {
             start: function(i, n) {
               if (!t.option("touch")) return !1;
               if (t.velocity.scale < 0) return !1;
@@ -723,20 +713,20 @@
                       }
                     }
                     return !1
-                  }(o, n.clientX, n.clientY)) return !1
+                  }(o, i.clientX, i.clientY)) return !1
               }
-              return !$(o) && (!1 !== t.trigger("touchStart", n) && ("mousedown" === n.type && n.preventDefault(), t.state = "pointerdown", t.resetDragPosition(), t.dragPosition.midPoint = null, t.dragPosition.time = Date.now(), !0))
+              return !C(o) && (!1 !== t.trigger("touchStart", n) && ("mousedown" === n.type && n.preventDefault(), t.state = "pointerdown", t.resetDragPosition(), t.dragPosition.midPoint = null, t.dragPosition.time = Date.now(), !0))
             },
             move: function(i, n, o) {
               if ("pointerdown" === t.state)
                 if (!1 !== t.trigger("touchMove", o)) {
                   if (!(n.length < 2 && !0 === t.option("panOnlyZoomed") && t.content.width <= t.viewport.width && t.content.height <= t.viewport.height && t.transform.scale <= t.option("baseScale")) && (!(n.length > 1) || t.option("zoom") && !1 !== t.option("pinchToZoom"))) {
-                    var a = L(i[0], i[1]),
-                      s = L(n[0], n[1]),
+                    var a = T(i[0], i[1]),
+                      s = T(n[0], n[1]),
                       r = s.clientX - a.clientX,
                       l = s.clientY - a.clientY,
-                      c = T(i[0], i[1]),
-                      h = T(n[0], n[1]),
+                      c = P(i[0], i[1]),
+                      h = P(n[0], n[1]),
                       d = c && h ? h / c : 1;
                     t.dragOffset.x += r, t.dragOffset.y += l, t.dragOffset.scale *= d, t.dragOffset.time = Date.now() - t.dragPosition.time;
                     var u = 1 === t.dragStart.scale && t.option("lockAxis");
@@ -747,7 +737,7 @@
                     }
                     if ("xy" === u || "y" !== t.lockAxis) {
                       if (o.preventDefault(), o.stopPropagation(), o.stopImmediatePropagation(), t.lockAxis && (t.dragOffset["x" === t.lockAxis ? "y" : "x"] = 0), t.$container.classList.add(t.option("draggingClass")), t.transform.scale === t.option("baseScale") && "y" === t.lockAxis || (t.dragPosition.x = t.dragStart.x + t.dragOffset.x), t.transform.scale === t.option("baseScale") && "x" === t.lockAxis || (t.dragPosition.y = t.dragStart.y + t.dragOffset.y), t.dragPosition.scale = t.dragStart.scale * t.dragOffset.scale, n.length > 1) {
-                        var v = L(e.startPointers[0], e.startPointers[1]),
+                        var v = T(e.startPointers[0], e.startPointers[1]),
                           p = v.clientX - t.dragStart.rect.x,
                           g = v.clientY - t.dragStart.rect.y,
                           m = t.getZoomDelta(t.content.scale * t.dragOffset.scale, p, g),
@@ -793,7 +783,7 @@
         key: "initObserver",
         value: function() {
           var t = this;
-          this.resizeObserver || (this.resizeObserver = new E((function() {
+          this.resizeObserver || (this.resizeObserver = new $((function() {
             t.updateTimer || (t.updateTimer = setTimeout((function() {
               var e = t.$container.getBoundingClientRect();
               e.width && e.height ? ((Math.abs(e.width - t.container.width) > 1 || Math.abs(e.height - t.container.height) > 1) && (t.isAnimating() && t.endAnimation(!0), t.updateMetrics(), t.panTo({
@@ -859,12 +849,12 @@
             height: ""
           });
           var f = this.option("ratio");
-          c = d = C(d * f), h = u = C(u * f);
+          c = d = S(d * f), h = u = S(u * f);
           var v = o.getBoundingClientRect(),
             p = a.getBoundingClientRect(),
             g = a == n ? p : n.getBoundingClientRect(),
-            m = Math.max(a.offsetWidth, C(p.width)),
-            y = Math.max(a.offsetHeight, C(p.height)),
+            m = Math.max(a.offsetWidth, S(p.width)),
+            y = Math.max(a.offsetHeight, S(p.height)),
             b = window.getComputedStyle(a);
           if (m -= parseFloat(b.paddingLeft) + parseFloat(b.paddingRight), y -= parseFloat(b.paddingTop) + parseFloat(b.paddingBottom), this.viewport.width = m, this.viewport.height = y, r) {
             if (Math.abs(d - v.width) > .1 || Math.abs(u - v.height) > .1) {
@@ -875,7 +865,7 @@
                   height: e * o || 0
                 }
               }(d, u, Math.min(d, v.width), Math.min(u, v.height));
-              c = C(x.width), h = C(x.height)
+              c = S(x.width), h = S(x.height)
             }
             Object.assign(o.style, {
               width: "".concat(c, "px"),
@@ -938,7 +928,7 @@
             o = e.y,
             a = void 0 === o ? null : o;
           t = Math.max(Math.min(t, this.option("maxScale")), this.option("minScale"));
-          var s = C(this.content.scale / (this.content.width / this.content.fitWidth), 1e7);
+          var s = S(this.content.scale / (this.content.width / this.content.fitWidth), 1e7);
           null === n && (n = this.content.width * s * .5), null === a && (a = this.content.height * s * .5);
           var r = this.getZoomDelta(t, n, a),
             l = r.deltaX,
@@ -1036,13 +1026,13 @@
             a = this.viewport.width,
             s = this.viewport.height;
           if (n < a) {
-            var r = C(.5 * (a - n));
+            var r = S(.5 * (a - n));
             e.from = r, e.to = r
-          } else e.from = C(a - n);
+          } else e.from = S(a - n);
           if (o < s) {
             var l = .5 * (s - o);
             i.from = l, i.to = l
-          } else i.from = C(s - o);
+          } else i.from = S(s - o);
           return {
             boundX: e,
             boundY: i
@@ -1106,14 +1096,14 @@
         key: "setTransform",
         value: function(t) {
           var e, n, o, a, s;
-          (t ? (e = C(this.transform.x), n = C(this.transform.y), o = this.transform.scale, this.content = i(i({}, this.content), {}, {
+          (t ? (e = S(this.transform.x), n = S(this.transform.y), o = this.transform.scale, this.content = i(i({}, this.content), {}, {
             x: e,
             y: n,
             scale: o
-          })) : (e = C(this.content.x), n = C(this.content.y), o = this.content.scale / (this.content.width / this.content.fitWidth), this.content = i(i({}, this.content), {}, {
+          })) : (e = S(this.content.x), n = S(this.content.y), o = this.content.scale / (this.content.width / this.content.fitWidth), this.content = i(i({}, this.content), {}, {
             x: e,
             y: n
-          })), this.trigger("beforeTransform"), e = C(this.content.x), n = C(this.content.y), t && this.option("zoom")) ? (a = C(this.content.fitWidth * o), s = C(this.content.fitHeight * o), this.content.width = a, this.content.height = s, this.transform = i(i({}, this.transform), {}, {
+          })), this.trigger("beforeTransform"), e = S(this.content.x), n = S(this.content.y), t && this.option("zoom")) ? (a = S(this.content.fitWidth * o), s = S(this.content.fitHeight * o), this.content.width = a, this.content.height = s, this.transform = i(i({}, this.transform), {}, {
             width: a,
             height: s,
             scale: o
@@ -1156,9 +1146,9 @@
           "destroy" !== this.state && (this.state = "destroy", clearTimeout(this.updateTimer), this.updateTimer = null, cancelAnimationFrame(this.rAF), this.rAF = null, this.detachEvents(), this.detachPlugins(), this.resetDragPosition())
         }
       }]), n
-    }(z);
-  I.version = "4.0.25", I.Plugins = {};
-  var F = function(t, e) {
+    }(O);
+  M.version = "4.0.31", M.Plugins = {};
+  var I = function(t, e) {
       var i = 0;
       return function() {
         var n = (new Date).getTime();
@@ -1181,7 +1171,7 @@
             n = document.createElement("button");
           n.setAttribute("title", this.carousel.localize("{{".concat(t.toUpperCase(), "}}")));
           var o = this.option("classNames.button") + " " + this.option("classNames.".concat(t));
-          return (e = n.classList).add.apply(e, y(o.split(" "))), n.setAttribute("tabindex", "0"), n.innerHTML = this.carousel.localize(this.option("".concat(t, "Tpl"))), n.addEventListener("click", (function(e) {
+          return (e = n.classList).add.apply(e, m(o.split(" "))), n.setAttribute("tabindex", "0"), n.innerHTML = this.carousel.localize(this.option("".concat(t, "Tpl"))), n.addEventListener("click", (function(e) {
             e.preventDefault(), e.stopPropagation(), i.carousel["slide".concat("next" === t ? "Next" : "Prev")]()
           })), n
         }
@@ -1189,7 +1179,7 @@
         key: "build",
         value: function() {
           var t;
-          this.$container || (this.$container = document.createElement("div"), (t = this.$container.classList).add.apply(t, y(this.option("classNames.main").split(" "))), this.carousel.$container.appendChild(this.$container));
+          this.$container || (this.$container = document.createElement("div"), (t = this.$container.classList).add.apply(t, m(this.option("classNames.main").split(" "))), this.carousel.$container.appendChild(this.$container));
           this.$next || (this.$next = this.createButton("next"), this.$container.appendChild(this.$next)), this.$prev || (this.$prev = this.createButton("prev"), this.$container.appendChild(this.$prev))
         }
       }, {
@@ -1225,7 +1215,7 @@
       prev: "is-prev"
     }
   };
-  var N = function() {
+  var F = function() {
       function t(e) {
         o(this, t), this.carousel = e, this.$list = null, this.events = {
           change: this.onChange.bind(this),
@@ -1313,7 +1303,7 @@
         }
       }]), t
     }(),
-    D = function() {
+    N = function() {
       function t(e) {
         o(this, t), this.carousel = e, this.selectedIndex = null, this.friction = 0, this.onNavReady = this.onNavReady.bind(this), this.onNavClick = this.onNavClick.bind(this), this.onNavCreateSlide = this.onNavCreateSlide.bind(this), this.onTargetChange = this.onTargetChange.bind(this)
       }
@@ -1365,7 +1355,7 @@
       }, {
         key: "markSelectedSlide",
         value: function(t) {
-          this.selectedIndex = t, y(this.nav.slides).filter((function(t) {
+          this.selectedIndex = t, m(this.nav.slides).filter((function(t) {
             return t.$el && t.$el.classList.remove("is-nav-selected")
           }));
           var e = this.nav.slides[t];
@@ -1384,15 +1374,15 @@
         }
       }]), t
     }();
-  D.defaults = {
+  N.defaults = {
     friction: .92
   };
-  var B = {
+  var D = {
       Navigation: R,
-      Dots: N,
-      Sync: D
+      Dots: F,
+      Sync: N
     },
-    W = {
+    B = {
       slides: [],
       preload: 0,
       slidesPerPage: "auto",
@@ -1422,8 +1412,8 @@
 
       function n(t) {
         var i, a = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
-        if (o(this, n), a = S(!0, {}, W, a), (i = e.call(this, a)).state = "init", i.$container = t, !(i.$container instanceof HTMLElement)) throw new Error("No root element provided");
-        return i.slideNext = F(i.slideNext.bind(d(i)), 250), i.slidePrev = F(i.slidePrev.bind(d(i)), 250), i.init(), t.__Carousel = d(i), i
+        if (o(this, n), a = k(!0, {}, B, a), (i = e.call(this, a)).state = "init", i.$container = t, !(i.$container instanceof HTMLElement)) throw new Error("No root element provided");
+        return i.slideNext = I(i.slideNext.bind(d(i)), 250), i.slidePrev = I(i.slidePrev.bind(d(i)), 250), i.init(), t.__Carousel = d(i), i
       }
       return s(n, [{
         key: "init",
@@ -1435,8 +1425,8 @@
         value: function() {
           var t, e, i, n, o = this.option("prefix"),
             a = this.option("classNames");
-          (this.$viewport = this.option("viewport") || this.$container.querySelector(".".concat(o).concat(a.viewport)), this.$viewport) || (this.$viewport = document.createElement("div"), (t = this.$viewport.classList).add.apply(t, y((o + a.viewport).split(" "))), (e = this.$viewport).append.apply(e, y(this.$container.childNodes)), this.$container.appendChild(this.$viewport));
-          (this.$track = this.option("track") || this.$container.querySelector(".".concat(o).concat(a.track)), this.$track) || (this.$track = document.createElement("div"), (i = this.$track.classList).add.apply(i, y((o + a.track).split(" "))), (n = this.$track).append.apply(n, y(this.$viewport.childNodes)), this.$viewport.appendChild(this.$track))
+          (this.$viewport = this.option("viewport") || this.$container.querySelector(".".concat(o).concat(a.viewport)), this.$viewport) || (this.$viewport = document.createElement("div"), (t = this.$viewport.classList).add.apply(t, m((o + a.viewport).split(" "))), (e = this.$viewport).append.apply(e, m(this.$container.childNodes)), this.$container.appendChild(this.$viewport));
+          (this.$track = this.option("track") || this.$container.querySelector(".".concat(o).concat(a.track)), this.$track) || (this.$track = document.createElement("div"), (i = this.$track.classList).add.apply(i, m((o + a.track).split(" "))), (n = this.$track).append.apply(n, m(this.$viewport.childNodes)), this.$viewport.appendChild(this.$track))
         }
       }, {
         key: "initSlides",
@@ -1448,7 +1438,7 @@
               isDom: !0
             };
             t.slides.push(i), t.trigger("createSlide", i, t.slides.length)
-          })), Array.isArray(this.options.slides) && (this.slides = S(!0, y(this.slides), this.options.slides))
+          })), Array.isArray(this.options.slides) && (this.slides = k(!0, m(this.slides), this.options.slides))
         }
       }, {
         key: "updateMetrics",
@@ -1461,7 +1451,7 @@
               r = i.isDom || !t ? e.getSlideMetrics(s) : t;
             i.index = a, i.width = r, i.left = n, t = r, n += r, o.push(a)
           }));
-          var a = Math.max(this.$track.offsetWidth, C(this.$track.getBoundingClientRect().width)),
+          var a = Math.max(this.$track.offsetWidth, S(this.$track.getBoundingClientRect().width)),
             s = getComputedStyle(this.$track);
           a -= parseFloat(s.paddingLeft) + parseFloat(s.paddingRight), this.contentWidth = n, this.viewportWidth = a;
           var r = [],
@@ -1486,15 +1476,15 @@
               return t + e.width
             }), 0), t.left = t.slides[0].left, v && (t.left += .5 * (a - t.width) * -1), p && !e.option("infiniteX", e.option("infinite")) && n > a && (t.left = Math.max(t.left, 0), t.left = Math.min(t.left, n - a))
           }));
-          var g, m = [];
+          var g, y = [];
           r.forEach((function(t) {
             var e = i({}, t);
-            g && e.left === g.left ? (g.width += e.width, g.slides = [].concat(y(g.slides), y(e.slides)), g.indexes = [].concat(y(g.indexes), y(e.indexes))) : (e.index = m.length, g = e, m.push(e))
-          })), this.pages = m;
+            g && e.left === g.left ? (g.width += e.width, g.slides = [].concat(m(g.slides), m(e.slides)), g.indexes = [].concat(m(g.indexes), m(e.indexes))) : (e.index = y.length, g = e, y.push(e))
+          })), this.pages = y;
           var b = this.page;
           if (null === b) {
             var x = this.option("initialSlide");
-            b = null !== x ? this.findPageForSlide(x) : parseInt(this.option("initialPage", 0), 10) || 0, m[b] || (b = m.length && b > m.length ? m[m.length - 1].index : 0), this.page = b, this.pageIndex = b
+            b = null !== x ? this.findPageForSlide(x) : parseInt(this.option("initialPage", 0), 10) || 0, y[b] || (b = y.length && b > y.length ? y[y.length - 1].index : 0), this.page = b, this.pageIndex = b
           }
           this.updatePanzoom(), this.trigger("refresh")
         }
@@ -1503,10 +1493,10 @@
         value: function(t) {
           if (!t) {
             var e, i, n = this.slides[0];
-            if ((t = document.createElement("div")).dataset.isTestEl = 1, t.style.visibility = "hidden", (e = t.classList).add.apply(e, y((this.option("prefix") + this.option("classNames.slide")).split(" "))), n.customClass)(i = t.classList).add.apply(i, y(n.customClass.split(" ")));
+            if ((t = document.createElement("div")).dataset.isTestEl = 1, t.style.visibility = "hidden", (e = t.classList).add.apply(e, m((this.option("prefix") + this.option("classNames.slide")).split(" "))), n.customClass)(i = t.classList).add.apply(i, m(n.customClass.split(" ")));
             this.$track.prepend(t)
           }
-          var o = Math.max(t.offsetWidth, C(t.getBoundingClientRect().width)),
+          var o = Math.max(t.offsetWidth, S(t.getBoundingClientRect().width)),
             a = t.currentStyle || window.getComputedStyle(t);
           return o = o + (parseFloat(a.marginLeft) || 0) + (parseFloat(a.marginRight) || 0), t.dataset.isTestEl && t.remove(), o
         }
@@ -1551,7 +1541,7 @@
         value: function() {
           var t = this;
           this.Panzoom && this.Panzoom.destroy();
-          var e = S(!0, {}, {
+          var e = k(!0, {}, {
             content: this.$track,
             wrapInner: !1,
             resizeParent: !1,
@@ -1567,7 +1557,7 @@
               return this.content.width <= this.viewport.width
             }
           }, this.option("Panzoom"));
-          this.Panzoom = new I(this.$container, e), this.Panzoom.on({
+          this.Panzoom = new M(this.$container, e), this.Panzoom.on({
             "*": function(e) {
               for (var i = arguments.length, n = new Array(i > 1 ? i - 1 : 0), o = 1; o < i; o++) n[o - 1] = arguments[o];
               return t.trigger.apply(t, ["Panzoom.".concat(e)].concat(n))
@@ -1632,7 +1622,7 @@
           if (t) {
             if (!t.$el) {
               var i, n = document.createElement("div");
-              if (n.dataset.index = t.index, (e = n.classList).add.apply(e, y((this.option("prefix") + this.option("classNames.slide")).split(" "))), t.customClass)(i = n.classList).add.apply(i, y(t.customClass.split(" ")));
+              if (n.dataset.index = t.index, (e = n.classList).add.apply(e, m((this.option("prefix") + this.option("classNames.slide")).split(" "))), t.customClass)(i = n.classList).add.apply(i, m(t.customClass.split(" ")));
               t.html && (n.innerHTML = t.html);
               var o = [];
               this.slides.forEach((function(t, e) {
@@ -1705,7 +1695,7 @@
           var i = this.option("dragFree");
           if (!i && this.pages.length > 1 && t.dragOffset.time < 350 && Math.abs(t.dragOffset.y) < 1 && Math.abs(t.dragOffset.x) > 5) this[t.dragOffset.x < 0 ? "slideNext" : "slidePrev"]();
           else if (i) {
-            var n = m(this.getPageFromPosition(-1 * t.transform.x), 2)[1];
+            var n = g(this.getPageFromPosition(-1 * t.transform.x), 2)[1];
             this.setPage(n)
           } else this.slideToClosest()
         }
@@ -1714,7 +1704,7 @@
         value: function() {
           var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
             e = this.getPageFromPosition(-1 * this.Panzoom.content.x),
-            i = m(e, 2),
+            i = g(e, 2),
             n = i[1];
           this.slideTo(n, t)
         }
@@ -1768,21 +1758,21 @@
           })), this.slides = [], this.Panzoom.destroy(), this.detachPlugins()
         }
       }]), n
-    }(z);
-  H.version = "4.0.25", H.Plugins = B;
-  var j = !("undefined" == typeof window || !window.document || !window.document.createElement),
-    X = null,
-    q = ["a[href]", "area[href]", 'input:not([disabled]):not([type="hidden"]):not([aria-hidden])', "select:not([disabled]):not([aria-hidden])", "textarea:not([disabled]):not([aria-hidden])", "button:not([disabled]):not([aria-hidden])", "iframe", "object", "embed", "video", "audio", "[contenteditable]", '[tabindex]:not([tabindex^="-"]):not([disabled]):not([aria-hidden])'],
-    U = function(t) {
-      if (t && j) {
-        null === X && document.createElement("div").focus({
+    }(O);
+  H.version = "4.0.31", H.Plugins = D;
+  var W = !("undefined" == typeof window || !window.document || !window.document.createElement),
+    j = null,
+    X = ["a[href]", "area[href]", 'input:not([disabled]):not([type="hidden"]):not([aria-hidden])', "select:not([disabled]):not([aria-hidden])", "textarea:not([disabled]):not([aria-hidden])", "button:not([disabled]):not([aria-hidden])", "iframe", "object", "embed", "video", "audio", "[contenteditable]", '[tabindex]:not([tabindex^="-"]):not([disabled]):not([aria-hidden])'],
+    q = function(t) {
+      if (t && W) {
+        null === j && document.createElement("div").focus({
           get preventScroll() {
-            return X = !0, !1
+            return j = !0, !1
           }
         });
         try {
           if (t.setActive) t.setActive();
-          else if (X) t.focus({
+          else if (j) t.focus({
             preventScroll: !0
           });
           else {
@@ -1797,7 +1787,7 @@
         } catch (t) {}
       }
     },
-    Y = function() {
+    U = function() {
       function t(e) {
         o(this, t), this.fancybox = e, this.viewport = null, this.pendingUpdate = null;
         for (var i = 0, n = ["onReady", "onResize", "onTouchstart", "onTouchmove"]; i < n.length; i++) {
@@ -1847,7 +1837,7 @@
           var e = this.startY,
             i = window.innerWidth / window.document.documentElement.clientWidth;
           if (t.cancelable && !(t.touches.length > 1 || 1 !== i)) {
-            var n = $(t.composedPath()[0]);
+            var n = C(t.composedPath()[0]);
             if (n) {
               var o = window.getComputedStyle(n),
                 a = parseInt(o.getPropertyValue("height"), 10),
@@ -1861,7 +1851,7 @@
       }, {
         key: "onWheel",
         value: function(t) {
-          $(t.composedPath()[0]) || t.preventDefault()
+          C(t.composedPath()[0]) || t.preventDefault()
         }
       }, {
         key: "cleanup",
@@ -1884,7 +1874,7 @@
         }
       }]), t
     }(),
-    V = function() {
+    Y = function() {
       function t(e) {
         o(this, t), this.fancybox = e, this.$container = null, this.state = "init";
         for (var i = 0, n = ["onPrepare", "onClosing", "onKeydown"]; i < n.length; i++) {
@@ -1918,7 +1908,7 @@
           var t = this;
           if (!this.$container) {
             var e = document.createElement("div");
-            e.classList.add("fancybox__thumbs"), this.fancybox.$carousel.parentNode.insertBefore(e, this.fancybox.$carousel.nextSibling), this.Carousel = new H(e, S(!0, {
+            e.classList.add("fancybox__thumbs"), this.fancybox.$carousel.parentNode.insertBefore(e, this.fancybox.$carousel.nextSibling), this.Carousel = new H(e, k(!0, {
               Dots: !1,
               Navigation: !1,
               Sync: {
@@ -1944,13 +1934,13 @@
         key: "getSlides",
         value: function() {
           var t, e = [],
-            i = w(this.fancybox.items);
+            i = x(this.fancybox.items);
           try {
             for (i.s(); !(t = i.n()).done;) {
               var n = t.value,
                 o = n.thumb;
               o && e.push({
-                html: '<div class="fancybox__thumb" style="background-image:url(\''.concat(o, "')\"></div>"),
+                html: this.fancybox.option("Thumbs.tpl").replace(/\{\{src\}\}/gi, o),
                 customClass: "has-thumb has-".concat(n.type || "image")
               })
             }
@@ -1993,16 +1983,17 @@
         }
       }]), t
     }();
-  V.defaults = {
+  Y.defaults = {
     minSlideCount: 2,
     minScreenHeight: 500,
     autoStart: !0,
     key: "t",
-    Carousel: {}
+    Carousel: {},
+    tpl: '<div class="fancybox__thumb" style="background-image:url(\'{{src}}\')"></div>'
   };
-  var Z = function(t, e) {
-      for (var i = new URL(t), n = new URLSearchParams(i.search), o = new URLSearchParams, a = 0, s = [].concat(y(n), y(Object.entries(e))); a < s.length; a++) {
-        var r = m(s[a], 2),
+  var V = function(t, e) {
+      for (var i = new URL(t), n = new URLSearchParams(i.search), o = new URLSearchParams, a = 0, s = [].concat(m(n), m(Object.entries(e))); a < s.length; a++) {
+        var r = g(s[a], 2),
           l = r[0],
           c = r[1];
         "t" === l ? o.set("start", parseInt(c)) : o.set(l, c)
@@ -2011,7 +2002,7 @@
       var h = t.match(/#t=((.*)?\d+s)/);
       return h && (o += "#t=".concat(h[1])), o
     },
-    G = {
+    Z = {
       video: {
         autoplay: !0,
         ratio: 16 / 9
@@ -2037,7 +2028,7 @@
         format: ""
       }
     },
-    K = function() {
+    G = function() {
       function t(e) {
         o(this, t), this.fancybox = e;
         for (var i = 0, n = ["onInit", "onReady", "onCreateSlide", "onRemoveSlide", "onSelectSlide", "onUnselectSlide", "onRefresh", "onMessage"]; i < n.length; i++) {
@@ -2057,7 +2048,7 @@
       return s(t, [{
         key: "onInit",
         value: function() {
-          var t, e = w(this.fancybox.items);
+          var t, e = x(this.fancybox.items);
           try {
             for (e.s(); !(t = e.n()).done;) {
               var i = t.value;
@@ -2078,15 +2069,15 @@
             n = null;
           if (!e || "string" == typeof e) {
             if (n = e.match(/(?:youtube\.com|youtu\.be|youtube\-nocookie\.com)\/(?:watch\?(?:.*&)?v=|v\/|u\/|embed\/?)?(videoseries\?list=(?:.*)|[\w-]{11}|\?listType=(?:.*)&list=(?:.*))(?:.*)/i)) {
-              var o = Z(e, this.fancybox.option("Html.youtube")),
+              var o = V(e, this.fancybox.option("Html.youtube")),
                 a = encodeURIComponent(n[1]);
               t.videoId = a, t.src = "https://www.youtube-nocookie.com/embed/".concat(a, "?").concat(o), t.thumb = t.thumb || "https://i.ytimg.com/vi/".concat(a, "/mqdefault.jpg"), t.vendor = "youtube", i = "video"
             } else if (n = e.match(/^.+vimeo.com\/(?:\/)?([\d]+)(.*)?/)) {
-              var s = Z(e, this.fancybox.option("Html.vimeo")),
+              var s = V(e, this.fancybox.option("Html.vimeo")),
                 r = encodeURIComponent(n[1]);
               t.videoId = r, t.src = "https://player.vimeo.com/video/".concat(r, "?").concat(s), t.vendor = "vimeo", i = "video"
             } else(n = e.match(/(?:maps\.)?google\.([a-z]{2,3}(?:\.[a-z]{2})?)\/(?:(?:(?:maps\/(?:place\/(?:.*)\/)?\@(.*),(\d+.?\d+?)z))|(?:\?ll=))(.*)?/i)) ? (t.src = "//maps.google.".concat(n[1], "/?ll=").concat((n[2] ? n[2] + "&z=" + Math.floor(n[3]) + (n[4] ? n[4].replace(/^\//, "&") : "") : n[4] + "").replace(/\?/, "&"), "&output=").concat(n[4] && n[4].indexOf("layer=c") > 0 ? "svembed" : "embed"), i = "map") : (n = e.match(/(?:maps\.)?google\.([a-z]{2,3}(?:\.[a-z]{2})?)\/(?:maps\/search\/)(.*)/i)) && (t.src = "//maps.google.".concat(n[1], "/maps?q=").concat(n[2].replace("query=", "q=").replace("api=1", ""), "&output=embed"), i = "map");
-            i || ("#" === e.charAt(0) ? i = "inline" : (n = e.match(/\.(mp4|mov|ogv|webm)((\?|#).*)?$/i)) ? (i = "html5video", t.format = t.format || "video/" + ("ogv" === n[1] ? "ogg" : n[1])) : e.match(/(^data:image\/[a-z0-9+\/=]*,)|(\.(jp(e|g|eg)|gif|png|bmp|webp|svg|ico)((\?|#).*)?$)/i) ? i = "image" : e.match(/\.(pdf)((\?|#).*)?$/i) && (i = "pdf")), t.type = i || this.fancybox.option("defaultType", "image"), "html5video" !== i && "video" !== i || (t.video = S({}, this.fancybox.option("Html.video"), t.video), t._width && t._height ? t.ratio = parseFloat(t._width) / parseFloat(t._height) : t.ratio = t.ratio || t.video.ratio || G.video.ratio)
+            i || ("#" === e.charAt(0) ? i = "inline" : (n = e.match(/\.(mp4|mov|ogv|webm)((\?|#).*)?$/i)) ? (i = "html5video", t.format = t.format || "video/" + ("ogv" === n[1] ? "ogg" : n[1])) : e.match(/(^data:image\/[a-z0-9+\/=]*,)|(\.(jp(e|g|eg)|gif|png|bmp|webp|svg|ico)((\?|#).*)?$)/i) ? i = "image" : e.match(/\.(pdf)((\?|#).*)?$/i) && (i = "pdf")), t.type = i || this.fancybox.option("defaultType", "image"), "html5video" !== i && "video" !== i || (t.video = k({}, this.fancybox.option("Html.video"), t.video), t._width && t._height ? t.ratio = parseFloat(t._width) / parseFloat(t._height) : t.ratio = t.ratio || t.video.ratio || Z.video.ratio)
           }
         }
       }, {
@@ -2130,7 +2121,9 @@
             i = new XMLHttpRequest;
           e.showLoading(t), i.onreadystatechange = function() {
             i.readyState === XMLHttpRequest.DONE && "ready" === e.state && (e.hideLoading(t), 200 === i.status ? e.setContent(t, i.responseText) : e.setError(t, 404 === i.status ? "{{AJAX_NOT_FOUND}}" : "{{AJAX_FORBIDDEN}}"))
-          }, i.open("GET", t.src), i.setRequestHeader("X-Requested-With", "XMLHttpRequest"), i.send(t.ajax || null), t.xhr = i
+          };
+          var n = t.ajax || null;
+          i.open(n ? "POST" : "GET", t.src), i.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"), i.setRequestHeader("X-Requested-With", "XMLHttpRequest"), i.send(n), t.xhr = i
         }
       }, {
         key: "loadIframeContent",
@@ -2309,7 +2302,7 @@
             var e = JSON.parse(t.data);
             if ("https://player.vimeo.com" === t.origin) {
               if ("ready" === e.event) {
-                var i, n = w(document.getElementsByClassName("fancybox__iframe"));
+                var i, n = x(document.getElementsByClassName("fancybox__iframe"));
                 try {
                   for (n.s(); !(i = n.n()).done;) {
                     var o = i.value;
@@ -2336,8 +2329,8 @@
         }
       }]), t
     }();
-  K.defaults = G;
-  var J = function() {
+  G.defaults = Z;
+  var K = function() {
     function t(e) {
       o(this, t), this.fancybox = e;
       for (var i = 0, n = ["onReady", "onClosing", "onDone", "onPageChange", "onCreateSlide", "onRemoveSlide", "onImageStatusChange"]; i < n.length; i++) {
@@ -2424,7 +2417,7 @@
       key: "initSlidePanzoom",
       value: function(t) {
         var e = this;
-        t.Panzoom || (t.Panzoom = new I(t.$el, S(!0, this.fancybox.option("Image.Panzoom", {}), {
+        t.Panzoom || (t.Panzoom = new M(t.$el, k(!0, this.fancybox.option("Image.Panzoom", {}), {
           viewport: t.$wrap,
           content: t.$image,
           width: t._width,
@@ -2622,7 +2615,7 @@
       }
     }]), t
   }();
-  J.defaults = {
+  K.defaults = {
     canZoomInClass: "can-zoom_in",
     canZoomOutClass: "can-zoom_out",
     zoom: !0,
@@ -2639,7 +2632,7 @@
       ratio: 1
     }
   };
-  var Q = function() {
+  var J = function() {
       function t(e) {
         o(this, t), this.fancybox = e;
         for (var i = 0, n = ["onChange", "onClosing"]; i < n.length; i++) {
@@ -2727,7 +2720,7 @@
             if (i) {
               var s = a.Carousel;
               if (i === a.option("slug")) return s.slideTo(n - 1);
-              var r, l = w(s.slides);
+              var r, l = x(s.slides);
               try {
                 for (l.s(); !(r = l.n()).done;) {
                   var c = r.value;
@@ -2752,7 +2745,7 @@
           function i() {
             window.addEventListener("hashchange", t.onHashChange, !1), t.startFromUrl()
           }
-          t.Fancybox = e, j && window.requestAnimationFrame((function() {
+          t.Fancybox = e, W && window.requestAnimationFrame((function() {
             /complete|interactive|loaded/.test(document.readyState) ? i() : document.addEventListener("DOMContentLoaded", i)
           }))
         }
@@ -2775,20 +2768,20 @@
         }
       }]), t
     }(),
-    tt = {
+    Q = {
       pageXOffset: 0,
       pageYOffset: 0,
       element: function() {
         return document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement
       },
       activate: function(t) {
-        tt.pageXOffset = window.pageXOffset, tt.pageYOffset = window.pageYOffset, t.requestFullscreen ? t.requestFullscreen() : t.mozRequestFullScreen ? t.mozRequestFullScreen() : t.webkitRequestFullscreen ? t.webkitRequestFullscreen() : t.msRequestFullscreen && t.msRequestFullscreen()
+        Q.pageXOffset = window.pageXOffset, Q.pageYOffset = window.pageYOffset, t.requestFullscreen ? t.requestFullscreen() : t.mozRequestFullScreen ? t.mozRequestFullScreen() : t.webkitRequestFullscreen ? t.webkitRequestFullscreen() : t.msRequestFullscreen && t.msRequestFullscreen()
       },
       deactivate: function() {
         document.exitFullscreen ? document.exitFullscreen() : document.mozCancelFullScreen ? document.mozCancelFullScreen() : document.webkitExitFullscreen && document.webkitExitFullscreen()
       }
     },
-    et = function() {
+    tt = function() {
       function t(e) {
         o(this, t), this.fancybox = e, this.active = !1, this.handleVisibilityChange = this.handleVisibilityChange.bind(this)
       }
@@ -2839,7 +2832,7 @@
         }
       }]), t
     }(),
-    it = {
+    et = {
       display: ["counter", "zoom", "slideshow", "fullscreen", "thumbs", "close"],
       autoEnable: !0,
       items: {
@@ -2876,7 +2869,7 @@
           label: "TOGGLE_FULLSCREEN",
           html: '<svg viewBox="0 0 24 24">\n                <g><path d="M3 8 V3h5"></path><path d="M21 8V3h-5"></path><path d="M8 21H3v-5"></path><path d="M16 21h5v-5"></path></g>\n                <g><path d="M7 2v5H2M17 2v5h5M2 17h5v5M22 17h-5v5"/></g>\n            </svg>',
           click: function(t) {
-            t.preventDefault(), tt.element() ? tt.deactivate() : tt.activate(this.fancybox.$container)
+            t.preventDefault(), Q.element() ? Q.deactivate() : Q.activate(this.fancybox.$container)
           }
         },
         slideshow: {
@@ -2931,7 +2924,7 @@
         }
       }
     },
-    nt = function() {
+    it = function() {
       function t(e) {
         var i = this;
         o(this, t), this.fancybox = e, this.$container = null, this.state = "init";
@@ -2963,7 +2956,7 @@
         value: function() {
           if (this.fancybox.option("Toolbar.autoEnable")) {
             var t, e = !1,
-              i = w(this.fancybox.items);
+              i = x(this.fancybox.items);
             try {
               for (i.s(); !(t = i.n()).done;) {
                 if ("image" === t.value.type) {
@@ -2978,11 +2971,11 @@
             }
             if (!e) return void(this.state = "disabled")
           }
-          var n, o = w(this.fancybox.option("Toolbar.display"));
+          var n, o = x(this.fancybox.option("Toolbar.display"));
           try {
             for (o.s(); !(n = o.n()).done;) {
               var a = n.value;
-              if ("close" === (k(a) ? a.id : a)) {
+              if ("close" === (w(a) ? a.id : a)) {
                 this.fancybox.options.closeButton = !1;
                 break
               }
@@ -2997,14 +2990,14 @@
         key: "onPrepare",
         value: function() {
           var t = this.fancybox;
-          if ("init" === this.state && (this.build(), this.update(), this.Slideshow = new et(t), !t.Carousel.prevPage && (t.option("slideshow.autoStart") && this.Slideshow.activate(), t.option("fullscreen.autoStart") && !tt.element()))) try {
-            tt.activate(t.$container)
+          if ("init" === this.state && (this.build(), this.update(), this.Slideshow = new tt(t), !t.Carousel.prevPage && (t.option("slideshow.autoStart") && this.Slideshow.activate(), t.option("fullscreen.autoStart") && !Q.element()))) try {
+            Q.activate(t.$container)
           } catch (t) {}
         }
       }, {
         key: "onFsChange",
         value: function() {
-          window.scrollTo(tt.pageXOffset, tt.pageYOffset)
+          window.scrollTo(Q.pageXOffset, Q.pageYOffset)
         }
       }, {
         key: "onSettle",
@@ -3043,7 +3036,7 @@
         key: "createElement",
         value: function(t) {
           var e, i;
-          ("div" === t.type ? e = document.createElement("div") : (e = document.createElement("link" === t.type ? "a" : "button")).classList.add("carousel__button"), e.innerHTML = t.html, e.setAttribute("tabindex", t.tabindex || 0), t.class) && (i = e.classList).add.apply(i, y(t.class.split(" ")));
+          ("div" === t.type ? e = document.createElement("div") : (e = document.createElement("link" === t.type ? "a" : "button")).classList.add("carousel__button"), e.innerHTML = t.html, e.setAttribute("tabindex", t.tabindex || 0), t.class) && (i = e.classList).add.apply(i, m(t.class.split(" ")));
           for (var n in t.attr) e.setAttribute(n, t.attr[n]);
           t.label && e.setAttribute("title", this.fancybox.localize("{{".concat(t.label, "}}"))), t.click && e.addEventListener("click", t.click.bind(this)), "prev" === t.id && e.setAttribute("data-fancybox-prev", ""), "next" === t.id && e.setAttribute("data-fancybox-next", "");
           var o = e.querySelector("svg");
@@ -3066,13 +3059,13 @@
               items: []
             }],
             o = this.fancybox.plugins.Thumbs,
-            a = w(this.fancybox.option("Toolbar.display"));
+            a = x(this.fancybox.option("Toolbar.display"));
           try {
             var s = function() {
               var a = e.value,
                 s = void 0,
                 r = void 0;
-              if (k(a) ? (s = a.id, r = S({}, i[s], a)) : r = i[s = a], ["counter", "next", "prev", "slideshow"].includes(s) && t.fancybox.items.length < 2) return "continue";
+              if (w(a) ? (s = a.id, r = k({}, i[s], a)) : r = i[s = a], ["counter", "next", "prev", "slideshow"].includes(s) && t.fancybox.items.length < 2) return "continue";
               if ("fullscreen" === s) {
                 if (!document.fullscreenEnabled || window.fullScreen) return "continue";
                 document.addEventListener("fullscreenchange", t.onFsChange)
@@ -3098,7 +3091,7 @@
             if (h.items.length) {
               var d = document.createElement("div");
               d.classList.add("fancybox__toolbar__items"), d.classList.add("fancybox__toolbar__items--".concat(h.position));
-              var u, f = w(h.items);
+              var u, f = x(h.items);
               try {
                 for (f.s(); !(u = f.n()).done;) {
                   var v = u.value;
@@ -3121,7 +3114,7 @@
             i = e.index,
             n = this.fancybox.items.length,
             o = e.downloadSrc || ("image" !== e.type || e.error ? null : e.src),
-            a = w(this.fancybox.$container.querySelectorAll("a.fancybox__button--download"));
+            a = x(this.fancybox.$container.querySelectorAll("a.fancybox__button--download"));
           try {
             for (a.s(); !(t = a.n()).done;) {
               var s = t.value;
@@ -3134,7 +3127,7 @@
           }
           var r, l = e.Panzoom,
             c = l && l.option("maxScale") > l.option("baseScale"),
-            h = w(this.fancybox.$container.querySelectorAll(".fancybox__button--zoom"));
+            h = x(this.fancybox.$container.querySelectorAll(".fancybox__button--zoom"));
           try {
             for (h.s(); !(r = h.n()).done;) {
               var d = r.value;
@@ -3145,7 +3138,7 @@
           } finally {
             h.f()
           }
-          var u, f = w(this.fancybox.$container.querySelectorAll("[data-fancybox-index]"));
+          var u, f = x(this.fancybox.$container.querySelectorAll("[data-fancybox-index]"));
           try {
             for (f.s(); !(u = f.n()).done;) {
               u.value.innerHTML = e.index + 1
@@ -3155,7 +3148,7 @@
           } finally {
             f.f()
           }
-          var v, p = w(this.fancybox.$container.querySelectorAll("[data-fancybox-count]"));
+          var v, p = x(this.fancybox.$container.querySelectorAll("[data-fancybox-count]"));
           try {
             for (p.s(); !(v = p.n()).done;) {
               v.value.innerHTML = n
@@ -3166,7 +3159,7 @@
             p.f()
           }
           if (!this.fancybox.option("infinite")) {
-            var g, m = w(this.fancybox.$container.querySelectorAll("[data-fancybox-prev]"));
+            var g, m = x(this.fancybox.$container.querySelectorAll("[data-fancybox-prev]"));
             try {
               for (m.s(); !(g = m.n()).done;) {
                 var y = g.value;
@@ -3177,16 +3170,16 @@
             } finally {
               m.f()
             }
-            var b, x = w(this.fancybox.$container.querySelectorAll("[data-fancybox-next]"));
+            var b, w = x(this.fancybox.$container.querySelectorAll("[data-fancybox-next]"));
             try {
-              for (x.s(); !(b = x.n()).done;) {
+              for (w.s(); !(b = w.n()).done;) {
                 var k = b.value;
                 i === n - 1 ? k.setAttribute("disabled", "") : k.removeAttribute("disabled")
               }
             } catch (t) {
-              x.e(t)
+              w.e(t)
             } finally {
-              x.f()
+              w.f()
             }
           }
         }
@@ -3207,16 +3200,16 @@
         }
       }]), t
     }();
-  nt.defaults = it;
-  var ot = {
-      ScrollLock: Y,
-      Thumbs: V,
-      Html: K,
-      Toolbar: nt,
-      Image: J,
-      Hash: Q
+  it.defaults = et;
+  var nt = {
+      ScrollLock: U,
+      Thumbs: Y,
+      Html: G,
+      Toolbar: it,
+      Image: K,
+      Hash: J
     },
-    at = {
+    ot = {
       startIndex: 0,
       preload: 1,
       infinite: !0,
@@ -3266,9 +3259,9 @@
         DOWNLOAD: "Download"
       }
     },
-    st = new Map,
-    rt = 0,
-    lt = function(t) {
+    at = new Map,
+    st = 0,
+    rt = function(t) {
       l(i, t);
       var e = f(i);
 
@@ -3276,7 +3269,7 @@
         var n, a = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
         return o(this, i), t = t.map((function(t) {
           return t.width && (t._width = t.width), t.height && (t._height = t.height), t
-        })), (n = e.call(this, S(!0, {}, at, a))).bindHandlers(), n.state = "init", n.setItems(t), n.attachPlugins(i.Plugins), n.trigger("init"), !0 === n.option("hideScrollbar") && n.hideScrollbar(), n.initLayout(), n.initCarousel(), n.attachEvents(), st.set(n.id, d(n)), n.trigger("prepare"), n.state = "ready", n.trigger("ready"), n.$container.setAttribute("aria-hidden", "false"), n.option("trapFocus") && n.focus(), n
+        })), (n = e.call(this, k(!0, {}, ot, a))).bindHandlers(), n.state = "init", n.setItems(t), n.attachPlugins(i.Plugins), n.trigger("init"), !0 === n.option("hideScrollbar") && n.hideScrollbar(), n.initLayout(), n.initCarousel(), n.attachEvents(), at.set(n.id, d(n)), n.trigger("prepare"), n.state = "ready", n.trigger("ready"), n.$container.setAttribute("aria-hidden", "false"), n.option("trapFocus") && n.focus(), n
       }
       return s(i, [{
         key: "option",
@@ -3284,7 +3277,7 @@
           for (var e, n = this.getSlide(), o = n ? n[t] : void 0, a = arguments.length, s = new Array(a > 1 ? a - 1 : 0), r = 1; r < a; r++) s[r - 1] = arguments[r];
           if (void 0 !== o) {
             var l;
-            if ("function" == typeof o)(l = o).call.apply(l, [this, this].concat(s)), g("value");
+            if ("function" == typeof o) o = (l = o).call.apply(l, [this, this].concat(s));
             return o
           }
           return (e = p(c(i.prototype), "option", this)).call.apply(e, [this, t].concat(s))
@@ -3324,17 +3317,17 @@
             "aria-label": this.localize("{{MODAL}}")
           }).forEach((function(e) {
             var i;
-            return (i = t.$container).setAttribute.apply(i, y(e))
-          })), this.option("animated") && this.$container.classList.add("is-animated"), this.$backdrop = this.$container.querySelector(".fancybox__backdrop"), this.$backdrop || (this.$backdrop = document.createElement("div"), this.$backdrop.classList.add("fancybox__backdrop"), this.$container.appendChild(this.$backdrop)), this.$carousel = this.$container.querySelector(".fancybox__carousel"), this.$carousel || (this.$carousel = document.createElement("div"), this.$carousel.classList.add("fancybox__carousel"), this.$container.appendChild(this.$carousel)), this.$container.Fancybox = this, this.id = this.$container.getAttribute("id"), this.id || (this.id = this.options.id || ++rt, this.$container.setAttribute("id", "fancybox-" + this.id));
+            return (i = t.$container).setAttribute.apply(i, m(e))
+          })), this.option("animated") && this.$container.classList.add("is-animated"), this.$backdrop = this.$container.querySelector(".fancybox__backdrop"), this.$backdrop || (this.$backdrop = document.createElement("div"), this.$backdrop.classList.add("fancybox__backdrop"), this.$container.appendChild(this.$backdrop)), this.$carousel = this.$container.querySelector(".fancybox__carousel"), this.$carousel || (this.$carousel = document.createElement("div"), this.$carousel.classList.add("fancybox__carousel"), this.$container.appendChild(this.$carousel)), this.$container.Fancybox = this, this.id = this.$container.getAttribute("id"), this.id || (this.id = this.options.id || ++st, this.$container.setAttribute("id", "fancybox-" + this.id));
           var i, n = this.option("mainClass");
-          n && (i = this.$container.classList).add.apply(i, y(n.split(" ")));
+          n && (i = this.$container.classList).add.apply(i, m(n.split(" ")));
           return document.documentElement.classList.add("with-fancybox"), this.trigger("initLayout"), this
         }
       }, {
         key: "setItems",
         value: function(t) {
           var e, i = [],
-            n = w(t);
+            n = x(t);
           try {
             for (n.s(); !(e = n.n()).done;) {
               var o = e.value,
@@ -3363,7 +3356,7 @@
         key: "initCarousel",
         value: function() {
           var t = this;
-          return this.Carousel = new H(this.$carousel, S(!0, {}, {
+          return this.Carousel = new H(this.$carousel, k(!0, {}, {
             prefix: "",
             classNames: {
               viewport: "fancybox__viewport",
@@ -3435,7 +3428,7 @@
       }, {
         key: "onFocus",
         value: function(t) {
-          this.focus(t)
+          this.isTopmost() && this.focus(t)
         }
       }, {
         key: "onClick",
@@ -3445,16 +3438,20 @@
             if (e.matches("[data-fancybox-close]")) return t.preventDefault(), void i.close(!1, t);
             if (e.matches("[data-fancybox-next]")) return t.preventDefault(), void i.next();
             if (e.matches("[data-fancybox-prev]")) return t.preventDefault(), void i.prev();
-            var n = ".fancybox__content";
-            if (e.closest(n)) e.matches(n) && document.activeElement.blur();
-            else if (!getSelection().toString().length)
-              if (!1 !== this.trigger("click", t)) switch (this.option("click")) {
-                case "close":
-                  this.close();
-                  break;
-                case "next":
-                  this.next()
-              }
+            var n = document.activeElement;
+            if (n) {
+              if (n.closest("[contenteditable]")) return;
+              e.matches(X) || n.blur()
+            }
+            if (!e.closest(".fancybox__content"))
+              if (!getSelection().toString().length)
+                if (!1 !== this.trigger("click", t)) switch (this.option("click")) {
+                  case "close":
+                    this.close();
+                    break;
+                  case "next":
+                    this.next()
+                }
           }
         }
       }, {
@@ -3488,19 +3485,19 @@
       }, {
         key: "onKeydown",
         value: function(t) {
-          if (i.getInstance().id === this.id) {
+          if (this.isTopmost()) {
             document.body.classList.remove("is-using-mouse");
             var e = t.key,
-              n = this.option("keyboard");
-            if (n && !t.ctrlKey && !t.altKey && !t.shiftKey) {
-              var o = t.composedPath()[0],
-                a = document.activeElement && document.activeElement.classList,
-                s = a && a.contains("carousel__button");
-              if ("Escape" !== e && !s)
-                if (t.target.isContentEditable || -1 !== ["BUTTON", "TEXTAREA", "OPTION", "INPUT", "SELECT", "VIDEO"].indexOf(o.nodeName)) return;
+              i = this.option("keyboard");
+            if (i && !t.ctrlKey && !t.altKey && !t.shiftKey) {
+              var n = t.composedPath()[0],
+                o = document.activeElement && document.activeElement.classList,
+                a = o && o.contains("carousel__button");
+              if ("Escape" !== e && !a)
+                if (t.target.isContentEditable || -1 !== ["BUTTON", "TEXTAREA", "OPTION", "INPUT", "SELECT", "VIDEO"].indexOf(n.nodeName)) return;
               if (!1 !== this.trigger("keydown", e, t)) {
-                var r = n[e];
-                "function" == typeof this[r] && this[r]()
+                var s = i[e];
+                "function" == typeof this[s] && this[s]()
               }
             }
           }
@@ -3518,21 +3515,26 @@
         key: "focus",
         value: function(t) {
           if (!(i.ignoreFocusChange || ["init", "closing", "customClosing", "destroy"].indexOf(this.state) > -1)) {
-            t && t.preventDefault(), i.ignoreFocusChange = !0;
-            for (var e, n = this.$container, o = this.getSlide(), a = "done" === o.state ? o.$el : null, s = [], r = 0, l = Array.from(n.querySelectorAll(q)); r < l.length; r++) {
-              var c = l[r],
-                h = c.offsetParent,
-                d = a && a.contains(c),
-                u = !this.Carousel.$viewport.contains(c);
-              h && (d || u) ? (s.push(c), void 0 !== c.dataset.origTabindex && (c.tabIndex = c.dataset.origTabindex, c.removeAttribute("data-orig-tabindex")), (c.hasAttribute("autoFocus") || !e && d && !c.classList.contains("carousel__button")) && (e = c)) : (c.dataset.origTabindex = void 0 === c.dataset.origTabindex ? c.getAttribute("tabindex") : c.dataset.origTabindex, c.tabIndex = -1)
+            var e = this.$container,
+              n = this.getSlide(),
+              o = "done" === n.state ? n.$el : null;
+            if (!o || !o.contains(document.activeElement)) {
+              t && t.preventDefault(), i.ignoreFocusChange = !0;
+              for (var a, s = [], r = 0, l = Array.from(e.querySelectorAll(X)); r < l.length; r++) {
+                var c = l[r],
+                  h = c.offsetParent,
+                  d = o && o.contains(c),
+                  u = !this.Carousel.$viewport.contains(c);
+                h && (d || u) ? (s.push(c), void 0 !== c.dataset.origTabindex && (c.tabIndex = c.dataset.origTabindex, c.removeAttribute("data-orig-tabindex")), (c.hasAttribute("autoFocus") || !a && d && !c.classList.contains("carousel__button")) && (a = c)) : (c.dataset.origTabindex = void 0 === c.dataset.origTabindex ? c.getAttribute("tabindex") : c.dataset.origTabindex, c.tabIndex = -1)
+              }
+              t ? s.indexOf(t.target) > -1 ? this.lastFocus = t.target : this.lastFocus === e ? q(s[s.length - 1]) : q(e) : this.option("autoFocus") && a ? q(a) : s.indexOf(document.activeElement) < 0 && q(e), this.lastFocus = document.activeElement, i.ignoreFocusChange = !1
             }
-            t ? s.indexOf(t.target) > -1 ? this.lastFocus = t.target : this.lastFocus === n ? U(s[s.length - 1]) : U(n) : this.option("autoFocus") && e ? U(e) : s.indexOf(document.activeElement) < 0 && U(n), this.lastFocus = document.activeElement, i.ignoreFocusChange = !1
           }
         }
       }, {
         key: "hideScrollbar",
         value: function() {
-          if (j) {
+          if (W) {
             var t = window.innerWidth - document.documentElement.getBoundingClientRect().width,
               e = "fancybox-style-noscroll",
               i = document.getElementById(e);
@@ -3649,10 +3651,20 @@
           this.Carousel && (t = this.Carousel).slideTo.apply(t, arguments)
         }
       }, {
+        key: "isClosing",
+        value: function() {
+          return ["closing", "customClosing", "destroy"].includes(this.state)
+        }
+      }, {
+        key: "isTopmost",
+        value: function() {
+          return i.getInstance().id == this.id
+        }
+      }, {
         key: "close",
         value: function(t) {
           var e = this;
-          if (t && t.preventDefault(), !["closing", "customClosing", "destroy"].includes(this.state) && !1 !== this.trigger("shouldClose", t) && (this.state = "closing", this.Carousel.Panzoom.destroy(), this.detachEvents(), this.trigger("closing", t), "destroy" !== this.state)) {
+          if (t && t.preventDefault(), !this.isClosing() && !1 !== this.trigger("shouldClose", t) && (this.state = "closing", this.Carousel.Panzoom.destroy(), this.detachEvents(), this.trigger("closing", t), "destroy" !== this.state)) {
             this.$container.setAttribute("aria-hidden", "true"), this.$container.classList.add("is-closing");
             var i = this.getSlide();
             if (this.Carousel.slides.forEach((function(t) {
@@ -3670,8 +3682,8 @@
         value: function() {
           if ("destroy" !== this.state) {
             this.state = "destroy", this.trigger("destroy");
-            var t = this.option("placeFocusBack") ? this.getSlide().$trigger : null;
-            this.Carousel.destroy(), this.detachPlugins(), this.Carousel = null, this.options = {}, this.events = {}, this.$container.remove(), this.$container = this.$backdrop = this.$carousel = null, t && U(t), st.delete(this.id);
+            var t = this.option("placeFocusBack") ? this.option("triggerTarget", this.getSlide().$trigger) : null;
+            this.Carousel.destroy(), this.detachPlugins(), this.Carousel = null, this.options = {}, this.events = {}, this.$container.remove(), this.$container = this.$backdrop = this.$carousel = null, t && q(t), at.delete(this.id);
             var e = i.getInstance();
             e ? e.focus() : (document.documentElement.classList.remove("with-fancybox"), document.body.classList.remove("is-using-mouse"), this.revealScrollbar())
           }
@@ -3689,13 +3701,13 @@
           if (!t.defaultPrevented && !(t.button && 0 !== t.button || t.ctrlKey || t.metaKey || t.shiftKey)) {
             var n, o, a, s = t.composedPath()[0],
               r = s;
-            if ((r.matches("[data-fancybox-trigger]") || (r = r.closest("[data-fancybox-trigger]"))) && (n = r && r.dataset && r.dataset.fancyboxTrigger), n) {
+            if ((r.matches("[data-fancybox-trigger]") || (r = r.closest("[data-fancybox-trigger]"))) && (e.triggerTarget = r, n = r && r.dataset && r.dataset.fancyboxTrigger), n) {
               var l = document.querySelectorAll('[data-fancybox="'.concat(n, '"]')),
                 c = parseInt(r.dataset.fancyboxIndex, 10) || 0;
               r = l.length ? l[c] : r
             }
-            r || (r = s), Array.from(i.openers.keys()).reverse().some((function(e) {
-              a = r;
+            Array.from(i.openers.keys()).reverse().some((function(e) {
+              a = r || s;
               var i = !1;
               try {
                 a instanceof Element && ("string" == typeof e || e instanceof String) && (i = a.matches(e) || (a = a.closest(e)))
@@ -3717,7 +3729,7 @@
           var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
             n = function(t) {
               for (var e = ["false", "0", "no", "null", "undefined"], i = ["true", "1", "yes"], n = Object.assign({}, t.dataset), o = {}, a = 0, s = Object.entries(n); a < s.length; a++) {
-                var r = m(s[a], 2),
+                var r = g(s[a], 2),
                   l = r[0],
                   c = r[1];
                 if ("fancybox" !== l)
@@ -3736,7 +3748,7 @@
             o = [],
             a = e.startIndex || 0,
             s = e.target || null,
-            r = void 0 !== (e = S({}, e, i.openers.get(t))).groupAll && e.groupAll,
+            r = void 0 !== (e = k({}, e, i.openers.get(t))).groupAll && e.groupAll,
             l = void 0 === e.groupAttr ? "data-fancybox" : e.groupAttr,
             c = l && s ? s.getAttribute("".concat(l)) : "";
           if (!s || c || r) {
@@ -3747,7 +3759,7 @@
               return t.getAttribute("".concat(l)) === c
             })) : [s]), !o.length) return !1;
           var d = i.getInstance();
-          return !(d && o.indexOf(d.options.$trigger) > -1) && (a = s ? o.indexOf(s) : a, new i(o = o.map(n), S({}, e, {
+          return !(d && o.indexOf(d.options.$trigger) > -1) && (a = s ? o.indexOf(s) : a, new i(o = o.map(n), k({}, e, {
             startIndex: a,
             $trigger: s
           })))
@@ -3760,7 +3772,7 @@
           function n() {
             document.body.addEventListener("click", i.fromEvent, !1)
           }
-          j && (i.openers.size || (/complete|interactive|loaded/.test(document.readyState) ? n() : document.addEventListener("DOMContentLoaded", n)), i.openers.set(t, e))
+          W && (i.openers.size || (/complete|interactive|loaded/.test(document.readyState) ? n() : document.addEventListener("DOMContentLoaded", n)), i.openers.set(t, e))
         }
       }, {
         key: "unbind",
@@ -3776,8 +3788,8 @@
       }, {
         key: "getInstance",
         value: function(t) {
-          return t ? st.get(t) : Array.from(st.values()).reverse().find((function(t) {
-            return !["closing", "customClosing", "destroy"].includes(t.state) && t
+          return t ? at.get(t) : Array.from(at.values()).reverse().find((function(t) {
+            return !t.isClosing() && t
           })) || null
         }
       }, {
@@ -3786,7 +3798,7 @@
           var t = !(arguments.length > 0 && void 0 !== arguments[0]) || arguments[0],
             e = arguments.length > 1 ? arguments[1] : void 0;
           if (t) {
-            var n, o = w(st.values());
+            var n, o = x(at.values());
             try {
               for (o.s(); !(n = o.n()).done;) {
                 var a = n.value;
@@ -3815,13 +3827,13 @@
           t && t.prev()
         }
       }]), i
-    }(z);
-  lt.version = "4.0.25", lt.defaults = at, lt.openers = new Map, lt.Plugins = ot, lt.bind("[data-fancybox]");
-  for (var ct = 0, ht = Object.entries(lt.Plugins || {}); ct < ht.length; ct++) {
-    var dt = m(ht[ct], 2);
-    dt[0];
-    var ut = dt[1];
-    "function" == typeof ut.create && ut.create(lt)
+    }(O);
+  rt.version = "4.0.31", rt.defaults = ot, rt.openers = new Map, rt.Plugins = nt, rt.bind("[data-fancybox]");
+  for (var lt = 0, ct = Object.entries(rt.Plugins || {}); lt < ct.length; lt++) {
+    var ht = g(ct[lt], 2);
+    ht[0];
+    var dt = ht[1];
+    "function" == typeof dt.create && dt.create(rt)
   }
-  t.Carousel = H, t.Fancybox = lt, t.Panzoom = I
+  t.Carousel = H, t.Fancybox = rt, t.Panzoom = M
 }));

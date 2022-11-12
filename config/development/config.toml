@@ -1,27 +1,31 @@
 # https://github.com/tdewolff/minify#html
-[minify] 
-    minifyOutput = false
-    disableCSS   = true
-    disableHTML  = true
-    disableJS    = true
-    disableJSON  = true
-    disableSVG   = true
-    disableXML   = true
-
-    [minify.tdewolff]
-        [minify.tdewolff.html]
-            KeepComments             = true
-            KeepConditionalComments  = true
-            keepDocumentTags         = true
-            KeepWhitespace           = false
-            KeepDefaultAttrVals      = true
-            KeepEndTags              = true
-            KeepQuotes               = true
-
-        [minify.tdewolff.json]
-            KeepNumbers              = true
-
-        [minify.tdewolff.js]
-            keepVarNames             = true
-        [minify.tdewolff.xml]
-            keepWhitespace           = true
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = false
+  [minify.tdewolff]
+    [minify.tdewolff.css]
+      keepCSS2 = true
+      precision = 0
+    [minify.tdewolff.html]
+      keepComments = false
+      keepConditionalComments = true
+      keepDefaultAttrVals = true
+      keepDocumentTags = true
+      keepEndTags = true
+      keepQuotes = false
+      keepWhitespace = true
+    [minify.tdewolff.js]
+      keepVarNames = false
+      precision = 0
+    [minify.tdewolff.json]
+      keepNumbers = false
+      precision = 0
+    [minify.tdewolff.svg]
+      precision = 0
+    [minify.tdewolff.xml]
+      keepWhitespace = false

@@ -1,0 +1,67 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "items"
+  ],
+  "properties": {
+    "items": {
+      "$id": "#/properties/items",
+      "type": "array",
+      "title": "The Items Schema",
+      "items": {
+        "$id": "#/properties/items/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "title",
+          "description",
+          "url"
+        ],
+        "properties": {
+          "title": {
+            "$id": "#/properties/items/items/properties/title",
+            "type": "string",
+            "title": "The Title Schema",
+            "default": "",
+            "examples": [
+              "Apache"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "description": {
+            "$id": "#/properties/items/items/properties/description",
+            "type": "string",
+            "title": "The Description Schema",
+            "default": "",
+            "examples": [
+              "Das Apache httpd Server Projekt"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "url": {
+            "$id": "#/properties/items/items/properties/url",
+            "type": "string",
+            "title": "The Url Schema",
+            "default": "",
+			"format: "uri",
+            "examples": [
+              "https://httpd.apache.org/"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "draft": {
+            "$id": "#/properties/items/items/properties/draft",
+            "type": "boolean",
+            "title": "The Draft Schema",
+            "default": false,
+            "examples": [ true, false ]
+          }
+        }
+      }
+    }
+  }
+}

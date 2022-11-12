@@ -1,5 +1,5 @@
 <!-- left & right hand for prev & next article in this sesction -->
-<div class="pt4 no-print tc">
+<div class=prevnext>
 	{{ $prev := resources.Get "svg/hand-left.svg"  }}{{ $next := resources.Get "svg/hand-right.svg"  }}
 	{{with .NextInSection }}
 	<a rel=prev title="{{.Title}}" href={{.RelPermalink}}>{{ $prev.Content | safeHTML}}</a>{{else}}<span class="icongray">{{ $prev.Content | safeHTML}}</span>{{end}}<span class=ph1>|</span>

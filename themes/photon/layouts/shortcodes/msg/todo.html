@@ -1,6 +1,7 @@
-<aside class="pa4 w-90">
-	<div class="f3 white bg-blue pa2" id="{{if .Get 0}}{{.Get 0 | urlize}}{{else}}ToDo{{end}}">
-	<i class="fas fa-exclamation-triangle"></i> 
-	{{if .Get 0}}{{.Get 0 | markdownify}}{{else}}ToDo{{end}}</div> 
-	<div class="f4 pa2">{{- .Inner -}}</div>
-</aside>
+<div class="ph4 w-90">
+	<span class="f4 white bg-blue ph2 pv1">
+		{{ $tex := resources.Get "svg/triangleex.svg"  }}{{ $tex.Content | safeHTML}}
+		{{if .Get 0}}{{.Get 0 | markdownify}}{{else}}ToDo{{end}}
+	</span> 
+	<div class=pt3>{{- .Inner -}}</div>
+</div>

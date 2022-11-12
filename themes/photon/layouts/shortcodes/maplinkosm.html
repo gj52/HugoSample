@@ -12,5 +12,5 @@
 {{ $tmp := default "14" (.Get 2) }}{{ $scale := int $tmp }}
 {{ $lat := float ($scratch.Get "latitude") }}{{ $lon := float ($scratch.Get "longitude")}}
 {{ $map := resources.Get "svg/map.svg"  }}
-<a class="dib ph1" target=_blank rel=noopener title="Karte anzeigen"
+<a class="dib ph2" target=_blank rel=noopener title="Karte anzeigen"
 	 href="https://www.openstreetmap.org/?mlat={{$lat}}&mlon={{$lon}}#map={{$scale}}/{{$lat}}/{{$lon}}">{{ $map.Content | safeHTML}}</a>

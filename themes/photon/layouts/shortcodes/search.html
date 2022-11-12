@@ -19,7 +19,7 @@
 
 <div id="custom-search-results"></div>
 
-<script>
+<script nonce="1GLUsm9YWAxGNd1eEJGM" >
 // CUSTOM AREA
 let params = {
     json_src       : '/search/search.json', // for multiple sources: comma separated list of JSONarrays
@@ -62,5 +62,6 @@ let searchfield_weight = {
 
 {{ $s := resources.Get "js/search.js" }}
 {{ $s = $s | minify | fingerprint site.Params.digest }} 
-<script src={{ $s.RelPermalink }} integrity={{ $s.Data.Integrity }} ></script>
+<script src={{ $s.RelPermalink }} crossorigin=anonymous nonce="1GLUsm9YWAxGNd1eEJGM" integrity={{ $s.Data.Integrity }} ></script>
 </div>
+

@@ -4,7 +4,7 @@
 {{ $.Scratch.Set "Intern" "Internes"}}
 
 {{if not .IsHome -}}
-<div class="b no-print w-100 pb1">
+<div class="navhead no-print">
 	<a href={{ site.Home.RelPermalink}}>{{ $house := resources.Get "svg/house.svg"  }}{{ $house.Content | safeHTML}}</a><span class=nowrap>{{ with site.GetPage .Section }}<a class=ph1 href={{ .RelPermalink }} >{{ .Name }}</a>{{ end}}</span> 
 	{{if isset .Params "tags" -}}
 		<span class="nowrap pl2"><a href=/tags/>{{ $tag := resources.Get "svg/tag.svg"  }}{{ $tag.Content | safeHTML}}</a>{{ range sort (.GetTerms "tags") "LinkTitle" -}}<a class=ph1 href={{ .RelPermalink }} >{{ .LinkTitle }}</a>{{- end}}</span>

@@ -10,9 +10,14 @@
 <article>
 	<h2 class=dn>{{ .Title }}</h2>
 	<div class=liste>
-		
+		{{ .Store.SetInMap "sprites" "calendar" "svg/calendar.svg" }}
+		{{ $paginator := .Paginate .Data.Pages 40}}
 		{{ range $paginator.Pages -}}
-			{{ partial "summary" . }}
+		{{ partial "summary.html" . }}
+		{{ $sp := .Store.Get "sprites" }}
+		{{ range $key, $val := $sp }}
+			{{ $.Store.SetInMap "sprites" $key  $val }}
+		{{end}}
 		{{- end }}
 	</div>
 	{{ partial "pagination.html" . }}

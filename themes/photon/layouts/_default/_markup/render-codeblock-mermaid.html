@@ -1,2 +1,3 @@
 {{ $class := .Attributes.class | default "" }}
+{{ .Page.Store.Set "hasMermaid" true }}
 <div class="mermaid {{ $class }}">{{ safeHTML .Inner }}</div>

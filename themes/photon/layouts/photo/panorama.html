@@ -7,7 +7,6 @@
 <article>
 	{{ .Content }}
 	<br/>
-	<!-- class="ba vh-50 w-100"> -->
 	<div class="ba bg-black vh-50 overflow-hidden pa2">
 		<div id=osd class="w-100 h-100" ></div>
 	</div>
@@ -16,14 +15,14 @@
 {{if hugo.IsProduction }}
 {{ $osd = $osd | minify | fingerprint site.Params.digest }}
 {{end}}
-<script src={{ $osd.RelPermalink }} integrity={{ $osd.Data.Integrity }} ></script>
-	<script importance=low>
-	    OpenSeadragon({
-	      id: "osd",
-		  prefixUrl: "/img/osd/",
-		  tileSources: "/panorama/{{.Params.directory}}/dzc_output.xml"
-		});
-	</script>
+<script src={{ $osd.RelPermalink }} crossorigin=anonymous integrity={{ $osd.Data.Integrity }} ></script>
+<script nonce="1GLUsm9YWAxGNd1eEJGM">
+	OpenSeadragon({ 
+		id: "osd",
+		prefixUrl: "/img/osd/", 
+		tileSources: "/panorama/{{.Params.directory}}/dzc_output.xml" 
+	});</script>
+
 {{ partial "prevnext.html" .}}
 </article>
 {{ end }}

@@ -1,5 +1,5 @@
 {{ $src := .Get 0}} {{ $id := .Get 1 }}
-<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg">
   {{ $ext := resources.Get $src  }}{{ $id := print "id=" $id}}{{ $ext = replace $ext.Content "svg" "symbol" }}{{ $ext = replace $ext "class=\"icon\"" $id }}
   {{ $ext | safeHTML}}
 </svg>

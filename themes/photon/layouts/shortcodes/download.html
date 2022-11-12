@@ -1,3 +1,5 @@
+{{ $title :=  .Get 0  }}
 {{ $file := resources.Get (.Get 1) }}
-{{ $type := (.Get 2) | default "application/octet-stream" }}
-<a download href={{$file.Permalink}} type={{$type}} >{{.Get 0}}</a>
+{{ $type := $file.MediaType | default "application/octet-stream" }}
+{{ $size := printf "( %.3f MB )" (div (len $file.Content) 1048576.0 ) }}
+<a download href={{$file.RelPermalink}} type={{$type}}>{{$title}} {{ $size }}</a>  

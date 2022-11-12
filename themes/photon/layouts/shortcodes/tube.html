@@ -6,7 +6,7 @@
 			 {{ $src :=  printf "https://img.youtube.com/vi/%s/mqdefault.jpg" $id }}
 			 {{- $bg := resources.GetRemote $src -}}
 			 {{ with $bg }}
-			 {{ $url := urls.Parse $bg }}{{ $path := printf "img/ext/youtube/%s"  $url.Path }}{{ $bg := $bg.Content | resources.FromString $path }}
+			 {{ $url := urls.Parse $bg }} {{ $path := printf "img/ext/youtube/%s"  $url.Path }} {{ $bg := $bg.Content | resources.FromString $path }}
 			 {{ $h := div .Height 2}} {{ $w := div .Width 2}}
 			 {{ $bgs := $bg.Fit (printf "%dx%d" $h $w)}}
 			 style="background:url(data:image/jpeg;base64,{{ $bgs.Content | base64Encode}}); background-size: cover;background-repeat: no-repeat; aspect-ratio='{{ .Width }}/{{ .Height }}'"
@@ -18,7 +18,7 @@
 						name={{$id}} title="{{ $title }}"
 						src="https://www.youtube.com/embed/{{$id}}"
 						referrerpolicy=no-referrer frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture; gyroscope"></iframe>  <!-- https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute -->
 	</div>
 </div>
 <div class=pv2>

@@ -1,3 +1,7 @@
-<span class=quote>
-{{ .Inner | .Page.RenderString }}
-</span>
+{{ $au := .Get 0 }}
+<blockquote>
+  <span>
+    {{ .Inner | .Page.RenderString }}
+  </span>
+  {{- with $au }}<footer>{{$au}}</footer>{{ end -}}
+</blockquote>

@@ -21,8 +21,8 @@
       "title"         : {{ .Title   | plainify | chomp | jsonify }},
       "summary"       : {{ .Summary | plainify | chomp | jsonify }},
       {{ range first 1 (.Resources.ByType "image") -}}{{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480 #ffffff q75") }}{{ $image := $.Scratch.Get "image" }}"banner_image"  : "{{ $image.Permalink }}",{{- end }}
-      "date_published": {{ .PublishDate.UTC.Format site.Params.dateFormatFeed | jsonify  }},
-      "date_modified" : {{ .Lastmod.UTC.Format site.Params.dateFormatFeed | jsonify  }},
+      "date_published": {{ .PublishDate.UTC.Format site.Params.dateFormatUTC | jsonify  }},
+      "date_modified" : {{ .Lastmod.UTC.Format site.Params.dateFormatUTC | jsonify  }},
       "tags"          : [{{with .Params.tags -}}{{ $lt := len . }}{{ $it := 1}}{{ range . }}"{{ . }}"{{ if lt $it $lt }},{{ end }}{{ $it = add $it 1}}{{ end }}{{- end}}]
     }
   {{- end}}

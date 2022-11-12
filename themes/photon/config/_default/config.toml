@@ -55,7 +55,7 @@
   [mediaTypes."application/rss+xml"]
     suffixes               = ["xml"]
 
-  [mediaTypes."application/json"]
+  [mediaTypes."application/feed+json"]
     suffixes               = ["json"]
 
 # search
@@ -137,14 +137,14 @@
     dateFormatLong         = "2006-01-02 15:04"
     dateFormatShort        = "2006-01-02"
     dateFormatYear         = "2006"
-    dateFormatFeed         = "2006-01-02T15:04:05Z"
+    dateFormatUTC          = "2006-01-02T15:04:05Z"
 	dateFormatISO8601      = "2006-01-02T15:04:05-07:00" 
     dateFormatRFC822Z      = "02 Jan 2006 15:04:05 UT"
 
     invisibleSections      = ["feeds","intern","test","about","links","search"]
     sitemapMax             = 49999
 
-    digest                 = "sha384" # sha256, sha384, sha512
+    digest                 = "sha256" # sha256, sha384, sha512
 	
 [Params.Pagination]
     PagesPerList           = 10

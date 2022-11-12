@@ -109,7 +109,7 @@
     width: 128px;
   }
 
-  .no-print, .no-print * {
+  aside, .no-print, .no-print * {
     display: none !important;
   }
 

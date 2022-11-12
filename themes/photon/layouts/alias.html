@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang={{ site.LanguageCode }} >
 <head>
-	<title>Page Redirection {{ .Permalink }}</title>
-	<link rel="canonical" href="{{ .Permalink }}" />
+	<title>Page Redirection {{ .Permalink  | relLangURL }}</title>
+	<link rel="canonical" href="{{ .Permalink | relLangURL }}" />
 	<meta charset="utf-8" />
 	<meta name="robots" content="noindex">
-	<meta http-equiv="refresh" content="0; url={{ .Permalink }}" />
+	<meta http-equiv="refresh" content="0; url={{ .Permalink | relLangURL }}" />
 </head>
 </html>

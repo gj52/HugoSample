@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {{ $lang := .Params.Language | default site.Language}}
-<html lang={{ $lang }} >
+<html lang={{ $lang }}>
 {{ $section := .Section | default "home" }}
 {{ partial "meta.html" . }}
 <body>
@@ -10,5 +10,6 @@
   {{ partial "qr.html" . }}
   {{ partial "footer.html" . }}
   {{ partial "sprites.html" . }}
+  {{ partial "scripts.html" . }}
 </body>
 </html>

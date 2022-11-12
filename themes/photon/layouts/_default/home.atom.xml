@@ -17,7 +17,7 @@
     </author>{{end}}
     {{ with site.Params.Copyright }}<rights type="text">© {{ site.Params.CopyrightYear }} {{ .}}</rights>{{end}}
     <generator uri="https://gohugo.io" version="{{hugo.Version}}">Hugo</generator>
-    {{ if not site.LastChange.IsZero }}<updated>{{site.LastChange.UTC.Format site.Params.dateFormatFeed }}</updated>{{ end }} 
+    {{ if not site.LastChange.IsZero }}<updated>{{site.LastChange.UTC.Format site.Params.dateFormatUTC }}</updated>{{ end }} 
 <!--  /*  {{ with site.Params.published }}<published>{{site.Params.published}}</published>{{end}} */ -->
     {{ $uuid := sha1 (site.BaseURL | absURL)}}<id>urn:uuid:{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}</id>
     {{ $feedsize := site.Params.feedSize | default 25 }}{{ range first $feedsize (where site.RegularPages.ByDate.Reverse "Section" "not in" site.Params.invisibleSections)}}
@@ -27,8 +27,8 @@
         <category term="{{ .LinkTitle }}" />{{end}}
 		<link rel='alternate' type='type/html' href='{{ $url }}' />
 		<title type="text">{{  .Title | plainify}}</title> 
-		<published>{{ .PublishDate.Format site.Params.dateFormatFeed }}</published>
-		{{ if ne .Date .Lastmod}}<updated>{{ .Lastmod.UTC.Format site.Params.dateFormatFeed  }}</updated>{{ end }}
+		<published>{{ .PublishDate.Format site.Params.dateFormatUTC }}</published>
+		{{ if ne .Date .Lastmod}}<updated>{{ .Lastmod.UTC.Format site.Params.dateFormatUTC  }}</updated>{{ end }}
 		<id>urn:uuid:{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}</id>
       {{ range first 1 (.Resources.ByType "image") }}{{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480") }}{{ $image := $.Scratch.Get "image" }}
         <media:content   url="{{ $image.Permalink }}" width="{{$image.Width}}" height="{{$image.Height}}" medium="{{$image.MediaType.MainType}}" type="{{$image.MediaType}}" >    
@@ -41,10 +41,9 @@
             <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{.Name}}" /><br/>
         {{ end }}
             <p>{{ plainify .Summary }}</p>
-            <a href="{{ $url }}">Jetzt den Artikel lesen</a>
+            <a href="{{ $url }}">Jetzt den ganzen Artikel lesen...</a>
           </div>
         </summary>
       <!-- <content type="application/xhtml+xml" src="{{ .RelPermalink }}" {{ with site.LanguageCode }} xml:lang="{{ . }}"{{ end }} /> -->
     </entry>{{ end }}
 </feed>
-

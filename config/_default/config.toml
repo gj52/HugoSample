@@ -71,6 +71,19 @@ expiryDate                 = [ "expiryDate"]
 
 ###############################################################
 
+[security]
+  enableInlineShortcodes = false
+  [security.exec]
+    allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', '^notepad...exe$']
+    osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|HOME|SSH_AUTH_SOCK|USERPROFILE|XDG_CONFIG_HOME)$']
+  [security.funcs]
+    getenv = ['^HUGO_']
+  [security.http]
+    methods = ['(?i)GET|POST']
+    urls = ['.*']
+
+###############################################################
+
 [_build]
   publishResources = false
   _merge           = "deep"
@@ -117,10 +130,10 @@ expiryDate                 = [ "expiryDate"]
       hl_Lines      = ""
       lineAnchors   = ""
       lineNoStart   = 1
-      lineNos       = false
+      lineNos       = true
       lineNumbersInTable = true
       noClasses     = false
-      tabWidth      = 4
+      tabWidth      = 2
 
 ###############################################################
 
@@ -144,7 +157,7 @@ expiryDate                 = [ "expiryDate"]
 [permalinks]
     post                   = "/:section/:year/:month/:day/:title"
     photo                  = "/:section/:year/:month/:day/:title"
-    book                   = "/:sections/:title"
+    book                   = "/:sections/:slug"
     series                 = "/:section/:slug"
     tags                   = "/:section/:slug"
     about                  = "/:section/:slug"
@@ -174,8 +187,6 @@ expiryDate                 = [ "expiryDate"]
 [Params.sidebar]
     avatar          = "img/head.jpg"
     avatarSize      = 80
+    avatarQuality          = "q80"
     bio             = "**Mr. Nobody**"
 
-[Params.Sitemap]
-    changeFreq = "weekly"
-    priority   = 0.5

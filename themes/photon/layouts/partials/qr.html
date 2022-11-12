@@ -12,7 +12,7 @@
 <script src={{ $jqr.RelPermalink }} crossorigin=anonymous integrity={{ $jqr.Data.Integrity }} ></script>
 <script src={{ $qr.RelPermalink  }} crossorigin=anonymous integrity={{ $qr.Data.Integrity  }} ></script>
 
-<script>
+<script nonce="1GLUsm9YWAxGNd1eEJGM">
 jQuery(function(){
 	jQuery('#qr').qrcode({width: 128,height: 128,text: {{safeHTML .Permalink}} });
 })

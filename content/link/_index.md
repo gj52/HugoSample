@@ -3,5 +3,6 @@ title       = "Links"
 description = "my links"
 datafile    = "/assets/links/links.json"
 layout      = "single"
+language    = "en"
 +++
-Das ist die Sammelstelle für interessante Links.
+This is the place of interesting links.

@@ -1,7 +1,10 @@
 <head>
   <meta charset=utf-8 />
+  <meta http-equiv="Content-Security-Policy" content="base-uri 'self'; default-src 'none'; img-src 'self' data: 'unsafe-inline' ; script-src 'self'  'strict-dynamic'; script-src-elem 'self' https://cdn.jsdelivr.net https://polyfill.io 'nonce-1GLUsm9YWAxGNd1eEJGM'; font-src https://cdn.jsdelivr.net ;frame-src https://*.youtube.com; object-src 'self'; style-src 'self' 'unsafe-inline'; form-action 'none'; connect-src 'self' ">
   <meta name=viewport content="width=device-width, initial-scale=1" />
-  {{ if eq .Kind "taxonomy" }}<meta name=robots content="noindex,nofollow" />{{end}}
+  {{ if eq .Kind "taxonomy" }}
+  <meta name=robots content="noindex,nofollow" />
+  {{end}}
   <meta name=referrer content=no-referrer />
   <base href={{ site.BaseURL }} />
 
@@ -12,7 +15,6 @@
   <title>{{ .RenderString site.Title }}</title>
 
   {{ partial "preload.html"            . }}
-  {{ partialCached "asidepreload.html" . }}
 
   <link rel=dns-prefetch href=//gohugo.io />
 
@@ -33,15 +35,14 @@
   {{ with .Description }}
   <meta name=description content="{{ . | safeHTML }}" />
   {{end}}
-  <meta name=date content="{{site.LastChange.Format site.Params.dateFormatFeed }}" />
+  <meta name=date content="{{site.LastChange.UTC.Format site.Params.dateFormatUTC }}" />
   {{ with site.Author.name }}
   <meta name=author content="{{ . }}" />
 
   {{ end }}
-  {{ hugo.Generator }}
+  <meta name="generator" content="Hugo {{ hugo.Version }}">
   {{ partial "doublinecore.html" . }}
 
-  <!-- /* {{ partialCached "battery.html" . }} */ -->
   {{ partialCached "css/css.html" . }}
   {{ partialCached "js/jquery.html" . }}
 
@@ -53,10 +54,7 @@
   {{ partialCached "js/osd.html"  . }}
   {{ end }}
 
-  {{ if .HasShortcode "tex" }}
-  <link rel=dns-prefetch href=//cdn.jsdelivr.net />   <!-- MathJax -->
-  {{ partialCached "js/mathjax.html" . }}
-  {{end}}
+
 
   {{ partialCached "js/qr.html" . }}
 

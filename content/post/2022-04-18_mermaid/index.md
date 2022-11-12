@@ -14,7 +14,7 @@ This works with mermaid render hook and an shortcode for activating the mermaid 
 
 ### Flowchart
 
-```mermaid
+```mermaid {class="mw5"}
 graph LR;
     A-->B;
     A-->C;
@@ -24,7 +24,7 @@ graph LR;
 
 ### Sequence Diagram
 
-````mermaid
+````mermaid {class="mw5"}
 sequenceDiagram
     participant Alice
     participant Bob
@@ -40,7 +40,7 @@ sequenceDiagram
 
 ### Entity Relationship Diagram
 
-````mermaid
+````mermaid {class="mw5"}
 erDiagram
     CUSTOMER ||--o{ ORDER : places
     ORDER ||--|{ LINE-ITEM : contains
@@ -49,7 +49,7 @@ erDiagram
 
 ### State Diagram
 
-````mermaid
+````mermaid {class="mw5"}
 stateDiagram
     [*] --> Still
     Still --> [*]
@@ -59,5 +59,3 @@ stateDiagram
     Moving --> Crash
     Crash --> [*]
 ````
-
-{{< mermaid >}} <!-- must add this to activate mermade script -->

@@ -1,5 +1,5 @@
 {{ $avw := site.Params.sidebar.avatarSize }}{{ $image := resources.Get site.Params.sidebar.avatar }}{{ $image = $image.Resize (print $avw "x" $avw " " site.Params.sidebar.avatarQuality)  }}
-<aside class="mt3 no-print tc">
+<aside>
   <a class=dim href={{ site.Home.RelPermalink }} title=Startseite>
     <img class=br-100 src={{ $image.RelPermalink }} width={{$avw}} height={{$avw}} alt=Avatar />
   </a>

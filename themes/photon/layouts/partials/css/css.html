@@ -6,6 +6,7 @@
 {{ $print     := resources.Get "css/print.css"    }}
 
 {{if hugo.IsProduction }}
+
 {{ $tachions  = $tachions | minify | fingerprint site.Params.digest }}
 {{ $light     = $light    | minify | fingerprint site.Params.digest }}
 {{ $dark      = $dark     | minify | fingerprint site.Params.digest }}
@@ -14,9 +15,9 @@
 {{ $print     = $print    | minify | fingerprint site.Params.digest }}
 {{end}}
 
-<link rel=stylesheet href={{ $tachions.RelPermalink  }} crossorigin=anonymous integrity={{ $tachions.Data.Integrity }} />
+<link rel=stylesheet href={{ $tachions.RelPermalink  }} crossorigin=anonymous                                      integrity={{ $tachions.Data.Integrity }} />
 <link rel=stylesheet href={{ $light.RelPermalink     }} crossorigin=anonymous media="(prefers-color-scheme:light)" integrity={{ $light.Data.Integrity    }} />
-<link rel=stylesheet href={{ $dark.RelPermalink      }} crossorigin=anonymous media="(prefers-color-scheme:dark)" integrity={{ $dark.Data.Integrity     }} />
-<link rel=stylesheet href={{ $maincss.RelPermalink   }} crossorigin=anonymous integrity={{ $maincss.Data.Integrity  }} />
-<link rel=stylesheet href={{ $hl.RelPermalink        }} crossorigin=anonymous integrity={{ $hl.Data.Integrity       }} />
-<link rel=stylesheet href={{ $print.RelPermalink     }} crossorigin=anonymous media=print integrity={{ $print.Data.Integrity    }} />
+<link rel=stylesheet href={{ $dark.RelPermalink      }} crossorigin=anonymous media="(prefers-color-scheme:dark)"  integrity={{ $dark.Data.Integrity     }} />
+<link rel=stylesheet href={{ $maincss.RelPermalink   }} crossorigin=anonymous                                      integrity={{ $maincss.Data.Integrity  }} />
+<link rel=stylesheet href={{ $hl.RelPermalink        }} crossorigin=anonymous                                      integrity={{ $hl.Data.Integrity       }} />
+<link rel=stylesheet href={{ $print.RelPermalink     }} crossorigin=anonymous media=print                          integrity={{ $print.Data.Integrity    }} />

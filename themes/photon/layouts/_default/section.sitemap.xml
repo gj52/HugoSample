@@ -4,10 +4,10 @@
   {{ if .Permalink -}}
   <url>
     <loc>{{ .RelPermalink }}</loc>
-	  {{ with .Lastmod }}<lastmod>{{ safeHTML ( .Format site.Params.dateFormatFeed ) }}</lastmod>{{ end }}
-	  {{ with site.Params.Sitemap.changeFreq }}<changefreq>{{ . }}</changefreq>{{end}}
-	  {{ with site.Params.Sitemap.priority   }}<priority>{{.}}</priority>{{end}}
+    {{ with .Lastmod }}<lastmod>{{ safeHTML ( .UTC.Format site.Params.dateFormatUTC ) }}</lastmod>{{ end }}
+	  {{ with .Sitemap.ChangeFreq }}<changefreq>{{ . }}</changefreq>{{end}}
+	  {{ with .Sitemap.Priority   }}<priority>{{.}}</priority>{{end}}
   </url>
-  {{- end }}
-{{ end }}
+  {{ end }}
+{{ end }}  
 </urlset>

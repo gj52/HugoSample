@@ -8,7 +8,7 @@
   {{ with .Content}}{{ . }}{{end}} {{ $ms := site.Params.Images.maxSize | default 1480}}
 
   <div class=gallery>
-    {{range .Resources.Match "gallery/*" -}}{{$alt := .Name}}{{$image := .}}{{ $preview := .Fit "480x320 jpg #ffffff q75" }}{{ $background := .Fit "33x22 jpg #ffffff q50" }} {{ $title := "preview"}}
+    {{range .Resources.ByType "image" -}}{{$alt := .Name}}{{$image := .}}{{ $preview := .Fit "480x320 jpg #ffffff q75" }}{{ $background := .Fit "33x22 jpg #ffffff q50" }} {{ $title := "preview"}}
 
     {{ $iw := $image.Width }}{{ $ih := $image.Height }}
     {{ if or (ge $iw $ms) (ge $ih $ms) }}{{ $image = $image.Fit (print $ms "x" $ms ) }}{{end}}
@@ -40,9 +40,9 @@
   {{if hugo.IsProduction }}
   {{ $fb = $fb | minify | fingerprint site.Params.digest }}
   {{end}}
-  <script src={{ $fb.RelPermalink }} crossorigin=anonymous integrity={{ $fb.Data.Integrity }} ></script>
+  <script src={{ $fb.RelPermalink }} crossorigin=anonymous nonce="1GLUsm9YWAxGNd1eEJGM" integrity={{ $fb.Data.Integrity }} ></script> 
 
-  <script>
+  <script nonce="1GLUsm9YWAxGNd1eEJGM">
     Fancybox.bind('[data-fancybox="gallery"]', {
 
       Toolbar: true,

@@ -7,5 +7,5 @@
   {{- end -}}
   {{ if site.IsServer }}<span class="i f6 mid-gray bg-light-yellow">&raquo; DEBUG: code language =  {{$lang}} &laquo;</span>{{end}}
   {{ $file = readFile $file }}
-  {{ highlight $file $lang  }}
+  {{ highlight $file $lang "linenos=table" }}
 </div>

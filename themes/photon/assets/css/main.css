@@ -51,9 +51,9 @@ body {
   line-height: 2;
 }
 
-.lnone li::marker {
-  content: " ";
-}
+  .lnone li::marker {
+    content: " ";
+  }
 
   .lnone svg {
     fill: red;
@@ -69,7 +69,38 @@ h1 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  user-select: none;
+  font-size: clamp(2.5rem, 3rem + 1cqi, 3.5rem);
 }
+
+.f1 {
+  font-size: clamp(2.5rem, 3rem + 1cqi, 3.5rem);
+}
+
+.f2 {
+  font-size: clamp(2rem, 2.25rem + 1cqi, 2.5rem);
+}
+
+.f3 {
+  font-size: clamp(1.5rem, 1.5rem + 1cqi, 2rem);
+}
+
+.f4 {
+  font-size: clamp(1.2rem, 1.25rem + 1cqi, 1.5rem);
+}
+
+.f5 {
+  font-size: clamp(.9rem, 1rem + 1cqi, 1.2rem);
+}
+
+.f6 {
+  font-size: clamp(.8rem, .875rem + 1cqi, .9rem);
+}
+
+.f7 {
+  font-size: clamp(.7rem, .75rem + 1cqi, .8rem);
+}
+
 
 nav {
   padding-right: var(--gap);
@@ -77,6 +108,7 @@ nav {
   align-self: start;
   position: sticky;
   margin-top: .5rem;
+  user-select: none;
 }
 
 /* change border colour to suit your needs */
@@ -96,12 +128,13 @@ hr {
   color: var(--anchor-color);
   font-size: small !important;
 }
+
   .anchor svg {
     fill: var(--anchor-color);
     width: 1.4em;
   }
 
-  a {
+a {
   color: var(--link-color);
   text-decoration: none;
 }
@@ -115,37 +148,43 @@ hr {
     color: var(--link-color);
   }
 
-
   a svg {
     fill: var(--link-color);
   }
 
-
+div svg {
+  fill: var(--text-color);
+}
 
 .icon {
   width: 1em;
   height: 1em;
+  user-select: none;
 }
 
 .iconred {
   fill: red;
+  user-select: none;
 }
 
 .icongray {
   fill: lightgray;
+  user-select: none;
 }
 
 .iconh1 {
   width: 2em;
   height: 1em;
+  user-select: none;
 }
 
 .iconbar {
   width: 2em;
   height: 2em;
+  user-select: none;
 }
 
-  pre {
+pre {
   overflow-x: auto;
   font: var(--fontmono);
   padding-bottom: 0.5em;
@@ -248,8 +287,8 @@ img {
   outline: 0
 }
 
-  img:not([src*=".svg"]) {
-    filter: var(--image-filter);
+  img:not([src*=".svg"]):hover {
+    filter: var(--image-filter-hover);
   }
 
 /* Menu */
@@ -439,6 +478,18 @@ a[data-fancybox] img {
     z-index: 0;
   }
 
+/* tag-button inside count */
+.button_tally {
+  padding: 0 0.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--button_background_color);
+  display: inline-flex;
+  color: #fff;
+  margin: 0.1rem 0 0.1rem 0.4rem;
+  font-size: 0.7rem;
+  color: var(--button_color);
+}
+
 /* table styles */
 
 table {
@@ -483,7 +534,16 @@ header {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-color: var(--hr-color);
+  user-select: none;
 }
+
+.navhead {
+  font-weight: 700;
+  font-size: 1rem;
+  width: 100%;
+  padding-bottom: .25rem;
+}
+
 
 footer {
   grid-area: ft;
@@ -499,9 +559,23 @@ footer {
   left: 0px;
   bottom: 0px;
   width: 100%;
+  user-select: none;
 }
 
+aside, .prevnext {
+  margin-top: 1rem;
+  text-align: center;
+  user-select: none;
+}
 
+.pagination {
+  font-family: 'Courier Next', courier, monospace;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  user-select: none;
+}
 
 .liste {
   column-rule: 1px solid var(--hr-color);
@@ -528,28 +602,27 @@ article {
     height: 580px;
   }
 
-.quote {
-  box-sizing: border-box;
-  display: block;
-  margin: 2em;
-  width: 80%;
-  word-break: break-word;
-  font-style: italic;
+blockquote {
+  border-left: 10px solid #ccc;
+  margin: 1em 10px 0 0;
+  padding: .5em 3em 0 2em;
 }
 
-  .quote::before {
-    font-style: normal;
-    font-weight: bold;
-    color: var(--caption-color);
+  blockquote figcaption {
+    position: relative;
+    margin: 1em 10px 0 0;
   }
 
-:lang(de) > .quote::before {
+:lang(de) > blockquote::before {
   content: "Zitat: ";
+  font-weight: bolder;
 }
 
-:lang(en) > .quote::before {
+:lang(en) > blockquote::before {
   content: "Quote: ";
+  font-weight: bolder;
 }
+
 
 @supports (display:grid) {
   aside {
@@ -565,6 +638,14 @@ article {
 @supports not (display:grid) {
   nav {
     columns: 4;
+  }
+}
+
+
+@media screen and (min-width: 30em) {
+
+  img:not([src*=".svg"]) {
+    filter: var(--image-filter);
   }
 }
 
@@ -607,6 +688,7 @@ article {
   .liste {
     column-count: 2;
   }
+
   .mermaid {
     width: 45em;
   }
@@ -616,6 +698,7 @@ article {
   .liste {
     column-count: 3;
   }
+
   .mermaid {
     width: 70em;
   }
@@ -625,10 +708,10 @@ article {
   .liste {
     column-count: 5;
   }
+
   .mermaid {
     width: 90em;
   }
-
 }
 
 }
@@ -637,15 +720,14 @@ article {
   .liste {
     column-count: 6;
   }
+
   .mermaid {
     width: 100em;
   }
-
 }
 
 /* styles to target touch devices - https://mskkai.hashnode.dev/css-solution-for-styling-touch-and-non-touch-devices */
 @media (hover: none), (pointer: coarse) {
-
 }
 
 

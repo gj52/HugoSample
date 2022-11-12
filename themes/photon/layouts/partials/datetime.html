@@ -1,0 +1,1 @@
+{{- $date := . -}}<time class="relative" datetime={{ $date.UTC.Format site.Params.dateFormatUTC }} title={{ $date.Format site.Params.dateFormatShort }}>{{ $date.Format site.Params.dateFormatShort }}</time>

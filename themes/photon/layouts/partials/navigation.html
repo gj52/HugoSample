@@ -4,15 +4,15 @@
     {{ if or (lt .Weight 900) site.IsServer }}
     {{ if .HasChildren }}
     <div class=pb1>
-      <a class=b href={{ .URL }}>{{ .Name }}</a>
+      <a class=b href={{ .URL }}  title="{{.Name}}">{{ .Name }}</a>
       <div class="f5 pb1">
         {{ range .Children }}
-        <div><a class=i href={{ .URL }} target=_blank>{{ .Name }}</a></div>
+        <div><a class=i href={{ .URL }} target=_blank title="{{.Name}}">{{ .Name }}</a></div>
         {{ end }}
       </div>
     </div>
     {{else}}
-    <div class=pb1><a class=b href={{ .URL }}>{{ .Name }}</a></div>
+    <div class=pb1><a class=b href={{ .URL }}  title="{{.Name}}">{{ .Name }}</a></div>
     {{end}}
     {{end}}
     {{- end}}
@@ -21,11 +21,11 @@
   {{ $bars := resources.Get "svg/bars.svg"  }}
   <div id="menuToggle" class="db dn-ns tr">
     <label for=toggle>{{ $bars.Content | safeHTML}}</label>
-    <input id=toggle type=checkbox>
+    <input id=toggle name="toggle" Title="toggle menu" type=checkbox>
     <div id="menu">
       {{ range site.Menus.main }}
       {{ if or (lt .Weight 900) site.IsServer }}
-      <div class=pb1><a class=b href={{ .URL }}>{{ .Name }}</a></div>
+      <div class=pb1><a class=b href={{ .URL }}  title="{{.Name}}">{{ .Name }}</a></div>
       {{ end }}
       {{ end }}
     </div>

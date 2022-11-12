@@ -1,0 +1,12 @@
+{{- $path     := .Get "path" -}}
+{{- $filepath := replace $path site.Params.staticdir "" -}}
+{{- $files    := readDir $path -}}
+<ul class="db db-ns list pl0 w-80">
+	<li class="dib w-100 b">
+		<span class="fl tr bb w-20 w-10-ns pr2">Bytes</span><span class="fl bb w-60 w-70-ns">Dateiname</span>
+		{{- range $files }}
+			{{ if (and (ne (substr .Name 0 1) "_") (not .IsDir)) }}
+				<li class="dib w-100"><span class="fl tr w-20 w-10-ns pr2">{{ .Size }}</span><span class="fl w-auto"><a href="{{$filepath}}{{ .Name | relURL }}" type="text/plain" download>{{ .Name }}</a></span>
+			{{end}}
+		{{- end }}
+</ul>

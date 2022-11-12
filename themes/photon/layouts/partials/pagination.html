@@ -1,6 +1,6 @@
 {{ $pag := $.Paginator }} {{ $p := .Page }}
 {{ if gt $pag.TotalPages 1 -}}
-<div class="f3 b pt4 pl4 courier">
+<div class=pagination>
 <span>
 	{{ if (and (not $pag.HasPrev) (eq site.Params.pagination.showBeginEnd false)) -}}{{- else -}}
 		{{ if not (eq site.Params.pagination.showFirst false) }}

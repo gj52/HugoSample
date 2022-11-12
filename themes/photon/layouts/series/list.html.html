@@ -10,7 +10,11 @@
 	<div class=liste>
 		{{ $paginator := .Paginate .Data.Pages 40}}
 		{{ range $paginator.Pages -}}
-		{{ partial "summary" . }}
+		{{ partial "summary.html" . }}
+		{{ $sp := .Store.Get "sprites" }}
+			{{ range $key, $val := $sp }}
+		{{ $.Store.SetInMap "sprites" $key  $val }}
+		{{end}}
 		{{- end }}
 	</div>
 	{{ partial "pagination.html" . }}

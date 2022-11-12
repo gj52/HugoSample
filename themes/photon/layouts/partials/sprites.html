@@ -1,13 +1,13 @@
-	{{ $sprites := .Store.Get "sprites" }}
-	{{ if $sprites }}
-<div class=dn>
-	<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+{{ $sprites := .Store.Get "sprites" }}
+{{ if $sprites }}
+<div class=dn aria-hidden=true>
+	<svg xmlns="http://www.w3.org/2000/svg">
 		{{ range $key, $val := $sprites }} {{ $id := printf "id=%s" $key}}
-			{{ with $ext := resources.Get $val  }}
-				{{ $svg := replace $ext.Content "svg" "symbol" }}
-				{{ $svg = replace $svg "class=\"icon\"" $id }}
-				{{ $svg | safeHTML}}
-			{{end}}
+		{{ with $ext := resources.Get $val  }}
+		{{ $svg := replace $ext.Content "svg" "symbol" }}
+		{{ $svg = replace $svg "class=\"icon\"" $id }}
+		{{ $svg | safeHTML}}
+		{{end}}
 		{{end}}
 	</svg>
 </div>

@@ -1,11 +1,11 @@
 {{ $path     := .Get "path" }}
-{{ $filepath := printf "assets/etc/%s" $path }}
+{{ $filepath := printf "/assets/etc/%s" $path }}
 {{ $files    := readDir $filepath }}
 {{ $ext := default "-" (.Get "type" )}}
 {{ if (fileExists $filepath)}}
 <div class="pa2 mh4 ba">
 {{- range $files }}
-	{{ if (and (ne (substr .Name 0 1) "_") (not .IsDir)) }}{{ $f := resources.Get (printf "/etc/%s/%s" $path .Name)}}
+	{{ if (and (ne (substr .Name 0 1) "_") (not .IsDir)) }}{{ $f := resources.Get (printf "etc/%s/%s" $path .Name)}}
 		{{ $e := findRE "\\w+$" .Name }}
 		{{ if (or ( eq $ext "-") (in $e $ext) )}}
 			<a class="w-auto pr2" href={{$f.Permalink }} type=text/plain rel=nofollow download>{{ .Name }}</a>
