@@ -37,7 +37,7 @@
       {{ end }}   
         <summary type="xhtml">
           <div xmlns="http://www.w3.org/1999/xhtml">
-      {{ range first 1 (.Resources.ByType "image") }}{{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480") }}{{ $image := $.Scratch.Get "image" }}
+            {{ range first 1 (.Resources.ByType "image") }}{{ $original := . }}{{ $.Scratch.Set "image" ($original.Fit "480x480 #ffffff q75 jpeg") }}{{ $image := $.Scratch.Get "image" }}
             <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{.Name}}" /><br/>
         {{ end }}
             <p>{{ plainify .Summary }}</p>
