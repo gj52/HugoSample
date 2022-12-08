@@ -1,16 +1,12 @@
 <head>
   <meta charset=utf-8 />
-  <meta http-equiv="Content-Security-Policy" content="base-uri 'self'; default-src 'none'; img-src 'self' data: 'unsafe-inline' ; script-src 'self'  'strict-dynamic'; script-src-elem 'self' https://cdn.jsdelivr.net https://polyfill.io 'nonce-1GLUsm9YWAxGNd1eEJGM'; font-src https://cdn.jsdelivr.net ;frame-src https://*.youtube.com; object-src 'self'; style-src 'self' 'unsafe-inline'; form-action 'none'; connect-src 'self' ">
   <meta name=viewport content="width=device-width, initial-scale=1" />
-  {{ if eq .Kind "taxonomy" }}
-  <meta name=robots content="noindex,nofollow" />
-  {{end}}
-  <meta name=referrer content=no-referrer />
   <base href={{ site.BaseURL }} />
+  {{ partial "csp.html" .}}
+  {{ if eq .Kind "taxonomy" }}<meta name=robots content="noindex,nofollow" />{{end}}
+  <meta name=referrer content=no-referrer />
 
-  {{ if site.IsServer }}
-  <meta http-equiv="cache-control" content="no-cache">
-  {{end}}
+  {{ if site.IsServer }}<meta http-equiv="cache-control" content="no-cache">{{end}}
   {{ if .IsHome -}}
   <title>{{ .RenderString site.Title }}</title>
 

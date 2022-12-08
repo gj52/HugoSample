@@ -4,5 +4,7 @@
   <h1>{{ .RenderString site.Title }} {{ $dragon.Content | safeHTML }} {{ .Page.Title }}</h1>
   {{if isset .Params "description" }}<div class="f5 b w-90-ns pb1">{{ .Description }}</div>{{end}}
 </header>
-<article><h2 class=dn>{{ .Page.Title }}</h2>{{ .Content }}</article>
+<article><h2 class=dn>{{ .Page.Title }}</h2>
+  {{ partial "search.html" . }}
+</article>
 {{ end }}

@@ -1,0 +1,3 @@
+{{ $now := now.Format site.Params.dateFormatUTC }}{{ $url := (site.BaseURL | absURL) }}{{ $nonce := hmac "sha256"  $now $url "binary" | base64Encode }}{{ .Store.Set "nonce" $nonce }}{{ $c := "content=\""}}
+{{- range $elem_key, $elem_val := .Site.Params.csp -}}{{ $c = print $c $elem_key}}{{ range $elem_val }}{{ if eq . "NONCE"}}{{$c = printf "%s 'nonce-%s'" $c $nonce | safeHTML  }}{{else}}{{ $c = print $c " " . }}{{end}}{{ end }}{{ $c = print $c ";"}}{{- end -}}{{ $c = print $c "\""}}
+  <meta http-equiv="Content-Security-Policy" {{ $c | safeHTMLAttr  }} />

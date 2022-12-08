@@ -40,9 +40,9 @@
   {{if hugo.IsProduction }}
   {{ $fb = $fb | minify | fingerprint site.Params.digest }}
   {{end}}
-  <script src={{ $fb.RelPermalink }} crossorigin=anonymous nonce="1GLUsm9YWAxGNd1eEJGM" integrity={{ $fb.Data.Integrity }} ></script> 
-
-  <script nonce="1GLUsm9YWAxGNd1eEJGM">
+  {{ $p := $.Store.Get "nonce" }}
+  <script src={{ $fb.RelPermalink }} crossorigin=anonymous nonce="{{$p}}" integrity={{ $fb.Data.Integrity }}></script>
+  <script nonce="{{$p}}">
     Fancybox.bind('[data-fancybox="gallery"]', {
 
       Toolbar: true,

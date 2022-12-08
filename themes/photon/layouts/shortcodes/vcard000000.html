@@ -1,1 +1,0 @@
-{{ $path := .Get 0 }}{{ with resources.Get $path -}}{{ $class := default "b" ($.Get 1) }}	&nbsp;<a class="vcard {{$class}}" title="download vCard" type="text/vcard" href="{{ .Permalink}}" download>{{ $vcard := resources.Get "svg/vcard.svg"  }}{{ $vcard.Content | safeHTML}}</a>{{- end}}

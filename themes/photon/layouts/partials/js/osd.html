@@ -2,4 +2,5 @@
 {{if hugo.IsProduction }}
 {{ $osd = $osd | minify | fingerprint site.Params.digest }}
 {{end}}
-<script rel=preload src={{ $osd.RelPermalink }} crossorigin=anonymous nonce="1GLUsm9YWAxGNd1eEJGM" integrity={{ $osd.Data.Integrity }} ></script>
+{{ $p := $.Store.Get "nonce" }}
+<script rel=preload src={{ $osd.RelPermalink }} crossorigin=anonymous nonce="{{$p}}" integrity={{ $osd.Data.Integrity }}></script>
