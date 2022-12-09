@@ -1,6 +1,6 @@
 # This is a condensed Hugo sample.
 
-**Always using the latest HOGO version! Must have Version 0.93 for CodeBlock rendering!!**
+**Always using the latest HOGO version! Must have Version 0.108 or newer!
 
 **After multiple commits please wait some days - work in progress!**
 
@@ -16,11 +16,13 @@ Should work with the latest Hugo version (*give me some days*).
 - added local search - thanks to http://tanjabecker.de/
 - added MathJax for using math formulas
 - added hook renders for images, header and links - see _default/_markup
+- added render hooks for MathJax, GoAT and MerMaid 
 - image renderer generates different sizes (srclist) and embedded preview
 - added feeds: RSS, ATOM and JSON
 - using different outputFormats for feeds, search, sitemap etc..
 - splitted config for site and theme
-- adding light and dark theme 
+- added light and dark theme 
+- added CSP 
 
 OK, most content is in German, but this does not matter to see how it works.
 Sometimes I verify the generated files (HTML, XML, JSON etc..) to have correct outputs.
