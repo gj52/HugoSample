@@ -83,6 +83,22 @@ expiryDate                 = [ "expiryDate"]
     urls = ['.*']
 
 ###############################################################
+#
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+
+[Params.csp]
+  base-uri    = ["'self'"]
+  default-src = ["https:",  "'self'"]
+  script-src  = ["'self'", "https://cdn.jsdelivr.net", "https://polyfill.io", "NONCE"]
+  frame-src   = ["https://*.youtube.com"]
+  style-src   = ["'self'", "'unsafe-inline'"]
+
+#  form-action = ["'none'"] 
+#  connect-src = ["'self'"]
+#  img-src     = ["'self'"]
+#  manifest-src= ["'self'"]
+#  object-src  = ["'self'"]
+###############################################################
 
 [_build]
   publishResources = false
@@ -110,9 +126,7 @@ expiryDate                 = [ "expiryDate"]
     dir = ':cacheDir/modules'
     maxAge = -1
 
-
 ###############################################################
-
 
 [markup]
   defaultMarkdownHandler = "goldmark"
@@ -144,7 +158,6 @@ expiryDate                 = [ "expiryDate"]
 
 ###############################################################
 
-
 [outputs]
     home                   = [ "HTML", "ATOM", "JSON", "FEED", "MANIFEST", "SITEMAP", "SEARCH"]
     section               = [ "HTML", "SITEMAP" ]
@@ -167,7 +180,6 @@ expiryDate                 = [ "expiryDate"]
       
 ###############################################################
 
-
 [Author]
     name               = "Mr. Nobody"
     email              = "me@example.com"
@@ -183,6 +195,7 @@ expiryDate                 = [ "expiryDate"]
     Creator                = "lastname, firstname"
     Publisher              = "lastname, firstname"
 
+    feedSize               = 50 # rssLimit
 
 [Params.sidebar]
     avatar          = "img/head.jpg"
