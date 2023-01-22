@@ -4,6 +4,9 @@
 
 ###############################################################
 
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
 
 [markup]
   defaultMarkdownHandler = "goldmark"
@@ -231,4 +234,3 @@
     name                   = "JSON"
     pageRef                = "/feeds/json"
     weight                 = 1303
-

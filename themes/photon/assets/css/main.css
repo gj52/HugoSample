@@ -70,7 +70,13 @@ h1 {
   overflow: hidden;
   text-overflow: ellipsis;
   user-select: none;
-  font-size: clamp(2.5rem, 3rem + 1cqi, 3.5rem);
+/*  font-size: clamp(2rem, 2rem + 1cqi, 3rem); */
+}
+
+h2::before, h3::before {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .f1 {
@@ -415,6 +421,11 @@ a[data-fancybox] img {
 .mermaid {
   width: 100%;
   height: auto;
+  text-align: center;
+}
+
+.latex {
+  display: block;
   text-align: center;
 }
 

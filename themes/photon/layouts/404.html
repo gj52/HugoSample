@@ -7,7 +7,7 @@
   <h2>{{ $bug := resources.Get "svg/bug.svg"  }}{{ $bug.Content | safeHTML}}&nbsp;Woran hat's gelegen?</h2>
   <br />
   <ul class=lnone>
-    <li>{{ $kbd := resources.Get "svg/keyboard.svg"  }}{{ $kbd.Content | safeHTML}}&nbsp;&nbsp;eine falsche Adresse (URL) wurd eingegeben</li>
+    <li >{{ $kbd := resources.Get "svg/keyboard.svg"  }}{{ $kbd.Content | safeHTML}}&nbsp;&nbsp;eine falsche Adresse (URL) wurd eingegeben</li>
     <li>{{ $unl := resources.Get "svg/unlink.svg"    }}{{ $unl.Content | safeHTML}}&nbsp;&nbsp;ein Link auf den Seiten ist nicht korrekt</li>
     <li>{{ $can := resources.Get "svg/trashcan.svg"  }}{{ $can.Content | safeHTML}}&nbsp;&nbsp;der Inhalt wurde gelöscht</li>
     <li>{{ $geu := resources.Get "svg/europe.svg"    }}{{ $geu.Content | safeHTML}}&nbsp;&nbsp;der Inhalt ist auf Ihrem Planeten nicht verfügbar</li>

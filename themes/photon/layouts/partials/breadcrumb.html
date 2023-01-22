@@ -1,17 +1,6 @@
-<div class=pt2>{{ template "breadcrumbnav" (dict "p1" . "p2" .) }}</div>
-{{ define "breadcrumbnav" }}
-{{ if .p1.Parent }}
-	{{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 ) }} 
-{{ else if not .p1.IsHome }}
-	{{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
-{{ end }}
-{{ if eq .p1 .p2 }} 
-  <span class=b>{{ .p1.Title }}</span>
-{{else}}
- {{if eq .p1 site.Home }}
- <a href="{{ .p1.Permalink }}">{{ site.Title }}</a> >
- {{else}}
- <a href="{{ .p1.Permalink }}">{{ .p1.Title }}</a> >
- {{end}}
-{{ end }}
-{{ end }}
+<!-- with V0.109++  -->
+<div>
+  <hr />
+  {{- range .Ancestors.Reverse }}<a href="{{ .Permalink }}">{{ .Title }}</a> &gt;{{- end }}
+  <span aria-current="page">{{ .Title }}</span>
+</div>

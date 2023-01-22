@@ -1,11 +1,11 @@
 # basic settings
 
-config                      = "config.toml"
+config                      = "hugo.toml"
 log                         =  true
 verbose                     =  true
 logFile                     = "hugo.log" 
 verboseLog                  = "info.log"
-ignoreFiles                 = [ "\\.cmd$", "\\.log$", "\\.bat$", "\\.tmp$" , "\\.swp$"]
+ignoreFiles                 = [ "\\.cmd$", "\\.log$", "\\.bat$", "\\.tmp$" , "\\.swp$", "\\.url$"]
 timeout                     = 300000
 
 #baseUrl                    = "http://localhost:1313"
@@ -135,7 +135,13 @@ expiryDate                 = [ "expiryDate"]
       unsafe = true
       xhtml  = true
       hardWraps = false
-      WithAttribute  = true
+
+    [markup.goldmark.parser]
+       withAttribute     = true
+       wrapStandAloneImageWithinParagraph = false
+
+       [markup.goldmark.parser.attribute]
+         block = true
 
     [markup.highlight]
       anchorLineNos = false
@@ -190,11 +196,13 @@ expiryDate                 = [ "expiryDate"]
     title              = "My Playground"
     copyright          = "Mr. Nobody"
     copyrightyear      = "2000"
+    description        = "technological extract from my production site"
 
 # Doubline Core
     Creator                = "lastname, firstname"
     Publisher              = "lastname, firstname"
 
+# RSS, ATOM & JSON FEED
     feedSize               = 50 # rssLimit
 
 [Params.sidebar]
@@ -202,4 +210,3 @@ expiryDate                 = [ "expiryDate"]
     avatarSize      = 80
     avatarQuality          = "q80"
     bio             = "**Mr. Nobody**"
-

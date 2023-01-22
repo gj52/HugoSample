@@ -1,16 +1,19 @@
 {{ range site.Menus.main }}
-	{{ $.Scratch.Set .Identifier .Name }}
+{{ $.Scratch.Set .Identifier .Name }}
 {{ end}}
 {{ $.Scratch.Set "Intern" "Internes"}}
 
 {{if not .IsHome -}}
 <div class="navhead no-print">
-	<a href={{ site.Home.RelPermalink}}>{{ $house := resources.Get "svg/house.svg"  }}{{ $house.Content | safeHTML}}</a><span class=nowrap>{{ with site.GetPage .Section }}<a class=ph1 href={{ .RelPermalink }} >{{ .Name }}</a>{{ end}}</span> 
+	<a href={{ site.Home.RelPermalink}}>{{ $house := resources.Get "svg/house.svg"  }}{{ $house.Content | safeHTML}}</a><span class=nowrap>{{ with site.GetPage .Section }}<a class=ph1 href={{ .RelPermalink }}>{{ .Name }}</a>{{ end}}</span>
 	{{if isset .Params "tags" -}}
-		<span class="nowrap pl2"><a href=/tags/>{{ $tag := resources.Get "svg/tag.svg"  }}{{ $tag.Content | safeHTML}}</a>{{ range sort (.GetTerms "tags") "LinkTitle" -}}<a class=ph1 href={{ .RelPermalink }} >{{ .LinkTitle }}</a>{{- end}}</span>
+	<span class="nowrap pl2"><a href=/tags />{{ $tag := resources.Get "svg/tag.svg"  }}{{ $tag.Content | safeHTML}}</a>{{ range sort (.GetTerms "tags") "LinkTitle" -}}<a class=ph1 href={{ .RelPermalink }}>{{ .LinkTitle }}</a>{{- end}}</span>
 	{{- end}}
 	{{if isset .Params "series" -}}
-			<span class="nowrap pl2"><a href=/series/>{{ $book := resources.Get "svg/book.svg"  }}{{ $book.Content | safeHTML}}</a>{{ range sort (.GetTerms "series") "LinkTitle" }}<a class=ph1 href={{ .RelPermalink }} >{{ .LinkTitle }}</a>{{- end}}</span>
+	<span class="nowrap pl2"><a href=/series />{{ $book := resources.Get "svg/book.svg"  }}{{ $book.Content | safeHTML}}</a>{{ range sort (.GetTerms "series") "LinkTitle" }}<a class=ph1 href={{ .RelPermalink }}>{{ .LinkTitle }}</a>{{- end}}</span>
 	{{- end}}
 </div>
+{{if site.Params.breadcrumb }}
+{{ partial "breadcrumb" . }}
+{{end}}
 {{- end}}
