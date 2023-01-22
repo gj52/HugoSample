@@ -1,6 +1,6 @@
 # This is a condensed Hugo sample.
 
-**Always using the latest HOGO version! Must have Version 0.108 or newer!
+**Always using the latest HOGO version! Must have Version 0.110 or newer!
 
 **After multiple commits please wait some days - work in progress!**
 
@@ -30,5 +30,3 @@ Sometimes I verify the generated files (HTML, XML, JSON etc..) to have correct o
 ---
 
 You are free to use my samples. 
-
-
