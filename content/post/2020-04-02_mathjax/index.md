@@ -32,11 +32,7 @@ Hier ein kleiner Versuch mit den Maxwell-Gleichungen - sieht doch gut aus
 |Faraday's Induktionsgesetz|$${\vec {\nabla }}\times {\vec {E}}=-{\frac {\partial {\vec {B}}}{\partial t}}$$|
 |Ampère's Durchflutungsgesetz|$${\vec {\nabla }}\times {\vec {B}}=\mu _{0}{\vec {j}}+\mu _{0}\varepsilon _{0}{\frac {\partial {\vec {E}}}{\partial t}}$$|
 
-Wobei auch  
-````latex { class=w-20 }
-\mu _{0}\varepsilon _{0}={\frac {1}{c^{2}}}
-````
-gesetzt wird.
+Wobei auch  $\mu _{0}\varepsilon _{0}={\frac {1}{c^{2}}}$ gesetzt wird.
 
 Etwas komplexer
 
