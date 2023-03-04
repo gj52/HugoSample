@@ -73,12 +73,6 @@ h1 {
 /*  font-size: clamp(2rem, 2rem + 1cqi, 3rem); */
 }
 
-h2::before, h3::before {
-  content: "";
-  clear: both;
-  display: table;
-}
-
 .f1 {
   font-size: clamp(2.5rem, 3rem + 1cqi, 3.5rem);
 }
@@ -148,6 +142,7 @@ a {
   a:hover {
     /*  color: var(--link-hover); */
     text-decoration: underline 0.08em;
+    text-underline-offset: 2px;
   }
 
   a:focus {
