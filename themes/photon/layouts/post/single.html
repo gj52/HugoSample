@@ -7,6 +7,9 @@
 <article>
 	{{ .Content }}
 
+{{if site.Params.relatedpages }}
+{{ partial "related.html" . }}
+{{end}}
 {{ partial "prevnext.html" .}}
 
 </article>

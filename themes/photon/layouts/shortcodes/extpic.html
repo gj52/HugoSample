@@ -1,9 +1,10 @@
 {{ $src := .Get 0 }}
 {{ with resources.GetRemote $src }}
-  {{ with .Err }}
-    {{ warnf "%s" . }}
-  {{ else }}
-    {{ $url := urls.Parse $src }} {{ $path := printf "img/ext/%s/%s" $url.Host $url.Path }}{{ $img := .Content | resources.FromString $path }}
-    <img src="{{ $img.RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
-  {{ end }}
+{{ with .Err }}
+{{ warnf "%s" . }}
+{{ else }}
+{{ $url := urls.Parse $src }}{{ $path := urls.JoinPath  "img/ext" $url.Host $url.Path }}
+{{ $img := .Content | resources.FromString $path }}
+<img src="{{ $img.RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+{{ end }}
 {{ end }}

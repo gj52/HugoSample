@@ -1,13 +1,12 @@
 {{ $image := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL)) }}
 {{ $p := .Page }}
-{{ if ne $image nil -}}
 {{ $alt := (.PlainText | safeHTML) | default "picture" }}{{ $caption := "" }} {{ with .Title }}{{ $caption = . | safeHTML }}{{ end }}
 {{ $iw := $image.Width }}{{ $ih := $image.Height }}{{ $ms   := site.Params.Images.maxSize | default 1024}}
 {{- if or (ge $iw $ms) (ge $ih $ms) -}}{{ $image = $image.Fit (print $ms "x" $ms ) }}{{- end -}}
 {{ $srcset := slice }}{{ range site.Params.Images.setSizes -}}
 {{ if lt (mul . 1.2) $iw -}}{{ $size := print  . "x" .}}{{ $thumb := $image.Fit $size }}{{ $srcset = $srcset | append (printf ("%s %dw") $thumb.RelPermalink $thumb.Width ) }}{{- end }}
 {{- end }}
-{{ if .IsBlock }}
+{{ if .IsBlock }}  
 <figure class="dib {{ .Attributes.class }}">
   <img loading=lazy importance=low src={{ $image.RelPermalink }}
        {{ if gt (len $srcset) 0 }} sizes="(max-width: 480px) 90vw, (max-width: 960px) 80vw, {{ $image.Width }}px" {{ $sl := delimit $srcset ", "}} srcset="{{$sl}}" {{ end }} width={{ $image.Width }} height={{ $image.Height}} alt={{ $alt }} />
@@ -16,6 +15,3 @@
 {{ else }}
 <img src="{{ $image.RelPermalink }}" alt="{{ $alt }}" />
 {{ end }}
-{{- else -}}
-{{ errorf "Failed on page %q - missing image %q" .Page.File.Path .Destination }}
-{{- end}}

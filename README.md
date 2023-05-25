@@ -1,6 +1,6 @@
 # This is a condensed Hugo sample.
 
-**Always using the latest HOGO version! Must have Version 0.110 or newer!
+**Always using the latest HOGO version! Must have Version 0.112 or newer!
 
 **After multiple commits please wait some days - work in progress!**
 
@@ -23,9 +23,10 @@ Should work with the latest Hugo version (*give me some days*).
 - splitted config for site and theme
 - added light and dark theme 
 - added CSP 
+- added the new template functons of version 0.112
 
 OK, most content is in German, but this does not matter to see how it works.
-Sometimes I verify the generated files (HTML, XML, JSON etc..) to have correct outputs.
+I verify the generated files (HTML, XML, JSON etc..) to have correct outputs.
 
 ---
 

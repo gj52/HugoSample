@@ -40,8 +40,10 @@ body {
   text-underline-offset: 0.03em;
 }
 
+/* https://css-tricks.com/everything-you-need-to-know-about-the-gap-after-the-list-marker/ */
+
 ::marker {
-  content: "★ ";
+  content: "⁕ ";
   color: var(--text-color);
 }
 
@@ -507,7 +509,7 @@ table {
 
 thead {
   background-color: var(--th-background);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 th, td {

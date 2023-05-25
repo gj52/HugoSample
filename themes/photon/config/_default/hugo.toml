@@ -1,18 +1,46 @@
 # theme configuration
 
-#disableKinds               = ["RSS", "sitemap"]
+[related]
+  includeNewer = true
+  threshold = 80
+  toLower = true
+[[related.indices]]
+  name = 'tags'
+  weight = 95
+  toLower = true
+[[related.indices]]
+name = 'categories'
+weight = 30
+[[related.indices]]
+name = 'series'
+weight = 60
 
 ###############################################################
 
-[sitemap]
-  changefreq = "weekly"
-  priority = 0.5
+[module]
 
-[markup]
-  defaultMarkdownHandler = "goldmark"
+[[module.mounts]]
+  source = 'content'
+  target = 'content'
+[[module.mounts]]
+  source = 'static'
+  target = 'static'
+[[module.mounts]]
+  source = 'layouts'
+  target = 'layouts'
+[[module.mounts]]
+  source = 'data'
+  target = 'data'
+[[module.mounts]]
+  source = 'assets'
+  target = 'assets'
+[[module.mounts]]
+  source = 'i18n'
+  target = 'i18n'
+[[module.mounts]]
+  source = 'archetypes'
+  target = 'archetypes'
   
-### https://github.com/yuin/goldmark/#built-in-extensions
-
   [markup.goldmark]
     [markup.goldmark.extensions]
       autolinks      = false
@@ -24,23 +52,20 @@
       taskList       = false
       typographer    = true
       
-    [markup.goldmark.parser]
-#      autoHeadingID     = false
-#      autoHeadingIDType = "github"
-       withAttribute     = true
-      [markup.goldmark.parser.attribute]
-        block = true
-        title = true
-        
-    # https://gohugo.io/getting-started/configuration/#configure-minify
-    
+       
+### https://gohugo.io/getting-started/configuration/#configure-minify
     [minify.tdewolff.html]
         keepDefaultAttrVals = false  # default true
         keepDocumentTags = false     # default true
         keepEndTags = false          # default true
 
-################# Image handling ###########
+  [markup.tableOfContents]
+    ordered = false
+    startLevel = 2
+    endLevel = 3
 
+
+################# Image handling ###########
 # shortcode   figure.html
 # render hook render-image.html
 
