@@ -76,19 +76,20 @@
   }
 
   ul {
-    list-style: disc;
+    list-style: none;
     widows: 6;
     orphans: 6;
   }
 
   ol {
-    list-style: disc;
+    list-style: none;
     widows: 6;
     orphans: 6;
   }
 
   li {
     line-height: 1.25;
+    list-style: none;
   }
 
   table {

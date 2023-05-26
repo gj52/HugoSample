@@ -4,5 +4,6 @@ description = "Nikola Tesla's verschollene Erfindungen"
 tags        = ["Nikola Tesla"]
 [[cascade]]
 Language = "de"
+toc = true
 +++
 

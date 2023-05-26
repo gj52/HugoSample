@@ -75,6 +75,27 @@ h1 {
 /*  font-size: clamp(2rem, 2rem + 1cqi, 3rem); */
 }
 
+.toc ::marker {
+  content: "";
+}
+
+.toc ol {
+  list-style-type: none;
+  padding: 0 0 0 1em;
+}
+
+.toc > ol {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.toc-title {
+  font-family: var(--fonts);
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+
 .f1 {
   font-size: clamp(2.5rem, 3rem + 1cqi, 3.5rem);
 }

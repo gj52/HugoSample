@@ -1,0 +1,144 @@
+{{/* Last modified: 2023-04-11T14:26:37-07:00
+https://www.veriphor.com/articles/
+*/}}
+
+{{/*
+Copyright 2023 Veriphor LLC
+Licensed under the Apache License, Version 2.0 (the "License"); you may not
+use this file except in compliance with the License. You may obtain a copy of
+the License at
+https://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations under
+the License.
+*/}}
+
+{{/*
+Renders a table of contents by walking .Page.Fragments.Headings.
+In site configuration, set the default start level, end level, and the minimum
+number of headings required to show the table of contents:
+    [params.toc]
+    startLevel = 2      # default is 2
+    endLevel = 3        # default is 3
+    minNumHeadings = 2  # default is 2
+To display the table of contents on a page:
+    +++
+    title = 'Post 1'
+    toc = true
+    +++
+To display the table of contents on a page, and override one or more of the
+default settings:
+    +++
+    title = 'Post 1'
+    [toc]
+    startLevel = 2      # default is 2
+    endLevel = 3        # default is 3
+    minNumHeadings = 2  # default is 2
+    +++
+Change or localize the title with a "toc_title" key in your i18n file(s).
+Start with these basic CSS rules to style the table of contents:
+    .toc li {
+      list-style-type: none;
+    }
+    .toc ol {
+      padding: 0 0 0 1em;
+    }
+    .toc > ol {
+      padding-left: 0;
+    }
+    .toc-title {
+      font-weight: bold;
+    }
+@context {page} .
+@returns {template.HTML}
+@example {{ partial "toc-walk-headings.html" .
+}}
+*/}}
+
+{{/* Initialize. */}}
+{{- $partialName := "toc-walk-headings" }}
+
+{{/* Verify minimum required version. */}}
+{{- $minHugoVersion := "0.111.3" }}
+{{- if lt hugo.Version $minHugoVersion }}
+{{- errorf "The %q partial requires Hugo v%s or later." $partialName $minHugoVersion }}
+{{- end }}
+
+{{/* Determine content path for warning and error messages. */}}
+{{- $contentPath := "" }}
+{{- with .File }}
+{{- $contentPath = .Path }}
+{{- else }}
+{{- $contentPath = .Path }}
+{{- end }}
+
+{{/* Check for duplicate heading IDs. */}}
+{{- $duplicateIDs := slice }}
+{{- range .Fragments.Identifiers }}
+{{- if gt ($.Fragments.Identifiers.Count .) 1 }}
+{{- $duplicateIDs = $duplicateIDs | append . }}
+{{- end }}
+{{- end }}
+{{- with $duplicateIDs | uniq }}
+{{- errorf "The %q partial detected duplicate heading IDs (%s) in %s" $partialName (delimit . ", ") $contentPath }}
+{{- end }}
+
+{{/* Render. */}}
+{{- if .Params.toc }}
+{{- with .Fragments.Headings }}
+{{- $startLevel := or ($.Param "toc.startLevel" | int) 2 }}
+{{- $endLevel := or ($.Param "toc.endLevel" | int) 3 }}
+{{- $temp := $.Fragments.ToHTML $startLevel $endLevel true | safeHTML }}
+{{- $numHeadings := $temp | findRE `<a href=".+">.+</a>` | len }}
+{{- if ge $numHeadings (or ($.Param "toc.minNumHeadings" | int) 2) }}
+<div class="toc">
+  <div class="toc-title">
+    {{ or (T "toc_title") "Table of contents" | safeHTML }}
+  </div>
+  <ol>
+    {{- $ctx := dict
+            "page" $
+            "contentPath" $contentPath
+            "partialName" $partialName
+            "startLevel" $startLevel
+            "endLevel" $endLevel
+            "headings" .
+            "level" 1
+    }}
+    {{- partial "inline/toc/walk.html" $ctx }}
+  </ol>
+</div>
+{{- end }}
+{{- end }}
+{{- end }}
+
+{{- /* Recursively walk the headings. */}}
+{{- define "partials/inline/toc/walk.html" }}
+{{- $ctx := . }}
+{{- $level := .level }}
+{{- range $ctx.headings }}
+{{- if ge $level $ctx.startLevel }}
+<li>
+  {{- if .ID }}
+  {{- if le $ctx.level $ctx.endLevel }}
+  {{- $href := printf "%s#%s" $ctx.page.RelPermalink .ID }}
+  <a href="{{ $href }}">{{ .Title | safeHTML }}</a>
+  {{- end }}
+  {{- else }}
+  {{- errorf "The %q partial detected that the %q heading has an empty ID attribute. See %s" $ctx.partialName .Title $ctx.contentPath }}
+  {{- end }}
+  {{- with .Headings }}
+  <ol>
+    {{- $ctx = merge $ctx (dict "headings" . "level" (add $level 1)) }}
+    {{- partial "inline/toc/walk.html" $ctx }}
+  </ol>
+  {{- end }}
+</li>
+{{- else }}
+{{- $ctx = merge $ctx (dict "headings" .Headings "level" (add $level 1)) }}
+{{- partial "inline/toc/walk.html" $ctx }}
+{{- end }}
+{{- end }}
+{{- end }}
