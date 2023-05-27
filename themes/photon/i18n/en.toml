@@ -9,3 +9,6 @@ one   = "one minute"
 few   = "{{ .Count }} minute"
 many  = "{{ .Count }} minutes"
 other = "{{ .Count }} minutes (TL;DR)"
+
+[toc_title]
+other = "Table of Content"
