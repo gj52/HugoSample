@@ -72,7 +72,7 @@ weight = 60
 [Params.Images]
     maxSize               = 1480
     setSizes              = [ 480, 800, 1200 ]
-    sizes                 = "sizes=(max-width: 480px) 90vw, (max-width: 960px) 80vw, 1480px"
+    sizes                 = "sizes=(max-width: 30em) 90vw, (max-width: 60em) 80vw, 1480px"
 
 ###############################################################	
 
