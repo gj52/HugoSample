@@ -21,7 +21,7 @@ disableKinds                = ["RSS", "sitemap"]
 
 LanguageCode                   = "de-de"
 DefaultContentLanguage         = "de"
-DefaultContentLanguageInSubdir = true
+DefaultContentLanguageInSubdir = false  # error with 115.2 .. will be fixed
 defaultExtension           = "html"
 defaultLayout              = "post"
 #timeZone                  = "Europa/Berlin"  # indirect from DefaultContentLanguage
