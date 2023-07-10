@@ -21,7 +21,7 @@ disableKinds                = ["RSS", "sitemap"]
 
 LanguageCode                   = "de-de"
 DefaultContentLanguage         = "de"
-DefaultContentLanguageInSubdir = false  # error with 115.2 .. will be fixed
+DefaultContentLanguageInSubdir = false
 defaultExtension           = "html"
 defaultLayout              = "post"
 #timeZone                  = "Europa/Berlin"  # indirect from DefaultContentLanguage
@@ -168,17 +168,32 @@ expiryDate                 = [ "expiryDate"]
     taxonomyTerm          = [ "HTML" ]
 
 ###############################################################
+# after V115.x!
 
 [permalinks]
+[permalinks.section]
+    post                   = "/:section/"
+    photo                  = "/:section/"
+    book                   = "/:sections/"
+    intern                 = "/:section/"
+    test                   = "/:section/"
+
+    about                  = "/:section/"
+    search                 = "/:section/"   
+    link                   = "/:section/"   
+
+[permalinks.page]
     post                   = "/:section/:year/:month/:day/:title"
     photo                  = "/:section/:year/:month/:day/:title"
-    book                   = "/:sections/:slug"
-    series                 = "/:section/:slug"
-    tags                   = "/:section/:slug"
-    about                  = "/:section/:slug"
-    search                 = "/:section/:slug"
+    book                   = "/:sections/:slug/"
     intern                 = "/:section/:year/:month/:day/:title"
     test                   = "/:section/:title"
+[permalinks.taxonomy]
+    tags                   = "/:section/"
+    series                 = "/:section/"
+[permalinks.term]
+    tags                   = "/:section/:slug"
+    series                 = "/:section/:slug"
       
 ###############################################################
 
