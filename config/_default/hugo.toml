@@ -8,7 +8,6 @@ verboseLog                  = "info.log"
 ignoreFiles                 = [ "\\.cmd$", "\\.log$", "\\.bat$", "\\.tmp$" , "\\.swp$", "\\.url$"]
 timeout                     = 300000
 
-#baseUrl                    = "http://localhost:1313"
 refLinksNotFoundURL        = "/404.html"
 
 title                       = "G's Playground"
@@ -95,25 +94,25 @@ expiryDate                 = [ "expiryDate"]
 
 ###############################################################
 
-[caches]
-  [caches.assets]
-    dir = ':resourceDir/_gen'
-    maxAge = -1
-  [caches.getcsv]
-    dir = ':cacheDir/:project'
-    maxAge = -1
-  [caches.getjson]
-    dir = ':cacheDir/:project'
-    maxAge = -1
-  [caches.getresource]
-    dir = ':cacheDir/:project'
-    maxAge = -1
-  [caches.images]
-    dir = ':resourceDir/_gen'
-    maxAge = -1
-  [caches.modules]
-    dir = ':cacheDir/modules'
-    maxAge = -1
+#[caches]
+#  [caches.assets]
+#    dir = ':resourceDir/_gen'
+#    maxAge = -1
+#  [caches.getcsv]
+#    dir = ':cacheDir/:project'
+#    maxAge = -1
+#  [caches.getjson]
+#    dir = ':cacheDir/:project'
+#    maxAge = -1
+#  [caches.getresource]
+#    dir = ':cacheDir/:project'
+#    maxAge = -1
+#  [caches.images]
+#    dir = ':resourceDir/_gen'
+#    maxAge = -1
+#  [caches.modules]
+#    dir = ':cacheDir/modules'
+#    maxAge = -1
 
 ###############################################################
 
@@ -165,33 +164,23 @@ expiryDate                 = [ "expiryDate"]
     section               = [ "HTML", "SITEMAP" ]
     page                  = [ "HTML" ]
     taxonomy              = [ "HTML" ]
-    taxonomyTerm          = [ "HTML" ]
 
 ###############################################################
 # after V115.x!
 
 [permalinks]
-[permalinks.section]
-    post                   = "/:section/"
-    photo                  = "/:section/"
-    book                   = "/:sections/"
-    intern                 = "/:section/"
-    test                   = "/:section/"
 
     about                  = "/:section/"
     search                 = "/:section/"   
     link                   = "/:section/"   
 
-[permalinks.page]
     post                   = "/:section/:year/:month/:day/:title"
     photo                  = "/:section/:year/:month/:day/:title"
     book                   = "/:sections/:slug/"
     intern                 = "/:section/:year/:month/:day/:title"
     test                   = "/:section/:title"
-[permalinks.taxonomy]
-    tags                   = "/:section/"
-    series                 = "/:section/"
-[permalinks.term]
+
+
     tags                   = "/:section/:slug"
     series                 = "/:section/:slug"
       

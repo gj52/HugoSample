@@ -1,6 +1,6 @@
 # This is a condensed Hugo sample.
 
-**Always using the latest HOGO version! Must have Version 0.112 or newer!
+**Always using the latest HOGO version! Must have Version 0.119 or newer!
 
 **After multiple commits please wait some days - work in progress!**
 

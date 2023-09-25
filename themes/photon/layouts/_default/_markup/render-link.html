@@ -1,6 +1,5 @@
 <!-- https://im.youronly.one/techmagus/codebits/how-to-customize-markdown-links-hugo-2022135/ -->
 {{ $url := (urls.Parse .Destination) }}{{ $internal := site.GetPage .Destination }}{{ $fragment := $url.Fragment }}{{ with $fragment }}{{ $fragment = printf "#%s" $fragment }}{{ end }}
 {{ $destination := urls.JoinPath (or $internal.RelPermalink .Destination) $fragment }}
-{{ if  not $internal }}
-<link rel=dns-prefetch href=//{{ $url.Host }} /> {{ .Page.Store.SetInMap "sprites" "external" "svg/external.svg" }}{{ end }}
+{{ if  not $internal }}<link rel=dns-prefetch href=//{{ $url.Host }} /> {{ .Page.Store.SetInMap "sprites" "external" "svg/external.svg" }}{{ end }}
 <a href="{{ $destination | safeURL }}" {{ with or .Title $internal.LinkTitle .Text }} title="{{ . }}" {{ end }}{{ if not $internal }} rel="noopener external" target="_blank" {{ end }}><span>{{ or .Text .Title $internal.LinkTitle | safeHTML }}</span>{{ if  not $internal }} <span aria-hidden=true><svg class="icon"><use xlink:href="#external" /></svg></span>{{ end }}</a>&nbsp;

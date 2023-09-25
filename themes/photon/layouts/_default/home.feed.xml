@@ -22,9 +22,9 @@
       <width>{{ $logo.Width }}</width>
       <height>{{ $logo.Height }}</height>
     </image>
-    {{ with  site.Home.OutputFormats.Get "FEED"}}<atom:link href="{{.Permalink}}" rel="self"      type="{{ safeHTML .MediaType.Type }}" />{{end}}
-    {{ with  site.Home.OutputFormats.Get "ATOM"}}<atom:link href="{{.Permalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
-    {{ with  site.Home.OutputFormats.Get "JSON"}}<atom:link href="{{.Permalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
+    {{ with  site.Home.OutputFormats.Get "FEED"}}<atom:link href="{{.RelPermalink}}" rel="self"      type="{{ safeHTML .MediaType.Type }}" />{{end}}
+    {{ with  site.Home.OutputFormats.Get "ATOM"}}<atom:link href="{{.RelPermalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
+    {{ with  site.Home.OutputFormats.Get "JSON"}}<atom:link href="{{.RelPermalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
     {{with site.Params.description}}<description>{{ site.Params.description }}</description>{{end}}
     <generator>>Hugo {{hugo.Version}}</generator>
     {{ with site.Author.name }}<dc:creator>{{ . }}</dc:creator>{{end}}
