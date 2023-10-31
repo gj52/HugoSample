@@ -1,4 +1,9 @@
 /resources
 /public
+/assets/etc
+/assets/books
+.vs
 *.exe
 *.log
+debug.*
+/*.lock
