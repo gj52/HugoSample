@@ -1,7 +1,7 @@
 <nav class="f4 pt3">
   <div class="dn db-ns tr">
     {{ range site.Menus.main -}}
-    {{ if or (lt .Weight 900) site.IsServer }}
+    {{ if or (lt .Weight 900) hugo.IsServer }}
     {{ if .HasChildren }}
     <div class=pb1>
       <a class=b href={{ .URL }}  title="{{.Name}}">{{ .Name }}</a>
@@ -24,7 +24,7 @@
     <input id=toggle name="toggle" Title="toggle menu" type=checkbox>
     <div id="menu">
       {{ range site.Menus.main }}
-      {{ if or (lt .Weight 900) site.IsServer }}
+      {{ if or (lt .Weight 900) hugo.IsServer }}
       <div class=pb1><a class=b href={{ .URL }}  title="{{.Name}}">{{ .Name }}</a></div>
       {{ end }}
       {{ end }}

@@ -9,7 +9,7 @@
   "orientation": "natural",
   "dir": "ltr",
   "background_color": "transparent",
-  "shortcuts": [ {{ range site.Menus.main }} {{ if or (lt .Weight 900) site.IsServer }}
+  "shortcuts": [ {{ range site.Menus.main }} {{ if or (lt .Weight 900) hugo.IsServer }}
     { 
       "name": {{ .Name | jsonify}},
       "short_name" : {{ .Identifier | jsonify}},

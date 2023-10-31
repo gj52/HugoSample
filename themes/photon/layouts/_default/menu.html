@@ -14,7 +14,7 @@
 		{{ range site.Menus.main}}
 		<div id={{.Identifier}} class=pv1><a href={{ .URL }}>{{ .Name }}</a></div>
 		{{end}}
-		{{ if site.IsServer -}}
+		{{ if hugo.IsServer -}}
 		{{ with site.GetPage "/intern/_index.md" }}<div id=Intern><a href={{.RelPermalink}}>Intern</a></div>{{end}}
 		{{ with site.GetPage "/test/_index.md" }}<div id=Test><a href={{.RelPermalink}}>Tests</a></div>{{end}}
 		{{- end}}
