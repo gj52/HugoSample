@@ -1,4 +1,4 @@
-{{ $jq := resources.Get "js/jquery-3.6.0.slim.js" }}
+{{ $jq := resources.Get "js/jquery-3.7.1.slim.js" }}
 {{if hugo.IsProduction }}
 {{ $jq = $jq | resources.Minify | fingerprint site.Params.digest }}
 {{end}}{{ $p := $.Store.Get "nonce" }}
