@@ -23,10 +23,13 @@ Should work with the latest Hugo version (*give me some days*).
 - splitted config for site and theme
 - added light and dark theme 
 - added CSP 
-- added the new template functons of version 0.112
+- added the new template functions of version 0.112
+- printing - added link list
 
 OK, most content is in German, but this does not matter to see how it works.
 I verify the generated files (HTML, XML, JSON etc..) to have correct outputs.
+
+For a beginner mostly too complicated ... 
 
 ---
 
