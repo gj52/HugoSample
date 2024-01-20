@@ -41,13 +41,13 @@
   a {
     text-decoration-line: none;
   }
-
+  /*
     a[href^=http]::after {
       content: ' < ' attr(href) ' > ';
       color: var(--text-color);
       text-decoration-line: none;
     }
-
+*/
   .anchor {
     display: none !important;
   }
@@ -117,4 +117,10 @@
   .print, .print * {
     display: block !important;
   }
+
+    .printsub, .printsub * {
+      display: inline !important;
+    }
+
+
 }

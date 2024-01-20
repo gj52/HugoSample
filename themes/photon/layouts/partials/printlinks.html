@@ -1,0 +1,7 @@
+<footer class="print f6">
+  <hr />
+  {{ $ll := .Store.Get "linklist" }}
+  {{ range $k, $v := $ll }}
+  {{ with $v }}<p>{{ $k }}: {{ $v }}</p>{{end}}
+  {{ end }}
+</footer>

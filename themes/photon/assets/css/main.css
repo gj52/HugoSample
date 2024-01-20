@@ -85,7 +85,6 @@ h1 {
 }
 
 .toc > ol {
-  list-style-type: none;
   padding-left: 0;
 }
 
@@ -406,13 +405,13 @@ img {
   border-radius: 5px;
   vertical-align: bottom;
   object-fit: cover;
-}
 
-  .foto:hover {
+
+  &:hover {
     box-shadow: 2px 2px 4px 2px var(--link-hover);
     transition: all .2s linear;
   }
-
+}
 /* 
     missed in fancybox.css, taken from
     https://fancyapps.com/playground/vo
@@ -490,22 +489,21 @@ a[data-fancybox] img {
   white-space: nowrap;
   z-index: 0;
   min-width: 50px;
+
+
+  &:hover {
+    background-color: var(--box-background-color);
+    box-shadow: 2px 2px 2px var(--box-shadow-color);
+  }
+
+&:focus-within {
+  background-color: var(--box-background-color);
+  box-shadow: 2px 2px 2px var(--box-shadow-color);
+  outline: none;
 }
 
-  .tagbutton:hover, .tagbutton:focus-within {
-    background-color: var(--box-background-color);
-    border-width: 1px;
-    box-shadow: 2px 2px 2px var(--box-shadow-color);
-  }
 
-  .tagbutton:active {
-    background-color: var(--box-background-color);
-    box-shadow: 2px 2px 2px var(--box-shadow-color);
-  }
-
-  .tagbutton * {
-    z-index: 0;
-  }
+}
 
 /* tag-button inside count */
 .button_tally {
@@ -551,7 +549,7 @@ tbody tr:nth-child(odd) {
   min-width: 500px;
 }
 
-.print, .print * {
+.print, .print *, .printsub, .printsub * {
   display: none !important;
 }
 
