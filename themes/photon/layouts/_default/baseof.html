@@ -6,6 +6,7 @@
 <body>
   {{ partialCached "aside.html" . $section }}
   {{ partialCached "navigation.html" . $section}}
+  {{ partial "initlinklist.html" . }}
   {{ block "main" . }}{{ end }}
   {{ partial "printlinks.html" . }}
   {{ partial "qr.html" . }}
