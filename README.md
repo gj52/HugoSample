@@ -1,6 +1,6 @@
 # This is a condensed Hugo sample.
 
-**Always using the latest HOGO version! Must have Version 0.120 or newer!
+**Always using the latest HOGO version! Must have Version 0.123.0 or newer!
 
 **After multiple commits please wait some days - work in progress!**
 
@@ -25,6 +25,9 @@ Should work with the latest Hugo version (*give me some days*).
 - added CSP 
 - added the new template functions of version 0.112
 - printing - added link list
+- 0.123   
+  - site.LastChange -> site.Lastmod
+  - .GetJSON to .GET
 
 OK, most content is in German, but this does not matter to see how it works.
 I verify the generated files (HTML, XML, JSON etc..) to have correct outputs.

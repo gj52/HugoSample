@@ -6,12 +6,19 @@
 	{{ $gear := resources.Get "svg/gear.svg"  }}
 	{{ $tool := resources.Get "svg/toolbox.svg"  }}
 	<span class="nowrap ph2" title="site build">{{ $gear.Content | safeHTML}}&nbsp;&nbsp;{{ now.Format site.Params.dateFormatLong }} </span>
-	<span class="nowrap ph2" title="site updated">{{ $pen.Content | safeHTML}}&nbsp;&nbsp;<time datetime="{{ site.LastChange.UTC.Format site.Params.dateFormatUTC }}">{{site.LastChange.Format	site.Params.dateFormatLong}}</time></span>
+	<span class="nowrap ph2" title="site updated">{{ $pen.Content | safeHTML}}&nbsp;&nbsp;<time datetime="{{ site.Lastmod.UTC.Format site.Params.dateFormatUTC }}">{{site.Lastmod.Format	site.Params.dateFormatLong}}</time></span>
 	<span class="nowrap ph2"><a rel='noopener noreferrer' href=https://gohugo.io title="Hugo Home Page" target=_blank>{{ $tool.Content | safeHTML}}&nbsp;&nbsp;Hugo {{ hugo.Version }}</a></span>
 	{{- else -}}
 	{{ if .IsPage -}}
 	{{ $added := resources.Get "svg/square-plus.svg"  }}
 	<span class="nowrap ph2" title="page created">{{ $added.Content | safeHTML}}&nbsp;&nbsp;<time datetime="{{ .Date.UTC.Format site.Params.dateFormatUTC }}"> {{ .Date.Format site.Params.dateFormatShort }}</time></span>
+	<span class="nowrap ph2" title="page updated">{{ $pen.Content | safeHTML}}&nbsp;&nbsp;<time datetime="{{ .Lastmod.UTC.Format	 site.Params.dateFormatUTC}}"> {{.Lastmod.Format  site.Params.dateFormatShort}}</time></span>
+	{{- end }}
+	{{ if .IsSection -}}
+	{{ $added := resources.Get "svg/square-plus.svg"  }}
+	{{ with .Date }}
+		<span class="nowrap ph2" title="page created">{{ $added.Content | safeHTML}}&nbsp;&nbsp;<time datetime="{{ .UTC.Format site.Params.dateFormatUTC }}"> {{ .Format site.Params.dateFormatShort }}</time></span>
+	{{ end }}
 	<span class="nowrap ph2" title="page updated">{{ $pen.Content | safeHTML}}&nbsp;&nbsp;<time datetime="{{ .Lastmod.UTC.Format	 site.Params.dateFormatUTC}}"> {{.Lastmod.Format  site.Params.dateFormatShort}}</time></span>
 	{{- end }}
 	{{- end }}

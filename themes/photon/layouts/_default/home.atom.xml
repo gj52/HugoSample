@@ -1,5 +1,10 @@
 {{ safeHTML "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\" ?>" }} {{ $css := resources.Get "css/atom.css"}}{{ if hugo.IsProduction }}{{ $css = $css | minify | resources.Fingerprint site.Params.digest }}{{end}}
 {{ safeHTML "<?xml-stylesheet type=\"text/css\" "}} href="{{ $css.Permalink  }}" ?>
+{{- /* Verify minimum required version. */}}
+{{- $minHugoVersion := "0.123.0" }}
+{{- if lt hugo.Version $minHugoVersion }}
+{{- errorf "The %s shortcode requires Hugo v%s or later." .Name $minHugoVersion }}
+{{- end }}
 <feed xmlns="http://www.w3.org/2005/Atom"  
       xmlns:media="http://search.yahoo.com/mrss/"
       xml:lang="{{ site.LanguageCode }}" 
@@ -17,7 +22,7 @@
     </author>{{end}}
     {{ with site.Params.Copyright }}<rights type="text">© {{ site.Params.CopyrightYear }} {{ .}}</rights>{{end}}
     <generator uri="https://gohugo.io" version="{{hugo.Version}}">Hugo</generator>
-    {{ if not site.LastChange.IsZero }}<updated>{{site.LastChange.UTC.Format site.Params.dateFormatUTC }}</updated>{{ end }} 
+    {{ if not site.Lastmod.IsZero }}<updated>{{site.Lastmod.UTC.Format site.Params.dateFormatUTC }}</updated>{{ end }} 
 <!--  /*  {{ with site.Params.published }}<published>{{site.Params.published}}</published>{{end}} */ -->
     {{ $uuid := sha1 (site.BaseURL | absURL)}}<id>urn:uuid:{{substr $uuid 0 8}}-{{substr $uuid 8 4}}-5{{substr $uuid 13 3}}-{{substr $uuid 16 1}}9{{substr $uuid 17 2}}-{{substr $uuid 21 12}}</id>
     {{ $feedsize := site.Params.feedSize | default 25 }}{{ range first $feedsize (where site.RegularPages.ByDate.Reverse "Section" "not in" site.Params.invisibleSections)}}

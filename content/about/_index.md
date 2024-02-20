@@ -3,10 +3,11 @@ description = "about me"
 title       = "about"
 layout      = "single"
 noSearch    = true
+date        = "2022-05-12T00:00:00+01:00"
 +++
 ## about me
 
-fill in what is abbout you
+fill in what is about you
 
 <!--more-->
 

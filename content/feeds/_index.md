@@ -3,7 +3,8 @@ title       = "Feeds"
 layout      = "single"
 nosearch    = true
 url         = "/feeds"
-description = "all Feeds"
+description = "all feeds"
+date        = "2022-02-10T00:00:00+01:00"
 +++
 ## Feeds
 
