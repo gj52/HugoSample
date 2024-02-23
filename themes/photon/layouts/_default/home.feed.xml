@@ -1,4 +1,5 @@
-{{ safeHTML "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" }} {{ $css := resources.Get "css/rss.css"}}{{ if hugo.IsProduction }}{{ $css = $css | minify | resources.Fingerprint site.Params.digest }}{{end}}
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+{{ $css := resources.Get "css/rss.css"}}{{ if hugo.IsProduction }}{{ $css = $css | minify | resources.Fingerprint site.Params.digest }}{{end}}
 {{ safeHTML "<?xml-stylesheet type=\"text/css\" "}} href="{{ $css.Permalink  }}" ?>
 {{- /* Verify minimum required version. */}}
 {{- $minHugoVersion := "0.123.0" }}

@@ -9,14 +9,14 @@
 	<div class="liste mt2">
 		{{ $file := .Resources.Get "links.json" }}
 		{{ $data := unmarshal $file }}
-		{{ range $data.items }}
-			<div class="dib pt3 pl2 w-100">
-				{{ $url := urls.Parse .url }} <link rel=dns-prefetch href=//{{ $url.Host }} />
-				<div class=f4><a class="b link hover-dark-pink" href={{ .url }} target=_blank rel="noopener noreferrer"><svg class="icon"><use xlink:href="#link" /></svg>&nbsp;&nbsp;{{ .title }}</a></div>
-				<div class="f6 print">{{.url}}</div>
-				<div class="pt2 f5">{{ .description }}</div>
-			</div>
-			{{ end }} <!-- range -->
+		{{ range sort $data.items "title" }}
+		<div class="dib pt3 pl2 w-100">
+			{{ $url := urls.Parse .url }} <link rel=dns-prefetch href=//{{ $url.Host }} />
+			<div class=f4><a class="b link hover-dark-pink" href={{ .url }} target=_blank rel="noopener noreferrer"><svg class="icon"><use xlink:href="#link" /></svg>&nbsp;&nbsp;{{ .title }}</a></div>
+			<div class="f6 print">{{.url}}</div>
+			<div class="pt2 f5">{{ .description }}</div>
+		</div>
+		{{ end }} <!-- range -->
 	</div> <!-- flex column -->
 	{{ .Store.SetInMap "sprites" "link" "svg/external.svg" }}
 </article>
