@@ -1,6 +1,8 @@
   <!-- MathJax -->
 {{ $p := $.Store.Get "nonce" }}
-{{ if .Page.Store.Get "hasMathjax" }}
+{{ $latex :=   .Param "latex" }}
+{{ $mathjax := .Page.Store.Get "hasMathjax" }}
+{{ if or $latex $mathjax }}
 <link rel=dns-prefetch href=//cdn.jsdelivr.net />
 <link rel=dns-prefetch href=//polyfill.io />
 <script async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -8,7 +10,8 @@
 <script nonce="{{$p}}">
   window.MathJax = {
     tex: {
-      inlineMath: [['$', '$'], ['$$', '$$']],
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  // block
+      inlineMath: [['\\(', '\\)'], ['$', '$'], ['$$', '$$']], // inline
       digits: /^(?:[0-9]+(?:\{,\}[0-9]*)?|\{,\}[0-9]+)/,
       tags: 'ams'
     },

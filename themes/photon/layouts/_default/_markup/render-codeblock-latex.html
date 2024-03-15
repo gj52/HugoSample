@@ -1,3 +1,8 @@
+{{- /* Verify minimum required version. */}}
+{{- $minHugoVersion := "0.122.0" }}
+{{- if lt hugo.Version $minHugoVersion }}
+{{- errorf "The %s shortcode requires Hugo v%s or later." .Name $minHugoVersion }}
+{{- end }}
 {{ $class := .Attributes.class | default ""    }}
 {{ .Page.Store.Set "hasMathjax" true }}
 <div class="latex {{ $class }}">
