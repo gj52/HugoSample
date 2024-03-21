@@ -1,12 +1,22 @@
+{{- /* Verify minimum required version. */}}
+{{- $minHugoVersion := "0.124.0" }}
+{{- if lt hugo.Version $minHugoVersion }}
+  {{- errorf "The %s shortcode requires Hugo v%s or later." .Name $minHugoVersion }}
+{{- end }}
+
 <head>
   <meta charset=utf-8 />
   <meta name=viewport content="width=device-width, minimum-scale=1.0, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
-  
+
   {{ partial "csp.html" .}}
-  {{ if eq .Kind "taxonomy" }}<meta name=robots content="noindex,nofollow" />{{end}}
+  {{ if eq .Kind "taxonomy" }}
+  <meta name=robots content="noindex,nofollow" />
+  {{end}}
   <meta name=referrer content=no-referrer />
 
-  {{ if hugo.IsServer }}<meta http-equiv="cache-control" content="no-cache">{{end}}
+  {{ if hugo.IsServer }}
+  <meta http-equiv="cache-control" content="no-cache">
+  {{end}}
   {{ if .IsHome -}}
   <title>{{ .RenderString site.Title }}</title>
 
@@ -31,10 +41,9 @@
   {{ with .Description }}
   <meta name=description content="{{ . | safeHTML }}" />
   {{end}}
-  <meta name=date content="{{site.LastChange.UTC.Format site.Params.dateFormatUTC }}" />
-  {{ with site.Author.name }}
+  <meta name=date content="{{site.Lastmod.UTC.Format site.Params.dateFormatUTC }}" />
+  {{ with site.Params.author.name }}
   <meta name=author content="{{ . }}" />
-
   {{ end }}
   <meta name="generator" content="Hugo {{ hugo.Version }}">
   {{ partial "doublinecore.html" . }}

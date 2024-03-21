@@ -2,7 +2,7 @@
 {{ $css := resources.Get "css/rss.css"}}{{ if hugo.IsProduction }}{{ $css = $css | minify | resources.Fingerprint site.Params.digest }}{{end}}
 {{ safeHTML "<?xml-stylesheet type=\"text/css\" "}} href="{{ $css.Permalink  }}" ?>
 {{- /* Verify minimum required version. */}}
-{{- $minHugoVersion := "0.123.0" }}
+{{- $minHugoVersion := "0.124.0" }}
 {{- if lt hugo.Version $minHugoVersion }}
 {{- errorf "The %s shortcode requires Hugo v%s or later." .Name $minHugoVersion }}
 {{- end }}
@@ -33,7 +33,7 @@
     {{ with  site.Home.OutputFormats.Get "JSON"}}<atom:link href="{{.RelPermalink}}" rel="alternate" type="{{ safeHTML .MediaType.Type }}" />{{end}}
     {{with site.Params.description}}<description>{{ site.Params.description }}</description>{{end}}
     <generator>>Hugo {{hugo.Version}}</generator>
-    {{ with site.Author.name }}<dc:creator>{{ . }}</dc:creator>{{end}}
+    {{ with site.Params.author.name }}<dc:creator>{{ . }}</dc:creator>{{end}}
     {{ with site.LanguageCode }}<language>{{.}}</language>{{end}}
     {{ with site.Params.Copyright }}<copyright>@ {{ site.Params.CopyrightYear }} {{.}}</copyright>{{end}}
     <lastBuildDate>{{site.Lastmod.UTC.Format  site.Params.dateFormatRFC822Z | html }}</lastBuildDate>

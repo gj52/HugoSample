@@ -40,8 +40,13 @@ weight = 60
 [[module.mounts]]
   source = 'archetypes'
   target = 'archetypes'
-  
+
+
+###############################################################
+
+[markup]
   [markup.goldmark]
+### https://github.com/yuin/goldmark/#built-in-extensions
     [markup.goldmark.extensions]
       autolinks      = false
       definitionList = false
@@ -50,9 +55,19 @@ weight = 60
       strikethrough  = true
       table          = true
       taskList       = false
-      typographer    = true
-      
-       
+      typographer    = true      
+
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['$$', '$$']]
+          inline = [['\(', '\)'],['$', '$']]
+
+#          block = [['\[', '\]'], ['$$', '$$']]
+#          inline = [['\(', '\)'], ['$', '$']]
+
+
 ### https://gohugo.io/getting-started/configuration/#configure-minify
     [minify.tdewolff.html]
         keepDefaultAttrVals = false  # default true
@@ -173,7 +188,8 @@ weight = 60
     sitemapMax             = 49999
 
     digest                 = "sha256" # sha256, sha384, sha512
-	
+    math                   = false
+
 [Params.Pagination]
     PagesPerList           = 10
     PagesPerListHome       = 12

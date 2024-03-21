@@ -7,7 +7,7 @@
   {{ $icon := resources.Get "img/zz512.png" }}{{$icon = $icon.Resize "96x96" }}
   "icon"         : {{$icon.Permalink | jsonify }},
   "favicon"      : {{$icon.Permalink | jsonify }},
-  {{ with site.Author.name         }}"authors"      : [
+  {{ with site.Params.author.name         }}"authors"      : [
     {
       "name"     : {{ . | jsonify }},
       "avatar"   : {{ site.Params.sidebar.avatar | absURL | jsonify }}
