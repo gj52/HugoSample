@@ -27,16 +27,15 @@ Hier ein kleiner Versuch mit den Maxwell-Gleichungen - sieht doch gut aus
 
 |Name|Formel|
 |----|:----:|
-|Gaußsches Gesetz|$${\vec {\nabla }}\cdot {\vec {E}}={\frac {\rho }{\varepsilon _{0}}}$$|
-|Gaußsches Gesetz für Magnetfelder|$${\vec {\nabla }}\cdot {\vec {B}}=0$$|
-|Faraday's Induktionsgesetz|$${\vec {\nabla }}\times {\vec {E}}=-{\frac {\partial {\vec {B}}}{\partial t}}$$|
-|Ampère's Durchflutungsgesetz|$${\vec {\nabla }}\times {\vec {B}}=\mu _{0}{\vec {j}}+\mu _{0}\varepsilon _{0}{\frac {\partial {\vec {E}}}{\partial t}}$$|
+|Gaußsches Gesetz| \\({\vec {\nabla }}\cdot {\vec {E}}={\frac {\rho }{\varepsilon _{0}}}\\) |
+|Gaußsches Gesetz für Magnetfelder| \\({\vec {\nabla }}\cdot {\vec {B}}=0\\)|
+|Faraday's Induktionsgesetz|\\({\vec {\nabla }}\times {\vec {E}}=-{\frac {\partial {\vec {B}}}{\partial t}}\\)|
+|Ampère's Durchflutungsgesetz|\\({\vec {\nabla }}\times {\vec {B}}=\mu _{0}{\vec {j}}+\mu _{0}\varepsilon _{0}{\frac {\partial {\vec {E}}}{\partial t}}\\)|
 
-Wobei auch  $\mu _{0}\varepsilon _{0}={\frac {1}{c^{2}}}$ gesetzt wird.
+Wobei auch  \\(\mu _{0}\varepsilon _{0}={\frac {1}{c^{2}}} \\) gesetzt wird.
 
-Etwas komplexer
-
-````latex { class="w-30" }
+Etwas komplexer mit **render-codeblock-latex**
+````latex { class=w-50 }
 \begin{align}{}_{n}A_{m}&=\int^{\beta}_\alpha (x-\alpha)^n(\beta-x)^mdx\\&=\frac{n}{m+1}\int^{\beta}_\alpha (x-\alpha)^{n-1}(\beta-x)^{m+1}dx\\&=\frac{n}{m+1}{}_{n-1}A_{m+1} \end{align}
 ````
 ---

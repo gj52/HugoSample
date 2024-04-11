@@ -29,8 +29,7 @@
 
       <img loading=lazy class=foto src={{ $preview.RelPermalink }} alt="{{ $alt }}" title="{{$title}}"
            width={{ $preview.Width }} height={{ $preview.Height }}
-           style="background: url(data:image/jpeg;base64,{{ $background.Content | base64Encode  }});
-      background-size:100% 100%;" />
+           style="background: url(data:image/jpeg;base64,{{ $background.Content | base64Encode  }});background-size:100% 100%;" />
     </a>
     {{- end }}
 

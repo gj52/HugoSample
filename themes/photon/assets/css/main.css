@@ -444,6 +444,10 @@ a[data-fancybox] img {
 .latex {
   display: block;
   text-align: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-left: 1rem;
+  margin-right: 3rem;
 }
 
 .fullpage {
@@ -523,7 +527,7 @@ table {
   table-layout: fixed;
   border-collapse: collapse;
   display: block;
-  overflow-x: auto;
+  overflow-x: clip;
 }
 
 thead {
