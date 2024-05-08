@@ -1,3 +1,8 @@
+# https://gohugo.io/getting-started/configuration/#_404-server-error-page
+[[redirects]]
+  from = '/**'
+  status = 404
+  to = '/404.html'
 # https://github.com/tdewolff/minify#html
 [minify]
   disableCSS = false
