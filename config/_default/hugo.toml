@@ -1,4 +1,4 @@
-# basic settings
+# basic site settings
 
 config                      = "hugo.toml"
 log                         =  true
@@ -94,25 +94,33 @@ expiryDate                 = [ "expiryDate"]
 
 ###############################################################
 
-#[caches]
-#  [caches.assets]
-#    dir = ':resourceDir/_gen'
-#    maxAge = -1
+[caches]
+  [caches.assets]
+    dir = ':resourceDir/_gen'
+    maxAge = -1
 #  [caches.getcsv]
 #    dir = ':cacheDir/:project'
 #    maxAge = -1
 #  [caches.getjson]
 #    dir = ':cacheDir/:project'
 #    maxAge = -1
-#  [caches.getresource]
-#    dir = ':cacheDir/:project'
-#    maxAge = -1
-#  [caches.images]
-#    dir = ':resourceDir/_gen'
-#    maxAge = -1
+  [caches.getresource]
+    dir = ":cacheDir/:project"
+    maxage = '336h'
+  [caches.images]
+    dir = ':resourceDir/_gen'
+    maxAge = -1
 #  [caches.modules]
 #    dir = ':cacheDir/modules'
 #    maxAge = -1
+
+# https://gohugo.io/getting-started/configuration/#configure-http-cache
+[httpcache]
+  [httpcache.cache]
+    [httpcache.cache.for]
+      includes = ['https://img.youtube.com/**']
+    [[httpcache.polls]]
+      disable = true
 
 ###############################################################
 
@@ -130,6 +138,35 @@ expiryDate                 = [ "expiryDate"]
 
        [markup.goldmark.parser.attribute]
          block = true
+
+### https://github.com/yuin/goldmark/#built-in-extensions
+    [markup.goldmark.extensions]
+      autolinks      = false
+      definitionList = false
+      footnote       = true
+      linkify        = true
+      strikethrough  = true
+      table          = true
+      taskList       = false
+      typographer    = true      
+
+      [markup.goldmark.extensions.passthrough]
+        enable      = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block    = [['\[', '\]'], ['$$', '$$']]
+          inline   = [['\(', '\)'], ['$', '$']]
+
+      [markup.goldmark.extensions.extras]
+        [markup.goldmark.extensions.extras.insert]
+          enable = false
+        [markup.goldmark.extensions.extras.mark]
+          enable = false
+        [markup.goldmark.extensions.extras.subscript]
+          enable = true
+        [markup.goldmark.extensions.extras.superscript]
+          enable = true
+
+
 
     [markup.highlight]
       anchorLineNos = false

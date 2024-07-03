@@ -46,28 +46,6 @@ weight = 60
 
 [markup]
   [markup.goldmark]
-### https://github.com/yuin/goldmark/#built-in-extensions
-    [markup.goldmark.extensions]
-      autolinks      = false
-      definitionList = false
-      footnote       = true
-      linkify        = true
-      strikethrough  = true
-      table          = true
-      taskList       = false
-      typographer    = true      
-
-      [markup.goldmark.extensions.passthrough]
-        enable = true
-
-        [markup.goldmark.extensions.passthrough.delimiters]
-          block = [['$$', '$$']]
-          inline = [['\(', '\)'],['$', '$']]
-
-#          block = [['\[', '\]'], ['$$', '$$']]
-#          inline = [['\(', '\)'], ['$', '$']]
-
-
 ### https://gohugo.io/getting-started/configuration/#configure-minify
     [minify.tdewolff.html]
         keepDefaultAttrVals = false  # default true
