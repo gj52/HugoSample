@@ -62,7 +62,7 @@ expiryDate                 = [ "expiryDate"]
 [security]
   enableInlineShortcodes = false
   [security.exec]
-    allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', '^notepad...exe$']
+    allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', '^notepad...exe$', '^git$']
     osEnv = ['(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|HOME|SSH_AUTH_SOCK|USERPROFILE|XDG_CONFIG_HOME)$']
   [security.funcs]
     getenv = ['^HUGO_']
