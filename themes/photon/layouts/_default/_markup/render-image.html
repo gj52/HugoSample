@@ -8,7 +8,7 @@
 {{- end }}
 {{ if .IsBlock }}  
 <figure class="dib {{ .Attributes.class }}">
-  <img loading=lazy importance=low src={{ $image.RelPermalink }}
+  <img loading=lazy decoding="async" importance=low src={{ $image.RelPermalink }}
        {{ if gt (len $srcset) 0 }} sizes={{site.Params.Images.sizes}} {{ $sl := delimit $srcset ", "}} srcset="{{$sl}}" {{ end }} width={{ $image.Width }}
 	   height={{ $image.Height}} alt={{ $alt }} />
   {{ with $caption -}}<br /><figcaption class="mb3 i f6">» {{ $p.RenderString . }} «</figcaption>{{- end }}

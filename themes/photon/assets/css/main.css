@@ -27,8 +27,11 @@ body {
   background-attachment: fixed;
   color: var(--text-color);
   font-family: var(--fonts);
+  padding-block: var(--gap);
+ /*
   padding-left: var(--gap);
   padding-right: var(--gap);
+ */
   gap: var(--gap);
   columns: 2;
   display: grid;
@@ -405,6 +408,7 @@ img {
   border-radius: 5px;
   vertical-align: bottom;
   object-fit: cover;
+  content-visibility: auto;
 
 
   &:hover {
@@ -470,6 +474,7 @@ a[data-fancybox] img {
   position: relative;
   background-size: cover;
   box-shadow: 2px 2px 4px 2px var(--box-shadow);
+  content-visibility: auto;
   /* scroll-snap-align: start; */
 }
 
