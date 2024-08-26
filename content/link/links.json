@@ -1,160 +1,261 @@
 {
-  "items": [
-    {
-      "title": "Markdown’s formatting syntax",
-      "description": "CommonMark Spec",
-      "url": "https://spec.commonmark.org/0.29/"
-    },
-    {
-      "title": "Goldmark project",
-      "description": "A markdown parser compliant to CommonMark.",
-      "url": "https://github.com/yuin/goldmark/"
-    },  
-    {
-      "title": "CSS Snippets",
-      "description": "50 Useful CSS Snippets Every Designer Should Have",
-      "url": "https://www.hongkiat.com/blog/css-snippets-for-designers/"
-    },
-    {
-      "title": "Fancybox",
-      "description": "Lichtkasten-Bibliothek für Fotos und andere Medien",
-      "url": "https://fancyapps.com/docs/ui/fancybox/"
-    },
-    {
-      "title": "Font-Awesome",
-      "description": "Das weltweit populärste und am einfachsten zu benutzende Icon-Set",
-      "url": "https://fontawesome.com/v6/icons/"
-    },
-    {
-      "title": "Hugo",
-      "description": "Das weltweit schnellste Framework zum erstellen von Webseiten",
-      "url": "https://gohugo.io/"
-    },
-    {
-      "title": "Hugo RTFM",
-      "description": "Hugo - Recommended Reading Reference",
-      "url": "https://discourse.gohugo.io/t/recommended-reading-reference/14815/"
-    },
-    {
-      "title": "JSON ECMA",
-      "description": "Standard ECMA-404 - The JSON Data Interchange Syntax",
-      "url": "https://www.ecma-international.org/publications-and-standards/standards/ecma-404/"
-    },
-    {
-      "title": "JSON Feed ORG",
-      "description": "We developed JSON Feed, a format similar to RSS and Atom but in JSON",
-      "url": "https://www.jsonfeed.org/"
-    },
-    {
-      "title": "Let's Encrypt",
-      "description": "Let's Encrypt ist eine freie, automatisierte und offene Zertifizierungsstelle (CA)",
-      "url": "https://letsencrypt.org/"
-    },
-    {
-      "title": "OpenSeaDragon",
-      "description": "OpenSeaDragon ist ein Open Source Viewer für hochauflösende, zoombare Bilder",
-      "url": "https://openseadragon.github.io/"
-    },
-    {
-      "title": "SSL Labs",
-      "description": "SSL Labs ist eine Sammlung von Werkzeugen zu SSL",
-      "url": "https://www.ssllabs.com/"
-    },
-    {
-      "title": "Tachyons CSS",
-      "description": "Create fast loading , highly readable, and 100% responsive interfaces",
-      "url": "https://tachyons.io/"
-    },
-
-    {
-      "title": "W3 - validate ATOM",
-      "description": "W3 - validate my ATOM feed",
-      "url": "https://validator.w3.org/feed/"
-    },
-    {
-      "title": "W3 - Validator",
-      "description": "W3 - validate HTML, CSS and feed filed",
-      "url": "https://validator.w3.org/"
-    },
-    {
-      "title": "Material Design Icons",
-      "description": "Material Design Icons",
-      "url": "https://materialdesignicons.com/"
-    },
-    {
-        "title": "Xenu",
-        "description": "Find broken links on web sites",
-        "url": "http://home.snafu.de/tilman/xenulink.html"
-    },
-    {
-      "title": "UUID",
-      "description": "Online UUID tools",
-      "url": "https://www.uuidtools.com/"
-    },
-    {
-        "title": "Atom Syndication Format",
-        "description": "The Atom Syndication Format.",
-      "url": "https://datatracker.ietf.org/doc/html/rfc4287/"
-    },
-    {
-      "title": "HTML Living Standard",
-      "description": "The current HTML standard. It obsoletes all other previously-published HTML specifications.",
-      "url": "https://html.spec.whatwg.org/multipage/"
-    },
-    {
-        "title": "GitHub Flavored Markdown Spec",
-        "description": "Markdown is a plain text format for writing structured documents",
-      "url": "https://github.com/docschina/GFM-docs/"
-    },
-    {
-      "title": "Markdown Tables Generator",
-      "description": "Tables Generator for LaTeX, HTML, Text, Markdown und MediaWiki",
-      "url": "https://www.tablesgenerator.com/markdown_tables"
-    },
-    {
-        "title": "Web App Manifest",
-        "description": "Web App Manifest Draft",
-        "url": "https://www.w3.org/TR/appmanifest/"
-    },
-    {
-        "title": "Content Security Policy",
-        "description": "Content Security Policy (CSP) is an added layer of security",
-        "url": "https://content-security-policy.com/"
-    },
-    {
-      "title": "Page Speed Tools",
-      "description": "Analyze and optimize your website with PageSpeed tools",
-      "url": "https://developers.google.com/speed/"
-    },
-    {
-        "title": "JSON-LD",
-        "description": "This website is a tool intended for SEO’s and webmasters",
-        "url": "https://jsonld.com/"
-    },
-    {
-		"title": "MathJax - beautiful Math in all browsers",
-        "description": "A JavaScript display engine for mathematics that works in all browsers.",
-        "url": "https://www.mathjax.org/"
-    },
-    {
-        "title": "CommonMark",
-        "description": "A strongly defined, highly compatible specification of Markdown",
-        "url": "https://commonmark.org/"
-    },
-    {
-        "title": "JSON Formatter and Validator",
-        "description": "The JSON Formatter was created to help folks with debugging.",
-        "url": "https://jsonformatter.curiousconcept.com/"
-    },
-    {
-        "title": "QR Code",
-        "description": "QR Code Generator implementation in JavaScript, Java and more.",
-      "url": "https://github.com/kazuhikoarase/qrcode-generator/"
-    },
-	{
-		"title": "CSS Grid Layout",
-		"description": "This site is a collection of examples, video and other information to help you learn CSS Grid Layout.",
-		"url": "https://gridbyexample.com/"
-	}
-  ]
+   "items":[
+      {
+         "title":"Apache",
+         "description":"Das Apache httpd Server Projekt",
+         "url":"https://httpd.apache.org/"
+      },
+      {
+         "title":"Markdown’s formatting syntax",
+         "description":"CommonMark Spec",
+         "url":"https://spec.commonmark.org/0.29/"
+      },
+      {
+         "title":"Goldmark project",
+         "description":"A markdown parser compliant to CommonMark.",
+         "url":"https://github.com/yuin/goldmark/"
+      },
+      {
+         "title":"CSS Snippets",
+         "description":"50 Useful CSS Snippets Every Designer Should Have",
+         "url":"https://www.hongkiat.com/blog/css-snippets-for-designers/"
+      },
+      {
+         "title":"DNSTOP(8)",
+         "description":"Stay on top of your DNS traffic",
+         "url":"http://dns.measurement-factory.com/tools/dnstop/dnstop.8.html"
+      },
+      {
+         "title":"DynDNS",
+         "description":"DNS Dienste für das Internet von heute, powered by Oracle",
+         "url":"https://account.dyn.com/"
+      },
+      {
+         "title":"Fancybox",
+         "description":"UI für Fotos und andere Medien",
+         "url":"https://fancyapps.com/"
+      },
+      {
+         "title":"Font-Awesome",
+         "description":"Das weltweit populärste und am einfachsten zu benutzende Icon-Set",
+         "url":"https://fontawesome.com/v6/icons/"
+      },
+      {
+         "title":"Google Fonts",
+         "description":"Making the web more beautiful, fast, and open through great typography",
+         "url":"https://fonts.google.com/",
+         "draft":true
+      },
+      {
+         "title":"Hugo",
+         "description":"Das weltweit schnellste Framework zum erstellen von Webseiten",
+         "url":"https://gohugo.io/"
+      },
+      {
+         "title":"Hugo tech by veriphor",
+         "description":"Very good articles and tricks for Hugo",
+         "url":"https://www.veriphor.com/"
+      },
+      {
+         "title":"Hugo RTFM",
+         "description":"Hugo - Recommended Reading Reference",
+         "url":"https://discourse.gohugo.io/t/recommended-reading-reference/14815/"
+      },
+      {
+         "title":"JSON ECMA",
+         "description":"Standard ECMA-404 - The JSON Data Interchange Syntax",
+         "url":"https://www.ecma-international.org/publications-and-standards/standards/ecma-404/"
+      },
+      {
+         "title":"JSON Feed ORG",
+         "description":"We developed JSON Feed, a format similar to RSS and Atom but in JSON",
+         "url":"https://www.jsonfeed.org/"
+      },
+      {
+         "title":"Let's Encrypt",
+         "description":"Let's Encrypt ist eine freie, automatisierte und offene Zertifizierungsstelle (CA)",
+         "url":"https://letsencrypt.org/"
+      },
+      {
+         "title":"Linux Docs",
+         "description":"The Linux Documentation Project",
+         "url":"https://tldp.org/"
+      },
+      {
+         "title":"OpenSeaDragon",
+         "description":"OpenSeaDragon ist ein Open Source Viewer für hochauflösende, zoombare Bilder",
+         "url":"https://openseadragon.github.io/"
+      },
+      {
+         "title":"NTP",
+         "description":"The Netwok Time Protocol",
+         "url":"https://www.eecis.udel.edu/~mills/ntp/html/index.html",
+         "draft":true
+      },
+      {
+         "title":"Raspberry",
+         "description":"Ein kleiner und erschwinglicher Computer",
+         "url":"https://www.raspberrypi.org/"
+      },
+      {
+         "title":"SSL Labs",
+         "description":"SSL Labs ist eine Sammlung von Werkzeugen zu SSL",
+         "url":"https://www.ssllabs.com/"
+      },
+      {
+         "title":"Tachyons CSS",
+         "description":"Create fast loading , highly readable, and 100% responsive interfaces",
+         "url":"https://tachyons.io/"
+      },
+      {
+         "title":"Unbound",
+         "description":"Unbound ist ein validierender, rekursiver und cachender DNS-Resolver",
+         "url":"https://nlnetlabs.nl/projects/unbound/about/"
+      },
+      {
+         "title":"Unity",
+         "description":"Unity ist eine Laufzeit- und Entwicklungsumgebung für Spiele, Film-Animationen, Automotive usw.",
+         "url":"https://unity.com/"
+      },
+      {
+         "title":"W3 - validate ATOM",
+         "description":"W3 - validate my ATOM feed",
+         "url":"https://validator.w3.org/feed/"
+      },
+      {
+         "title":"W3 - Validator",
+         "description":"W3 - validate HTML, CSS and feed filed",
+         "url":"https://validator.w3.org/"
+      },
+      {
+         "title":"Linux Commands",
+         "description":"A Brief Outline of 106 Linux Commands with Examples",
+         "url":"https://linoxide.com/linux-commands-brief-outline-examples/"
+      },
+      {
+         "title":"Home Assistant",
+         "description":"Open-Source Home Automation",
+         "url":"https://www.home-assistant.io/"
+      },
+      {
+         "title":"Node-RED",
+         "description":"Flow-based programming for the Internet of Things",
+         "url":"https://nodered.org/"
+      },
+      {
+         "title":"Mosquitto",
+         "description":"Eclipse Mosquitto - ein freier MQTT Broker",
+         "url":"https://mosquitto.org/"
+      },
+      {
+         "title":"Xenu",
+         "description":"Find broken links on web sites",
+         "url":"http://home.snafu.de/tilman/xenulink.html"
+      },
+      {
+         "title":"UUID",
+         "description":"Online UUID tools",
+         "url":"https://www.uuidtools.com/"
+      },
+      {
+         "title":"Atom Syndication Format",
+         "description":"The Atom Syndication Format.",
+         "url":"https://datatracker.ietf.org/doc/html/rfc4287/"
+      },
+      {
+         "title":"HTML Living Standard",
+         "description":"The current HTML standard. It obsoletes all other previously-published HTML specifications.",
+         "url":"https://html.spec.whatwg.org/multipage/"
+      },
+      {
+         "title":"GitHub Flavored Markdown Spec",
+         "description":"Markdown is a plain text format for writing structured documents",
+         "url":"https://github.com/docschina/GFM-docs/"
+      },
+      {
+         "title":"Markdown Tables Generator",
+         "description":"Tables Generator for LaTeX, HTML, Text, Markdown und MediaWiki",
+         "url":"https://www.tablesgenerator.com/markdown_tables"
+      },
+      {
+         "title":"Web App Manifest",
+         "description":"Web App Manifest Draft",
+         "url":"https://www.w3.org/TR/appmanifest/"
+      },
+      {
+         "title":"TortoiseGIT",
+         "description":"Windows Shell Interface to Git",
+         "url":"https://tortoisegit.org/"
+      },
+      {
+         "title":"Content Security Policy",
+         "description":"Content Security Policy (CSP) is an added layer of security",
+         "url":"https://content-security-policy.com/"
+      },
+      {
+         "title":"Page Speed Tools",
+         "description":"Analyze and optimize your website with PageSpeed tools",
+         "url":"https://developers.google.com/speed/"
+      },
+      {
+         "title":"JSON-LD",
+         "description":"This website is a tool intended for SEO’s and webmasters",
+         "url":"https://jsonld.com/"
+      },
+      {
+         "title":"MathJax - beautiful Math in all browsers",
+         "description":"A JavaScript display engine for mathematics that works in all browsers.",
+         "url":"https://www.mathjax.org/"
+      },
+      {
+         "title":"PiJuice, UPS für Raspberry",
+         "description":"PiJuice HAT - A Portable Power Platform For Every Raspberry Pi",
+         "url":"https://uk.pi-supply.com/products/pijuice-standard/"
+      },
+      {
+         "title":"CommonMark",
+         "description":"A strongly defined, highly compatible specification of Markdown",
+         "url":"https://commonmark.org/"
+      },
+      {
+         "title":"JSON Formatter and Validator",
+         "description":"The JSON Formatter was created to help folks with debugging.",
+         "url":"https://jsonformatter.curiousconcept.com/"
+      },
+      {
+         "title":"MQTT Explorer",
+         "description":"MQTT Explorer is a comprehensive MQTT client that provides a structured overview of your MQTT topics.",
+         "url":"https://mqtt-explorer.com/"
+      },
+      {
+         "title":"QR Code",
+         "description":"QR Code Generator implementation in JavaScript, Java and more.",
+         "url":"https://github.com/kazuhikoarase/qrcode-generator/"
+      },
+      {
+         "title":"GIT --everything-is-local",
+         "description":"Git is a free and open source distributed version control system",
+         "url":"https://git-scm.com/"
+      },
+      {
+         "title":"CSS Grid Layout",
+         "description":"This site is a collection of examples, video and other information to help you learn CSS Grid Layout.",
+         "url":"https://gridbyexample.com/"
+      },
+      {
+         "title":"Mozilla Observatory",
+         "description":"The Mozilla Observatory helps to configure sites safely and securely.",
+         "url":"https://observatory.mozilla.org/"
+      },
+      {
+         "title":"CSP Validator",
+         "description":"Content Security Policy (CSP) Validator.",
+         "url":"https://cspvalidator.org"
+      },
+      {
+         "title":"Mermaid, Diagramming and charting tool",
+         "description":"JavaScript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.",
+         "url":"https://mermaid.js.org/"
+      }
+   ]
 }

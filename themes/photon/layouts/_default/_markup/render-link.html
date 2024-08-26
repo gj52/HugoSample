@@ -1,11 +1,13 @@
 <!-- https://im.youronly.one/techmagus/codebits/how-to-customize-markdown-links-hugo-2022135/ -->
 {{ $no := 0}}{{ $linkmap := .Page.Store.Get "linklist"}}{{with $linkmap}}{{ $no = len $linkmap }}{{ else }}{{ $no = 1 }}{{end}}
 {{ $url := (urls.Parse .Destination) }}{{ $internal := site.GetPage .Destination }}{{ $fragment := $url.Fragment }}{{ with $fragment }}{{ $fragment = printf "#%s" $fragment }}{{ end }}
-{{ $destination := urls.JoinPath (or $internal.RelPermalink .Destination) $fragment }}
+{{ $destination := urls.JoinPath (or $internal.RelPermalink .Destination) $fragment }} {{ $feed := eq .Page.Section "feeds" }}
 {{ if  not $internal }}
 <link rel=dns-prefetch href=//{{ $url.Host }} /> {{ .Page.Store.SetInMap "sprites" "external" "svg/external.svg" }}{{ end }}
-<a href="{{ $destination | safeURL }}" {{ with or .Title $internal.LinkTitle .Text }} title="{{ . }}" {{ end }}{{ if not $internal }} rel="noopener external" target="_blank" {{ end }}>
-  <span>{{ or .Text .Title $internal.LinkTitle | safeHTML }}</span>
-  {{ if  not $internal }}<sub class="printsub">{{ $no }}</sub> <span aria-hidden=true class="no-print"><svg class="icon"><use xlink:href="#external" /></svg></span>{{ end }}
-</a>&nbsp;
-{{ $nstr := printf "%2d" $no }}{{ .Page.Store.SetInMap "linklist" $nstr $url}}
+<a href="{{ $destination | safeURL }}" {{ with or .Title $internal.LinkTitle .Text }} title="{{ . }}" {{ end }} {{ if not $internal }} rel="noopener external" target="_blank" {{ end }}>
+<span>{{ or .Text .Title $internal.LinkTitle | safeHTML }}</span> 
+{{ if (and (not $internal) (not $feed) ) }}<sub class="printsub">{{ $no }}</sub> <span aria-hidden=true class="no-print"><svg class="icon"><use xlink:href="#external" /></svg></span>{{ end }}
+</a> 
+{{ if not $feed }}
+{{ $nstr := printf "<br/> %2d" $no }}{{ .Page.Store.SetInMap "linklist" $nstr $url}}
+{{end}}
