@@ -1,4 +1,4 @@
-{{ $osd := resources.Get "js/openseadragon.js" }}
+{{ $osd := resources.Get "js/openseadragon5.js" }}
 {{if hugo.IsProduction }}
 {{ $osd = $osd | minify | fingerprint site.Params.digest }}
 {{end}}

@@ -14,6 +14,8 @@
   {{end}}
   <meta name=referrer content=no-referrer />
 
+  <link rel="manifest" href="/manifest.webmanifest" />
+
   {{ if hugo.IsServer }}
   <meta http-equiv="cache-control" content="no-cache">
   {{end}}
@@ -29,7 +31,8 @@
 
   {{ partial "feeds.html"   . }} <!-- with sitemap and manifest -->
 
-  <meta name="application-name" content="{{ .RenderString site.Title }}">
+  <meta name="description"                  content="{{ .RenderString site.Title }}" />
+  <meta name="application-name"             content="{{ .RenderString site.Title }}">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 

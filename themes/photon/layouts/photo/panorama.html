@@ -11,7 +11,7 @@
 		<div id=osd class="w-100 h-100"></div>
 	</div>
 
-	{{ $osd := resources.Get "js/openseadragon.js" }}
+	{{ $osd := resources.Get "js/openseadragon5.js" }}
 	{{if hugo.IsProduction }}
 	{{ $osd = $osd | minify | fingerprint site.Params.digest }}
 	{{end}}

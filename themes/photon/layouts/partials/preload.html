@@ -8,7 +8,7 @@
 
 {{ $jq    := resources.Get "js/jquery-3.7.1.slim.js" }}
 {{ $fb    := resources.Get "js/fancybox.umd.js"  }}
-{{ $osd   := resources.Get "js/openseadragon.js" }}
+{{ $osd   := resources.Get "js/openseadragon5.js" }}
 
 {{if hugo.IsProduction }}
 {{ $tachions  = $tachions | minify | fingerprint site.Params.digest }}
