@@ -18,10 +18,10 @@
 	{{end -}}
 	{{ $xid := printf "#%s" $id}}
 	{{ with .Date -}}
-	<div class="fl w-10 tr pr2 pt1"><svg class="icon"><use xlink:href="#calendar" /></svg></div>
+	<div class="fl w-10 tr pr2 pt1"><svg class="icon" role="img"><title>Creation Date</title><use xlink:href="#calendar" /></svg></div>
 	<div class="fl w-90 pa1">{{ partial "datetime.html" . }}</div>
 	{{- end}}
-	<div class="fl w-10 tr pr2 pt1"><svg class="icon"><use xlink:href={{ safeHTML $xid}} /></svg></div>
+	<div class="fl w-10 tr pr2 pt1"><svg class="icon" role="img"><title>Description</title><use xlink:href={{ safeHTML $xid}} /></svg></div>
 	<div class="fl w-90 pa1">{{ .RenderString .Description }}</div>
 </div>
 	{{ $.Store.SetInMap "sprites" $id $file }}
