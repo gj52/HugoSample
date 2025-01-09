@@ -1,8 +1,8 @@
 @charset "utf-8";
 
 :root {
-  --fonts: Baskerville, Georgia, Athelas, System Serif;
-  --fontmono: Consolas, Courier New, monospace;
+  --fonts: Baskerville, Georgia, Athelas, "System Serif";
+  --fontmono: Consolas, "Courier New", monospace;
   --gap: 0.5rem;
   --hamburger: 45px;
   --menu-width: 180px;
@@ -28,7 +28,7 @@ body {
   color: var(--text-color);
   font-family: var(--fonts);
   padding-block: var(--gap);
- /*
+  /*
   padding-left: var(--gap);
   padding-right: var(--gap);
  */
@@ -75,7 +75,12 @@ h1 {
   overflow: hidden;
   text-overflow: ellipsis;
   user-select: none;
-/*  font-size: clamp(2rem, 2rem + 1cqi, 3rem); */
+  font-size: clamp(2rem, calc(2rem + 1cqi), 3rem); 
+}
+
+h2, h3, h4, h5 {
+  white-space: unset;
+  text-wrap: pretty;
 }
 
 .toc ::marker {
@@ -99,31 +104,31 @@ h1 {
 
 
 .f1 {
-  font-size: clamp(2.5rem, 3rem + 1cqi, 3.5rem);
+  font-size: clamp(2.5rem, calc(3rem + 1cqi), 3.5rem);
 }
 
 .f2 {
-  font-size: clamp(2rem, 2.25rem + 1cqi, 2.5rem);
+  font-size: clamp(2rem, calc(2.25rem + 1cqi), 2.5rem);
 }
 
 .f3 {
-  font-size: clamp(1.5rem, 1.5rem + 1cqi, 2rem);
+  font-size: clamp(1.5rem, calc(1.5rem + 1cqi), 2rem);
 }
 
 .f4 {
-  font-size: clamp(1.2rem, 1.25rem + 1cqi, 1.5rem);
+  font-size: clamp(1.2rem, calc(1.25rem + 1cqi), 1.5rem);
 }
 
 .f5 {
-  font-size: clamp(.9rem, 1rem + 1cqi, 1.2rem);
+  font-size: clamp(.9rem, calc(1rem + 1cqi), 1.2rem);
 }
 
 .f6 {
-  font-size: clamp(.8rem, .875rem + 1cqi, .9rem);
+  font-size: clamp(.8rem, calc(.875rem + 1cqi), .9rem);
 }
 
 .f7 {
-  font-size: clamp(.7rem, .75rem + 1cqi, .8rem);
+  font-size: clamp(.7rem, calc(.75rem + 1cqi), .8rem);
 }
 
 
@@ -221,6 +226,17 @@ pre {
   overflow-x: auto;
 }
 
+.pretty {
+  white-space: unset;
+  text-wrap: pretty;
+}
+
+.balance {
+  white-space: unset;
+  text-wrap: balance;
+}
+
+
 /* Add scroll margin to all elements which can be targeted */
 
 [id] {
@@ -317,6 +333,7 @@ img {
     filter: var(--image-filter-hover);
   }
 
+
 /* Menu */
 
 #menuToggle {
@@ -382,7 +399,7 @@ img {
   border-color: var(--box-border);
   border-width: 1px;
   box-shadow: 2px 2px 4px 2px var(--box-shadow);
-  content-visibility: auto;
+  /* content-visibility: auto; */
 }
 
   #menu div a {
@@ -408,14 +425,14 @@ img {
   border-radius: 5px;
   vertical-align: bottom;
   object-fit: cover;
-  content-visibility: auto;
-
-
-  &:hover {
-    box-shadow: 2px 2px 4px 2px var(--link-hover);
-    transition: all .2s linear;
-  }
+  /* content-visibility: auto; */
 }
+ .foto:hover {
+  box-shadow: 2px 2px 4px 2px var(--link-hover);
+  transition: all .2s linear;
+}
+
+
 /* 
     missed in fancybox.css, taken from
     https://fancyapps.com/playground/vo
@@ -445,7 +462,7 @@ a[data-fancybox] img {
   text-align: center;
 }
 
-.latex {
+.latex, .math-block {
   display: block;
   text-align: center;
   overflow-x: auto;
@@ -474,7 +491,7 @@ a[data-fancybox] img {
   position: relative;
   background-size: cover;
   box-shadow: 2px 2px 4px 2px var(--box-shadow);
-  content-visibility: auto;
+  /* content-visibility: auto; */
   /* scroll-snap-align: start; */
 }
 
@@ -498,21 +515,17 @@ a[data-fancybox] img {
   white-space: nowrap;
   z-index: 0;
   min-width: 50px;
-
-
-  &:hover {
+}
+  .tagbutton:hover {
     background-color: var(--box-background-color);
     box-shadow: 2px 2px 2px var(--box-shadow-color);
   }
 
-&:focus-within {
-  background-color: var(--box-background-color);
-  box-shadow: 2px 2px 2px var(--box-shadow-color);
-  outline: none;
-}
-
-
-}
+  .tagbutton:focus-within {
+    background-color: var(--box-background-color);
+    box-shadow: 2px 2px 2px var(--box-shadow-color);
+    outline: none;
+  }
 
 /* tag-button inside count */
 .button_tally {
