@@ -24,8 +24,11 @@
   h1 {
     text-shadow: none;
     width: calc(100% - 160px);
-    white-space: break-spaces;
     overflow: unset;
+    height: auto;
+    white-space: unset;
+    text-wrap: pretty;
+    font-size: 1.5em;
   }
 
   h2, h3 {
@@ -102,12 +105,14 @@
     position: absolute;
     top: 0;
     right: 16px;
+    display: block;
     z-index: 99;
   }
 
   .qrcode > img {
     image-rendering: pixelated;
     width: 128px;
+    height: 128px;
   }
 
   aside, .no-print, .no-print * {

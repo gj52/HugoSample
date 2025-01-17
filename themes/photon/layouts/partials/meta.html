@@ -1,5 +1,5 @@
 {{- /* Verify minimum required version. */}}
-{{- $minHugoVersion := "0.126.0" }}
+{{- $minHugoVersion := "0.141.0" }}
 {{- if lt hugo.Version $minHugoVersion }}
   {{- errorf "The %s shortcode requires Hugo v%s or later." .Name $minHugoVersion }}
 {{- end }}
@@ -62,6 +62,5 @@
   {{ partialCached "js/osd.html"  . }}
   {{ end }}
 
-  {{ partialCached "js/qr.html" . }}
   {{ partialCached "favicon.html" . }}
 </head>
