@@ -2,12 +2,14 @@
 {{ with try (resources.GetRemote $src ) }}
 {{ with .Err }}
 {{ errorf "%s" . }}
-{{ else }}
+{{ else  with .Value }}
 {{ $url := urls.Parse $src }}{{ $path := urls.JoinPath  "img/ext" $url.Host $url.Path }}
-{{ $img := .Content | resources.FromString $path }} {{ $background := $img.Fit "33x22 jpg #ffffff q50" }}
+{{ $background := .Fit "33x22 jpg #ffffff q50" }}
 <a href="{{ $src }}" target="_blank" title="Original Source">
-  <img loading=lazy src="{{ $img.RelPermalink }}" width={{ .Width }} height={{ .Height }}
-       style="background: url(data:image/jpeg;base64,{{ $background.Content | base64Encode  }});background-size:100% 100%;" alt="">
+  {{ with resources.Copy $path . }}
+  <img loading=lazy src="{{ .RelPermalink }}" width={{ .Width }} height={{ .Height }}
+       style="background: url(data:image/jpeg;base64,{{ $background | base64Encode  }});background-size:100% 100%;" alt="">
+  {{ end }}
 </a>
 {{ end }}
 {{ end }}
