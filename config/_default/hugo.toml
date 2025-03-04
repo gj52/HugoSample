@@ -98,29 +98,32 @@ expiryDate                 = [ "expiryDate"]
   [caches.assets]
     dir = ':resourceDir/_gen'
     maxAge = -1
-#  [caches.getcsv]
-#    dir = ':cacheDir/:project'
-#    maxAge = -1
-#  [caches.getjson]
-#    dir = ':cacheDir/:project'
-#    maxAge = -1
+  [caches.getcsv]
+    dir = ':cacheDir/:project'
+    maxAge = -1
+  [caches.getjson]
+    dir = ':cacheDir/:project'
+    maxAge = -1
   [caches.getresource]
-    dir = ":cacheDir/:project"
-    maxage = '336h'
+    dir = ':cacheDir/:project'
+    maxAge = -1
   [caches.images]
     dir = ':resourceDir/_gen'
     maxAge = -1
-#  [caches.modules]
-#    dir = ':cacheDir/modules'
-#    maxAge = -1
+  [caches.misc]
+    dir = ':cacheDir/:project'
+    maxAge = -1
+  [caches.modules]
+    dir = ':cacheDir/modules'
+    maxAge = -1
 
 # https://gohugo.io/getting-started/configuration/#configure-http-cache
-[httpcache]
-  [httpcache.cache]
-    [httpcache.cache.for]
-      includes = ['https://img.youtube.com/**']
-    [[httpcache.polls]]
-      disable = true
+#[httpcache]
+#  [httpcache.cache]
+#    [httpcache.cache.for]
+#      includes = ['https://img.youtube.com/**']
+#    [[httpcache.polls]]
+#      disable = true
 
 ###############################################################
 
