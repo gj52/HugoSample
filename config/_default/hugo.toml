@@ -118,10 +118,11 @@ expiryDate                 = [ "expiryDate"]
     maxAge = -1
 
 # https://gohugo.io/getting-started/configuration/#configure-http-cache
-#[httpcache]
-#  [httpcache.cache]
-#    [httpcache.cache.for]
-#      includes = ['https://img.youtube.com/**']
+[httpcache]
+  [httpcache.cache]
+    [httpcache.cache.for]
+      includes = ['https://img.youtube.com/**']
+# activating the next 2 lines crashes version 0.145
 #    [[httpcache.polls]]
 #      disable = true
 
