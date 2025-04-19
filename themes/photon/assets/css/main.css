@@ -131,6 +131,9 @@ h2, h3, h4, h5 {
   font-size: clamp(.7rem, calc(.75rem + 1cqi), .8rem);
 }
 
+p {
+	text-wrap: pretty
+}
 
 nav {
   padding-right: var(--gap);
