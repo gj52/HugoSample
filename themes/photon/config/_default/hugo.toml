@@ -203,7 +203,7 @@ weight = 60
 [[menus.main]]
     identifier             = "serie"
     name                   = "Series"
-    url                    = "/series/"
+    pageRef                = "series"
     weight                 = 40
 
 [[menus.main]]
@@ -211,6 +211,16 @@ weight = 60
     name                   = "Books"
     pageRef                = "book"
     weight                 = 50
+    url                    = "/book/"
+    
+[[menus.main]]
+    identifier             = "tesla"
+    name                   = "N. Tesla"
+    parent                 = "book"
+    pageRef                = "book/Nikola-Tesla"
+    weight                 = 51
+    url                    = "/book/nikola-tesla/"
+
     
 [[menus.main]]
     identifier             = "link"
@@ -242,14 +252,3 @@ weight = 60
     pageRef                = "/feeds/atom"
     weight                 = 1301
 
-[[menus.main]]
-	parent                 = "feeds"
-    name                   = "RSS"
-    pageRef                = "/feeds/rss"
-    weight                 = 1302
-
-[[menus.main]]
-	parent                 = "feeds"
-    name                   = "JSON"
-    pageRef                = "/feeds/json"
-    weight                 = 1303

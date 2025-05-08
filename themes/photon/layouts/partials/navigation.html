@@ -1,21 +1,34 @@
 <nav class="f4 pt3">
   <div class="dn db-ns tr">
     {{ range site.Menus.main -}}
+
     {{ if or (lt .Weight 900) hugo.IsServer }}
-    {{ if .HasChildren }}
+
+
+    {{ if $.IsMenuCurrent .Menu . }}
+    <div class=pb1><a class="b dark-red" href={{ .URL }} title="{{.Name}}">{{ .Name }}</a></div>
+    {{ else if $.HasMenuCurrent .Menu . }}
     <div class=pb1>
-      <a class=b href={{ .URL }}  title="{{.Name}}">{{ .Name }}</a>
-      <div class="f5 pb1">
-        {{ range .Children }}
-        <div><a class=i href={{ .URL }} target=_blank title="{{.Name}}">{{ .Name }}</a></div>
-        {{ end }}
+
+      {{ if .HasChildren }}
+      <div class=pb1>
+        <a class="b dark-red" href={{ .URL }} title="{{.Name}}">{{ .Name }}</a>
+        <div class="f5 pb1">
+          {{ range .Children }}
+          <div><a class=i href={{ .URL }}  title="{{.Name}}">{{ .Name }}</a></div>
+          {{ end }}
+        </div>
       </div>
+      {{ end }}
     </div>
-    {{else}}
-    <div class=pb1><a class=b href={{ .URL }}  title="{{.Name}}">{{ .Name }}</a></div>
-    {{end}}
-    {{end}}
-    {{- end}}
+
+    {{ else }}
+    <div class=pb1><a class=b href={{ .URL }} title="{{.Name}}">{{ .Name }}</a></div>
+    {{ end }}
+
+
+    {{ end }} <!-- lt 900 or IsServer -->
+    {{ end }} <!-- range -->
   </div>
   <!-- thanks to https://css-tricks.com/three-css-alternatives-to-javascript-navigation/ -->
   {{ $bars := resources.Get "svg/bars.svg"  }}
@@ -25,7 +38,7 @@
     <div id="menu">
       {{ range site.Menus.main }}
       {{ if or (lt .Weight 900) hugo.IsServer }}
-      <div class=pb1><a class=b href={{ .URL }}  title="{{.Name}}">{{ .Name }}</a></div>
+      <div class=pb1><a class=b href={{ .URL }} title="{{.Name}}">{{ .Name }}</a></div>
       {{ end }}
       {{ end }}
     </div>

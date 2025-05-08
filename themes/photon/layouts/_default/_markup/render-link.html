@@ -4,7 +4,7 @@
 {{ $destination := urls.JoinPath (or $internal.RelPermalink .Destination) $fragment }} {{ $feed := eq .Page.Section "feeds" }}
 {{ if  not $internal }}
 <link rel=dns-prefetch href=//{{ $url.Host }} /> {{ .Page.Store.SetInMap "sprites" "external" "svg/external.svg" }}{{ end }}
-<a href="{{ $destination | safeURL }}" {{ with or .Title $internal.LinkTitle .Text }} title="{{ . }}" {{ end }} {{ if not $internal }} rel="noopener external" target="_blank" {{ end }}>
+<a href="{{ $destination | safeURL }}" {{ with or .Title $internal.LinkTitle .Text }} title="{{ . }}" {{ end }} {{if (or (not $internal) $feed ) }} rel="noopener external" target="_blank" {{ end }}>
 <span>{{ or .Text .Title $internal.LinkTitle | safeHTML }}</span> 
 {{ if (and (not $internal) (not $feed) ) }}<sub class="printsub">{{ $no }}</sub> <span aria-hidden=true class="no-print"><svg class="icon"><use xlink:href="#external" /></svg></span>{{ end }}
 </a> 
