@@ -1,0 +1,25 @@
+{{ define "main" }}
+<header>
+	{{ $paginator := .Paginate .Data.Pages 40}}
+	{{ $dragon := resources.Get "svg/dragon.svg"  }}
+	<h1>{{ .RenderString site.Title }} {{ $dragon.Content | safeHTML }} {{ .Page.Title }}</h1>
+	{{ with .Title }}
+	<div class="f5 b pb1">alle Beiträge zu<span class="pl2 ttu">&quot;{{ . }}&quot;  #{{ $paginator.PageNumber }}</span></div>
+	{{end}}
+</header>
+<article>
+	<h2 class=dn>{{ .Title }}</h2>
+	<div class=liste>
+		{{ .Store.SetInMap "sprites" "calendar" "svg/calendar.svg" }}
+		{{ $paginator := .Paginate .Data.Pages 40}}
+		{{ range $paginator.Pages -}}
+		{{ partial "summary.html" . }}
+		{{ $sp := .Store.Get "sprites" }}
+		{{ range $key, $val := $sp }}
+		{{ $.Store.SetInMap "sprites" $key  $val }}
+		{{end}}
+		{{- end }}
+	</div>
+	{{ partial "pagination.html" . }}
+</article>
+{{ end }}
