@@ -1,5 +1,7 @@
 <table>
-  {{- with .Attributes.caption }}<caption  class="mb3 i f6">{{ . | $.Page.RenderString }}</caption>{{- end }}
+  {{- with .Attributes.caption }}
+  <caption>» {{ . | $.Page.RenderString }} «</caption>
+  {{- end }}
   <thead>
     {{- range .THead }}
     <tr>

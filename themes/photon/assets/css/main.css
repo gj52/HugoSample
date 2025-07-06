@@ -336,6 +336,15 @@ img {
     filter: var(--image-filter-hover);
   }
 
+figure figcaption {
+  position: relative;
+  font-size: .875rem;
+  font-style: italic;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
 
 /* Menu */
 
@@ -572,9 +581,12 @@ tbody tr:nth-child(odd) {
 
 table caption {
   display: table-caption;
-  text-align: left;
-  margin-top: .5rem;
   caption-side: bottom;
+  font-size: .875rem;
+  font-style: italic;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  margin-top: .5rem;
 }
 
 .w500 {
@@ -667,10 +679,6 @@ blockquote {
   padding: .5em 3em 0 2em;
 }
 
-  blockquote figcaption {
-    position: relative;
-    margin: 1em 10px 0 0;
-  }
 
 :lang(de) > blockquote::before {
   content: "Zitat: ";
