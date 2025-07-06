@@ -570,6 +570,13 @@ tbody tr:nth-child(odd) {
   background-color: var(--tr-odd-background);
 }
 
+table caption {
+  display: table-caption;
+  text-align: left;
+  margin-top: .5rem;
+  caption-side: bottom;
+}
+
 .w500 {
   min-width: 500px;
 }

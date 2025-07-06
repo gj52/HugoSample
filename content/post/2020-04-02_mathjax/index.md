@@ -31,6 +31,7 @@ Hier ein kleiner Versuch mit den Maxwell-Gleichungen - sieht doch gut aus
 |Gaußsches Gesetz für Magnetfelder| \\({\vec {\nabla }}\cdot {\vec {B}}=0\\)|
 |Faraday's Induktionsgesetz|\\({\vec {\nabla }}\times {\vec {E}}=-{\frac {\partial {\vec {B}}}{\partial t}}\\)|
 |Ampère's Durchflutungsgesetz|\\({\vec {\nabla }}\times {\vec {B}}=\mu _{0}{\vec {j}}+\mu _{0}\varepsilon _{0}{\frac {\partial {\vec {E}}}{\partial t}}\\)|
+{caption="Table: MathJax samples"}
 
 Wobei auch  \\(\mu _{0}\varepsilon _{0}={\frac {1}{c^{2}}} \\) gesetzt wird.
 
