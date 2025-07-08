@@ -95,7 +95,8 @@ weight = 60
 
 [outputFormats.JSON]
     mediaType              = "application/json"
-    baseName               = "feeds/feed"
+    baseName               = "feed"
+    path                   = "feeds"
     rel                    = "alternate"
     isPlainText            = true
     isHTML                 = false
@@ -103,7 +104,8 @@ weight = 60
 
 [outputFormats.FEED]       ##### ==> no collision with buildin RSS!
     mediaType              = "application/rss+xml"
-    baseName               = "feeds/feed.rss"
+    baseName               = "feed.rss"
+    path                   = "feeds"
     rel                    = "alternate"
     isPlainText            = false
     isHTML                 = false
@@ -111,7 +113,8 @@ weight = 60
 
 [outputFormats.ATOM]
     mediaType              = "application/atom+xml"
-    baseName               = "feeds/feed.atom"
+    baseName               = "feed.atom"
+    path                   = "feeds"
     rel                    = "alternate"
     isPlainText            = false
     isHTML                 = false
