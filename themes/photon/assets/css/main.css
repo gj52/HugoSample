@@ -585,9 +585,19 @@ table caption {
   font-size: .875rem;
   font-style: italic;
   text-align: left;
+  font-weight: bolder;
   margin-bottom: 0.5rem;
   margin-top: .5rem;
 }
+
+:lang(de) > table caption::before {
+  content: "Tabelle ";
+}
+
+:lang(en) > table caption::before {
+  content: "Table ";
+}
+
 
 .w500 {
   min-width: 500px;
@@ -674,12 +684,12 @@ article {
   }
 
 blockquote {
-  border-left: 10px solid #ccc;
+  border-left: 10px solid green;
   margin: 1em 10px 0 0;
   padding: .5em 3em 0 2em;
 }
 
-
+/*
 :lang(de) > blockquote::before {
   content: "Zitat: ";
   font-weight: bolder;
@@ -689,7 +699,7 @@ blockquote {
   content: "Quote: ";
   font-weight: bolder;
 }
-
+*/
 
 @supports (display:grid) {
   aside {

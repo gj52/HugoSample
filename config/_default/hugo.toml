@@ -31,7 +31,7 @@ defaultLayout              = "post"
 buildDrafts                = false
 buildExpired               = false
 buildFuture                = false
-canonifyURLs               = false
+#canonifyURLs               = false
 disableAliases             = false
 cleandestinationdir        = true
 disableHugoGeneratorInject = true
@@ -44,7 +44,7 @@ forceSyncStatic            = false
 publishResources           = false
 pygmentsUseClasses         = true
 pygmentsCodefences         = true
-relativeURLs               = false
+#relativeURLs               = false
 removePathAccents          = true
 summaryLength              = 10
 taskLists                  = false
@@ -105,7 +105,7 @@ expiryDate                 = [ "expiryDate"]
     dir = ':cacheDir/:project'
     maxAge = -1
   [caches.getresource]
-    dir = ':cacheDir/:project'
+    dir = ':resourceDir/_gen'
     maxAge = -1
   [caches.images]
     dir = ':resourceDir/_gen'
@@ -138,10 +138,11 @@ expiryDate                 = [ "expiryDate"]
 
     [markup.goldmark.parser]
        withAttribute     = true
-       wrapStandAloneImageWithinParagraph = false
+       wrapStandAloneImageWithinParagraph = false # default is true
 
        [markup.goldmark.parser.attribute]
-         block = true
+         title = true # default is true; applies to h1-h6 elements
+         block = true # default is false; applies to other block-level elements
 
 ### https://github.com/yuin/goldmark/#built-in-extensions
     [markup.goldmark.extensions]
@@ -152,7 +153,20 @@ expiryDate                 = [ "expiryDate"]
       strikethrough  = true
       table          = true
       taskList       = false
-      typographer    = true      
+      typographer    = false      
+
+      [typographer]
+        apostrophe = '&apos;'
+        ellipsis = '&hellip;'
+        emDash = '&mdash;'
+        enDash = '&ndash;'
+        leftAngleQuote = '&laquo;'
+        leftDoubleQuote = '&ldquo;'
+        leftSingleQuote = '&lsquo;'
+        rightAngleQuote = '&raquo;'
+        rightDoubleQuote = '&rdquo;'
+        rightSingleQuote = '&rsquo;'
+
 
       [markup.goldmark.extensions.passthrough]
         enable      = true

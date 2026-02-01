@@ -1,3 +1,5 @@
+{{- if isset .Params "genQR" }}
+
 {{- /* Constants. */}}
 {{- $validLevels := slice "low" "medium" "quartile" "high" }}
 {{- $minimumScale := 2 }}
@@ -37,4 +39,6 @@
      {{- with $id }} id="{{ $id }}" {{- end }}
      {{- with $title }} title="{{ $title }}" {{- end -}}>
 {{- end }}
+{{- end -}}
+
 {{- end -}}
