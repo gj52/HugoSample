@@ -98,12 +98,12 @@ expiryDate                 = [ "expiryDate"]
   [caches.assets]
     dir = ':resourceDir/_gen'
     maxAge = -1
-  [caches.getcsv]
-    dir = ':cacheDir/:project'
-    maxAge = -1
-  [caches.getjson]
-    dir = ':cacheDir/:project'
-    maxAge = -1
+#  [caches.getcsv] ########## removed 0.156
+#    dir = ':cacheDir/:project'
+#    maxAge = -1
+#  [caches.getjson]
+#    dir = ':cacheDir/:project'
+#    maxAge = -1
   [caches.getresource]
     dir = ':resourceDir/_gen'
     maxAge = -1
