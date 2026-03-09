@@ -1,2 +1,2 @@
-hugo server --watch -b http://localhost --renderToMemory --noHTTPCache --navigateToChanged --panicOnWarning --disableFastRender
+hugo server -w -b http://localhost/ --disableFastRender --noHTTPCache -N --printI18nWarnings  --logLevel info  --panicOnWarning
 pause

@@ -19,7 +19,7 @@
     <logo>{{$logo.RelPermalink}}</logo>
     {{ with site.Params.author.name }}<author>
         <name>{{.}}</name>
-        {{ with site.Author.email }}<email>{{.}}</email>{{end}}
+		{{ with site.Params.author.email }}<email>{{.}}</email>{{end}} 
     </author>{{end}}
     {{ with site.Params.Copyright }}<rights type="text">© {{ site.Params.CopyrightYear }} {{ .}}</rights>{{end}}
     <generator uri="https://gohugo.io" version="{{hugo.Version}}">Hugo</generator>
