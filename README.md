@@ -1,6 +1,6 @@
 # This is a condensed Hugo sample.
 
-Always using the latest HUGO version! Must have **Version 0.141.0** or newer!
+Always using the latest HUGO version! Must have **Version 0.158.0** or newer!
 
 **After multiple commits please wait some days => catching erros => work in progress!**
 

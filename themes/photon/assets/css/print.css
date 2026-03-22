@@ -106,7 +106,7 @@
     top: 0;
     right: 16px;
     display: block;
-    z-index: 99;
+    z-999;
   }
 
   .qrcode > img {

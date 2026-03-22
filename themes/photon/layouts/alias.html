@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang={{ site.LanguageCode }} >
+<html lang={{ .Site.Language.Locale  }} >
 <head>
 	<title>Page Redirection {{ .Permalink  | relLangURL }}</title>
 	<link rel="canonical" href="{{ .Permalink | relLangURL }}" />

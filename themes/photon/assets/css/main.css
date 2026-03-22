@@ -137,7 +137,7 @@ p {
 
 nav {
   padding-right: var(--gap);
-  z-index: 0;
+  z-0;
   align-self: start;
   position: sticky;
   margin-top: .5rem;
@@ -350,7 +350,7 @@ figure figcaption {
 
 #menuToggle {
   position: relative;
-  z-index: 10;
+  z-1;
 }
 
   /* The hamburger button hidden inside an input element */
@@ -365,7 +365,7 @@ figure figcaption {
     position: relative;
     text-align: right;
     top: 8px;
-    z-index: 20;
+    z-2;
     /* and place it over the hamburger */
   }
 
@@ -378,7 +378,7 @@ figure figcaption {
     }
 
   #menuToggle label {
-    z-index: 30;
+    z-3;
     color: var(--link-color);
     position: relative;
     left: var(--hamburger);
@@ -406,7 +406,7 @@ figure figcaption {
   opacity: 1;
   right: 0px;
   top: var(--hamburger);
-  z-index: 100;
+  z-4;
   border-style: solid;
   border-color: var(--box-border);
   border-width: 1px;
@@ -415,7 +415,7 @@ figure figcaption {
 }
 
   #menu div a {
-    z-index: 110;
+    z-5;
     background-color: var(--background-menu);
   }
 
@@ -487,7 +487,7 @@ a[data-fancybox] img {
   width: 100%;
   border: none;
   position: fixed;
-  z-index: 999999;
+  z-999;
   left: 0;
   top: 0;
   background-color: var(--background-color);
@@ -525,7 +525,7 @@ a[data-fancybox] img {
   will-change: auto;
   transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, border-color 0.1s ease-in-out;
   white-space: nowrap;
-  z-index: 0;
+  z-0;
   min-width: 50px;
 }
   .tagbutton:hover {
