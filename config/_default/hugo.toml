@@ -18,7 +18,7 @@ disableKinds                = ["RSS", "sitemap"]
 
 ###############################################################
 
-LanguageCode                   = "de-de"
+locale                         = "de-de"
 DefaultContentLanguage         = "de"
 DefaultContentLanguageInSubdir = false
 defaultExtension           = "html"
