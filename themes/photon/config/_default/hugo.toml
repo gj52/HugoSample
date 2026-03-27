@@ -52,6 +52,10 @@ weight = 60
         keepDocumentTags = false     # default true
         keepEndTags = false          # default true
 
+#### https://github.com/gohugoio/hugo/releases/tag/v0.159.1
+    [minify.tdewolff.svg]
+       keepNamespaces = ['', 'x-bind']
+ 
   [markup.tableOfContents]
     ordered = false
     startLevel = 2
