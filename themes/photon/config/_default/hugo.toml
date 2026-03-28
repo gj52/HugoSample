@@ -153,7 +153,9 @@ weight = 60
     notAlternative         = true
 
 [imaging]
+    anchor                 = "smart"
     resampleFilter         = "Lanczos"
+    compression            = "lossy"
     quality                = 85
     bgColor                = "#ffffff"
 

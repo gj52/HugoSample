@@ -7,33 +7,33 @@
 <article>
   {{ with .Content}}{{ . }}{{end}} {{ $ms := site.Params.Images.maxSize | default 1480}}
 
-  <div class=gallery>
-    {{range .Resources.ByType "image" -}}{{$alt := .Name}}{{$image := .}}{{ $preview := .Fit "480x320 jpg #ffffff q75" }}{{ $background := .Fit "33x22 jpg #ffffff q50" }} {{ $title := "preview"}}
+    <div class=gallery>
+        {{range .Resources.ByType "image" -}}{{$alt := .Name}}{{$image := .}}{{ $preview := .Fit "480x320 webp #ffffff q75" }}{{ $background := .Fit "33x22 webp #ffffff q50" }} {{ $title := "preview"}}
 
-    {{ $iw := $image.Width }}{{ $ih := $image.Height }}
-    {{ if or (ge $iw $ms) (ge $ih $ms) }}{{ $image = $image.Fit (print $ms "x" $ms ) }}{{end}}
+        {{ $iw := $image.Width }}{{ $ih := $image.Height }}
+        {{ if or (ge $iw $ms) (ge $ih $ms) }}{{ $image = $image.Fit (print $ms "x" $ms " webp") }}{{end}}
 
-    {{ $srcset := slice }}{{ range site.Params.Images.setSizes -}}
-    {{ if lt (mul . 1.2) $iw }}{{ $size := print  . "x" .}}
-    {{ $thumb := $image.Fit $size }}
-    {{ $srcset = $srcset | append (printf ("%s %dw") $thumb.RelPermalink $thumb.Width ) }}
-    {{ end }}
-    {{- end }}
+        {{ $srcset := slice }}{{ range site.Params.Images.setSizes -}}
+        {{ if lt (mul . 1.2) $iw }}{{ $size := print  . "x" . " webp"}}
+        {{ $thumb := $image.Fit $size }}
+        {{ $srcset = $srcset | append (printf ("%s %dw") $thumb.RelPermalink $thumb.Width ) }}
+        {{ end }}
+        {{- end }}
 
-    <a data-fancybox="gallery" data-src={{$image.RelPermalink}}
-       {{ if gt (len $srcset) 0 }}
-       data-sizes="(max-width: 480px) 90vw, (max-width: 960px) 80vw, {{ $image.Width }}px"
-       {{ $sl := delimit $srcset ", "}} data-srcset="{{$sl}}"
-       {{ end }}
-       data-type=image data-height={{ $image.Height }} data-width={{ $image.Width}}>
+        <a data-fancybox="gallery" data-src={{$image.RelPermalink}}
+           {{ if gt (len $srcset) 0 }}
+           data-sizes="(max-width: 480px) 90vw, (max-width: 960px) 80vw, {{ $image.Width }}px"
+           {{ $sl := delimit $srcset ", "}} data-srcset="{{$sl}}"
+           {{ end }}
+           data-type=image data-height={{ $image.Height }} data-width={{ $image.Width}}>
 
-      <img loading=lazy decoding="async" class=foto src={{ $preview.RelPermalink }} alt="{{ $alt }}" title="{{$title}}"
-           width={{ $preview.Width }} height={{ $preview.Height }}
-           style="background: url(data:image/jpeg;base64,{{ $background.Content | base64Encode  }});background-size:100% 100%;" />
-    </a>
-    {{- end }}
+            <img loading=lazy decoding="async" class=foto src={{ $preview.RelPermalink }} alt="{{ $alt }}" title="{{$title}}"
+                 width={{ $preview.Width }} height={{ $preview.Height }}
+                 style="background: url(data:image/jpeg;base64,{{ $background.Content | base64Encode  }});background-size:100% 100%;" />
+        </a>
+        {{- end }}
 
-  </div>
+    </div>
 
   {{ $fb := resources.Get "js/fancybox.umd.js" }}
   {{if hugo.IsProduction }}
