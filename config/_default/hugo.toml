@@ -261,7 +261,7 @@ expiryDate                 = [ "expiryDate"]
     email              = "me@example.com"
 	
 [Params.sidebar]
-    avatar          = "img/head.jpg"
+    avatar          = "img/head.webp"
     avatarSize      = 80
-    avatarQuality          = "q80"
+    avatarQuality   = "q80"
     bio             = "**Mr. Nobody**"
