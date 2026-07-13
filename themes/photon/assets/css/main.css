@@ -684,10 +684,15 @@ article {
   }
 
 blockquote {
-  border-left: 10px solid green;
-  margin: 1em 10px 0 0;
-  padding: .5em 3em 0 2em;
+    border-left: 10px solid green;
+    margin: 1.5em 10px 0 0;
+    padding: .5em 3em 0 2em;
+
 }
+
+    blockquote p {
+        display: inline;
+    }
 
 /*
 :lang(de) > blockquote::before {
@@ -700,6 +705,7 @@ blockquote {
   font-weight: bolder;
 }
 */
+
 
 @supports (display:grid) {
   aside {

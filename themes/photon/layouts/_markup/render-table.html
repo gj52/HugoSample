@@ -1,6 +1,7 @@
 <table>
   {{- with .Attributes.caption }}
-  <caption>» {{ . | $.Page.RenderString }} «</caption>
+  {{ $.Page.Scratch.Add "tablecount" 1 }}
+  <caption> {{ $.Page.Scratch.Get "tablecount" }}: {{ . | $.Page.RenderString }}</caption>
   {{- end }}
   <thead>
     {{- range .THead }}
@@ -21,3 +22,5 @@
     {{- end }}
   </tbody>
 </table>
+
+<!-- https://discourse.gohugo.io/t/how-to-merge-cells-in-table-render-hooks/51953/2 -->

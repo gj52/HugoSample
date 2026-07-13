@@ -195,7 +195,7 @@ weight = 60
     name                   = "Home"
     pageRef                = "home"
     weight                 = 10
-    url                    = "/"
+    url                    = "/index.html"
 
 [[menus.main]]
     identifier             = "post"

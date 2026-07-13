@@ -1,6 +1,6 @@
 # This is a condensed Hugo sample.
 
-Always using the latest HUGO version! Must have **Version 0.158.0** or newer!
+Always using the latest HUGO version! Must have **Version 0.164.0** or newer!
 
 **After multiple commits please wait some days => catching erros => work in progress!**
 
@@ -29,7 +29,8 @@ Should work with the latest Hugo version (*give me some days*).
   - site.LastChange -> site.Lastmod
   - .GetJSON to .GET
   - 0.141 **with try**  resources.GetRemote 
-	
+- 0.164 fixed some "broken" things
+
 OK, most content is in German, but this does not matter to see how it works.
 I verify the generated files (HTML, XML, JSON etc..) to have correct outputs.
 

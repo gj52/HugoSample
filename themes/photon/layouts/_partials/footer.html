@@ -1,6 +1,6 @@
 <footer class="tc bt">
 	{{ $copy := resources.Get "svg/copyright.svg"  }}
-	<span class=nowrap><a rel=author class=ph2 title=about href={{ relref . "/about" }} /> {{ $copy.Content | safeHTML}}&nbsp;&nbsp;{{ site.Params.CopyrightYear}} {{ site.Params.Copyright }}</a></span>
+	<span class=nowrap><a class=ph2 title=about href={{ relref . "/about" }} /> {{ $copy.Content | safeHTML}}&nbsp;&nbsp;{{ site.Params.CopyrightYear}} {{ site.Params.Copyright }}</a></span>
 	{{ $pen := resources.Get "svg/pen-fancy.svg"  }}
 	{{ if .IsHome -}}
 	{{ $gear := resources.Get "svg/gear.svg"  }}
