@@ -1,26 +1,71 @@
-<table>
-  {{- with .Attributes.caption }}
-  {{ $.Page.Scratch.Add "tablecount" 1 }}
-  <caption> {{ $.Page.Scratch.Get "tablecount" }}: {{ . | $.Page.RenderString }}</caption>
-  {{- end }}
+<!-- themes/overlookart/layouts/_default/_markup/render-table.html -->
+{{- $rowCount := len .TBody }}
+{{- $colCount := len (index .THead 0) }}
+
+
+<table {{- range $k, $v := .Attributes }}
+       {{- if $v }}
+       {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+       {{- end }}
+       {{- end }}>
+
   <thead>
     {{- range .THead }}
     <tr>
       {{- range . }}
-      <th {{- with .Alignment }} {{- printf " style=%q" (printf "text-align: %s" .) | safeHTMLAttr }} {{- end -}}> {{- .Text -}} </th>
+      <th {{- with .Alignment }}
+          {{- printf " style=%q" (printf "text-align: %s" .) | safeHTMLAttr }}
+          {{- end -}}>
+        {{- .Text -}}
+      </th>
       {{- end }}
     </tr>
     {{- end }}
   </thead>
   <tbody>
-    {{- range .TBody }}
+    {{- $TBody := .TBody }}
+
+    {{- range $rowIndex, $row := .TBody }}
+    {{ $nextRowIndex := add $rowIndex 1 }}
+    {{ $nextRow := index $TBody $nextRowIndex }}
     <tr>
-      {{- range . }}
-      <td {{- with .Alignment }} {{- printf " style=%q" (printf "text-align: %s" .) | safeHTMLAttr }} {{- end -}}> {{- .Text -}} </td>
+      {{- range $colIndex, $col :=  $row }}
+      {{ $style := printf "text-align: %s" $col.Alignment  }}
+      {{ $nextRowCell := index $nextRow $colIndex }}
+      {{ $nextColIndex := add $colIndex 1 }}
+      {{ $nextColCell := index $row $nextColIndex }}
+      {{- if and (ne $col.Text "^") (ne $col.Text "&lt;")  }}
+      {{ $rowspan := 1 }}
+      {{ $colspan := 1 }}
+      {{ if eq $nextRowCell.Text "^" }}
+      {{ $rowspan = add $rowspan 1 }}
+      {{ $newRowIndex := add $nextRowIndex 1 }}
+      {{ range after $newRowIndex $TBody }}
+      {{ $tcol := index . $colIndex }}
+      {{- if eq $tcol.Text "^" }}
+      {{- $rowspan = add $rowspan 1 -}}
+      {{ else }}
+      {{- break -}}
+      {{ end }}
+      {{ end }}
+      {{end}}
+      {{ if eq $nextColCell.Text "&lt;" }}
+      {{ $colspan = add $colspan 1 }}
+      {{ $newColIndex := add $nextColIndex 1 }}
+      {{ range $tcol := after $newColIndex $row }}
+      {{- if eq $tcol.Text "&lt;" }}
+      {{- $colspan = add $colspan 1 -}}
+      {{ else }}
+      {{- break -}}
+      {{ end }}
+      {{ end }}
+      {{end}}
+      <td rowspan="{{ $rowspan }}" colspan="{{ $colspan }}" style="{{ $style }}">
+        {{- $col.Text -}}
+      </td>
+      {{- end }}
       {{- end }}
     </tr>
     {{- end }}
   </tbody>
 </table>
-
-<!-- https://discourse.gohugo.io/t/how-to-merge-cells-in-table-render-hooks/51953/2 -->
