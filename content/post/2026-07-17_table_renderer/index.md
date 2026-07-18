@@ -1,7 +1,7 @@
 +++
 categories  = ["Post"]
 tags        = ["2026","Hugo", "Table"]
-description = "Extended Table Tenderer"
+description = "Extended Table Renderer"
 title       = "Table Hook Renderer"
 date        = "2026-07-17T14:10:28+01:00"
 #expirydate  = "2028-07-17T14:10:28+01:00"
@@ -19,6 +19,8 @@ latex       = false
 |    ^  |   ^   | Text  | Text  |
 | Text  | Text  | Text  |  <    |
 | Text  |   <   | Text  |  <    |
+
+<!-more-->
 
 	|Header1|Header2|Header3|Header4|
 	|-------|-------|-------|-------|
