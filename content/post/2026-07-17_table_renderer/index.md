@@ -11,7 +11,9 @@ series      = ["Hugo", "Tricks"]
 [params]
 latex       = false
 +++
-## new table renderer 
+## new table renderer with spanning cells
+
+<!--more-->
 
 |Header1|Header2|Header3|Header4|
 |-------|-------|-------|-------|
@@ -19,8 +21,6 @@ latex       = false
 |    ^  |   ^   | Text  | Text  |
 | Text  | Text  | Text  |  <    |
 | Text  |   <   | Text  |  <    |
-
-<!-more-->
 
 	|Header1|Header2|Header3|Header4|
 	|-------|-------|-------|-------|
