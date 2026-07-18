@@ -1,5 +1,12 @@
-<!-- themes/overlookart/layouts/_default/_markup/render-table.html -->
+<!-- 
+	1themes/overlookart/layouts/_default/_markup/render-table.html 
+	I implemented the table cell merging feature within the "Table render hooks."
+	PS. Translated from Chinese to English with help from Google
+-->
+
+<!-- Number of rows in the table -->
 {{- $rowCount := len .TBody }}
+<!-- Number of table columns -->
 {{- $colCount := len (index .THead 0) }}
 
 
@@ -25,35 +32,50 @@
   <tbody>
     {{- $TBody := .TBody }}
 
+    <!-- Iterate through each row -->
     {{- range $rowIndex, $row := .TBody }}
+    <!-- Get the next line -->
     {{ $nextRowIndex := add $rowIndex 1 }}
     {{ $nextRow := index $TBody $nextRowIndex }}
     <tr>
+      <!-- Iterate through each column of the current row -->
       {{- range $colIndex, $col :=  $row }}
+      <!-- Get the cell in this column for the next row -->
       {{ $style := printf "text-align: %s" $col.Alignment  }}
       {{ $nextRowCell := index $nextRow $colIndex }}
+      <!-- Get the next cell in this row -->
       {{ $nextColIndex := add $colIndex 1 }}
       {{ $nextColCell := index $row $nextColIndex }}
-      {{- if and (ne $col.Text "^") (ne $col.Text "&lt;")  }}
+      {{- if and (ne (strings.TrimSpace $col.Text) "^") (ne (strings.TrimSpace $col.Text) "&lt;")  }}
+      <!-- Number of vertically merged cells -->
       {{ $rowspan := 1 }}
+      <!-- Number of horizontally merged cells -->
       {{ $colspan := 1 }}
-      {{ if eq $nextRowCell.Text "^" }}
+      <!-- Logic for vertically merging cells -->
+      <!-- If the Text value of the cell in the same column of the next row is "^", perform a vertical merge -->
+      {{ if eq (strings.TrimSpace $nextRowCell.Text) "^" }}
+      <!-- Increase the number of vertically merged cells -->
       {{ $rowspan = add $rowspan 1 }}
+      <!-- Continue searching downwards until the first cell that is not "^" is found; the cell merging ends there -->
       {{ $newRowIndex := add $nextRowIndex 1 }}
       {{ range after $newRowIndex $TBody }}
       {{ $tcol := index . $colIndex }}
-      {{- if eq $tcol.Text "^" }}
+      {{- if eq (strings.TrimSpace $tcol.Text) "^" }}
       {{- $rowspan = add $rowspan 1 -}}
       {{ else }}
       {{- break -}}
       {{ end }}
       {{ end }}
       {{end}}
-      {{ if eq $nextColCell.Text "&lt;" }}
+
+      <!-- Logic for horizontal cell merging -->
+      <!-- If the Text value of the cell in the next column of the current row is "&lt;", perform a horizontal merge -->
+      {{ if eq (strings.TrimSpace $nextColCell.Text) "&lt;" }}
       {{ $colspan = add $colspan 1 }}
+      <!-- Continue searching to the right until the first cell that is not "<" is found; the cell merging process ends here -->
       {{ $newColIndex := add $nextColIndex 1 }}
       {{ range $tcol := after $newColIndex $row }}
-      {{- if eq $tcol.Text "&lt;" }}
+      {{- if eq (strings.TrimSpace $tcol.Text) "&lt;" }}
       {{- $colspan = add $colspan 1 -}}
       {{ else }}
       {{- break -}}
