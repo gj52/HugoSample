@@ -18,7 +18,7 @@
       precision = 0
     [minify.tdewolff.html]
       keepComments = false
-      keepConditionalComments = true
+      keepspecialcomments = true
       keepDefaultAttrVals = true
       keepDocumentTags = true
       keepEndTags = true

@@ -3,7 +3,7 @@
 
     [minify.tdewolff]
         [minify.tdewolff.html]
-            keepConditionalComments = false
+            keepspecialcomments     = false
             keepDefaultAttrVals     = false
             keepDocumentTags        = true
             keepEndTags             = true
