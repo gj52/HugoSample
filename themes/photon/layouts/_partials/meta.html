@@ -54,11 +54,11 @@
   {{ partialCached "css/css.html" . }}
   {{ partialCached "js/jquery.html" . }}
 
-  {{ if eq .Params.Layout "gallery" }}
+  {{ if eq .Layout "gallery" }}
   {{ partialCached "css/fancybox.html" . }}
   {{ end }}
 
-  {{ if eq .Params.Layout "panorama" }}
+  {{ if eq .Layout "panorama" }}
   {{ partialCached "js/osd.html"  . }}
   {{ end }}
 
