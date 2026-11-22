@@ -33,7 +33,6 @@ buildExpired               = false
 buildFuture                = false
 #canonifyURLs               = false
 disableAliases             = false
-cleandestinationdir        = true
 disableHugoGeneratorInject = true
 disablePathToLower         = false
 enableGitInfo              = true
@@ -91,7 +90,10 @@ expiryDate                 = [ "expiryDate"]
 [_build]
   publishResources = false
   _merge           = "deep"
-
+  [build.cleanDestinationDir]
+    enable = true
+    keepDirs = ['{**/,}.*']
+    keepFiles = ['{**/,}.{git,gitignore,gitattributes}']  
 ###############################################################
 
 [caches]
